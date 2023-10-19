@@ -9,13 +9,13 @@
 
 ---
 
-# API Docs
+# API Guide
 
 Flutter package to generate API calls documentations like OpenAPI schema.
 
 ## Screenshots
 
-<img width="1420" alt="Example Screenshot" src="">
+<img width="1420" alt="Example Screenshot" src="https://github.com/Eng-Mouaz-M-AlShahmeh/api_guide/assets/86870601/1b01246b-545e-4b51-a8bc-dea0b5c66d68">
 
 ## About:
 - API Guide is package to generate API calls documentations like OpenAPI schema. For example, Get, Post, Put, Delete or Options Http requests and responses.
