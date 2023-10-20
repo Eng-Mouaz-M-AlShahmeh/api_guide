@@ -18,7 +18,7 @@ Flutter package to generate API calls documentations like OpenAPI schema.
 <img width="1420" alt="Example Screenshot" src="https://github.com/Eng-Mouaz-M-AlShahmeh/api_guide/assets/86870601/1b01246b-545e-4b51-a8bc-dea0b5c66d68">
 
 ## About:
-- API Guide is package to generate API calls documentations like OpenAPI schema. For example, Get, Post, Put, Delete or Options Http requests and responses.
+- API Guide is package to generate API calls documentations like [OpenAPI schema](https://spec.openapis.org/oas/v3.1.0). For example, Get, Post, Put, Delete or Options Http requests and responses.
 
 ## Installation and Basic Usage
 
@@ -26,7 +26,7 @@ First: Add to pubspec.yaml:
 
 ```yaml
 dependencies:
-  api_guide: ^1.0.1
+  api_guide: ^1.0.2
 ```
 
 Second: import it to your project:

@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatelessWidget {
-  const MyHomePage({Key? key}) : super(key: key);
+  const MyHomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -52,7 +52,7 @@ class MyHomePage extends StatelessWidget {
         ],
         title: 'All Dashes',
         urlPath: '/dashes',
-        description: 'All Dashes get example description',
+        description: 'All Dashes get example description.',
       ),
       // Define the second API item
       const APIItem(
@@ -66,14 +66,14 @@ class MyHomePage extends StatelessWidget {
               key: 'name',
               value: 'Dash',
               type: PropertyType.string,
-              description: 'This is the name attribute',
+              description: 'This is the name attribute.',
               isRequired: true,
             ),
             APIGuideRequestBody(
               key: 'isFly',
               value: true,
               type: PropertyType.boolean,
-              description: 'This is the isFly attribute',
+              description: 'This is the isFly attribute.',
               isRequired: true,
             ),
           ],
@@ -86,7 +86,7 @@ class MyHomePage extends StatelessWidget {
             body: {
               "status": 200,
               "data": {
-                "message": "Data Stored Successfully",
+                "message": "Data Stored Successfully.",
               }
             },
           ),
@@ -103,7 +103,7 @@ class MyHomePage extends StatelessWidget {
         ],
         title: 'Create',
         urlPath: '/create',
-        description: 'Store Dash post example description',
+        description: 'Store Dash post example description.',
       ),
     ];
 

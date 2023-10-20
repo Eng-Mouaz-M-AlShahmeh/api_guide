@@ -180,10 +180,12 @@ class _APIGuideScreenState extends State<APIGuideScreen> {
                       SizedBox(height: Constants.size15),
                       Row(
                         children: [
-                          Text(
-                            widget.apiIntro,
-                            textAlign: TextAlign.justify,
-                            style: TextStyle(fontSize: Constants.size15),
+                          Flexible(
+                            child: Text(
+                              widget.apiIntro,
+                              textAlign: TextAlign.justify,
+                              style: TextStyle(fontSize: Constants.size15),
+                            ),
                           ),
                         ],
                       ),

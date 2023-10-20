@@ -71,13 +71,15 @@ class _APIGuideFaqItemsState extends State<APIGuideFaqItems> {
                         padding: const EdgeInsets.all(Constants.size15),
                         child: Row(
                           children: [
-                            Text(
-                              /// Display the FAQ answer
-                              item.answer,
-                              textAlign: TextAlign.justify,
-                              style: TextStyle(
-                                fontWeight: FontWeight.normal,
-                                fontSize: Constants.size15,
+                            Flexible(
+                              child: Text(
+                                /// Display the FAQ answer
+                                item.answer,
+                                textAlign: TextAlign.justify,
+                                style: TextStyle(
+                                  fontWeight: FontWeight.normal,
+                                  fontSize: Constants.size15,
+                                ),
                               ),
                             ),
                           ],
