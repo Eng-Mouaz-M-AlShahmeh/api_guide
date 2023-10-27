@@ -3,7 +3,7 @@
 # APIGuide package
 name: api_guide
 description: API Guide is package to generate API calls documentations like OpenAPI schema.
-version: 1.0.2
+version: 1.0.3
 repository: https://github.com/Eng-Mouaz-M-AlShahmeh/api_guide
 issue_tracker: https://github.com/Eng-Mouaz-M-AlShahmeh/api_guide/issues
 topics: [api, documentation, guide, http]

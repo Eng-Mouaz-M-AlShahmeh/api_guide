@@ -119,11 +119,16 @@ class APIGuideNavigatorDrawer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    /// ThemeNotifierProvider to check theme attributes state
+    final themeState = ThemeNotifierProvider.of(context).themeStateNotifier;
     return SizedBox(
       height: MediaQuery.of(context).size.height,
       child: DecoratedBox(
         decoration: BoxDecoration(
-          color: Constants.greyLightColor,
+          /// Check the current light/dark theme mode
+          color: themeState.isDarkMode
+              ? ConstantsDarkMode.greyLightColor
+              : ConstantsLightMode.greyLightColor,
         ),
         child: SingleChildScrollView(
           child: Padding(
@@ -139,7 +144,11 @@ class APIGuideNavigatorDrawer extends StatelessWidget {
                       '${Constants.apiGuideTxt}$version',
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
-                        color: Constants.blackColor,
+
+                        /// Check the current light/dark theme mode
+                        color: themeState.isDarkMode
+                            ? ConstantsDarkMode.blackColor
+                            : ConstantsLightMode.blackColor,
                         fontSize: Constants.size22,
                       ),
                     )
@@ -154,7 +163,11 @@ class APIGuideNavigatorDrawer extends StatelessWidget {
                       '${Constants.latestUpdateTxt}${latestUpdate.year}-${latestUpdate.month}-${latestUpdate.day}',
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
-                        color: Constants.blackColor,
+
+                        /// Check the current light/dark theme mode
+                        color: themeState.isDarkMode
+                            ? ConstantsDarkMode.blackColor
+                            : ConstantsLightMode.blackColor,
                         fontSize: Constants.size10,
                       ),
                     )
@@ -169,14 +182,22 @@ class APIGuideNavigatorDrawer extends StatelessWidget {
                     children: [
                       Icon(
                         Constants.arrowDoubleNavIcon,
-                        color: Constants.indigoColor,
+
+                        /// Check the current light/dark theme mode
+                        color: themeState.isDarkMode
+                            ? ConstantsDarkMode.indigoColor
+                            : ConstantsLightMode.indigoColor,
                         size: Constants.size15,
                       ),
                       Text(
                         Constants.introTxt,
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
-                          color: Constants.indigoColor,
+
+                          /// Check the current light/dark theme mode
+                          color: themeState.isDarkMode
+                              ? ConstantsDarkMode.indigoColor
+                              : ConstantsLightMode.indigoColor,
                           fontSize: Constants.size15,
                         ),
                       )
@@ -204,14 +225,23 @@ class APIGuideNavigatorDrawer extends StatelessWidget {
                                       children: [
                                         Icon(
                                           Constants.arrowDoubleNavIcon,
-                                          color: Constants.indigoColor,
+
+                                          /// Check the current light/dark theme mode
+                                          color: themeState.isDarkMode
+                                              ? ConstantsDarkMode.indigoColor
+                                              : ConstantsLightMode.indigoColor,
                                           size: Constants.size15,
                                         ),
                                         Text(
                                           item.title,
                                           style: TextStyle(
                                             fontWeight: FontWeight.bold,
-                                            color: Constants.indigoColor,
+
+                                            /// Check the current light/dark theme mode
+                                            color: themeState.isDarkMode
+                                                ? ConstantsDarkMode.indigoColor
+                                                : ConstantsLightMode
+                                                    .indigoColor,
                                             fontSize: Constants.size15,
                                           ),
                                         ),
@@ -239,7 +269,12 @@ class APIGuideNavigatorDrawer extends StatelessWidget {
                                             child: Text(
                                               item.request.method.name,
                                               style: TextStyle(
-                                                color: Constants.whiteColor,
+                                                /// Check the current light/dark theme mode
+                                                color: themeState.isDarkMode
+                                                    ? ConstantsDarkMode
+                                                        .whiteColor
+                                                    : ConstantsLightMode
+                                                        .whiteColor,
                                                 fontWeight: FontWeight.bold,
                                                 fontSize: Constants.size10,
                                               ),
@@ -264,14 +299,22 @@ class APIGuideNavigatorDrawer extends StatelessWidget {
                     children: [
                       Icon(
                         Constants.arrowDoubleNavIcon,
-                        color: Constants.indigoColor,
+
+                        /// Check the current light/dark theme mode
+                        color: themeState.isDarkMode
+                            ? ConstantsDarkMode.indigoColor
+                            : ConstantsLightMode.indigoColor,
                         size: Constants.size15,
                       ),
                       Text(
                         Constants.faqsShortTxt,
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
-                          color: Constants.indigoColor,
+
+                          /// Check the current light/dark theme mode
+                          color: themeState.isDarkMode
+                              ? ConstantsDarkMode.indigoColor
+                              : ConstantsLightMode.indigoColor,
                           fontSize: Constants.size15,
                         ),
                       )

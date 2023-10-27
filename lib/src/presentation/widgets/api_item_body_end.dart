@@ -29,6 +29,8 @@ class APIGuideItemBodyEnd extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    /// ThemeNotifierProvider to check theme attributes state
+    final themeState = ThemeNotifierProvider.of(context).themeStateNotifier;
     return Column(
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -47,7 +49,11 @@ class APIGuideItemBodyEnd extends StatelessWidget {
                 Constants.responsesTxt,
                 style: TextStyle(
                   fontWeight: FontWeight.normal,
-                  color: Constants.indigoColor,
+
+                  /// Check the current light/dark theme mode
+                  color: themeState.isDarkMode
+                      ? ConstantsDarkMode.indigoColor
+                      : ConstantsLightMode.indigoColor,
                   fontSize: Constants.size14,
                 ),
               ),
@@ -100,7 +106,10 @@ class APIGuideItemBodyEnd extends StatelessWidget {
                                           itemResponse.statusCode.statusCode
                                               .toString(),
                                           style: TextStyle(
-                                            color: Constants.whiteColor,
+                                            /// Check the current light/dark theme mode
+                                            color: themeState.isDarkMode
+                                                ? ConstantsDarkMode.whiteColor
+                                                : ConstantsLightMode.whiteColor,
                                             fontWeight: FontWeight.normal,
                                             fontSize: Constants.size10,
                                           ),
@@ -117,7 +126,10 @@ class APIGuideItemBodyEnd extends StatelessWidget {
                             itemResponse.body.isEmpty
                                 ? SizedBox()
                                 : Card(
-                                    color: Constants.blackColor,
+                                    /// Check the current light/dark theme mode
+                                    color: themeState.isDarkMode
+                                        ? ConstantsDarkMode.blackColor
+                                        : ConstantsLightMode.blackColor,
                                     child: Padding(
                                       padding: const EdgeInsets.all(
                                           Constants.size10),

@@ -1,3 +1,10 @@
+## [1.0.3] - 2023/10/27
+
+* Update README.md file
+* Add explanatory comments
+* Add theme light / dark mode feature
+
+
 ## [1.0.2] - 2023/10/21
 
 * Update README.md file

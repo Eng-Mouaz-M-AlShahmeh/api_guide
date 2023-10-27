@@ -46,6 +46,8 @@ class APIGuideAPIItems extends StatefulWidget {
 class _APIGuideAPIItemsState extends State<APIGuideAPIItems> {
   @override
   Widget build(BuildContext context) {
+    /// ThemeNotifierProvider to check theme attributes state
+    final themeState = ThemeNotifierProvider.of(context).themeStateNotifier;
     return SingleChildScrollView(
       /// Scroll controller for the API items
       controller: widget.scrollController,
@@ -66,7 +68,10 @@ class _APIGuideAPIItemsState extends State<APIGuideAPIItems> {
                 child: SizedBox(
                   child: DecoratedBox(
                     decoration: BoxDecoration(
-                      color: Constants.greyLightColor,
+                      /// Check the current light/dark theme mode
+                      color: themeState.isDarkMode
+                          ? ConstantsDarkMode.greyLightColor
+                          : ConstantsLightMode.greyLightColor,
                     ),
                     child: Column(
                       children: [

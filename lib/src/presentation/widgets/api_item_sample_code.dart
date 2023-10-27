@@ -38,6 +38,8 @@ class _APIGuideSampleCodeState extends State<APIGuideSampleCode> {
 
   @override
   Widget build(BuildContext context) {
+    /// ThemeNotifierProvider to check theme attributes state
+    final themeState = ThemeNotifierProvider.of(context).themeStateNotifier;
     return Column(
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -52,7 +54,11 @@ class _APIGuideSampleCodeState extends State<APIGuideSampleCode> {
                 Constants.sampleCodeTxt,
                 style: TextStyle(
                   fontWeight: FontWeight.normal,
-                  color: Constants.indigoColor,
+
+                  /// Check the current light/dark theme mode
+                  color: themeState.isDarkMode
+                      ? ConstantsDarkMode.indigoColor
+                      : ConstantsLightMode.indigoColor,
                   fontSize: Constants.size14,
                 ),
               ),
@@ -62,14 +68,25 @@ class _APIGuideSampleCodeState extends State<APIGuideSampleCode> {
               /// Flex for code type dropdown
               flex: Constants.flex5,
               child: DropdownButton<String>(
+                /// Check the current light/dark theme mode
+                dropdownColor: themeState.isDarkMode
+                    ? ConstantsDarkMode.whiteColor
+                    : ConstantsLightMode.whiteColor,
                 value: defaultType,
                 icon: const Icon(Constants.arrowDownSelectIcon),
                 elevation: Constants.elevation10,
                 style: TextStyle(
-                  color: Constants.blackColor,
+                  /// Check the current light/dark theme mode
+                  color: themeState.isDarkMode
+                      ? ConstantsDarkMode.blackColor
+                      : ConstantsLightMode.blackColor,
                   fontSize: Constants.size12,
                 ),
-                focusColor: Constants.greyLightColor,
+
+                /// Check the current light/dark theme mode
+                focusColor: themeState.isDarkMode
+                    ? ConstantsDarkMode.greyLightColor
+                    : ConstantsLightMode.greyLightColor,
                 underline: Container(
                   height: Constants.size0,
                   color: Constants.greyColor,
@@ -90,7 +107,10 @@ class _APIGuideSampleCodeState extends State<APIGuideSampleCode> {
                     child: Text(
                       value,
                       style: TextStyle(
-                        color: Constants.blackColor,
+                        /// Check the current light/dark theme mode
+                        color: themeState.isDarkMode
+                            ? ConstantsDarkMode.blackColor
+                            : ConstantsLightMode.blackColor,
                         fontSize: Constants.size12,
                       ),
                     ),
@@ -122,21 +142,42 @@ class _APIGuideSampleCodeState extends State<APIGuideSampleCode> {
                   );
 
                   /// Show notification message by successful copy function
-                  ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                    content: Text(Constants.textCopiedTxt),
-                  ));
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                      /// Check the current light/dark theme mode
+                      backgroundColor: themeState.isDarkMode
+                          ? ConstantsDarkMode.indigoColor
+                          : ConstantsLightMode.indigoColor,
+                      content: Text(
+                        Constants.textCopiedTxt,
+                        style: TextStyle(
+                          /// Check the current light/dark theme mode
+                          color: themeState.isDarkMode
+                              ? ConstantsDarkMode.indigoLightColor
+                              : ConstantsLightMode.indigoLightColor,
+                        ),
+                      ),
+                    ),
+                  );
                 },
                 child: Icon(
                   Constants.copyIcon,
                   size: Constants.size14,
-                  color: Constants.indigoColor,
+
+                  /// Check the current light/dark theme mode
+                  color: themeState.isDarkMode
+                      ? ConstantsDarkMode.indigoColor
+                      : ConstantsLightMode.indigoColor,
                 ),
               ),
             ),
           ],
         ),
         Card(
-          color: Constants.blackColor,
+          /// Check the current light/dark theme mode
+          color: themeState.isDarkMode
+              ? ConstantsDarkMode.blackColor
+              : ConstantsLightMode.blackColor,
           child: Padding(
             padding: const EdgeInsets.all(Constants.size10),
 

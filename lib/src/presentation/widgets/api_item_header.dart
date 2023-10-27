@@ -29,10 +29,15 @@ class APIGuideItemHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    /// ThemeNotifierProvider to check theme attributes state
+    final themeState = ThemeNotifierProvider.of(context).themeStateNotifier;
     return SizedBox(
       child: DecoratedBox(
         decoration: BoxDecoration(
-          color: Constants.indigoLightColor,
+          /// Check the current light/dark theme mode
+          color: themeState.isDarkMode
+              ? ConstantsDarkMode.indigoLightColor
+              : ConstantsLightMode.indigoLightColor,
         ),
         child: Padding(
           padding: const EdgeInsets.all(Constants.size15),
@@ -43,7 +48,11 @@ class APIGuideItemHeader extends StatelessWidget {
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: Constants.size20,
-                  color: Constants.indigoColor,
+
+                  /// Check the current light/dark theme mode
+                  color: themeState.isDarkMode
+                      ? ConstantsDarkMode.indigoColor
+                      : ConstantsLightMode.indigoColor,
                 ),
               ),
               SizedBox(width: Constants.size15),
@@ -65,7 +74,10 @@ class APIGuideItemHeader extends StatelessWidget {
                       child: Text(
                         item.request.method.name,
                         style: TextStyle(
-                          color: Constants.whiteColor,
+                          /// Check the current light/dark theme mode
+                          color: themeState.isDarkMode
+                              ? ConstantsDarkMode.whiteColor
+                              : ConstantsLightMode.whiteColor,
                           fontWeight: FontWeight.bold,
                           fontSize: Constants.size13,
                         ),
@@ -80,7 +92,12 @@ class APIGuideItemHeader extends StatelessWidget {
                     BorderRadius.all(Radius.circular(Constants.size5)),
                 child: SizedBox(
                   child: DecoratedBox(
-                    decoration: BoxDecoration(color: Constants.greyLightColor),
+                    decoration: BoxDecoration(
+
+                        /// Check the current light/dark theme mode
+                        color: themeState.isDarkMode
+                            ? ConstantsDarkMode.greyLightColor
+                            : ConstantsLightMode.greyLightColor),
                     child: Padding(
                       padding: const EdgeInsets.all(Constants.size5),
 
@@ -90,6 +107,11 @@ class APIGuideItemHeader extends StatelessWidget {
                         style: TextStyle(
                           fontWeight: FontWeight.normal,
                           fontSize: Constants.size15,
+
+                          /// Check the current light/dark theme mode
+                          color: themeState.isDarkMode
+                              ? ConstantsDarkMode.blackColor
+                              : ConstantsLightMode.blackColor,
                         ),
                       ),
                     ),

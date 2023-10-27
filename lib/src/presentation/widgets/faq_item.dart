@@ -28,6 +28,8 @@ class APIGuideFaqItems extends StatefulWidget {
 class _APIGuideFaqItemsState extends State<APIGuideFaqItems> {
   @override
   Widget build(BuildContext context) {
+    /// ThemeNotifierProvider to check theme attributes state
+    final themeState = ThemeNotifierProvider.of(context).themeStateNotifier;
     return SingleChildScrollView(
       child: SizedBox(
         child: Padding(
@@ -39,6 +41,10 @@ class _APIGuideFaqItemsState extends State<APIGuideFaqItems> {
               Radius.circular(Constants.size15),
             ),
             child: ExpansionPanelList(
+              /// Check the current light/dark theme mode
+              expandIconColor: themeState.isDarkMode
+                  ? ConstantsDarkMode.blackColor
+                  : ConstantsLightMode.blackColor,
               expansionCallback: (index, isExpanded) {
                 /// Update the expansion state when a panel is clicked
                 setState(() {
@@ -50,7 +56,10 @@ class _APIGuideFaqItemsState extends State<APIGuideFaqItems> {
               children: widget.apiFaqsList
                   .map(
                     (item) => ExpansionPanel(
-                      backgroundColor: Constants.greyLightColor,
+                      /// Check the current light/dark theme mode
+                      backgroundColor: themeState.isDarkMode
+                          ? ConstantsDarkMode.greyLightColor
+                          : ConstantsLightMode.greyLightColor,
                       canTapOnHeader: true,
 
                       /// Whether the panel is expanded or not
@@ -63,7 +72,11 @@ class _APIGuideFaqItemsState extends State<APIGuideFaqItems> {
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
                             fontSize: Constants.size15,
-                            color: Constants.indigoColor,
+
+                            /// Check the current light/dark theme mode
+                            color: themeState.isDarkMode
+                                ? ConstantsDarkMode.indigoColor
+                                : ConstantsLightMode.indigoColor,
                           ),
                         ),
                       ),
@@ -79,6 +92,9 @@ class _APIGuideFaqItemsState extends State<APIGuideFaqItems> {
                                 style: TextStyle(
                                   fontWeight: FontWeight.normal,
                                   fontSize: Constants.size15,
+                                  color: themeState.isDarkMode
+                                      ? ConstantsDarkMode.blackColor
+                                      : ConstantsLightMode.blackColor,
                                 ),
                               ),
                             ),

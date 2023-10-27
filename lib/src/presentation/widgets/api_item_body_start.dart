@@ -23,6 +23,8 @@ class APIGuideItemBodyStart extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    /// ThemeNotifierProvider to check theme attributes state
+    final themeState = ThemeNotifierProvider.of(context).themeStateNotifier;
     return Column(
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -36,6 +38,11 @@ class APIGuideItemBodyStart extends StatelessWidget {
           style: TextStyle(
             fontWeight: FontWeight.normal,
             fontSize: Constants.size15,
+
+            /// Check the current light/dark theme mode
+            color: themeState.isDarkMode
+                ? ConstantsDarkMode.blackColor
+                : ConstantsLightMode.blackColor,
           ),
         ),
         SizedBox(height: Constants.size30),
@@ -46,7 +53,10 @@ class APIGuideItemBodyStart extends StatelessWidget {
             : Text(
                 Constants.requestBodyTxt,
                 style: TextStyle(
-                  color: Constants.indigoColor,
+                  /// Check the current light/dark theme mode
+                  color: themeState.isDarkMode
+                      ? ConstantsDarkMode.indigoColor
+                      : ConstantsLightMode.indigoColor,
                   fontWeight: FontWeight.normal,
                   fontSize: Constants.size15,
                 ),
@@ -70,6 +80,11 @@ class APIGuideItemBodyStart extends StatelessWidget {
                                 style: TextStyle(
                                   fontWeight: FontWeight.bold,
                                   fontSize: Constants.size14,
+
+                                  /// Check the current light/dark theme mode
+                                  color: themeState.isDarkMode
+                                      ? ConstantsDarkMode.blackColor
+                                      : ConstantsLightMode.blackColor,
                                 ),
                               ),
                               Text(
@@ -108,6 +123,11 @@ class APIGuideItemBodyStart extends StatelessWidget {
                         style: TextStyle(
                           fontWeight: FontWeight.normal,
                           fontSize: Constants.size12,
+
+                          /// Check the current light/dark theme mode
+                          color: themeState.isDarkMode
+                              ? ConstantsDarkMode.blackColor
+                              : ConstantsLightMode.blackColor,
                         ),
                       ),
                       SizedBox(height: Constants.size15),

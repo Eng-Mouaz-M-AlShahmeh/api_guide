@@ -6,6 +6,8 @@
 import 'package:flutter/material.dart';
 
 /// Code starts here
+
+/// Start General Constants
 class Constants {
   /// Start Icons Attributes
 
@@ -21,33 +23,24 @@ class Constants {
   /// Define [menuIcon] attribute
   static const IconData menuIcon = Icons.menu;
 
+  /// Define [lightIcon] attribute
+  static const IconData lightIcon = Icons.light_mode;
+
+  /// Define [darkIcon] attribute
+  static const IconData darkIcon = Icons.dark_mode;
+
   /// End Icons Attributes
 
   /// Start Colors Attributes
 
-  /// Define [indigoColor] attribute
-  static const Color indigoColor = Colors.indigo;
-
   /// Define [orangeColor] attribute
   static const Color orangeColor = Colors.orange;
 
-  /// Define [blackColor] attribute
-  static const Color blackColor = Colors.black87;
-
-  /// Define [whiteColor] attribute
-  static const Color whiteColor = Colors.white;
+  /// Define [greenCodeColor] attribute
+  static Color? greenCodeColor = Colors.green[600];
 
   /// Define [greyColor] attribute
   static const Color greyColor = Colors.grey;
-
-  /// Define [indigoLightColor] attribute
-  static Color? indigoLightColor = Colors.indigo[100];
-
-  /// Define [greyLightColor] attribute
-  static Color? greyLightColor = Colors.grey[200];
-
-  /// Define [greenCodeColor] attribute
-  static Color? greenCodeColor = Colors.green[600];
 
   /// End Colors Attributes
 
@@ -286,5 +279,55 @@ class Constants {
 
   /// End Durations Attributes
 }
+
+/// End General Constants
+
+/// Start Light Mode
+class ConstantsLightMode {
+  /// Start Colors Attributes
+
+  /// Define [blackColor] attribute
+  static const Color blackColor = Colors.black87;
+
+  /// Define [whiteColor] attribute
+  static const Color whiteColor = Colors.white;
+
+  /// Define [indigoColor] attribute
+  static Color? indigoColor = Colors.indigo[600];
+
+  /// Define [indigoLightColor] attribute
+  static Color? indigoLightColor = Colors.indigo[100];
+
+  /// Define [greyLightColor] attribute
+  static Color? greyLightColor = Colors.grey[200];
+
+  /// End Colors Attributes
+}
+
+/// End Light Mode
+
+/// Start Dark Mode
+class ConstantsDarkMode {
+  /// Start Colors Attributes
+
+  /// Define [blackColor] attribute
+  static const Color blackColor = Colors.white;
+
+  /// Define [whiteColor] attribute
+  static const Color whiteColor = Colors.black;
+
+  /// Define [indigoColor] attribute
+  static Color? indigoColor = Colors.indigo[100];
+
+  /// Define [indigoLightColor] attribute
+  static Color? indigoLightColor = Colors.indigo[600];
+
+  /// Define [greyLightColor] attribute
+  static Color? greyLightColor = Colors.grey[900];
+
+  /// End Colors Attributes
+}
+
+/// End Dark Mode
 
 /// End of code

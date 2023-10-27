@@ -92,9 +92,22 @@ class _APIGuideScreenState extends State<APIGuideScreen> {
 
   @override
   Widget build(BuildContext context) {
-    /// Scaffold widget for the API Guide
+    /// ThemeNotifierProvider to check theme attributes state
+    final themeState = ThemeNotifierProvider.of(context).themeStateNotifier;
+
+    /// Define rebuildParent function to call from AppBar child widget
+    rebuildParent() {
+      /// Make setState to rebuild
+      setState(() {});
+    }
+
     return Scaffold(
       key: _scaffoldKey,
+
+      /// Check the current light/dark theme mode
+      backgroundColor: themeState.isDarkMode
+          ? ConstantsDarkMode.whiteColor
+          : ConstantsLightMode.whiteColor,
 
       /// Drawer widget for small screens
       drawer: MediaQuery.of(context).size.width <= Constants.largeBreakPoint
@@ -113,11 +126,11 @@ class _APIGuideScreenState extends State<APIGuideScreen> {
           : Drawer(child: SizedBox()),
 
       /// AppBar widget
-      appBar: apiGuideAppBar(
-        context,
-        widget.version,
-        widget.latestUpdate,
-        _scaffoldKey,
+      appBar: APIGuideAppBar(
+        version: widget.version,
+        latestUpdate: widget.latestUpdate,
+        scaffoldKey: _scaffoldKey,
+        callback: rebuildParent,
       ),
 
       /// Body of the application
@@ -164,14 +177,22 @@ class _APIGuideScreenState extends State<APIGuideScreen> {
                         children: [
                           Icon(
                             Constants.arrowDoubleNavIcon,
-                            color: Constants.indigoColor,
+
+                            /// Check the current light/dark theme mode
+                            color: themeState.isDarkMode
+                                ? ConstantsDarkMode.indigoColor
+                                : ConstantsLightMode.indigoColor,
                             size: Constants.size20,
                           ),
                           Text(
                             Constants.introTxt,
                             style: TextStyle(
                               fontWeight: FontWeight.bold,
-                              color: Constants.indigoColor,
+
+                              /// Check the current light/dark theme mode
+                              color: themeState.isDarkMode
+                                  ? ConstantsDarkMode.indigoColor
+                                  : ConstantsLightMode.indigoColor,
                               fontSize: Constants.size20,
                             ),
                           )
@@ -184,7 +205,14 @@ class _APIGuideScreenState extends State<APIGuideScreen> {
                             child: Text(
                               widget.apiIntro,
                               textAlign: TextAlign.justify,
-                              style: TextStyle(fontSize: Constants.size15),
+                              style: TextStyle(
+                                fontSize: Constants.size15,
+
+                                /// Check the current light/dark theme mode
+                                color: themeState.isDarkMode
+                                    ? ConstantsDarkMode.blackColor
+                                    : ConstantsLightMode.blackColor,
+                              ),
                             ),
                           ),
                         ],
@@ -207,14 +235,22 @@ class _APIGuideScreenState extends State<APIGuideScreen> {
                         children: [
                           Icon(
                             Constants.arrowDoubleNavIcon,
-                            color: Constants.indigoColor,
+
+                            /// Check the current light/dark theme mode
+                            color: themeState.isDarkMode
+                                ? ConstantsDarkMode.indigoColor
+                                : ConstantsLightMode.indigoColor,
                             size: Constants.size20,
                           ),
                           Text(
                             Constants.faqsTxt,
                             style: TextStyle(
                               fontWeight: FontWeight.bold,
-                              color: Constants.indigoColor,
+
+                              /// Check the current light/dark theme mode
+                              color: themeState.isDarkMode
+                                  ? ConstantsDarkMode.indigoColor
+                                  : ConstantsLightMode.indigoColor,
                               fontSize: Constants.size20,
                             ),
                           )
@@ -232,7 +268,14 @@ class _APIGuideScreenState extends State<APIGuideScreen> {
                         children: [
                           Text(
                             '${Constants.rightsTxt} ${DateTime.now().year}',
-                            style: TextStyle(fontSize: Constants.size10),
+                            style: TextStyle(
+                              fontSize: Constants.size10,
+
+                              /// Check the current light/dark theme mode
+                              color: themeState.isDarkMode
+                                  ? ConstantsDarkMode.blackColor
+                                  : ConstantsLightMode.blackColor,
+                            ),
                           ),
                         ],
                       ),

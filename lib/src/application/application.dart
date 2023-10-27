@@ -4,5 +4,6 @@
 
 /// Code starts here
 export '../../src/application/sample_code.dart';
+export '../../src/application/theme_state.dart';
 
 /// End of code
