@@ -1,8 +1,8 @@
-# Meta SEO Example App
+# API Guide Example App
 
-This is official Meta SEO Example App developed by Eng Mouaz M. Al-Shahmeh
+This is official API Guide Example App developed by Mouaz M. Al-Shahmeh
 
-For documentation and source code visit [repository](https://github.com/Eng-Mouaz-M-AlShahmeh/meta_seo).
+For documentation and source code visit [repository](https://github.com/Eng-Mouaz-M-AlShahmeh/api_guide).
 
 ## Getting Started
 
