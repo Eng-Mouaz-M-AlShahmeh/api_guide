@@ -1,3 +1,9 @@
+## [1.0.4] - 2023/10/30
+
+* Update README.md file
+* Import url_launcher with version 6.2.1 package.
+* Add Privacy & Policy and Terms of Use optional footer links.
+
 ## [1.0.3] - 2023/10/27
 
 * Update README.md file

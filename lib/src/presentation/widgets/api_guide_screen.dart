@@ -34,6 +34,12 @@ class APIGuideScreen extends StatefulWidget {
 
     /// Introduction to the API Guide
     required this.apiIntro,
+
+    /// Terms Link of the API Guide
+    this.termsLink,
+
+    /// Privacy Link of the API Guide
+    this.privacyLink,
   });
 
   /// Build context
@@ -56,6 +62,12 @@ class APIGuideScreen extends StatefulWidget {
 
   /// Introduction to the API Guide
   final String apiIntro;
+
+  /// Terms Link of the API Guide
+  final String? termsLink;
+
+  /// Privacy Link of the API Guide
+  final String? privacyLink;
 
   @override
   State<APIGuideScreen> createState() => _APIGuideScreenState();
@@ -199,6 +211,7 @@ class _APIGuideScreenState extends State<APIGuideScreen> {
                         ],
                       ),
                       SizedBox(height: Constants.size15),
+
                       Row(
                         children: [
                           Flexible(
@@ -262,7 +275,7 @@ class _APIGuideScreenState extends State<APIGuideScreen> {
                       APIGuideFaqItems(apiFaqsList: widget.apiFaqs),
                       SizedBox(height: Constants.size15),
 
-                      /// Copyright notice
+                      /// Copyright notice and optional Privacy and Terms
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
@@ -277,6 +290,66 @@ class _APIGuideScreenState extends State<APIGuideScreen> {
                                   : ConstantsLightMode.blackColor,
                             ),
                           ),
+                          widget.privacyLink == null || widget.privacyLink == ''
+                              ? SizedBox()
+                              : Text(
+                                  '${Constants.dividerTxt}',
+                                  style: TextStyle(
+                                    fontSize: Constants.size10,
+
+                                    /// Check the current light/dark theme mode
+                                    color: themeState.isDarkMode
+                                        ? ConstantsDarkMode.blackColor
+                                        : ConstantsLightMode.blackColor,
+                                  ),
+                                ),
+                          widget.privacyLink == null || widget.privacyLink == ''
+                              ? SizedBox()
+                              : InkWell(
+                                  onTap: () =>
+                                      Functions().openURL(widget.privacyLink!),
+                                  child: Text(
+                                    '${Constants.privacyTxt}',
+                                    style: TextStyle(
+                                      fontSize: Constants.size10,
+
+                                      /// Check the current light/dark theme mode
+                                      color: themeState.isDarkMode
+                                          ? ConstantsDarkMode.indigoColor
+                                          : ConstantsLightMode.indigoColor,
+                                    ),
+                                  ),
+                                ),
+                          widget.termsLink == null || widget.termsLink == ''
+                              ? SizedBox()
+                              : Text(
+                                  '${Constants.dividerTxt}',
+                                  style: TextStyle(
+                                    fontSize: Constants.size10,
+
+                                    /// Check the current light/dark theme mode
+                                    color: themeState.isDarkMode
+                                        ? ConstantsDarkMode.blackColor
+                                        : ConstantsLightMode.blackColor,
+                                  ),
+                                ),
+                          widget.termsLink == null || widget.termsLink == ''
+                              ? SizedBox()
+                              : InkWell(
+                                  onTap: () =>
+                                      Functions().openURL(widget.termsLink!),
+                                  child: Text(
+                                    '${Constants.termsTxt}',
+                                    style: TextStyle(
+                                      fontSize: Constants.size10,
+
+                                      /// Check the current light/dark theme mode
+                                      color: themeState.isDarkMode
+                                          ? ConstantsDarkMode.indigoColor
+                                          : ConstantsLightMode.indigoColor,
+                                    ),
+                                  ),
+                                ),
                         ],
                       ),
                       SizedBox(height: Constants.size15),

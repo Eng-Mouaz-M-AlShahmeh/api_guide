@@ -38,6 +38,12 @@ class APIGuide implements APIGuideInterface {
 
     /// Introduction to the API Guide implementation
     required String apiIntro,
+
+    /// Terms Link of the API Guide implementation
+    String? termsLink,
+
+    /// Privacy Link of the API Guide implementation
+    String? privacyLink,
   }) {
     /// Define [ThemeStateNotifier] instance
     final ThemeStateNotifier themeStateNotifier = ThemeStateNotifier();
@@ -67,6 +73,12 @@ class APIGuide implements APIGuideInterface {
 
         /// Introduction to the API Guide implementation
         apiIntro: apiIntro,
+
+        /// Terms Link of the API Guide implementation
+        termsLink: termsLink,
+
+        /// Privacy Link of the API Guide implementation
+        privacyLink: privacyLink,
       ),
     );
   }

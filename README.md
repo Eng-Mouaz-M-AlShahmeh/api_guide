@@ -17,8 +17,22 @@ Flutter package to generate API calls documentations like OpenAPI schema.
 
 <img width="1420" alt="Example Screenshot" src="https://github.com/Eng-Mouaz-M-AlShahmeh/api_guide/assets/86870601/1b01246b-545e-4b51-a8bc-dea0b5c66d68">
 
-## About:
+## About
 - API Guide is package to generate API calls documentations like [OpenAPI schema](https://spec.openapis.org/oas/v3.1.0). For example, Get, Post, Put, Delete or Options Http requests and responses.
+
+## API Integration Guide Features
+
+* Generative code model covers more than 30 snippet code types.
+* Possibility to copy sample code to the clipboard by clicking the button.
+* Responsive design supports large, medium and small screens.
+* Light and dark theme mode.
+* The beautiful introduction section can be modified as needed.
+* The Infinite FAQ section can be modified with any number of questions and answers.
+* Seamless scrollable sidebar.
+* It appears clear by version and last update date.
+* Optional Privacy Policy and Terms of Use API Integration Guide footer links.
+* Built in accordance with [W3 Consortium](https://www.w3.org) and [OpenAPI Schema](https://spec.openapis.org/oas/v3.1.0) recommendations.
+
 
 ## Installation and Basic Usage
 
@@ -26,7 +40,7 @@ First: Add to pubspec.yaml:
 
 ```yaml
 dependencies:
-  api_guide: ^1.0.3
+  api_guide: ^1.0.4
 ```
 
 Second: import it to your project:
@@ -169,18 +183,6 @@ class MyHomePage extends StatelessWidget {
   }
 }
 ```
-
-## Other Integration Guide Features
-
-* Generative code model covers more than 30 snippet code types.
-* Possibility to copy sample code to the clipboard by clicking the button.
-* Responsive design supports large, medium and small screens.
-* Light and dark theme mode.
-* The beautiful introduction section can be modified as needed.
-* The Infinite FAQ section can be modified with any number of questions and answers.
-* Seamless scrollable sidebar.
-* It appears clear by version and last update date.
-* Built in accordance with [W3 Consortium](https://www.w3.org) and [OpenAPI Schema](https://spec.openapis.org/oas/v3.1.0) recommendations. 
 
 ## Thank you
 

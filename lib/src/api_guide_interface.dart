@@ -35,5 +35,11 @@ abstract class APIGuideInterface {
 
     /// Introduction to the API Guide interface to implement later
     required String apiIntro,
+
+    /// Terms Link of the API Guide interface to implement later
+    String? termsLink,
+
+    /// Privacy Link of the API Guide interface to implement later
+    String? privacyLink,
   });
 }

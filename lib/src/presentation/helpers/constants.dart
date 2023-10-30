@@ -184,6 +184,12 @@ class Constants {
   /// Define [sampleCodeTxt] attribute
   static const String sampleCodeTxt = 'Sample Code ';
 
+  /// Define [privacyTxt] attribute
+  static const String privacyTxt = 'Privacy & Policy';
+
+  /// Define [termsTxt] attribute
+  static const String termsTxt = 'Terms of Use';
+
   /// Define [lineTxt] attribute
   static const String lineTxt =
       ' ............................................................ ';
@@ -193,6 +199,9 @@ class Constants {
 
   /// Define [emptyTxt] attribute
   static const String emptyTxt = '';
+
+  /// Define [dividerTxt] attribute
+  static const String dividerTxt = ' | ';
 
   /// End Text Attributes
 
