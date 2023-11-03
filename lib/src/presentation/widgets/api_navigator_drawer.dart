@@ -140,7 +140,7 @@ class APIGuideNavigatorDrawer extends StatelessWidget {
                             : ConstantsLightMode.indigoColor,
                         size: Constants.size15,
                       ),
-                      SelectableText(
+                      Text(
                         Constants.introTxt,
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
@@ -187,7 +187,7 @@ class APIGuideNavigatorDrawer extends StatelessWidget {
                                               : ConstantsLightMode.indigoColor,
                                           size: Constants.size15,
                                         ),
-                                        SelectableText(
+                                        Text(
                                           item.title,
                                           style: TextStyle(
                                             fontWeight: FontWeight.bold,
@@ -221,7 +221,7 @@ class APIGuideNavigatorDrawer extends StatelessWidget {
                                               Constants.size10,
                                               Constants.size5,
                                             ),
-                                            child: SelectableText(
+                                            child: Text(
                                               item.request.method.name,
                                               style: TextStyle(
                                                 /// Check the current light/dark theme mode
@@ -266,7 +266,7 @@ class APIGuideNavigatorDrawer extends StatelessWidget {
                             : ConstantsLightMode.indigoColor,
                         size: Constants.size15,
                       ),
-                      SelectableText(
+                      Text(
                         Constants.faqsShortTxt,
                         style: TextStyle(
                           fontWeight: FontWeight.bold,

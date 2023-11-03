@@ -38,7 +38,7 @@ class APIGuideSearchBtn extends StatelessWidget {
         SizedBox(width: Constants.size8),
         Row(
           children: [
-            SelectableText(Constants.searchTxt),
+            Text(Constants.searchTxt),
 
             /// Check the current platform to apply specific style
             kIsWeb
@@ -104,7 +104,7 @@ class APIGuideSearchBtn extends StatelessWidget {
 
                             /// Check the current platform to apply specific style
                             kIsWeb
-                                ? SelectableText(
+                                ? Text(
                                     Constants.plusKTxt,
                                     style: TextStyle(
                                       /// Check the current light/dark theme mode
@@ -114,7 +114,7 @@ class APIGuideSearchBtn extends StatelessWidget {
                                     ),
                                   )
                                 : Platform.isMacOS
-                                    ? SelectableText(
+                                    ? Text(
                                         Constants.plusKTxt,
                                         style: TextStyle(
                                           /// Check the current light/dark theme mode
@@ -126,7 +126,7 @@ class APIGuideSearchBtn extends StatelessWidget {
                                         ),
                                       )
                                     : Platform.isWindows
-                                        ? SelectableText(
+                                        ? Text(
                                             Constants.plusKTxt,
                                             style: TextStyle(
                                               /// Check the current light/dark theme mode

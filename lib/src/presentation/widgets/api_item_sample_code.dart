@@ -110,7 +110,7 @@ class _APIGuideSampleCodeState extends State<APIGuideSampleCode> {
                           .map<DropdownMenuItem<String>>((String value) {
                         return DropdownMenuItem<String>(
                           value: value,
-                          child: SelectableText(
+                          child: Text(
                             value,
                             style: TextStyle(
                               /// Check the current light/dark theme mode

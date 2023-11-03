@@ -65,7 +65,7 @@ class _APIGuideFaqItemsState extends State<APIGuideFaqItems> {
                       /// Whether the panel is expanded or not
                       isExpanded: item.isExpanded ?? false,
                       headerBuilder: (context, isExpanded) => ListTile(
-                        title: SelectableText(
+                        title: Text(
                           /// Display the FAQ question
                           item.question,
                           textAlign: TextAlign.justify,

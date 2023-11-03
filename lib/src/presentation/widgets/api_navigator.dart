@@ -146,7 +146,7 @@ class APIGuideNavigator extends StatelessWidget {
                                 : ConstantsLightMode.indigoColor,
                             size: Constants.size15,
                           ),
-                          SelectableText(
+                          Text(
                             Constants.introTxt,
                             style: TextStyle(
                               fontWeight: FontWeight.bold,
@@ -196,7 +196,7 @@ class APIGuideNavigator extends StatelessWidget {
                                                       .indigoColor,
                                               size: Constants.size15,
                                             ),
-                                            SelectableText(
+                                            Text(
                                               item.title,
                                               style: TextStyle(
                                                 fontWeight: FontWeight.bold,
@@ -277,7 +277,7 @@ class APIGuideNavigator extends StatelessWidget {
                                 : ConstantsLightMode.indigoColor,
                             size: Constants.size15,
                           ),
-                          SelectableText(
+                          Text(
                             Constants.faqsShortTxt,
                             style: TextStyle(
                               fontWeight: FontWeight.bold,

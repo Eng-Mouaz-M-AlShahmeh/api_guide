@@ -75,7 +75,7 @@ class APIGuideItemHeader extends StatelessWidget {
                           Constants.size10,
                           Constants.size5,
                         ),
-                        child: SelectableText(
+                        child: Text(
                           item.request.method.name,
                           style: TextStyle(
                             /// Check the current light/dark theme mode

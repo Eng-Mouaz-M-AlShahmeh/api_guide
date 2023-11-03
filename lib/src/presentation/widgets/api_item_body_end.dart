@@ -102,7 +102,7 @@ class APIGuideItemBodyEnd extends StatelessWidget {
                                           Constants.size15,
                                           Constants.size5,
                                         ),
-                                        child: SelectableText(
+                                        child: Text(
                                           itemResponse.statusCode.statusCode
                                               .toString(),
                                           style: TextStyle(
