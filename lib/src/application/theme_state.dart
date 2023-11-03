@@ -43,13 +43,19 @@ class ThemeNotifierProvider extends InheritedWidget {
 
     /// Add required [child] parameter from type of Widget
     required Widget child,
+
+    /// Construct super state
   }) : super(child: child);
 
   /// Make functionality of [of(BuildContext context)] of the InheritedWidget
   static ThemeNotifierProvider of(BuildContext context, {bool listen = true}) {
+    /// Check if listen equal true
     if (listen) {
+      /// return the [dependOnInheritedWidgetOfExactType] of [ThemeNotifierProvider]
       return context
           .dependOnInheritedWidgetOfExactType<ThemeNotifierProvider>()!;
+
+      /// else return empty SizedBox()
     } else {
       /// If listen is set to false, return a dummy InheritedWidget that doesn't rebuild its dependents
       return ThemeNotifierProvider(

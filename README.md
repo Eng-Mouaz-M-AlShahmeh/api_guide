@@ -41,7 +41,7 @@ First: Add to pubspec.yaml:
 
 ```yaml
 dependencies:
-  api_guide: ^1.0.6
+  api_guide: ^1.0.7
 ```
 
 Second: import it to your project:

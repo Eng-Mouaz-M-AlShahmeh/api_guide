@@ -1,3 +1,11 @@
+## [1.0.7] - 2023/11/03
+
+* Update README.md file.
+* Update CHANGELOG.md file.
+* Add explanatory comments.
+* Fix Windows Ctrl key listener.
+* Make all texts as a selectable.
+
 ## [1.0.6] - 2023/11/03
 
 * Update README.md file.

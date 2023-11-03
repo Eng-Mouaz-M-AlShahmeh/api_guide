@@ -53,7 +53,7 @@ class _APIGuideSampleCodeState extends State<APIGuideSampleCode> {
             Flexible(
               /// Flex for sample code text
               flex: Constants.flex1,
-              child: Text(
+              child: SelectableText(
                 Constants.sampleCodeTxt,
                 style: TextStyle(
                   fontWeight: FontWeight.normal,
@@ -110,7 +110,7 @@ class _APIGuideSampleCodeState extends State<APIGuideSampleCode> {
                           .map<DropdownMenuItem<String>>((String value) {
                         return DropdownMenuItem<String>(
                           value: value,
-                          child: Text(
+                          child: SelectableText(
                             value,
                             style: TextStyle(
                               /// Check the current light/dark theme mode
@@ -157,7 +157,7 @@ class _APIGuideSampleCodeState extends State<APIGuideSampleCode> {
                       backgroundColor: themeState.isDarkMode
                           ? ConstantsDarkMode.indigoColor
                           : ConstantsLightMode.indigoColor,
-                      content: Text(
+                      content: SelectableText(
                         Constants.textCopiedTxt,
                         style: TextStyle(
                           /// Check the current light/dark theme mode

@@ -96,20 +96,23 @@ class APIGuideAppBar extends StatelessWidget implements PreferredSizeWidget {
       title: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Text(
+          SelectableText(
             /// Display the API version
             '${Constants.apiGuideTxt}$version',
             style: TextStyle(
+              /// Check the current light/dark theme mode
               color: themeState.isDarkMode
                   ? ConstantsDarkMode.whiteColor
                   : ConstantsLightMode.whiteColor,
             ),
           ),
-          Text(
+          SelectableText(
             /// Display the latest update date
             '${Constants.latestUpdateTxt}${latestUpdate.year}-${latestUpdate.month}-${latestUpdate.day}',
             style: TextStyle(
               fontSize: Constants.size10,
+
+              /// Check the current light/dark theme mode
               color: themeState.isDarkMode
                   ? ConstantsDarkMode.whiteColor
                   : ConstantsLightMode.whiteColor,
@@ -120,6 +123,8 @@ class APIGuideAppBar extends StatelessWidget implements PreferredSizeWidget {
 
       /// To make the title fixed at the center
       centerTitle: true,
+
+      /// Check the current light/dark theme mode
       backgroundColor: themeState.isDarkMode
           ? ConstantsDarkMode.indigoColor
           : ConstantsLightMode.indigoColor,
@@ -129,6 +134,8 @@ class APIGuideAppBar extends StatelessWidget implements PreferredSizeWidget {
           ? IconButton(
               icon: Icon(
                 Constants.menuIcon,
+
+                /// Check the current light/dark theme mode
                 color: themeState.isDarkMode
                     ? ConstantsDarkMode.whiteColor
                     : ConstantsLightMode.whiteColor,

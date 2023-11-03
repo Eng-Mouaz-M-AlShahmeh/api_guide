@@ -269,7 +269,7 @@ class _APIGuideSearchDialogState extends State<APIGuideSearchDialog> {
                             : Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
-                                  Text(
+                                  SelectableText(
                                     Constants.noRecentSearchesTxt,
                                     style: TextStyle(
                                       fontSize: Constants.size13,
@@ -296,7 +296,7 @@ class _APIGuideSearchDialogState extends State<APIGuideSearchDialog> {
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
                                   Flexible(
-                                    child: Text(
+                                    child: SelectableText(
                                       '${Constants.notFoundTxt} ',
                                       style: TextStyle(
                                         fontSize: Constants.size13,
@@ -309,7 +309,7 @@ class _APIGuideSearchDialogState extends State<APIGuideSearchDialog> {
                                     ),
                                   ),
                                   Flexible(
-                                    child: Text(
+                                    child: SelectableText(
                                       '"${searchState.searchKey}"',
                                       style: TextStyle(
                                         fontWeight: FontWeight.bold,
@@ -420,7 +420,7 @@ class _APIGuideSearchDialogState extends State<APIGuideSearchDialog> {
                                                           size:
                                                               Constants.size15,
                                                         ),
-                                                        Text(
+                                                        SelectableText(
                                                           Constants.introTxt,
                                                           style: TextStyle(
                                                             fontWeight:
@@ -446,7 +446,7 @@ class _APIGuideSearchDialogState extends State<APIGuideSearchDialog> {
                                                           MainAxisAlignment
                                                               .start,
                                                       children: [
-                                                        Text(
+                                                        SelectableText(
                                                           /// Check if the text is over
                                                           /// the fixed length to make
                                                           /// the pretty trim
@@ -598,7 +598,7 @@ class _APIGuideSearchDialogState extends State<APIGuideSearchDialog> {
                                                                             size:
                                                                                 Constants.size15,
                                                                           ),
-                                                                          Text(
+                                                                          SelectableText(
                                                                             item.title,
                                                                             style:
                                                                                 TextStyle(
@@ -638,7 +638,7 @@ class _APIGuideSearchDialogState extends State<APIGuideSearchDialog> {
                                                                                 Constants.size10,
                                                                                 Constants.size5,
                                                                               ),
-                                                                              child: Text(
+                                                                              child: SelectableText(
                                                                                 item.request.method.name,
                                                                                 style: TextStyle(
                                                                                   /// Check the current light/dark theme mode
@@ -658,7 +658,7 @@ class _APIGuideSearchDialogState extends State<APIGuideSearchDialog> {
                                                                         MainAxisAlignment
                                                                             .start,
                                                                     children: [
-                                                                      Text(
+                                                                      SelectableText(
                                                                         /// Check if the text is over
                                                                         /// than the fixed length
                                                                         /// then make pretty trim to it
@@ -782,7 +782,7 @@ class _APIGuideSearchDialogState extends State<APIGuideSearchDialog> {
                                                           size:
                                                               Constants.size15,
                                                         ),
-                                                        Text(
+                                                        SelectableText(
                                                           Constants
                                                               .faqsShortTxt,
                                                           style: TextStyle(
@@ -809,7 +809,7 @@ class _APIGuideSearchDialogState extends State<APIGuideSearchDialog> {
                                                           MainAxisAlignment
                                                               .start,
                                                       children: [
-                                                        Text(
+                                                        SelectableText(
                                                           /// Check if the text is over
                                                           /// than the fixed length
                                                           /// then make pretty trim to it

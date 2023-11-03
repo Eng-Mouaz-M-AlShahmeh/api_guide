@@ -34,9 +34,15 @@ class NavigationFunctions {
 
     /// Scroll to the target RenderObject's position if found
     if (renderBox != null) {
+      /// Make the scroll effect with ease curve
       scrollController.position.ensureVisible(
+        /// RenderObject
         renderBox,
+
+        /// Duration
         duration: Duration(seconds: Constants.duration1),
+
+        /// Curve
         curve: Curves.ease,
       );
     }
@@ -74,9 +80,15 @@ class NavigationFunctions {
 
     /// Scroll to the target RenderObject's position if found
     if (renderBox != null) {
+      /// Make the scroll effect with ease curve
       scrollController.position.ensureVisible(
+        /// RenderObject
         renderBox,
+
+        /// Duration
         duration: Duration(seconds: Constants.duration1),
+
+        /// Curve
         curve: Curves.ease,
       );
     }
@@ -114,9 +126,15 @@ class NavigationFunctions {
 
     /// Scroll to the target RenderObject's position if found
     if (targetRenderObject != null) {
+      /// Make the scroll effect with ease curve
       scrollController.position.ensureVisible(
+        /// RenderObject
         targetRenderObject,
+
+        /// Duration
         duration: Duration(seconds: Constants.duration1),
+
+        /// Curve
         curve: Curves.ease,
       );
     }
@@ -150,9 +168,15 @@ class NavigationFunctions {
 
     /// Scroll to the target RenderObject's position if found
     if (renderBox != null) {
+      /// Make the scroll effect with ease curve
       scrollController.position.ensureVisible(
+        /// RenderObject
         renderBox,
+
+        /// Duration
         duration: Duration(seconds: Constants.duration1),
+
+        /// Curve
         curve: Curves.ease,
       );
     }
@@ -180,9 +204,15 @@ class NavigationFunctions {
 
     /// Scroll to the target RenderObject's position if found
     if (renderBox != null) {
+      /// Make the scroll effect with ease curve
       scrollController.position.ensureVisible(
+        /// RenderObject
         renderBox,
+
+        /// Duration
         duration: Duration(seconds: Constants.duration1),
+
+        /// Curve
         curve: Curves.ease,
       );
     }
@@ -210,9 +240,15 @@ class NavigationFunctions {
 
     /// Scroll to the target RenderObject's position if found
     if (targetRenderObject != null) {
+      /// Make the scroll effect with ease curve
       scrollController.position.ensureVisible(
+        /// RenderObject
         targetRenderObject,
+
+        /// Duration
         duration: Duration(seconds: Constants.duration1),
+
+        /// Curve
         curve: Curves.ease,
       );
     }

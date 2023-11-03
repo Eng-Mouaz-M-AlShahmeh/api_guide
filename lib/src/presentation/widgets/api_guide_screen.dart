@@ -107,13 +107,28 @@ class _APIGuideScreenState extends State<APIGuideScreen> {
 
   /// Define a function to show the search dialog
   _showSearchDialog(
+    /// ThemeStateNotifier
     ThemeStateNotifier themeState,
+
+    /// GlobalKey
     GlobalKey introKey,
+
+    /// GlobalKey
     GlobalKey faqKey,
+
+    /// APIItem List
     List<APIItem> apiItemsList,
+
+    /// GlobalKey List
     List<GlobalKey> apiItemKeys,
+
+    /// ScrollController
     ScrollController scrollController,
+
+    /// String
     String introText,
+
+    /// APIGuideFAQ List
     List<APIGuideFAQ> apiFaqs,
   ) {
     /// ThemeNotifierProvider to check theme attributes state
@@ -124,21 +139,38 @@ class _APIGuideScreenState extends State<APIGuideScreen> {
 
     /// Show the search dialog
     showDialog(
+      /// BuildContext
       context: context,
       builder: (BuildContext context) {
+        /// Make BackdropFilter effect behind the dialog
         return BackdropFilter(
           filter: ImageFilter.blur(
             sigmaX: Constants.size5,
             sigmaY: Constants.size5,
           ),
           child: APIGuideSearchDialog(
+            /// ThemeStateNotifier
             themeState: themeState,
+
+            /// GlobalKey List
             apiItemKeys: apiItemKeys,
+
+            /// APIItem List
             apiItemsList: apiItemsList,
+
+            /// GlobalKey
             faqKey: faqKey,
+
+            /// GlobalKey
             introKey: introKey,
+
+            /// ScrollController
             scrollController: scrollController,
+
+            /// String
             introText: introText,
+
+            /// APIGuideFAQ List
             apiFaqs: apiFaqs,
           ),
         );
@@ -151,21 +183,40 @@ class _APIGuideScreenState extends State<APIGuideScreen> {
 
   /// Define [_handleKey] function
   _handleKey(
+    /// BuildContext
     BuildContext context,
+
+    /// RawKeyEvent
     RawKeyEvent keyEvent,
+
+    /// ThemeStateNotifier
     ThemeStateNotifier themeState,
+
+    /// SearchStateNotifier
     SearchStateNotifier searchState,
+
+    /// GlobalKey
     GlobalKey introKey,
+
+    /// GlobalKey
     GlobalKey faqKey,
+
+    /// APIItem List
     List<APIItem> apiItemsList,
+
+    /// GlobalKey List
     List<GlobalKey> apiItemKeys,
+
+    /// ScrollController
     ScrollController scrollController,
   ) {
     /// Check if keyEvent is RawKeyDownEvent
     if (keyEvent is RawKeyDownEvent) {
       /// Check if the "Cmd/Ctrl + k" key is pressed
       if (keyEvent.logicalKey == LogicalKeyboardKey.keyK &&
-          keyEvent.isMetaPressed) {
+              keyEvent.isMetaPressed ||
+          keyEvent.logicalKey == LogicalKeyboardKey.keyK &&
+              keyEvent.isControlPressed) {
         /// Check if the SearchDialog widget is opened
         if (searchState.isOpen == false) {
           /// Toggle the [_isOpened] state
@@ -173,13 +224,28 @@ class _APIGuideScreenState extends State<APIGuideScreen> {
 
           /// Call the function when the "Cmd/Ctrl + k" key is pressed
           _showSearchDialog(
+            /// ThemeStateNotifier
             themeState,
+
+            /// GlobalKey
             _introKey,
+
+            /// GlobalKey
             _faqKey,
+
+            /// APIItem List
             widget.apiItems,
+
+            /// GlobalKey List
             _apiItemKeys,
+
+            /// ScrollController
             _scrollController1,
+
+            /// String
             widget.apiIntro,
+
+            /// APIGuideFAQ List
             widget.apiFaqs,
           );
         }
@@ -217,14 +283,31 @@ class _APIGuideScreenState extends State<APIGuideScreen> {
     /// Register a keyboard event listener
     RawKeyboard.instance.addListener(
       (event) => _handleKey(
+        /// BuildContext
         context,
+
+        /// RawKeyEvent
         event,
+
+        /// ThemeStateNotifier
         themeState,
+
+        /// SearchStateNotifier
         searchState,
+
+        /// GlobalKey
         _introKey,
+
+        /// GlobalKey
         _faqKey,
+
+        /// APIItem List
         widget.apiItems,
+
+        /// GlobalKey List
         _apiItemKeys,
+
+        /// ScrollController
         _scrollController1,
       ),
     );
@@ -251,14 +334,31 @@ class _APIGuideScreenState extends State<APIGuideScreen> {
     /// Remove the listener when the widget is disposed
     RawKeyboard.instance.removeListener(
       (event) => _handleKey(
+        /// BuildContext
         context,
+
+        /// RawKeyEvent
         event,
+
+        /// ThemeStateNotifier
         themeState,
+
+        /// SearchStateNotifier
         searchState,
+
+        /// GlobalKey
         _introKey,
+
+        /// GlobalKey
         _faqKey,
+
+        /// APIItem List
         widget.apiItems,
+
+        /// GlobalKey List
         _apiItemKeys,
+
+        /// ScrollController
         _scrollController1,
       ),
     );
@@ -280,11 +380,13 @@ class _APIGuideScreenState extends State<APIGuideScreen> {
     return WillPopScope(
       /// Avoid return back from main API Guide widget
       onWillPop: () {
+        /// Return future false after zero delay
         return Future.delayed(Duration.zero, () {
           return false;
         });
       },
       child: Scaffold(
+        /// Pass GlobalKey from type ScaffoldState
         key: _scaffoldKey,
 
         /// Check the current light/dark theme mode
@@ -374,7 +476,7 @@ class _APIGuideScreenState extends State<APIGuideScreen> {
                                   : ConstantsLightMode.indigoColor,
                               size: Constants.size20,
                             ),
-                            Text(
+                            SelectableText(
                               Constants.introTxt,
                               style: TextStyle(
                                 fontWeight: FontWeight.bold,
@@ -393,7 +495,7 @@ class _APIGuideScreenState extends State<APIGuideScreen> {
                         Row(
                           children: [
                             Flexible(
-                              child: Text(
+                              child: SelectableText(
                                 widget.apiIntro,
                                 textAlign: TextAlign.justify,
                                 style: TextStyle(
@@ -434,7 +536,7 @@ class _APIGuideScreenState extends State<APIGuideScreen> {
                               size: Constants.size20,
                             ),
                             Flexible(
-                              child: Text(
+                              child: SelectableText(
                                 Constants.faqsTxt,
                                 style: TextStyle(
                                   fontWeight: FontWeight.bold,
@@ -459,7 +561,7 @@ class _APIGuideScreenState extends State<APIGuideScreen> {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Text(
+                            SelectableText(
                               '${Constants.rightsTxt} ${DateTime.now().year}',
                               style: TextStyle(
                                 fontSize: Constants.size10,
@@ -473,7 +575,7 @@ class _APIGuideScreenState extends State<APIGuideScreen> {
                             widget.privacyLink == null ||
                                     widget.privacyLink == ''
                                 ? SizedBox()
-                                : Text(
+                                : SelectableText(
                                     '${Constants.dividerTxt}',
                                     style: TextStyle(
                                       fontSize: Constants.size10,
@@ -490,7 +592,7 @@ class _APIGuideScreenState extends State<APIGuideScreen> {
                                 : InkWell(
                                     onTap: () => Functions()
                                         .openURL(widget.privacyLink!),
-                                    child: Text(
+                                    child: SelectableText(
                                       '${Constants.privacyTxt}',
                                       style: TextStyle(
                                         fontSize: Constants.size10,
@@ -504,7 +606,7 @@ class _APIGuideScreenState extends State<APIGuideScreen> {
                                   ),
                             widget.termsLink == null || widget.termsLink == ''
                                 ? SizedBox()
-                                : Text(
+                                : SelectableText(
                                     '${Constants.dividerTxt}',
                                     style: TextStyle(
                                       fontSize: Constants.size10,
@@ -520,7 +622,7 @@ class _APIGuideScreenState extends State<APIGuideScreen> {
                                 : InkWell(
                                     onTap: () =>
                                         Functions().openURL(widget.termsLink!),
-                                    child: Text(
+                                    child: SelectableText(
                                       '${Constants.termsTxt}',
                                       style: TextStyle(
                                         fontSize: Constants.size10,

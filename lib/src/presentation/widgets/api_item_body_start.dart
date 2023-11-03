@@ -32,7 +32,7 @@ class APIGuideItemBodyStart extends StatelessWidget {
         SizedBox(height: Constants.size15),
 
         /// Display the item's description
-        Text(
+        SelectableText(
           item.description,
           textAlign: TextAlign.justify,
           style: TextStyle(
@@ -50,7 +50,7 @@ class APIGuideItemBodyStart extends StatelessWidget {
         /// Display "Request Body" text if the request body exists
         item.request.body.isEmpty
             ? SizedBox()
-            : Text(
+            : SelectableText(
                 Constants.requestBodyTxt,
                 style: TextStyle(
                   /// Check the current light/dark theme mode
@@ -75,7 +75,7 @@ class APIGuideItemBodyStart extends StatelessWidget {
                         children: [
                           Row(
                             children: [
-                              Text(
+                              SelectableText(
                                 e.key,
                                 style: TextStyle(
                                   fontWeight: FontWeight.bold,
@@ -87,7 +87,7 @@ class APIGuideItemBodyStart extends StatelessWidget {
                                       : ConstantsLightMode.blackColor,
                                 ),
                               ),
-                              Text(
+                              SelectableText(
                                 ' (${e.type.name}) ',
                                 style: TextStyle(
                                   fontWeight: FontWeight.normal,
@@ -95,7 +95,7 @@ class APIGuideItemBodyStart extends StatelessWidget {
                                   color: Constants.orangeColor,
                                 ),
                               ),
-                              Text(
+                              SelectableText(
                                 Constants.lineTxt,
                                 style: TextStyle(
                                   fontWeight: FontWeight.normal,
@@ -105,7 +105,7 @@ class APIGuideItemBodyStart extends StatelessWidget {
                               ),
                             ],
                           ),
-                          Text(
+                          SelectableText(
                             e.isRequired
                                 ? Constants.requiredTxt
                                 : Constants.emptyTxt,
@@ -118,7 +118,7 @@ class APIGuideItemBodyStart extends StatelessWidget {
                         ],
                       ),
                       SizedBox(height: Constants.size10),
-                      Text(
+                      SelectableText(
                         e.description,
                         style: TextStyle(
                           fontWeight: FontWeight.normal,

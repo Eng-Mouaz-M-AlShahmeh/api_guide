@@ -91,7 +91,7 @@ class APIGuideNavigator extends StatelessWidget {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
-                        Text(
+                        SelectableText(
                           /// Display the API version
                           '${Constants.apiGuideTxt}$version',
                           style: TextStyle(
@@ -110,7 +110,7 @@ class APIGuideNavigator extends StatelessWidget {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
-                        Text(
+                        SelectableText(
                           /// Display the latest update date
                           '${Constants.latestUpdateTxt}${latestUpdate.year}-${latestUpdate.month}-${latestUpdate.day}',
                           style: TextStyle(
@@ -146,7 +146,7 @@ class APIGuideNavigator extends StatelessWidget {
                                 : ConstantsLightMode.indigoColor,
                             size: Constants.size15,
                           ),
-                          Text(
+                          SelectableText(
                             Constants.introTxt,
                             style: TextStyle(
                               fontWeight: FontWeight.bold,
@@ -196,7 +196,7 @@ class APIGuideNavigator extends StatelessWidget {
                                                       .indigoColor,
                                               size: Constants.size15,
                                             ),
-                                            Text(
+                                            SelectableText(
                                               item.title,
                                               style: TextStyle(
                                                 fontWeight: FontWeight.bold,
@@ -277,7 +277,7 @@ class APIGuideNavigator extends StatelessWidget {
                                 : ConstantsLightMode.indigoColor,
                             size: Constants.size15,
                           ),
-                          Text(
+                          SelectableText(
                             Constants.faqsShortTxt,
                             style: TextStyle(
                               fontWeight: FontWeight.bold,

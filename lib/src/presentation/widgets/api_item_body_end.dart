@@ -45,7 +45,7 @@ class APIGuideItemBodyEnd extends StatelessWidget {
         /// Display "Responses" text if responses exist
         item.response.isEmpty
             ? SizedBox()
-            : Text(
+            : SelectableText(
                 Constants.responsesTxt,
                 style: TextStyle(
                   fontWeight: FontWeight.normal,
@@ -76,7 +76,7 @@ class APIGuideItemBodyEnd extends StatelessWidget {
                           children: [
                             Row(
                               children: [
-                                Text(
+                                SelectableText(
                                   itemResponse.statusCode.statusTitle,
                                   style: TextStyle(
                                     color: Constants.getStatusColor(
@@ -102,7 +102,7 @@ class APIGuideItemBodyEnd extends StatelessWidget {
                                           Constants.size15,
                                           Constants.size5,
                                         ),
-                                        child: Text(
+                                        child: SelectableText(
                                           itemResponse.statusCode.statusCode
                                               .toString(),
                                           style: TextStyle(

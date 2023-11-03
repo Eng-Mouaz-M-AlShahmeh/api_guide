@@ -44,7 +44,7 @@ class APIGuideItemHeader extends StatelessWidget {
           child: Row(
             children: [
               Flexible(
-                child: Text(
+                child: SelectableText(
                   item.title,
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
@@ -75,7 +75,7 @@ class APIGuideItemHeader extends StatelessWidget {
                           Constants.size10,
                           Constants.size5,
                         ),
-                        child: Text(
+                        child: SelectableText(
                           item.request.method.name,
                           style: TextStyle(
                             /// Check the current light/dark theme mode
