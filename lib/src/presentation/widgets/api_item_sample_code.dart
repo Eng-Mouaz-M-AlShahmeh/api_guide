@@ -3,7 +3,10 @@
 /// APIGuide package
 
 /// Import necessary packages
+/// Import [flutter/material] package files
 import 'package:flutter/material.dart';
+
+/// Import [flutter/services] package files
 import 'package:flutter/services.dart';
 
 /// Import [APIGuide] package files
@@ -67,45 +70,17 @@ class _APIGuideSampleCodeState extends State<APIGuideSampleCode> {
             Flexible(
               /// Flex for code type dropdown
               flex: Constants.flex5,
-              child: DropdownButton<String>(
-                /// Check the current light/dark theme mode
-                dropdownColor: themeState.isDarkMode
-                    ? ConstantsDarkMode.whiteColor
-                    : ConstantsLightMode.whiteColor,
-                value: defaultType,
-                icon: const Icon(Constants.arrowDownSelectIcon),
-                elevation: Constants.elevation10,
-                style: TextStyle(
-                  /// Check the current light/dark theme mode
-                  color: themeState.isDarkMode
-                      ? ConstantsDarkMode.blackColor
-                      : ConstantsLightMode.blackColor,
-                  fontSize: Constants.size12,
-                ),
-
-                /// Check the current light/dark theme mode
-                focusColor: themeState.isDarkMode
-                    ? ConstantsDarkMode.greyLightColor
-                    : ConstantsLightMode.greyLightColor,
-                underline: Container(
-                  height: Constants.size0,
-                  color: Constants.greyColor,
-                ),
-                onChanged: (String? value) {
-                  /// This is called when the user selects an item.
-                  setState(() {
-                    defaultType = value!;
-                  });
-                },
-
-                /// Dropdown menu items
-                items: SampleCode()
-                    .types
-                    .map<DropdownMenuItem<String>>((String value) {
-                  return DropdownMenuItem<String>(
-                    value: value,
-                    child: Text(
-                      value,
+              child: Row(
+                children: [
+                  Flexible(
+                    child: DropdownButton<String>(
+                      /// Check the current light/dark theme mode
+                      dropdownColor: themeState.isDarkMode
+                          ? ConstantsDarkMode.whiteColor
+                          : ConstantsLightMode.whiteColor,
+                      value: defaultType,
+                      icon: const Icon(Constants.arrowDownSelectIcon),
+                      elevation: Constants.elevation10,
                       style: TextStyle(
                         /// Check the current light/dark theme mode
                         color: themeState.isDarkMode
@@ -113,9 +88,43 @@ class _APIGuideSampleCodeState extends State<APIGuideSampleCode> {
                             : ConstantsLightMode.blackColor,
                         fontSize: Constants.size12,
                       ),
+
+                      /// Check the current light/dark theme mode
+                      focusColor: themeState.isDarkMode
+                          ? ConstantsDarkMode.greyLightColor
+                          : ConstantsLightMode.greyLightColor,
+                      underline: Container(
+                        height: Constants.size0,
+                        color: Constants.greyColor,
+                      ),
+                      onChanged: (String? value) {
+                        /// This is called when the user selects an item.
+                        setState(() {
+                          defaultType = value!;
+                        });
+                      },
+
+                      /// Dropdown menu items
+                      items: SampleCode()
+                          .types
+                          .map<DropdownMenuItem<String>>((String value) {
+                        return DropdownMenuItem<String>(
+                          value: value,
+                          child: Text(
+                            value,
+                            style: TextStyle(
+                              /// Check the current light/dark theme mode
+                              color: themeState.isDarkMode
+                                  ? ConstantsDarkMode.blackColor
+                                  : ConstantsLightMode.blackColor,
+                              fontSize: Constants.size12,
+                            ),
+                          ),
+                        );
+                      }).toList(),
                     ),
-                  );
-                }).toList(),
+                  ),
+                ],
               ),
             ),
             SizedBox(width: Constants.size10),
@@ -173,34 +182,46 @@ class _APIGuideSampleCodeState extends State<APIGuideSampleCode> {
             ),
           ],
         ),
-        Card(
-          /// Check the current light/dark theme mode
-          color: themeState.isDarkMode
-              ? ConstantsDarkMode.blackColor
-              : ConstantsLightMode.blackColor,
-          child: Padding(
-            padding: const EdgeInsets.all(Constants.size10),
+        Row(
+          children: [
+            Expanded(
+              child: SizedBox(
+                child: DecoratedBox(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(Constants.size8),
 
-            /// Make the sample code as selectable text
-            child: SelectableText(
-              /// Show the final sample code related to default type property
-              SampleCode().getSampleCode(
-                SampleCode().chooseCodeType(defaultType),
-                [
-                  widget.item.request.method.name,
-                  widget.urlHost,
-                  widget.item.urlPath,
-                  widget.item.request.body
-                      .map((e) => '"${e.key}":"${e.value}"')
-                      .join(', '),
-                ],
+                    /// Check the current light/dark theme mode
+                    color: themeState.isDarkMode
+                        ? Constants.greyDarkColor
+                        : Constants.greyDarkColor,
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.all(Constants.size10),
+
+                    /// Make the sample code as selectable text
+                    child: SelectableText(
+                      /// Show the final sample code related to default type property
+                      SampleCode().getSampleCode(
+                        SampleCode().chooseCodeType(defaultType),
+                        [
+                          widget.item.request.method.name,
+                          widget.urlHost,
+                          widget.item.urlPath,
+                          widget.item.request.body
+                              .map((e) => '"${e.key}":"${e.value}"')
+                              .join(', '),
+                        ],
+                      ),
+                      style: TextStyle(
+                          fontWeight: FontWeight.normal,
+                          fontSize: Constants.size12,
+                          color: Constants.greenCodeColor),
+                    ),
+                  ),
+                ),
               ),
-              style: TextStyle(
-                  fontWeight: FontWeight.normal,
-                  fontSize: Constants.size12,
-                  color: Constants.greenCodeColor),
             ),
-          ),
+          ],
         ),
       ],
     );

@@ -29,6 +29,15 @@ class Constants {
   /// Define [darkIcon] attribute
   static const IconData darkIcon = Icons.dark_mode;
 
+  /// Define [searchIcon] attribute
+  static const IconData searchIcon = Icons.search_rounded;
+
+  /// Define [cmdKeyIcon] attribute
+  static const IconData cmdKeyIcon = Icons.keyboard_command_key_rounded;
+
+  /// Define [clearIcon] attribute
+  static const IconData clearIcon = Icons.clear;
+
   /// End Icons Attributes
 
   /// Start Colors Attributes
@@ -38,6 +47,9 @@ class Constants {
 
   /// Define [greenCodeColor] attribute
   static Color? greenCodeColor = Colors.green[600];
+
+  /// Define [greyDarkColor] attribute
+  static Color? greyDarkColor = Colors.grey[800];
 
   /// Define [greyColor] attribute
   static const Color greyColor = Colors.grey;
@@ -190,6 +202,21 @@ class Constants {
   /// Define [termsTxt] attribute
   static const String termsTxt = 'Terms of Use';
 
+  /// Define [searchHintTxt] attribute
+  static const String searchHintTxt = 'Search the guide...';
+
+  /// Define [noRecentSearchesTxt] attribute
+  static const String noRecentSearchesTxt = 'No recent searches';
+
+  /// Define [notFoundTxt] attribute
+  static const String notFoundTxt = 'No results for';
+
+  /// Define [closeTxt] attribute
+  static const String closeTxt = 'Close (Esc)';
+
+  /// Define [searchTxt] attribute
+  static const String searchTxt = 'Search ';
+
   /// Define [lineTxt] attribute
   static const String lineTxt =
       ' ............................................................ ';
@@ -200,10 +227,33 @@ class Constants {
   /// Define [emptyTxt] attribute
   static const String emptyTxt = '';
 
+  /// Define [restTxt] attribute
+  static const String restTxt = '...';
+
   /// Define [dividerTxt] attribute
   static const String dividerTxt = ' | ';
 
+  /// Define [plusKTxt] attribute
+  static const String plusKTxt = ' + k ';
+
+  /// Define [introItemListTxt] attribute
+  static const String introItemListTxt = '/introduction';
+
+  /// Define [faqsItemListTxt] attribute
+  static const String faqsItemListTxt = '/faqs';
+
   /// End Text Attributes
+
+  /// Start Text Patterns
+  /// Define [introPattern] attribute
+  static const String introPattern =
+      r'i|in|int|intr|intro|introd|introdu|introduc|introduct|introducti|introductio|introduction';
+
+  /// Define [faqsPattern] attribute
+  static const String faqsPattern =
+      r'f|fr|fre|fre|freq|freq|frequ|freque|frequen|frequent|frequentl|frequently|a|as|ask|aske|asked|q|qu|ques|quest|questi|questio|question|questions|faq|faqs';
+
+  /// Start Text Patterns
 
   /// Start Break Points Attributes
 
@@ -216,6 +266,9 @@ class Constants {
   /// End Break Points Attributes
 
   /// Start Sizes Attributes
+
+  /// Define [size100] attribute
+  static const double size100 = 100;
 
   /// Define [size50] attribute
   static const double size50 = 50;
@@ -244,8 +297,20 @@ class Constants {
   /// Define [size10] attribute
   static const double size10 = 10;
 
+  /// Define [size8] attribute
+  static const double size8 = 8;
+
   /// Define [size5] attribute
   static const double size5 = 5;
+
+  /// Define [size2] attribute
+  static const double size2 = 2;
+
+  /// Define [size1] attribute
+  static const double size1 = 1;
+
+  /// Define [size05] attribute
+  static const double size05 = 0.5;
 
   /// Define [size0] attribute
   static const double size0 = 0;
@@ -285,6 +350,9 @@ class Constants {
 
   /// Define [duration1] attribute
   static const int duration1 = 1;
+
+  /// Define [duration300] attribute
+  static const int duration300 = 300;
 
   /// End Durations Attributes
 }

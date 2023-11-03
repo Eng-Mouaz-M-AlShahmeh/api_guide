@@ -6,6 +6,9 @@
 export '../../src/presentation/helpers/constants.dart';
 export '../../src/presentation/widgets/api_guide_app_bar.dart';
 export '../../src/presentation/widgets/api_guide_screen.dart';
+export '../../src/presentation/widgets/api_guide_search.dart';
+export '../../src/presentation/widgets/api_guide_search_btn.dart';
+export '../../src/presentation/widgets/api_guide_search_dialog.dart';
 export '../../src/presentation/widgets/api_item.dart';
 export '../../src/presentation/widgets/api_item_body_end.dart';
 export '../../src/presentation/widgets/api_item_body_start.dart';

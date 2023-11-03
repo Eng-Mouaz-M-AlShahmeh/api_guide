@@ -1,4 +1,4 @@
-// Developed by Mouaz M AlShahmeh
+// Developed by Eng. Mouaz M. Al-Shahmeh
 import 'package:api_guide/api_guide.dart';
 import 'package:flutter/material.dart';
 
@@ -28,9 +28,9 @@ class MyHomePage extends StatelessWidget {
     // Define API Items with all needed properties
     List<APIItem> apiItems = [
       // Define the first API item
-      const APIItem(
+      APIItem(
         // Define the request for the first API item
-        request: APIGuideRequest(
+        request: const APIGuideRequest(
           method: HttpRequestMethod.GET,
           headers: [],
           params: [],
@@ -38,7 +38,7 @@ class MyHomePage extends StatelessWidget {
         ),
         // Define the response for the first API item
         response: [
-          APIGuideResponse(
+          const APIGuideResponse(
             statusCode: HttpResponseStatusCode.OK,
             headers: [],
             body: {
@@ -55,9 +55,9 @@ class MyHomePage extends StatelessWidget {
         description: 'All Dashes get example description.',
       ),
       // Define the second API item
-      const APIItem(
+      APIItem(
         // Define the request for the second API item
-        request: APIGuideRequest(
+        request: const APIGuideRequest(
           method: HttpRequestMethod.POST,
           headers: [],
           params: [],
@@ -80,7 +80,7 @@ class MyHomePage extends StatelessWidget {
         ),
         // Define the response for the second API item
         response: [
-          APIGuideResponse(
+          const APIGuideResponse(
             statusCode: HttpResponseStatusCode.OK,
             headers: [],
             body: {
@@ -90,7 +90,7 @@ class MyHomePage extends StatelessWidget {
               }
             },
           ),
-          APIGuideResponse(
+          const APIGuideResponse(
             statusCode: HttpResponseStatusCode.BadRequest,
             headers: [],
             body: {

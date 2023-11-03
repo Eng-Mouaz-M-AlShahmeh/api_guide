@@ -25,6 +25,27 @@ class APIGuideAppBar extends StatelessWidget implements PreferredSizeWidget {
 
     /// VoidCallback to refresh parent widget
     required this.callback,
+
+    /// List of API items
+    required this.apiItemsList,
+
+    /// Key for the introduction section
+    required this.introKey,
+
+    /// Key for the FAQ section
+    required this.faqKey,
+
+    /// List of keys for API items
+    required this.apiItemKeys,
+
+    /// Scroll controller for navigation
+    required this.scrollController,
+
+    /// String for the introduction text
+    required this.introText,
+
+    /// List of FAQs
+    required this.apiFaqs,
   });
 
   /// API Version Number
@@ -39,6 +60,27 @@ class APIGuideAppBar extends StatelessWidget implements PreferredSizeWidget {
   /// VoidCallback to refresh parent widget
   final VoidCallback callback;
 
+  /// List of API items
+  final List<APIItem> apiItemsList;
+
+  /// Key for the introduction section
+  final GlobalKey introKey;
+
+  /// Key for the FAQ section
+  final GlobalKey faqKey;
+
+  /// List of keys for API items
+  final List<GlobalKey> apiItemKeys;
+
+  /// Scroll controller
+  final ScrollController scrollController;
+
+  /// String for the introduction text
+  final String introText;
+
+  /// List of FAQs
+  final List<APIGuideFAQ> apiFaqs;
+
   @override
 
   /// Implement preferredSize and adjust the height as needed;
@@ -47,7 +89,8 @@ class APIGuideAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     /// ThemeNotifierProvider to check theme attributes state
-    final themeState = ThemeNotifierProvider.of(context).themeStateNotifier;
+    final themeState =
+        ThemeNotifierProvider.of(context, listen: false).themeStateNotifier;
 
     /// Return AppBar widget
     return AppBar(
@@ -100,6 +143,23 @@ class APIGuideAppBar extends StatelessWidget implements PreferredSizeWidget {
 
       /// Actions icon (light ot dark) for theme mode switch
       actions: [
+        Padding(
+          padding: const EdgeInsets.fromLTRB(
+            Constants.size15,
+            Constants.size0,
+            Constants.size15,
+            Constants.size0,
+          ),
+          child: APIGuideSearchScreen(
+            apiItemKeys: apiItemKeys,
+            apiItemsList: apiItemsList,
+            faqKey: faqKey,
+            introKey: introKey,
+            scrollController: scrollController,
+            introText: introText,
+            apiFaqs: apiFaqs,
+          ),
+        ),
         Padding(
           padding: const EdgeInsets.fromLTRB(
             Constants.size15,

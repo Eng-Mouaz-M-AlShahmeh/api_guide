@@ -43,43 +43,48 @@ class APIGuideItemHeader extends StatelessWidget {
           padding: const EdgeInsets.all(Constants.size15),
           child: Row(
             children: [
-              Text(
-                item.title,
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: Constants.size20,
+              Flexible(
+                child: Text(
+                  item.title,
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: Constants.size20,
 
-                  /// Check the current light/dark theme mode
-                  color: themeState.isDarkMode
-                      ? ConstantsDarkMode.indigoColor
-                      : ConstantsLightMode.indigoColor,
+                    /// Check the current light/dark theme mode
+                    color: themeState.isDarkMode
+                        ? ConstantsDarkMode.indigoColor
+                        : ConstantsLightMode.indigoColor,
+                  ),
                 ),
               ),
               SizedBox(width: Constants.size15),
-              ClipRRect(
-                borderRadius:
-                    BorderRadius.all(Radius.circular(Constants.size10)),
-                child: SizedBox(
-                  child: DecoratedBox(
-                    decoration: BoxDecoration(
-                      color: Constants.getMethodColor(item.request.method.name),
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.fromLTRB(
-                        Constants.size10,
-                        Constants.size5,
-                        Constants.size10,
-                        Constants.size5,
+              Flexible(
+                child: ClipRRect(
+                  borderRadius:
+                      BorderRadius.all(Radius.circular(Constants.size10)),
+                  child: SizedBox(
+                    child: DecoratedBox(
+                      decoration: BoxDecoration(
+                        color:
+                            Constants.getMethodColor(item.request.method.name),
                       ),
-                      child: Text(
-                        item.request.method.name,
-                        style: TextStyle(
-                          /// Check the current light/dark theme mode
-                          color: themeState.isDarkMode
-                              ? ConstantsDarkMode.whiteColor
-                              : ConstantsLightMode.whiteColor,
-                          fontWeight: FontWeight.bold,
-                          fontSize: Constants.size13,
+                      child: Padding(
+                        padding: const EdgeInsets.fromLTRB(
+                          Constants.size10,
+                          Constants.size5,
+                          Constants.size10,
+                          Constants.size5,
+                        ),
+                        child: Text(
+                          item.request.method.name,
+                          style: TextStyle(
+                            /// Check the current light/dark theme mode
+                            color: themeState.isDarkMode
+                                ? ConstantsDarkMode.whiteColor
+                                : ConstantsLightMode.whiteColor,
+                            fontWeight: FontWeight.bold,
+                            fontSize: Constants.size13,
+                          ),
                         ),
                       ),
                     ),
@@ -87,31 +92,33 @@ class APIGuideItemHeader extends StatelessWidget {
                 ),
               ),
               SizedBox(width: Constants.size15),
-              ClipRRect(
-                borderRadius:
-                    BorderRadius.all(Radius.circular(Constants.size5)),
-                child: SizedBox(
-                  child: DecoratedBox(
-                    decoration: BoxDecoration(
-
-                        /// Check the current light/dark theme mode
-                        color: themeState.isDarkMode
-                            ? ConstantsDarkMode.greyLightColor
-                            : ConstantsLightMode.greyLightColor),
-                    child: Padding(
-                      padding: const EdgeInsets.all(Constants.size5),
-
-                      /// Display the URL
-                      child: SelectableText(
-                        '$urlHost${item.urlPath}',
-                        style: TextStyle(
-                          fontWeight: FontWeight.normal,
-                          fontSize: Constants.size15,
+              Flexible(
+                child: ClipRRect(
+                  borderRadius:
+                      BorderRadius.all(Radius.circular(Constants.size5)),
+                  child: SizedBox(
+                    child: DecoratedBox(
+                      decoration: BoxDecoration(
 
                           /// Check the current light/dark theme mode
                           color: themeState.isDarkMode
-                              ? ConstantsDarkMode.blackColor
-                              : ConstantsLightMode.blackColor,
+                              ? ConstantsDarkMode.greyLightColor
+                              : ConstantsLightMode.greyLightColor),
+                      child: Padding(
+                        padding: const EdgeInsets.all(Constants.size5),
+
+                        /// Display the URL
+                        child: SelectableText(
+                          '$urlHost${item.urlPath}',
+                          style: TextStyle(
+                            fontWeight: FontWeight.normal,
+                            fontSize: Constants.size15,
+
+                            /// Check the current light/dark theme mode
+                            color: themeState.isDarkMode
+                                ? ConstantsDarkMode.blackColor
+                                : ConstantsLightMode.blackColor,
+                          ),
                         ),
                       ),
                     ),

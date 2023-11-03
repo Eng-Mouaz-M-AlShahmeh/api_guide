@@ -22,8 +22,11 @@ class APIItem {
   /// Define [description] property as String and final
   final String description;
 
+  /// Define [isHovered] property as bool? and final
+  bool? isHovered;
+
   /// Definition of [APIItem] instance
-  const APIItem({
+  APIItem({
     /// Use request property as required attribute
     required this.request,
 
@@ -38,6 +41,9 @@ class APIItem {
 
     /// Use description property as required attribute
     required this.description,
+
+    /// Use isHovered property
+    this.isHovered,
   });
 }
 

@@ -18,6 +18,7 @@ Flutter package to generate API calls documentations like OpenAPI schema.
 <img width="1420" alt="Example Screenshot" src="https://github.com/Eng-Mouaz-M-AlShahmeh/api_guide/assets/86870601/1b01246b-545e-4b51-a8bc-dea0b5c66d68">
 
 ## About
+
 - API Guide is package to generate API calls documentations like [OpenAPI schema](https://spec.openapis.org/oas/v3.1.0). For example, Get, Post, Put, Delete or Options Http requests and responses.
 
 ## API Integration Guide Features
@@ -26,6 +27,7 @@ Flutter package to generate API calls documentations like OpenAPI schema.
 * Possibility to copy sample code to the clipboard by clicking the button.
 * Responsive design supports large, medium and small screens.
 * Light and dark theme mode.
+* Responsive and fast search widget.
 * The beautiful introduction section can be modified as needed.
 * The Infinite FAQ section can be modified with any number of questions and answers.
 * Seamless scrollable sidebar.
@@ -33,14 +35,13 @@ Flutter package to generate API calls documentations like OpenAPI schema.
 * Optional Privacy Policy and Terms of Use API Integration Guide footer links.
 * Built in accordance with [W3 Consortium](https://www.w3.org) and [OpenAPI Schema](https://spec.openapis.org/oas/v3.1.0) recommendations.
 
-
 ## Installation and Basic Usage
 
 First: Add to pubspec.yaml:
 
 ```yaml
 dependencies:
-  api_guide: ^1.0.4
+  api_guide: ^1.0.5
 ```
 
 Second: import it to your project:
@@ -54,6 +55,7 @@ Finally add **APIGuide().display()** into your target web pages with required pa
 Here is a full usage example code:
 
 ```dart
+// Developed by Mouaz M AlShahmeh
 import 'package:api_guide/api_guide.dart';
 import 'package:flutter/material.dart';
 
@@ -76,16 +78,16 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatelessWidget {
-  const MyHomePage({Key? key}) : super(key: key);
+  const MyHomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
     // Define API Items with all needed properties
     List<APIItem> apiItems = [
       // Define the first API item
-      const APIItem(
+      APIItem(
         // Define the request for the first API item
-        request: APIGuideRequest(
+        request: const APIGuideRequest(
           method: HttpRequestMethod.GET,
           headers: [],
           params: [],
@@ -93,7 +95,7 @@ class MyHomePage extends StatelessWidget {
         ),
         // Define the response for the first API item
         response: [
-          APIGuideResponse(
+          const APIGuideResponse(
             statusCode: HttpResponseStatusCode.OK,
             headers: [],
             body: {
@@ -107,12 +109,12 @@ class MyHomePage extends StatelessWidget {
         ],
         title: 'All Dashes',
         urlPath: '/dashes',
-        description: 'All Dashes get example description',
+        description: 'All Dashes get example description.',
       ),
       // Define the second API item
-      const APIItem(
+      APIItem(
         // Define the request for the second API item
-        request: APIGuideRequest(
+        request: const APIGuideRequest(
           method: HttpRequestMethod.POST,
           headers: [],
           params: [],
@@ -121,31 +123,31 @@ class MyHomePage extends StatelessWidget {
               key: 'name',
               value: 'Dash',
               type: PropertyType.string,
-              description: 'This is the name attribute',
+              description: 'This is the name attribute.',
               isRequired: true,
             ),
             APIGuideRequestBody(
               key: 'isFly',
               value: true,
               type: PropertyType.boolean,
-              description: 'This is the isFly attribute',
+              description: 'This is the isFly attribute.',
               isRequired: true,
             ),
           ],
         ),
         // Define the response for the second API item
         response: [
-          APIGuideResponse(
+          const APIGuideResponse(
             statusCode: HttpResponseStatusCode.OK,
             headers: [],
             body: {
               "status": 200,
               "data": {
-                "message": "Data Stored Successfully",
+                "message": "Data Stored Successfully.",
               }
             },
           ),
-          APIGuideResponse(
+          const APIGuideResponse(
             statusCode: HttpResponseStatusCode.BadRequest,
             headers: [],
             body: {
@@ -158,7 +160,7 @@ class MyHomePage extends StatelessWidget {
         ],
         title: 'Create',
         urlPath: '/create',
-        description: 'Store Dash post example description',
+        description: 'Store Dash post example description.',
       ),
     ];
 
@@ -189,4 +191,4 @@ class MyHomePage extends StatelessWidget {
 Make sure to check out [example project](https://github.com/Eng-Mouaz-M-AlShahmeh/api_guide/tree/main/example).
 If you find this package useful, star my GitHub [repository](https://github.com/Eng-Mouaz-M-AlShahmeh/api_guide).
 
-Flutter plugin was developed by: [Mouaz M. Al-Shahmeh](https://twitter.com/mouaz_m_shahmeh)
+Flutter plugin was developed by: [Eng. Mouaz M. Al-Shahmeh](https://twitter.com/mouaz_m_shahmeh)

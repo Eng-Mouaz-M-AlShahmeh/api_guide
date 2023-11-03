@@ -143,6 +143,13 @@ class _APIGuideScreenState extends State<APIGuideScreen> {
         latestUpdate: widget.latestUpdate,
         scaffoldKey: _scaffoldKey,
         callback: rebuildParent,
+        apiItemKeys: _apiItemKeys,
+        apiItemsList: widget.apiItems,
+        faqKey: _faqKey,
+        introKey: _introKey,
+        scrollController: _scrollController1,
+        introText: widget.apiIntro,
+        apiFaqs: widget.apiFaqs,
       ),
 
       /// Body of the application
@@ -255,16 +262,18 @@ class _APIGuideScreenState extends State<APIGuideScreen> {
                                 : ConstantsLightMode.indigoColor,
                             size: Constants.size20,
                           ),
-                          Text(
-                            Constants.faqsTxt,
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
+                          Flexible(
+                            child: Text(
+                              Constants.faqsTxt,
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
 
-                              /// Check the current light/dark theme mode
-                              color: themeState.isDarkMode
-                                  ? ConstantsDarkMode.indigoColor
-                                  : ConstantsLightMode.indigoColor,
-                              fontSize: Constants.size20,
+                                /// Check the current light/dark theme mode
+                                color: themeState.isDarkMode
+                                    ? ConstantsDarkMode.indigoColor
+                                    : ConstantsLightMode.indigoColor,
+                                fontSize: Constants.size20,
+                              ),
                             ),
                           )
                         ],

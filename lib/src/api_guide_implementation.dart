@@ -48,37 +48,46 @@ class APIGuide implements APIGuideInterface {
     /// Define [ThemeStateNotifier] instance
     final ThemeStateNotifier themeStateNotifier = ThemeStateNotifier();
 
-    /// Return ThemeNotifierProvider
+    /// Define [ThemeStateNotifier] instance
+    final SearchStateNotifier searchStateNotifier = SearchStateNotifier();
+
+    /// Return [ThemeNotifierProvider]
     return ThemeNotifierProvider(
-      /// Initialize the themeStateNotifier attribute
+      /// Initialize the [themeStateNotifier] attribute
       themeStateNotifier: themeStateNotifier,
-      child: APIGuideScreen(
-        /// Build context implementation
-        context: context,
 
-        /// Host URL implementation
-        urlHost: urlHost,
+      /// And [SearchNotifierProvider]
+      child: SearchNotifierProvider(
+        /// Initialize the [searchStateNotifier] attribute
+        searchStateNotifier: searchStateNotifier,
+        child: APIGuideScreen(
+          /// Build context implementation
+          context: context,
 
-        /// List of API items implementation
-        apiItems: apiItems,
+          /// Host URL implementation
+          urlHost: urlHost,
 
-        /// List of FAQs implementation
-        apiFaqs: apiFaqs,
+          /// List of API items implementation
+          apiItems: apiItems,
 
-        /// API version implementation
-        version: version,
+          /// List of FAQs implementation
+          apiFaqs: apiFaqs,
 
-        /// Date of the latest update implementation
-        latestUpdate: latestUpdate,
+          /// API version implementation
+          version: version,
 
-        /// Introduction to the API Guide implementation
-        apiIntro: apiIntro,
+          /// Date of the latest update implementation
+          latestUpdate: latestUpdate,
 
-        /// Terms Link of the API Guide implementation
-        termsLink: termsLink,
+          /// Introduction to the API Guide implementation
+          apiIntro: apiIntro,
 
-        /// Privacy Link of the API Guide implementation
-        privacyLink: privacyLink,
+          /// Terms Link of the API Guide implementation
+          termsLink: termsLink,
+
+          /// Privacy Link of the API Guide implementation
+          privacyLink: privacyLink,
+        ),
       ),
     );
   }

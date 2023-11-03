@@ -11,12 +11,15 @@ import '../../../api_guide.dart';
 /// Code starts here
 /// Define [ThemeStateNotifier] class for adding isDarkMode state changes
 class ThemeStateNotifier extends ChangeNotifier {
+  /// Define initial attributes values
   /// Define [_isDarkMode] attribute with default value of false
   bool _isDarkMode = false;
 
+  /// Define Getters
   /// Define bool getter of [_isDarkMode] called [isDarkMode]
   bool get isDarkMode => _isDarkMode;
 
+  /// Define Setters
   /// Define [toggleIsDarkMode] function which toggle
   /// the state of [_isDarkMode] value
   toggleIsDarkMode() {
@@ -43,16 +46,27 @@ class ThemeNotifierProvider extends InheritedWidget {
   }) : super(child: child);
 
   /// Make functionality of [of(BuildContext context)] of the InheritedWidget
-  static ThemeNotifierProvider of(BuildContext context) {
-    /// Return the InheritedWidget with context
-    return context.dependOnInheritedWidgetOfExactType<ThemeNotifierProvider>()!;
+  static ThemeNotifierProvider of(BuildContext context, {bool listen = true}) {
+    if (listen) {
+      return context
+          .dependOnInheritedWidgetOfExactType<ThemeNotifierProvider>()!;
+    } else {
+      /// If listen is set to false, return a dummy InheritedWidget that doesn't rebuild its dependents
+      return ThemeNotifierProvider(
+        /// Create a new instance without rebuilding
+        themeStateNotifier: ThemeStateNotifier(),
+
+        /// A dummy child widget
+        child: SizedBox(),
+      );
+    }
   }
 
   /// Override the [updateShouldNotify] to make notify changes
   @override
-  bool updateShouldNotify(ThemeNotifierProvider oldWidget) {
-    /// Check if state is changed or not
-    return themeStateNotifier != oldWidget.themeStateNotifier;
+  bool updateShouldNotify(covariant InheritedWidget oldWidget) {
+    /// Always return true here to rebuild dependent widgets
+    return true;
   }
 }
 

@@ -4,7 +4,9 @@
 
 /// Code starts here
 export '../../src/application/helpers/functions.dart';
+export '../../src/application/helpers/navigation_functions.dart';
 export '../../src/application/sample_code.dart';
+export '../../src/application/search_state.dart';
 export '../../src/application/theme_state.dart';
 
 /// End of code

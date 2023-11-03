@@ -125,26 +125,41 @@ class APIGuideItemBodyEnd extends StatelessWidget {
                             /// Display the response body if it exists
                             itemResponse.body.isEmpty
                                 ? SizedBox()
-                                : Card(
-                                    /// Check the current light/dark theme mode
-                                    color: themeState.isDarkMode
-                                        ? ConstantsDarkMode.blackColor
-                                        : ConstantsLightMode.blackColor,
-                                    child: Padding(
-                                      padding: const EdgeInsets.all(
-                                          Constants.size10),
+                                : Row(
+                                    children: [
+                                      Expanded(
+                                        child: SizedBox(
+                                          child: DecoratedBox(
+                                            decoration: BoxDecoration(
+                                              borderRadius:
+                                                  BorderRadius.circular(
+                                                      Constants.size8),
 
-                                      /// Display the response body in a code block
-                                      child: SelectableText(
-                                        SampleCode()
-                                            .getResponseCode(itemResponse.body),
-                                        style: TextStyle(
-                                          fontWeight: FontWeight.normal,
-                                          fontSize: Constants.size12,
-                                          color: Constants.greenCodeColor,
+                                              /// Check the current light/dark theme mode
+                                              color: themeState.isDarkMode
+                                                  ? Constants.greyDarkColor
+                                                  : Constants.greyDarkColor,
+                                            ),
+                                            child: Padding(
+                                              padding: const EdgeInsets.all(
+                                                  Constants.size10),
+
+                                              /// Display the response body in a code block
+                                              child: SelectableText(
+                                                SampleCode().getResponseCode(
+                                                    itemResponse.body),
+                                                style: TextStyle(
+                                                  fontWeight: FontWeight.normal,
+                                                  fontSize: Constants.size12,
+                                                  color:
+                                                      Constants.greenCodeColor,
+                                                ),
+                                              ),
+                                            ),
+                                          ),
                                         ),
                                       ),
-                                    ),
+                                    ],
                                   ),
                           ],
                         ),

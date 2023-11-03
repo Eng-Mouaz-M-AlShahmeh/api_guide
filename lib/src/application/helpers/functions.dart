@@ -5,11 +5,16 @@
 /// Import necessary packages
 import 'package:url_launcher/url_launcher_string.dart';
 
+/// Import [APIGuide] package files
+import '../../../api_guide.dart';
+
 /// Code starts here
 class Functions {
   /// Define a function to open a URL
   openURL(String url) async {
+    /// Check if the url is valid
     if (await canLaunchUrlString(url)) {
+      /// Use url launcher from String
       await launchUrlString(url);
     }
   }

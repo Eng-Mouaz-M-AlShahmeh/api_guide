@@ -63,60 +63,6 @@ class APIGuideNavigatorDrawer extends StatelessWidget {
   /// Global key of Scaffold State
   final GlobalKey<ScaffoldState> scaffoldKey;
 
-  /// Scroll to the introduction section
-  _scrollToIntro() {
-    /// Find the RenderObject of the target widget.
-    final renderBox = introKey.currentContext!.findRenderObject();
-
-    /// Scroll to the target RenderObject's position if found
-    if (renderBox != null) {
-      scrollController.position.ensureVisible(
-        renderBox,
-        duration: Duration(seconds: Constants.duration1),
-        curve: Curves.ease,
-      );
-    }
-
-    /// Close drawer after click
-    scaffoldKey.currentState!.closeDrawer();
-  }
-
-  /// Scroll to the FAQ section
-  _scrollToFaq() {
-    /// Find the RenderObject of the target widget.
-    final renderBox = faqKey.currentContext!.findRenderObject();
-
-    /// Scroll to the target RenderObject's position if found
-    if (renderBox != null) {
-      scrollController.position.ensureVisible(
-        renderBox,
-        duration: Duration(seconds: Constants.duration1),
-        curve: Curves.ease,
-      );
-    }
-
-    /// Close drawer after click
-    scaffoldKey.currentState!.closeDrawer();
-  }
-
-  /// Scroll to a specific API item using its key
-  _scrollToAPIItem(GlobalKey key) {
-    /// Find the RenderObject of the target widget.
-    final targetRenderObject = key.currentContext!.findRenderObject();
-
-    /// Scroll to the target RenderObject's position if found
-    if (targetRenderObject != null) {
-      scrollController.position.ensureVisible(
-        targetRenderObject,
-        duration: Duration(seconds: Constants.duration1),
-        curve: Curves.ease,
-      );
-    }
-
-    /// Close drawer after click
-    scaffoldKey.currentState!.closeDrawer();
-  }
-
   @override
   Widget build(BuildContext context) {
     /// ThemeNotifierProvider to check theme attributes state
@@ -176,7 +122,12 @@ class APIGuideNavigatorDrawer extends StatelessWidget {
                 SizedBox(height: Constants.size50),
                 InkWell(
                   /// Introduction section link
-                  onTap: () => _scrollToIntro(),
+                  onTap: () => NavigationFunctions().scrollToIntroDrawer(
+                    context,
+                    introKey,
+                    scrollController,
+                    scaffoldKey,
+                  ),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
@@ -211,11 +162,15 @@ class APIGuideNavigatorDrawer extends StatelessWidget {
                       .map((item) => Column(
                             children: [
                               InkWell(
-                                onTap: () => _scrollToAPIItem(
+                                onTap: () =>
+                                    NavigationFunctions().scrollToAPIItemDrawer(
+                                  context,
                                   apiItemKeys.firstWhere(
                                     (element) =>
                                         element.toString().contains(item.title),
                                   ),
+                                  scrollController,
+                                  scaffoldKey,
                                 ),
                                 child: Row(
                                   mainAxisAlignment:
@@ -293,7 +248,12 @@ class APIGuideNavigatorDrawer extends StatelessWidget {
                 ),
                 InkWell(
                   /// FAQ section link
-                  onTap: () => _scrollToFaq(),
+                  onTap: () => NavigationFunctions().scrollToFaqDrawer(
+                    context,
+                    faqKey,
+                    scrollController,
+                    scaffoldKey,
+                  ),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
