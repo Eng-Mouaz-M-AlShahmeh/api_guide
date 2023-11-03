@@ -1,3 +1,10 @@
+## [1.0.6] - 2023/11/03
+
+* Update README.md file.
+* Update CHANGELOG.md file.
+* Fix the API Guide header theme switch.
+* Fix the return back from the main API Guide widget by wrapping with WillPopScope .
+
 ## [1.0.5] - 2023/11/03
 
 * Update README.md file.

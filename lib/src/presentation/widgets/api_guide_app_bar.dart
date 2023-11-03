@@ -89,8 +89,7 @@ class APIGuideAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     /// ThemeNotifierProvider to check theme attributes state
-    final themeState =
-        ThemeNotifierProvider.of(context, listen: false).themeStateNotifier;
+    final themeState = ThemeNotifierProvider.of(context).themeStateNotifier;
 
     /// Return AppBar widget
     return AppBar(

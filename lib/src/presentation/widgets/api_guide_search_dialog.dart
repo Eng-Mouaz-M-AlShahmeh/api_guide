@@ -93,7 +93,7 @@ class _APIGuideSearchDialogState extends State<APIGuideSearchDialog> {
   bool _isHoveredFaqs = false;
 
   @override
-  void initState() {
+  initState() {
     super.initState();
 
     /// SearchNotifierProvider to check search attributes' states

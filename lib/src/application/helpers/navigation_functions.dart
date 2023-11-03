@@ -25,6 +25,10 @@ class NavigationFunctions {
     /// bool isPop attribute
     bool isPop,
   ) {
+    /// SearchNotifierProvider to check search attributes' states
+    final searchState =
+        SearchNotifierProvider.of(context, listen: false).searchStateNotifier;
+
     /// Find the RenderObject of the target widget.
     final renderBox = introKey.currentContext!.findRenderObject();
 
@@ -39,6 +43,9 @@ class NavigationFunctions {
 
     /// Check the isPop value
     if (isPop) {
+      /// Toggle the [_isOpened] state
+      searchState.toggleIsOpen(false);
+
       /// Call the function to close the dialog after click
       Navigator.of(context).pop();
     }
@@ -58,6 +65,10 @@ class NavigationFunctions {
     /// bool isPop attribute
     bool isPop,
   ) {
+    /// SearchNotifierProvider to check search attributes' states
+    final searchState =
+        SearchNotifierProvider.of(context, listen: false).searchStateNotifier;
+
     /// Find the RenderObject of the target widget.
     final renderBox = faqKey.currentContext!.findRenderObject();
 
@@ -72,6 +83,9 @@ class NavigationFunctions {
 
     /// Check the isPop value
     if (isPop) {
+      /// Toggle the [_isOpened] state
+      searchState.toggleIsOpen(false);
+
       /// Call the function to close the dialog after click
       Navigator.of(context).pop();
     }
@@ -91,6 +105,10 @@ class NavigationFunctions {
     /// bool isPop attribute
     bool isPop,
   ) {
+    /// SearchNotifierProvider to check search attributes' states
+    final searchState =
+        SearchNotifierProvider.of(context, listen: false).searchStateNotifier;
+
     /// Find the RenderObject of the target widget.
     final targetRenderObject = key.currentContext!.findRenderObject();
 
@@ -105,6 +123,9 @@ class NavigationFunctions {
 
     /// Check the isPop value
     if (isPop) {
+      /// Toggle the [_isOpened] state
+      searchState.toggleIsOpen(false);
+
       /// Call the function to close the dialog after click
       Navigator.of(context).pop();
     }

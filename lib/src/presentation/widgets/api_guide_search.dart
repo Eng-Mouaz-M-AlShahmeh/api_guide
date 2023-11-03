@@ -9,9 +9,6 @@ import 'dart:ui';
 /// Import [flutter/material] package files
 import 'package:flutter/material.dart';
 
-/// Import [flutter/services] package files
-import 'package:flutter/services.dart';
-
 /// Import [APIGuide] package files
 import '../../../api_guide.dart';
 
@@ -120,55 +117,6 @@ class _APIGuideSearchScreenState extends State<APIGuideSearchScreen> {
     });
   }
 
-  /// Define [_handleKey] function
-  _handleKey(
-    BuildContext context,
-    RawKeyEvent keyEvent,
-    ThemeStateNotifier themeState,
-    SearchStateNotifier searchState,
-    GlobalKey introKey,
-    GlobalKey faqKey,
-    List<APIItem> apiItemsList,
-    List<GlobalKey> apiItemKeys,
-    ScrollController scrollController,
-  ) {
-    /// Check if keyEvent is RawKeyDownEvent
-    if (keyEvent is RawKeyDownEvent) {
-      /// Check if the "Cmd/Ctrl + k" key is pressed
-      if (keyEvent.logicalKey == LogicalKeyboardKey.keyK &&
-          keyEvent.isMetaPressed) {
-        /// Check if the SearchDialog widget is opened
-        if (searchState.isOpen == false) {
-          /// Toggle the [_isOpened] state
-          searchState.toggleIsOpen(true);
-
-          /// Call the function when the "Cmd/Ctrl + k" key is pressed
-          _showSearchDialog(
-            themeState,
-            widget.introKey,
-            widget.faqKey,
-            widget.apiItemsList,
-            widget.apiItemKeys,
-            widget.scrollController,
-            widget.introText,
-            widget.apiFaqs,
-          );
-        }
-
-        /// Check if the "Esc" key is pressed
-      } else if (keyEvent.logicalKey == LogicalKeyboardKey.escape) {
-        /// Check if the search widget is open
-        if (searchState.isOpen == true) {
-          /// Toggle the [_isOpened] state
-          searchState.toggleIsOpen(false);
-
-          /// Call the function to close the dialog
-          Navigator.of(context).pop();
-        }
-      }
-    }
-  }
-
   @override
   initState() {
     super.initState();
@@ -180,21 +128,6 @@ class _APIGuideSearchScreenState extends State<APIGuideSearchScreen> {
     /// SearchNotifierProvider to check theme attributes' states
     searchState =
         SearchNotifierProvider.of(context, listen: false).searchStateNotifier;
-
-    /// Register a keyboard event listener
-    RawKeyboard.instance.addListener(
-      (event) => _handleKey(
-        context,
-        event,
-        themeState,
-        searchState,
-        widget.introKey,
-        widget.faqKey,
-        widget.apiItemsList,
-        widget.apiItemKeys,
-        widget.scrollController,
-      ),
-    );
   }
 
   @override
@@ -206,28 +139,6 @@ class _APIGuideSearchScreenState extends State<APIGuideSearchScreen> {
       /// Update the [themeState] value
       themeState = ThemeNotifierProvider.of(context).themeStateNotifier;
     });
-  }
-
-  @override
-  dispose() {
-    /// ThemeNotifierProvider to check theme attributes state
-    themeState = ThemeNotifierProvider.of(context).themeStateNotifier;
-
-    /// Remove the listener when the widget is disposed
-    RawKeyboard.instance.removeListener(
-      (event) => _handleKey(
-        context,
-        event,
-        themeState,
-        searchState,
-        widget.introKey,
-        widget.faqKey,
-        widget.apiItemsList,
-        widget.apiItemKeys,
-        widget.scrollController,
-      ),
-    );
-    super.dispose();
   }
 
   @override
