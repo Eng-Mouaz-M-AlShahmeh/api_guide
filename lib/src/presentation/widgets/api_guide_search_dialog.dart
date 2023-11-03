@@ -132,92 +132,15 @@ class _APIGuideSearchDialogState extends State<APIGuideSearchDialog> {
           ),
           child: Padding(
             padding: EdgeInsets.all(Constants.size15),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.all(Constants.size20),
-                  child: TextField(
-                    autofocus: true,
-                    style: TextStyle(
-                      fontSize: Constants.size15,
-
-                      /// Check the current light/dark theme mode
-                      color: widget.themeState.isDarkMode
-                          ? ConstantsDarkMode.blackColor
-                          : ConstantsLightMode.blackColor,
-                    ),
-                    controller: searchController,
-                    onChanged: (val) {
-                      /// Empty the local demo list
-                      _demoList = [];
-
-                      /// Update the search key value
-                      searchState.updateSearchKey(val);
-
-                      /// Update the search controller value
-                      searchController.text = val;
-
-                      /// Check if [_patternIntro] match the search key
-                      if (_patternIntro.hasMatch(val)) {
-                        /// Add introItemListTxt to
-                        /// the demo list to compare later
-                        _demoList.add(Constants.introItemListTxt);
-                      }
-
-                      /// Check if [_patternFAQs] match the search key
-                      if (_patternFAQs.hasMatch(val)) {
-                        /// Add faqsItemListTxt to
-                        /// the demo list to compare later
-                        _demoList.add(Constants.faqsItemListTxt);
-                      }
-
-                      /// Make loop over apiItemsList
-                      widget.apiItemsList.forEach((element) {
-                        /// Check if the element url path or element title
-                        /// match the search key with lower case
-                        /// to both to make insensitive case
-                        if (element.urlPath
-                                .toLowerCase()
-                                .contains(val.toLowerCase()) ||
-                            element.title
-                                .toLowerCase()
-                                .contains(val.toLowerCase())) {
-                          /// Add element urlPath to
-                          /// the demo list to compare later
-                          _demoList.add(element.urlPath.toLowerCase());
-                        }
-                      });
-
-                      /// Notify widgets by changes
-                      setState(() {});
-                    },
-                    decoration: InputDecoration(
-                      /// Check the current light/dark theme mode
-                      suffixIconColor: widget.themeState.isDarkMode
-                          ? ConstantsDarkMode.indigoColor
-                          : ConstantsLightMode.indigoColor,
-                      suffixIcon: searchState.searchKey == Constants.emptyTxt
-                          ? SizedBox()
-                          : InkWell(
-                              onTap: () {
-                                /// Update the search key by
-                                /// empty text value when pressed
-                                /// the clear icon
-                                searchState.updateSearchKey(Constants.emptyTxt);
-
-                                /// Update the search controller by
-                                /// empty text value when pressed
-                                /// the clear icon
-                                searchController.text = Constants.emptyTxt;
-
-                                /// Notify widgets by changes
-                                setState(() {});
-                              },
-                              child: Icon(Constants.clearIcon),
-                            ),
-                      hintText: Constants.searchHintTxt,
-                      hintStyle: TextStyle(
+            child: SingleChildScrollView(
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(Constants.size20),
+                    child: TextField(
+                      autofocus: true,
+                      style: TextStyle(
                         fontSize: Constants.size15,
 
                         /// Check the current light/dark theme mode
@@ -225,665 +148,765 @@ class _APIGuideSearchDialogState extends State<APIGuideSearchDialog> {
                             ? ConstantsDarkMode.blackColor
                             : ConstantsLightMode.blackColor,
                       ),
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(Constants.size10),
-                        borderSide: BorderSide(
+                      controller: searchController,
+                      onChanged: (val) {
+                        /// Empty the local demo list
+                        _demoList = [];
+
+                        /// Update the search key value
+                        searchState.updateSearchKey(val);
+
+                        /// Update the search controller value
+                        searchController.text = val;
+
+                        /// Check if [_patternIntro] match the search key
+                        if (_patternIntro.hasMatch(val)) {
+                          /// Add introItemListTxt to
+                          /// the demo list to compare later
+                          _demoList.add(Constants.introItemListTxt);
+                        }
+
+                        /// Check if [_patternFAQs] match the search key
+                        if (_patternFAQs.hasMatch(val)) {
+                          /// Add faqsItemListTxt to
+                          /// the demo list to compare later
+                          _demoList.add(Constants.faqsItemListTxt);
+                        }
+
+                        /// Make loop over apiItemsList
+                        widget.apiItemsList.forEach((element) {
+                          /// Check if the element url path or element title
+                          /// match the search key with lower case
+                          /// to both to make insensitive case
+                          if (element.urlPath
+                                  .toLowerCase()
+                                  .contains(val.toLowerCase()) ||
+                              element.title
+                                  .toLowerCase()
+                                  .contains(val.toLowerCase())) {
+                            /// Add element urlPath to
+                            /// the demo list to compare later
+                            _demoList.add(element.urlPath.toLowerCase());
+                          }
+                        });
+
+                        /// Notify widgets by changes
+                        setState(() {});
+                      },
+                      decoration: InputDecoration(
+                        /// Check the current light/dark theme mode
+                        suffixIconColor: widget.themeState.isDarkMode
+                            ? ConstantsDarkMode.indigoColor
+                            : ConstantsLightMode.indigoColor,
+                        suffixIcon: searchState.searchKey == Constants.emptyTxt
+                            ? SizedBox()
+                            : InkWell(
+                                onTap: () {
+                                  /// Update the search key by
+                                  /// empty text value when pressed
+                                  /// the clear icon
+                                  searchState
+                                      .updateSearchKey(Constants.emptyTxt);
+
+                                  /// Update the search controller by
+                                  /// empty text value when pressed
+                                  /// the clear icon
+                                  searchController.text = Constants.emptyTxt;
+
+                                  /// Notify widgets by changes
+                                  setState(() {});
+                                },
+                                child: Icon(Constants.clearIcon),
+                              ),
+                        hintText: Constants.searchHintTxt,
+                        hintStyle: TextStyle(
+                          fontSize: Constants.size15,
+
                           /// Check the current light/dark theme mode
                           color: widget.themeState.isDarkMode
                               ? ConstantsDarkMode.blackColor
                               : ConstantsLightMode.blackColor,
-                          width: Constants.size1,
                         ),
-                      ),
-                      enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(Constants.size10),
-                        borderSide: BorderSide(
-                          /// Check the current light/dark theme mode
-                          color: widget.themeState.isDarkMode
-                              ? ConstantsDarkMode.blackColor
-                              : ConstantsLightMode.blackColor,
-                          width: Constants.size1,
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(Constants.size10),
+                          borderSide: BorderSide(
+                            /// Check the current light/dark theme mode
+                            color: widget.themeState.isDarkMode
+                                ? ConstantsDarkMode.blackColor
+                                : ConstantsLightMode.blackColor,
+                            width: Constants.size1,
+                          ),
                         ),
-                      ),
-                      focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(Constants.size10),
-                        borderSide: BorderSide(
-                          /// Check the current light/dark theme mode
-                          color: widget.themeState.isDarkMode
-                              ? ConstantsDarkMode.indigoColor!
-                              : ConstantsLightMode.indigoColor!,
-                          width: Constants.size2,
+                        enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(Constants.size10),
+                          borderSide: BorderSide(
+                            /// Check the current light/dark theme mode
+                            color: widget.themeState.isDarkMode
+                                ? ConstantsDarkMode.blackColor
+                                : ConstantsLightMode.blackColor,
+                            width: Constants.size1,
+                          ),
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(Constants.size10),
+                          borderSide: BorderSide(
+                            /// Check the current light/dark theme mode
+                            color: widget.themeState.isDarkMode
+                                ? ConstantsDarkMode.indigoColor!
+                                : ConstantsLightMode.indigoColor!,
+                            width: Constants.size2,
+                          ),
                         ),
                       ),
                     ),
                   ),
-                ),
+                  SingleChildScrollView(
+                    child: Column(
+                      children: [
+                        /// Check if the search key is empty
+                        searchState.searchKey != Constants.emptyTxt
+                            ? SizedBox()
+                            : Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Text(
+                                    Constants.noRecentSearchesTxt,
+                                    style: TextStyle(
+                                      fontSize: Constants.size13,
 
-                /// Check if the search key is empty
-                searchState.searchKey != Constants.emptyTxt
-                    ? SizedBox()
-                    : Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text(
-                            Constants.noRecentSearchesTxt,
-                            style: TextStyle(
-                              fontSize: Constants.size13,
-
-                              /// Check the current light/dark theme mode
-                              color: widget.themeState.isDarkMode
-                                  ? ConstantsDarkMode.blackColor
-                                  : ConstantsLightMode.blackColor,
-                            ),
-                          ),
-                        ],
-                      ),
-
-                /// Check if the search key is empty
-                searchState.searchKey != Constants.emptyTxt
-                    ? SizedBox()
-                    : SizedBox(height: Constants.size15),
-
-                /// Check if the search key is not empty and
-                /// the demo list is empty
-                searchState.searchKey != Constants.emptyTxt && _demoList.isEmpty
-                    ? Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Flexible(
-                            child: Text(
-                              '${Constants.notFoundTxt} ',
-                              style: TextStyle(
-                                fontSize: Constants.size13,
-
-                                /// Check the current light/dark theme mode
-                                color: widget.themeState.isDarkMode
-                                    ? ConstantsDarkMode.blackColor
-                                    : ConstantsLightMode.blackColor,
-                              ),
-                            ),
-                          ),
-                          Flexible(
-                            child: Text(
-                              '"${searchState.searchKey}"',
-                              style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                fontSize: Constants.size13,
-
-                                /// Check the current light/dark theme mode
-                                color: widget.themeState.isDarkMode
-                                    ? ConstantsDarkMode.blackColor
-                                    : ConstantsLightMode.blackColor,
+                                      /// Check the current light/dark theme mode
+                                      color: widget.themeState.isDarkMode
+                                          ? ConstantsDarkMode.blackColor
+                                          : ConstantsLightMode.blackColor,
+                                    ),
+                                  ),
+                                ],
                               ),
 
-                              /// Set to null to allow unlimited lines
-                              maxLines: null,
-                            ),
-                          ),
-                        ],
-                      )
-                    : SizedBox(),
+                        /// Check if the search key is empty
+                        searchState.searchKey != Constants.emptyTxt
+                            ? SizedBox()
+                            : SizedBox(height: Constants.size15),
 
-                /// Check if the search key is empty
-                searchState.searchKey == Constants.emptyTxt
-                    ? SizedBox()
-                    : SingleChildScrollView(
-                        child: Padding(
-                          padding: const EdgeInsets.all(Constants.size20),
-                          child: Column(
-                            children: [
-                              /// Check if the local demo list
-                              /// contains the [introItemListTxt]
-                              _demoList.contains(Constants.introItemListTxt)
-                                  ? InkWell(
-                                      /// Introduction section link
-                                      onHover: (isHovered) {
-                                        /// When hover the item
-                                        /// toggle the hover state
-                                        setState(() {
-                                          _isHoveredIntro = isHovered;
-                                        });
-                                      },
-                                      onTap: () =>
-                                          NavigationFunctions().scrollToIntro(
-                                        context,
-                                        widget.introKey,
-                                        widget.scrollController,
-                                        true,
+                        /// Check if the search key is not empty and
+                        /// the demo list is empty
+                        searchState.searchKey != Constants.emptyTxt &&
+                                _demoList.isEmpty
+                            ? Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Flexible(
+                                    child: Text(
+                                      '${Constants.notFoundTxt} ',
+                                      style: TextStyle(
+                                        fontSize: Constants.size13,
+
+                                        /// Check the current light/dark theme mode
+                                        color: widget.themeState.isDarkMode
+                                            ? ConstantsDarkMode.blackColor
+                                            : ConstantsLightMode.blackColor,
                                       ),
-                                      child: AnimatedContainer(
-                                        duration: Duration(
-                                          milliseconds: Constants.duration300,
-                                        ),
-                                        padding:
-                                            EdgeInsets.all(Constants.size15),
-                                        decoration: BoxDecoration(
-                                          /// Check the current light/dark
-                                          /// theme mode and hover state
-                                          color: _isHoveredIntro
-                                              ? widget.themeState.isDarkMode
-                                                  ? ConstantsDarkMode
-                                                      .indigoLightColor
-                                                  : ConstantsLightMode
-                                                      .indigoLightColor
-                                              : widget.themeState.isDarkMode
-                                                  ? ConstantsDarkMode.whiteColor
-                                                  : ConstantsLightMode
-                                                      .whiteColor,
-                                          borderRadius: BorderRadius.circular(
-                                            Constants.size5,
-                                          ),
-                                          border: Border.all(
-                                            /// Check the current light/dark
-                                            /// theme mode
-                                            color: widget.themeState.isDarkMode
-                                                ? ConstantsDarkMode.indigoColor!
-                                                : ConstantsLightMode
-                                                    .indigoColor!,
-                                            width: Constants.size1,
-                                          ),
-                                        ),
-                                        child: Column(
-                                          children: [
-                                            Row(
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.start,
-                                              children: [
-                                                Icon(
-                                                  Constants.arrowDoubleNavIcon,
+                                    ),
+                                  ),
+                                  Flexible(
+                                    child: Text(
+                                      '"${searchState.searchKey}"',
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: Constants.size13,
 
-                                                  /// Check the current
-                                                  /// light/dark theme mode
-                                                  color:
-                                                      widget.themeState
+                                        /// Check the current light/dark theme mode
+                                        color: widget.themeState.isDarkMode
+                                            ? ConstantsDarkMode.blackColor
+                                            : ConstantsLightMode.blackColor,
+                                      ),
+
+                                      /// Set to null to allow unlimited lines
+                                      maxLines: null,
+                                    ),
+                                  ),
+                                ],
+                              )
+                            : SizedBox(),
+
+                        /// Check if the search key is empty
+                        searchState.searchKey == Constants.emptyTxt
+                            ? SizedBox()
+                            : SingleChildScrollView(
+                                child: Padding(
+                                  padding:
+                                      const EdgeInsets.all(Constants.size20),
+                                  child: Column(
+                                    children: [
+                                      /// Check if the local demo list
+                                      /// contains the [introItemListTxt]
+                                      _demoList.contains(
+                                              Constants.introItemListTxt)
+                                          ? InkWell(
+                                              /// Introduction section link
+                                              onHover: (isHovered) {
+                                                /// When hover the item
+                                                /// toggle the hover state
+                                                setState(() {
+                                                  _isHoveredIntro = isHovered;
+                                                });
+                                              },
+                                              onTap: () => NavigationFunctions()
+                                                  .scrollToIntro(
+                                                context,
+                                                widget.introKey,
+                                                widget.scrollController,
+                                                true,
+                                              ),
+                                              child: AnimatedContainer(
+                                                duration: Duration(
+                                                  milliseconds:
+                                                      Constants.duration300,
+                                                ),
+                                                padding: EdgeInsets.all(
+                                                    Constants.size15),
+                                                decoration: BoxDecoration(
+                                                  /// Check the current light/dark
+                                                  /// theme mode and hover state
+                                                  color: _isHoveredIntro
+                                                      ? widget.themeState
                                                               .isDarkMode
                                                           ? ConstantsDarkMode
-                                                              .indigoColor
+                                                              .indigoLightColor
                                                           : ConstantsLightMode
-                                                              .indigoColor,
-                                                  size: Constants.size15,
+                                                              .indigoLightColor
+                                                      : widget.themeState
+                                                              .isDarkMode
+                                                          ? ConstantsDarkMode
+                                                              .whiteColor
+                                                          : ConstantsLightMode
+                                                              .whiteColor,
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                    Constants.size5,
+                                                  ),
+                                                  border: Border.all(
+                                                    /// Check the current light/dark
+                                                    /// theme mode
+                                                    color: widget.themeState
+                                                            .isDarkMode
+                                                        ? ConstantsDarkMode
+                                                            .indigoColor!
+                                                        : ConstantsLightMode
+                                                            .indigoColor!,
+                                                    width: Constants.size1,
+                                                  ),
                                                 ),
-                                                Text(
-                                                  Constants.introTxt,
-                                                  style: TextStyle(
-                                                    fontWeight: FontWeight.bold,
+                                                child: Column(
+                                                  children: [
+                                                    Row(
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .start,
+                                                      children: [
+                                                        Icon(
+                                                          Constants
+                                                              .arrowDoubleNavIcon,
 
-                                                    /// Check the current
-                                                    /// light/dark theme mode
-                                                    color:
-                                                        widget.themeState
-                                                                .isDarkMode
-                                                            ? ConstantsDarkMode
-                                                                .indigoColor
-                                                            : ConstantsLightMode
-                                                                .indigoColor,
-                                                    fontSize: Constants.size15,
-                                                  ),
-                                                )
-                                              ],
-                                            ),
-                                            Row(
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.start,
-                                              children: [
-                                                Text(
-                                                  /// Check if the text is over
-                                                  /// the fixed length to make
-                                                  /// the pretty trim
-                                                  widget.introText.length >
-                                                          Constants.size50
-                                                      ? widget.introText
-                                                              .substring(
-                                                                  Constants
-                                                                      .size0
-                                                                      .toInt(),
-                                                                  Constants
-                                                                      .size50
-                                                                      .toInt()) +
-                                                          Constants.restTxt
-                                                      : widget.introText,
-                                                  style: TextStyle(
-                                                    fontWeight:
-                                                        FontWeight.normal,
-
-                                                    /// Check the current light/dark theme mode
-                                                    color: Constants.greyColor,
-                                                    fontSize: Constants.size10,
-                                                  ),
-                                                )
-                                              ],
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                    )
-                                  : SizedBox(),
-
-                              /// Check if the local demo list
-                              /// contains the [introItemListTxt]
-                              _demoList.contains(Constants.introItemListTxt)
-                                  ? SizedBox(height: Constants.size15)
-                                  : SizedBox(),
-
-                              Column(
-                                /// List of API items and their links
-                                children: widget.apiItemsList
-                                    .map((item) => Column(
-                                          children: [
-                                            /// Check if the item url path
-                                            /// exists in the local demo list
-                                            _demoList.contains(
-                                                    item.urlPath.toLowerCase())
-                                                ? InkWell(
-                                                    onHover: (isHovered) {
-                                                      /// Toggle the hover state
-                                                      /// when hover the item
-                                                      setState(() {
-                                                        item.isHovered =
-                                                            isHovered;
-                                                      });
-                                                    },
-                                                    onTap: () =>
-                                                        NavigationFunctions()
-                                                            .scrollToAPIItem(
-                                                      context,
-                                                      widget.scrollController,
-                                                      widget.apiItemKeys
-                                                          .firstWhere(
-                                                        (element) => element
-                                                            .toString()
-                                                            .contains(
-                                                                item.title),
-                                                      ),
-                                                      true,
-                                                    ),
-                                                    child: AnimatedContainer(
-                                                      duration: Duration(
-                                                        milliseconds: Constants
-                                                            .duration300,
-                                                      ),
-                                                      padding: EdgeInsets.all(
-                                                          Constants.size15),
-                                                      decoration: BoxDecoration(
-                                                        /// Check the current light/dark
-                                                        /// theme mode and hover state
-                                                        color: item.isHovered !=
-                                                                    null &&
-                                                                item.isHovered ==
-                                                                    true
-                                                            ? widget.themeState
-                                                                    .isDarkMode
-                                                                ? ConstantsDarkMode
-                                                                    .indigoLightColor
-                                                                : ConstantsLightMode
-                                                                    .indigoLightColor
-                                                            : widget.themeState
-                                                                    .isDarkMode
-                                                                ? ConstantsDarkMode
-                                                                    .whiteColor
-                                                                : ConstantsLightMode
-                                                                    .whiteColor,
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(
-                                                          Constants.size5,
-                                                        ),
-                                                        border: Border.all(
-                                                          /// Check the current light/dark theme mode
-                                                          color: widget.themeState
+                                                          /// Check the current
+                                                          /// light/dark theme mode
+                                                          color: widget
+                                                                  .themeState
                                                                   .isDarkMode
                                                               ? ConstantsDarkMode
-                                                                  .indigoColor!
+                                                                  .indigoColor
                                                               : ConstantsLightMode
-                                                                  .indigoColor!,
-                                                          width:
-                                                              Constants.size1,
+                                                                  .indigoColor,
+                                                          size:
+                                                              Constants.size15,
                                                         ),
-                                                      ),
-                                                      child: Column(
-                                                        children: [
-                                                          Row(
-                                                            mainAxisAlignment:
-                                                                MainAxisAlignment
-                                                                    .spaceBetween,
-                                                            children: [
-                                                              Row(
-                                                                children: [
-                                                                  Icon(
-                                                                    Constants
-                                                                        .arrowDoubleNavIcon,
+                                                        Text(
+                                                          Constants.introTxt,
+                                                          style: TextStyle(
+                                                            fontWeight:
+                                                                FontWeight.bold,
 
-                                                                    /// Check the current light/dark theme mode
-                                                                    color: widget
-                                                                            .themeState
+                                                            /// Check the current
+                                                            /// light/dark theme mode
+                                                            color: widget
+                                                                    .themeState
+                                                                    .isDarkMode
+                                                                ? ConstantsDarkMode
+                                                                    .indigoColor
+                                                                : ConstantsLightMode
+                                                                    .indigoColor,
+                                                            fontSize: Constants
+                                                                .size15,
+                                                          ),
+                                                        )
+                                                      ],
+                                                    ),
+                                                    Row(
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .start,
+                                                      children: [
+                                                        Text(
+                                                          /// Check if the text is over
+                                                          /// the fixed length to make
+                                                          /// the pretty trim
+                                                          widget.introText
+                                                                      .length >
+                                                                  Constants
+                                                                      .size50
+                                                              ? widget.introText.substring(
+                                                                      Constants
+                                                                          .size0
+                                                                          .toInt(),
+                                                                      Constants
+                                                                          .size50
+                                                                          .toInt()) +
+                                                                  Constants
+                                                                      .restTxt
+                                                              : widget
+                                                                  .introText,
+                                                          style: TextStyle(
+                                                            fontWeight:
+                                                                FontWeight
+                                                                    .normal,
+
+                                                            /// Check the current light/dark theme mode
+                                                            color: Constants
+                                                                .greyColor,
+                                                            fontSize: Constants
+                                                                .size10,
+                                                          ),
+                                                        )
+                                                      ],
+                                                    ),
+                                                  ],
+                                                ),
+                                              ),
+                                            )
+                                          : SizedBox(),
+
+                                      /// Check if the local demo list
+                                      /// contains the [introItemListTxt]
+                                      _demoList.contains(
+                                              Constants.introItemListTxt)
+                                          ? SizedBox(height: Constants.size15)
+                                          : SizedBox(),
+
+                                      Column(
+                                        /// List of API items and their links
+                                        children: widget.apiItemsList
+                                            .map((item) => Column(
+                                                  children: [
+                                                    /// Check if the item url path
+                                                    /// exists in the local demo list
+                                                    _demoList.contains(item
+                                                            .urlPath
+                                                            .toLowerCase())
+                                                        ? InkWell(
+                                                            onHover:
+                                                                (isHovered) {
+                                                              /// Toggle the hover state
+                                                              /// when hover the item
+                                                              setState(() {
+                                                                item.isHovered =
+                                                                    isHovered;
+                                                              });
+                                                            },
+                                                            onTap: () =>
+                                                                NavigationFunctions()
+                                                                    .scrollToAPIItem(
+                                                              context,
+                                                              widget
+                                                                  .scrollController,
+                                                              widget.apiItemKeys
+                                                                  .firstWhere(
+                                                                (element) => element
+                                                                    .toString()
+                                                                    .contains(item
+                                                                        .title),
+                                                              ),
+                                                              true,
+                                                            ),
+                                                            child:
+                                                                AnimatedContainer(
+                                                              duration:
+                                                                  Duration(
+                                                                milliseconds:
+                                                                    Constants
+                                                                        .duration300,
+                                                              ),
+                                                              padding: EdgeInsets
+                                                                  .all(Constants
+                                                                      .size15),
+                                                              decoration:
+                                                                  BoxDecoration(
+                                                                /// Check the current light/dark
+                                                                /// theme mode and hover state
+                                                                color: item.isHovered !=
+                                                                            null &&
+                                                                        item.isHovered ==
+                                                                            true
+                                                                    ? widget.themeState
                                                                             .isDarkMode
                                                                         ? ConstantsDarkMode
-                                                                            .indigoColor
+                                                                            .indigoLightColor
                                                                         : ConstantsLightMode
-                                                                            .indigoColor,
-                                                                    size: Constants
-                                                                        .size15,
-                                                                  ),
-                                                                  Text(
-                                                                    item.title,
-                                                                    style:
-                                                                        TextStyle(
-                                                                      fontWeight:
-                                                                          FontWeight
-                                                                              .bold,
-
-                                                                      /// Check the current light/dark theme mode
-                                                                      color: widget
-                                                                              .themeState
-                                                                              .isDarkMode
-                                                                          ? ConstantsDarkMode
-                                                                              .indigoColor
-                                                                          : ConstantsLightMode
-                                                                              .indigoColor,
-                                                                      fontSize:
-                                                                          Constants
-                                                                              .size15,
-                                                                    ),
-                                                                  ),
-                                                                ],
-                                                              ),
-                                                              SizedBox(
-                                                                  width: Constants
-                                                                      .size30),
-                                                              ClipRRect(
+                                                                            .indigoLightColor
+                                                                    : widget.themeState
+                                                                            .isDarkMode
+                                                                        ? ConstantsDarkMode
+                                                                            .whiteColor
+                                                                        : ConstantsLightMode
+                                                                            .whiteColor,
                                                                 borderRadius:
                                                                     BorderRadius
-                                                                        .all(
-                                                                  Radius.circular(
-                                                                      Constants
-                                                                          .size10),
+                                                                        .circular(
+                                                                  Constants
+                                                                      .size5,
                                                                 ),
-                                                                child: SizedBox(
-                                                                  child:
-                                                                      DecoratedBox(
-                                                                    decoration:
-                                                                        BoxDecoration(
-                                                                      color: Constants
-                                                                          .getMethodColor(
-                                                                        item
-                                                                            .request
-                                                                            .method
-                                                                            .name,
-                                                                      ),
-                                                                    ),
-                                                                    child:
-                                                                        Padding(
-                                                                      padding:
-                                                                          const EdgeInsets
-                                                                              .fromLTRB(
-                                                                        Constants
-                                                                            .size10,
-                                                                        Constants
-                                                                            .size5,
-                                                                        Constants
-                                                                            .size10,
-                                                                        Constants
-                                                                            .size5,
-                                                                      ),
-                                                                      child:
+                                                                border:
+                                                                    Border.all(
+                                                                  /// Check the current light/dark theme mode
+                                                                  color: widget
+                                                                          .themeState
+                                                                          .isDarkMode
+                                                                      ? ConstantsDarkMode
+                                                                          .indigoColor!
+                                                                      : ConstantsLightMode
+                                                                          .indigoColor!,
+                                                                  width:
+                                                                      Constants
+                                                                          .size1,
+                                                                ),
+                                                              ),
+                                                              child: Column(
+                                                                children: [
+                                                                  Row(
+                                                                    mainAxisAlignment:
+                                                                        MainAxisAlignment
+                                                                            .spaceBetween,
+                                                                    children: [
+                                                                      Row(
+                                                                        children: [
+                                                                          Icon(
+                                                                            Constants.arrowDoubleNavIcon,
+
+                                                                            /// Check the current light/dark theme mode
+                                                                            color: widget.themeState.isDarkMode
+                                                                                ? ConstantsDarkMode.indigoColor
+                                                                                : ConstantsLightMode.indigoColor,
+                                                                            size:
+                                                                                Constants.size15,
+                                                                          ),
                                                                           Text(
-                                                                        item
-                                                                            .request
-                                                                            .method
-                                                                            .name,
+                                                                            item.title,
+                                                                            style:
+                                                                                TextStyle(
+                                                                              fontWeight: FontWeight.bold,
+
+                                                                              /// Check the current light/dark theme mode
+                                                                              color: widget.themeState.isDarkMode ? ConstantsDarkMode.indigoColor : ConstantsLightMode.indigoColor,
+                                                                              fontSize: Constants.size15,
+                                                                            ),
+                                                                          ),
+                                                                        ],
+                                                                      ),
+                                                                      SizedBox(
+                                                                          width:
+                                                                              Constants.size30),
+                                                                      ClipRRect(
+                                                                        borderRadius:
+                                                                            BorderRadius.all(
+                                                                          Radius.circular(
+                                                                              Constants.size10),
+                                                                        ),
+                                                                        child:
+                                                                            SizedBox(
+                                                                          child:
+                                                                              DecoratedBox(
+                                                                            decoration:
+                                                                                BoxDecoration(
+                                                                              color: Constants.getMethodColor(
+                                                                                item.request.method.name,
+                                                                              ),
+                                                                            ),
+                                                                            child:
+                                                                                Padding(
+                                                                              padding: const EdgeInsets.fromLTRB(
+                                                                                Constants.size10,
+                                                                                Constants.size5,
+                                                                                Constants.size10,
+                                                                                Constants.size5,
+                                                                              ),
+                                                                              child: Text(
+                                                                                item.request.method.name,
+                                                                                style: TextStyle(
+                                                                                  /// Check the current light/dark theme mode
+                                                                                  color: widget.themeState.isDarkMode ? ConstantsDarkMode.whiteColor : ConstantsLightMode.whiteColor,
+                                                                                  fontWeight: FontWeight.bold,
+                                                                                  fontSize: Constants.size10,
+                                                                                ),
+                                                                              ),
+                                                                            ),
+                                                                          ),
+                                                                        ),
+                                                                      ),
+                                                                    ],
+                                                                  ),
+                                                                  Row(
+                                                                    mainAxisAlignment:
+                                                                        MainAxisAlignment
+                                                                            .start,
+                                                                    children: [
+                                                                      Text(
+                                                                        /// Check if the text is over
+                                                                        /// than the fixed length
+                                                                        /// then make pretty trim to it
+                                                                        item.description.length > Constants.size50
+                                                                            ? item.description.substring(Constants.size0.toInt(), Constants.size50.toInt()) +
+                                                                                Constants.restTxt
+                                                                            : item.description,
                                                                         style:
                                                                             TextStyle(
-                                                                          /// Check the current light/dark theme mode
-                                                                          color: widget.themeState.isDarkMode
-                                                                              ? ConstantsDarkMode.whiteColor
-                                                                              : ConstantsLightMode.whiteColor,
                                                                           fontWeight:
-                                                                              FontWeight.bold,
+                                                                              FontWeight.normal,
+
+                                                                          /// Check the current
+                                                                          /// light/dark theme mode
+                                                                          color:
+                                                                              Constants.greyColor,
                                                                           fontSize:
                                                                               Constants.size10,
                                                                         ),
-                                                                      ),
-                                                                    ),
+                                                                      )
+                                                                    ],
                                                                   ),
-                                                                ),
+                                                                ],
                                                               ),
-                                                            ],
-                                                          ),
-                                                          Row(
-                                                            mainAxisAlignment:
-                                                                MainAxisAlignment
-                                                                    .start,
-                                                            children: [
-                                                              Text(
-                                                                /// Check if the text is over
-                                                                /// than the fixed length
-                                                                /// then make pretty trim to it
-                                                                item.description
-                                                                            .length >
-                                                                        Constants
-                                                                            .size50
-                                                                    ? item.description.substring(
-                                                                            Constants.size0
-                                                                                .toInt(),
-                                                                            Constants.size50
-                                                                                .toInt()) +
-                                                                        Constants
-                                                                            .restTxt
-                                                                    : item
-                                                                        .description,
-                                                                style:
-                                                                    TextStyle(
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .normal,
+                                                            ),
+                                                          )
+                                                        : SizedBox(),
 
-                                                                  /// Check the current
-                                                                  /// light/dark theme mode
-                                                                  color: Constants
-                                                                      .greyColor,
-                                                                  fontSize:
-                                                                      Constants
-                                                                          .size10,
-                                                                ),
-                                                              )
-                                                            ],
-                                                          ),
-                                                        ],
-                                                      ),
-                                                    ),
-                                                  )
-                                                : SizedBox(),
-
-                                            /// Check if the item url path
-                                            /// exists in the local demo list
-                                            _demoList.contains(
-                                                    item.urlPath.toLowerCase())
-                                                ? SizedBox(
-                                                    height: Constants.size15)
-                                                : SizedBox(),
-                                          ],
-                                        ))
-                                    .toList(),
-                              ),
-
-                              /// Check if the local demo list contains
-                              /// the [faqsItemListTxt]
-                              _demoList.contains(Constants.faqsItemListTxt)
-                                  ? InkWell(
-                                      /// FAQ section link
-                                      onHover: (isHovered) {
-                                        /// When hover the item toggle
-                                        /// the hover state
-                                        setState(() {
-                                          _isHoveredFaqs = isHovered;
-                                        });
-                                      },
-                                      onTap: () =>
-                                          NavigationFunctions().scrollToFaq(
-                                        context,
-                                        widget.faqKey,
-                                        widget.scrollController,
-                                        true,
+                                                    /// Check if the item url path
+                                                    /// exists in the local demo list
+                                                    _demoList.contains(item
+                                                            .urlPath
+                                                            .toLowerCase())
+                                                        ? SizedBox(
+                                                            height: Constants
+                                                                .size15)
+                                                        : SizedBox(),
+                                                  ],
+                                                ))
+                                            .toList(),
                                       ),
-                                      child: AnimatedContainer(
-                                        duration: Duration(
-                                          milliseconds: Constants.duration300,
-                                        ),
-                                        padding:
-                                            EdgeInsets.all(Constants.size15),
-                                        decoration: BoxDecoration(
-                                          /// Check the current light/dark theme mode
-                                          color: _isHoveredFaqs
-                                              ? widget.themeState.isDarkMode
-                                                  ? ConstantsDarkMode
-                                                      .indigoLightColor
-                                                  : ConstantsLightMode
-                                                      .indigoLightColor
-                                              : widget.themeState.isDarkMode
-                                                  ? ConstantsDarkMode.whiteColor
-                                                  : ConstantsLightMode
-                                                      .whiteColor,
-                                          borderRadius: BorderRadius.circular(
-                                            Constants.size5,
-                                          ),
-                                          border: Border.all(
-                                            /// Check the current
-                                            /// light/dark theme mode
-                                            color: widget.themeState.isDarkMode
-                                                ? ConstantsDarkMode.indigoColor!
-                                                : ConstantsLightMode
-                                                    .indigoColor!,
-                                            width: Constants.size1,
-                                          ),
-                                        ),
-                                        child: Column(
-                                          children: [
-                                            Row(
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.start,
-                                              children: [
-                                                Icon(
-                                                  Constants.arrowDoubleNavIcon,
 
-                                                  /// Check the current
-                                                  /// light/dark theme mode
-                                                  color:
-                                                      widget.themeState
+                                      /// Check if the local demo list contains
+                                      /// the [faqsItemListTxt]
+                                      _demoList.contains(
+                                              Constants.faqsItemListTxt)
+                                          ? InkWell(
+                                              /// FAQ section link
+                                              onHover: (isHovered) {
+                                                /// When hover the item toggle
+                                                /// the hover state
+                                                setState(() {
+                                                  _isHoveredFaqs = isHovered;
+                                                });
+                                              },
+                                              onTap: () => NavigationFunctions()
+                                                  .scrollToFaq(
+                                                context,
+                                                widget.faqKey,
+                                                widget.scrollController,
+                                                true,
+                                              ),
+                                              child: AnimatedContainer(
+                                                duration: Duration(
+                                                  milliseconds:
+                                                      Constants.duration300,
+                                                ),
+                                                padding: EdgeInsets.all(
+                                                    Constants.size15),
+                                                decoration: BoxDecoration(
+                                                  /// Check the current light/dark theme mode
+                                                  color: _isHoveredFaqs
+                                                      ? widget.themeState
                                                               .isDarkMode
                                                           ? ConstantsDarkMode
-                                                              .indigoColor
+                                                              .indigoLightColor
                                                           : ConstantsLightMode
-                                                              .indigoColor,
-                                                  size: Constants.size15,
-                                                ),
-                                                Text(
-                                                  Constants.faqsShortTxt,
-                                                  style: TextStyle(
-                                                    fontWeight: FontWeight.bold,
-
+                                                              .indigoLightColor
+                                                      : widget.themeState
+                                                              .isDarkMode
+                                                          ? ConstantsDarkMode
+                                                              .whiteColor
+                                                          : ConstantsLightMode
+                                                              .whiteColor,
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                    Constants.size5,
+                                                  ),
+                                                  border: Border.all(
                                                     /// Check the current
                                                     /// light/dark theme mode
-                                                    color:
-                                                        widget.themeState
-                                                                .isDarkMode
-                                                            ? ConstantsDarkMode
-                                                                .indigoColor
-                                                            : ConstantsLightMode
-                                                                .indigoColor,
-                                                    fontSize: Constants.size15,
+                                                    color: widget.themeState
+                                                            .isDarkMode
+                                                        ? ConstantsDarkMode
+                                                            .indigoColor!
+                                                        : ConstantsLightMode
+                                                            .indigoColor!,
+                                                    width: Constants.size1,
                                                   ),
-                                                )
-                                              ],
-                                            ),
-                                            Row(
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.start,
-                                              children: [
-                                                Text(
-                                                  /// Check if the text is over
-                                                  /// than the fixed length
-                                                  /// then make pretty trim to it
-                                                  widget.apiFaqs.firstOrNull!
-                                                              .question.length >
-                                                          Constants.size50
-                                                      ? widget
-                                                              .apiFaqs
-                                                              .firstOrNull!
-                                                              .question
-                                                              .substring(
-                                                                  Constants
-                                                                      .size0
-                                                                      .toInt(),
+                                                ),
+                                                child: Column(
+                                                  children: [
+                                                    Row(
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .start,
+                                                      children: [
+                                                        Icon(
+                                                          Constants
+                                                              .arrowDoubleNavIcon,
+
+                                                          /// Check the current
+                                                          /// light/dark theme mode
+                                                          color: widget
+                                                                  .themeState
+                                                                  .isDarkMode
+                                                              ? ConstantsDarkMode
+                                                                  .indigoColor
+                                                              : ConstantsLightMode
+                                                                  .indigoColor,
+                                                          size:
+                                                              Constants.size15,
+                                                        ),
+                                                        Text(
+                                                          Constants
+                                                              .faqsShortTxt,
+                                                          style: TextStyle(
+                                                            fontWeight:
+                                                                FontWeight.bold,
+
+                                                            /// Check the current
+                                                            /// light/dark theme mode
+                                                            color: widget
+                                                                    .themeState
+                                                                    .isDarkMode
+                                                                ? ConstantsDarkMode
+                                                                    .indigoColor
+                                                                : ConstantsLightMode
+                                                                    .indigoColor,
+                                                            fontSize: Constants
+                                                                .size15,
+                                                          ),
+                                                        )
+                                                      ],
+                                                    ),
+                                                    Row(
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .start,
+                                                      children: [
+                                                        Text(
+                                                          /// Check if the text is over
+                                                          /// than the fixed length
+                                                          /// then make pretty trim to it
+                                                          widget
+                                                                      .apiFaqs
+                                                                      .firstOrNull!
+                                                                      .question
+                                                                      .length >
                                                                   Constants
                                                                       .size50
-                                                                      .toInt()) +
-                                                          Constants.restTxt
-                                                      : widget
-                                                          .apiFaqs
-                                                          .firstOrNull!
-                                                          .question,
-                                                  style: TextStyle(
-                                                    fontWeight:
-                                                        FontWeight.normal,
+                                                              ? widget
+                                                                      .apiFaqs
+                                                                      .firstOrNull!
+                                                                      .question
+                                                                      .substring(
+                                                                          Constants
+                                                                              .size0
+                                                                              .toInt(),
+                                                                          Constants
+                                                                              .size50
+                                                                              .toInt()) +
+                                                                  Constants
+                                                                      .restTxt
+                                                              : widget
+                                                                  .apiFaqs
+                                                                  .firstOrNull!
+                                                                  .question,
+                                                          style: TextStyle(
+                                                            fontWeight:
+                                                                FontWeight
+                                                                    .normal,
 
-                                                    /// Check the current light/dark theme mode
-                                                    color: Constants.greyColor,
-                                                    fontSize: Constants.size10,
-                                                  ),
-                                                )
-                                              ],
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                    )
-                                  : SizedBox(),
+                                                            /// Check the current light/dark theme mode
+                                                            color: Constants
+                                                                .greyColor,
+                                                            fontSize: Constants
+                                                                .size10,
+                                                          ),
+                                                        )
+                                                      ],
+                                                    ),
+                                                  ],
+                                                ),
+                                              ),
+                                            )
+                                          : SizedBox(),
 
-                              /// Check if the local demo list contains
-                              /// the [faqsItemListTxt]
-                              _demoList.contains(Constants.faqsItemListTxt)
-                                  ? SizedBox(height: Constants.size15)
-                                  : SizedBox(),
-                            ],
-                          ),
-                        ),
-                      ),
-                SizedBox(height: Constants.size15),
-                ElevatedButton(
-                  style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all(
-                      /// Check the current light/dark theme mode
-                      widget.themeState.isDarkMode
-                          ? ConstantsDarkMode.indigoColor
-                          : ConstantsLightMode.indigoColor,
-                    ),
-                    foregroundColor: MaterialStateProperty.all(
-                      /// Check the current light/dark theme mode
-                      widget.themeState.isDarkMode
-                          ? ConstantsDarkMode.whiteColor
-                          : ConstantsLightMode.whiteColor,
-                    ),
-                    textStyle: MaterialStateProperty.all(
-                      TextStyle(
-                        fontSize: Constants.size10,
-
-                        /// Check the current light/dark theme mode
-                        color: widget.themeState.isDarkMode
-                            ? ConstantsDarkMode.greyLightColor
-                            : ConstantsLightMode.greyLightColor,
-                      ),
+                                      /// Check if the local demo list contains
+                                      /// the [faqsItemListTxt]
+                                      _demoList.contains(
+                                              Constants.faqsItemListTxt)
+                                          ? SizedBox(height: Constants.size15)
+                                          : SizedBox(),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                      ],
                     ),
                   ),
-                  onPressed: () {
-                    /// Toggle the [_isOpened] state
-                    searchState.toggleIsOpen(false);
+                  SizedBox(height: Constants.size15),
+                  ElevatedButton(
+                    style: ButtonStyle(
+                      backgroundColor: MaterialStateProperty.all(
+                        /// Check the current light/dark theme mode
+                        widget.themeState.isDarkMode
+                            ? ConstantsDarkMode.indigoColor
+                            : ConstantsLightMode.indigoColor,
+                      ),
+                      foregroundColor: MaterialStateProperty.all(
+                        /// Check the current light/dark theme mode
+                        widget.themeState.isDarkMode
+                            ? ConstantsDarkMode.whiteColor
+                            : ConstantsLightMode.whiteColor,
+                      ),
+                      textStyle: MaterialStateProperty.all(
+                        TextStyle(
+                          fontSize: Constants.size10,
 
-                    /// Call the function to close the dialog
-                    Navigator.of(context).pop();
-                  },
-                  child: Text(Constants.closeTxt),
-                ),
-              ],
+                          /// Check the current light/dark theme mode
+                          color: widget.themeState.isDarkMode
+                              ? ConstantsDarkMode.greyLightColor
+                              : ConstantsLightMode.greyLightColor,
+                        ),
+                      ),
+                    ),
+                    onPressed: () {
+                      /// Toggle the [_isOpened] state
+                      searchState.toggleIsOpen(false);
+
+                      /// Call the function to close the dialog
+                      Navigator.of(context).pop();
+                    },
+                    child: Text(Constants.closeTxt),
+                  ),
+                ],
+              ),
             ),
           ),
         ),
