@@ -3,7 +3,11 @@
 /// APIGuide package
 
 /// Import necessary packages
+/// Import [flutter/material] package files
 import 'package:flutter/material.dart';
+
+/// Import [provider] package files
+import 'package:provider/provider.dart';
 
 /// Import [APIGuide] package files
 import '../api_guide.dart';
@@ -44,50 +48,49 @@ class APIGuide implements APIGuideInterface {
 
     /// Privacy Link of the API Guide implementation
     String? privacyLink,
+
+    /// Theme Color of the API Guide implementation
+    APIGuideThemeColor? themeColor,
   }) {
-    /// Define [ThemeStateNotifier] instance
-    final ThemeStateNotifier themeStateNotifier = ThemeStateNotifier();
+    /// Return [MultiProvider]
+    return MultiProvider(
+      providers: [
+        /// Create [AppProvider] from type [ChangeNotifierProvider]
+        ChangeNotifierProvider(create: (_) => AppProvider()),
 
-    /// Define [ThemeStateNotifier] instance
-    final SearchStateNotifier searchStateNotifier = SearchStateNotifier();
+        /// Create [ThemeProvider] from type [ChangeNotifierProvider]
+        ChangeNotifierProvider(create: (_) => ThemeProvider()),
 
-    /// Return [ThemeNotifierProvider]
-    return ThemeNotifierProvider(
-      /// Initialize the [themeStateNotifier] attribute
-      themeStateNotifier: themeStateNotifier,
+        /// Create [SearchProvider] from type [ChangeNotifierProvider]
+        ChangeNotifierProvider(create: (_) => SearchProvider()),
+      ],
+      child: APIGuideScreen(
+        /// Host URL
+        urlHost: urlHost,
 
-      /// And [SearchNotifierProvider]
-      child: SearchNotifierProvider(
-        /// Initialize the [searchStateNotifier] attribute
-        searchStateNotifier: searchStateNotifier,
-        child: APIGuideScreen(
-          /// Build context implementation
-          context: context,
+        /// List of API items
+        apiItems: apiItems,
 
-          /// Host URL implementation
-          urlHost: urlHost,
+        /// List of FAQs
+        apiFaqs: apiFaqs,
 
-          /// List of API items implementation
-          apiItems: apiItems,
+        /// API version
+        version: version,
 
-          /// List of FAQs implementation
-          apiFaqs: apiFaqs,
+        /// Date of the latest update
+        latestUpdate: latestUpdate,
 
-          /// API version implementation
-          version: version,
+        /// Introduction to the API Guide
+        apiIntro: apiIntro,
 
-          /// Date of the latest update implementation
-          latestUpdate: latestUpdate,
+        /// Theme Color of the API Guide
+        themeColor: themeColor,
 
-          /// Introduction to the API Guide implementation
-          apiIntro: apiIntro,
+        /// Terms Link of the API Guide
+        termsLink: termsLink,
 
-          /// Terms Link of the API Guide implementation
-          termsLink: termsLink,
-
-          /// Privacy Link of the API Guide implementation
-          privacyLink: privacyLink,
-        ),
+        /// Privacy Link of the API Guide
+        privacyLink: privacyLink,
       ),
     );
   }

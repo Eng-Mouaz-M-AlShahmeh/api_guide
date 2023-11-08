@@ -33,6 +33,7 @@ Flutter package to generate API calls documentations like OpenAPI schema.
 * Seamless scrollable sidebar.
 * It appears clear by version and last update date.
 * Optional Privacy Policy and Terms of Use API Integration Guide footer links.
+* Optional variant to change the theme color supports 14 color distributions.
 * Built in accordance with [W3 Consortium](https://www.w3.org) and [OpenAPI Schema](https://spec.openapis.org/oas/v3.1.0) recommendations.
 
 ## Installation and Basic Usage
@@ -41,7 +42,7 @@ First: Add to pubspec.yaml:
 
 ```yaml
 dependencies:
-  api_guide: ^1.0.7
+  api_guide: ^1.0.8
 ```
 
 Second: import it to your project:

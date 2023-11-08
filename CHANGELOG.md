@@ -1,3 +1,14 @@
+## [1.0.8] - 2023/11/08
+
+* Update README.md file.
+* Update CHANGELOG.md file.
+* Fix Privacy and Terms link clicks.
+* Enhance sample code button appearance.
+* Enhance performance issues.
+* Add optional theme color swatches from 14 color pallets.
+* Import provider with version 6.0.5 package and enhance state management. 
+* Add explanatory comments.
+
 ## [1.0.7] - 2023/11/03
 
 * Update README.md file.

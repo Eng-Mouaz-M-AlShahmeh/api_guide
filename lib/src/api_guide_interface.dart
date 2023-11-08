@@ -41,5 +41,8 @@ abstract class APIGuideInterface {
 
     /// Privacy Link of the API Guide interface to implement later
     String? privacyLink,
+
+    /// Theme Color of the API Guide interface to implement later
+    APIGuideThemeColor? themeColor,
   });
 }

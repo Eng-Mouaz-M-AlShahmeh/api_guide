@@ -6,6 +6,9 @@
 /// Import [flutter/material] package files
 import 'package:flutter/material.dart';
 
+/// Import [provider] package files
+import 'package:provider/provider.dart';
+
 /// Import [APIGuide] package files
 import '../../../api_guide.dart';
 
@@ -16,26 +19,22 @@ class NavigationFunctions {
     /// BuildContext
     BuildContext context,
 
-    /// Introduction GlobalKey
-    GlobalKey introKey,
-
-    /// Scroll Controller
-    ScrollController scrollController,
-
     /// bool isPop attribute
     bool isPop,
   ) {
     /// SearchNotifierProvider to check search attributes' states
-    final searchState =
-        SearchNotifierProvider.of(context, listen: false).searchStateNotifier;
+    final searchState = context.read<SearchProvider>();
+
+    /// AppNotifierProvider to check search attributes' states
+    final appState = context.read<AppProvider>();
 
     /// Find the RenderObject of the target widget.
-    final renderBox = introKey.currentContext!.findRenderObject();
+    final renderBox = appState.introKey.currentContext!.findRenderObject();
 
     /// Scroll to the target RenderObject's position if found
     if (renderBox != null) {
       /// Make the scroll effect with ease curve
-      scrollController.position.ensureVisible(
+      appState.scrollController1.position.ensureVisible(
         /// RenderObject
         renderBox,
 
@@ -49,11 +48,14 @@ class NavigationFunctions {
 
     /// Check the isPop value
     if (isPop) {
-      /// Toggle the [_isOpened] state
-      searchState.toggleIsOpen(false);
+      /// Reset the isOpened state
+      searchState.updateIsOpenSearch(false);
 
-      /// Call the function to close the dialog after click
-      Navigator.of(context).pop();
+      /// Reset key search value
+      searchState.updateSearchKey('');
+
+      /// Reset isHovered value
+      searchState.updateIsHoveredIntro(false);
     }
   }
 
@@ -62,26 +64,22 @@ class NavigationFunctions {
     /// BuildContext
     BuildContext context,
 
-    /// Introduction GlobalKey
-    GlobalKey faqKey,
-
-    /// Scroll Controller
-    ScrollController scrollController,
-
     /// bool isPop attribute
     bool isPop,
   ) {
     /// SearchNotifierProvider to check search attributes' states
-    final searchState =
-        SearchNotifierProvider.of(context, listen: false).searchStateNotifier;
+    final searchState = context.read<SearchProvider>();
+
+    /// AppNotifierProvider to check search attributes' states
+    final appState = context.read<AppProvider>();
 
     /// Find the RenderObject of the target widget.
-    final renderBox = faqKey.currentContext!.findRenderObject();
+    final renderBox = appState.faqKey.currentContext!.findRenderObject();
 
     /// Scroll to the target RenderObject's position if found
     if (renderBox != null) {
       /// Make the scroll effect with ease curve
-      scrollController.position.ensureVisible(
+      appState.scrollController1.position.ensureVisible(
         /// RenderObject
         renderBox,
 
@@ -95,11 +93,14 @@ class NavigationFunctions {
 
     /// Check the isPop value
     if (isPop) {
-      /// Toggle the [_isOpened] state
-      searchState.toggleIsOpen(false);
+      /// Reset the isOpened state
+      searchState.updateIsOpenSearch(false);
 
-      /// Call the function to close the dialog after click
-      Navigator.of(context).pop();
+      /// Reset key search value
+      searchState.updateSearchKey('');
+
+      /// Reset isHovered value
+      searchState.updateIsHoveredFaqs(false);
     }
   }
 
@@ -108,26 +109,28 @@ class NavigationFunctions {
     /// BuildContext
     BuildContext context,
 
-    /// Scroll Controller
-    ScrollController scrollController,
-
-    /// API Item GlobalKey
-    GlobalKey key,
+    /// API Item
+    APIItem item,
 
     /// bool isPop attribute
     bool isPop,
   ) {
     /// SearchNotifierProvider to check search attributes' states
-    final searchState =
-        SearchNotifierProvider.of(context, listen: false).searchStateNotifier;
+    final searchState = context.read<SearchProvider>();
+
+    /// AppNotifierProvider to check search attributes' states
+    final appState = context.read<AppProvider>();
+
+    final itemKey = appState.apiItemKeys
+        .firstWhere((element) => element.toString().contains(item.title));
 
     /// Find the RenderObject of the target widget.
-    final targetRenderObject = key.currentContext!.findRenderObject();
+    final targetRenderObject = itemKey.currentContext?.findRenderObject();
 
     /// Scroll to the target RenderObject's position if found
     if (targetRenderObject != null) {
       /// Make the scroll effect with ease curve
-      scrollController.position.ensureVisible(
+      appState.scrollController1.position.ensureVisible(
         /// RenderObject
         targetRenderObject,
 
@@ -141,11 +144,14 @@ class NavigationFunctions {
 
     /// Check the isPop value
     if (isPop) {
-      /// Toggle the [_isOpened] state
-      searchState.toggleIsOpen(false);
+      /// Reset the isOpened state
+      searchState.updateIsOpenSearch(false);
 
-      /// Call the function to close the dialog after click
-      Navigator.of(context).pop();
+      /// Reset key search value
+      searchState.updateSearchKey('');
+
+      /// Reset isHovered value
+      appState.updateAPIItemIsHovered(item, false);
     }
   }
 
@@ -153,23 +159,17 @@ class NavigationFunctions {
   scrollToIntroDrawer(
     /// BuildContext
     BuildContext context,
-
-    /// Introduction GlobalKey
-    GlobalKey introKey,
-
-    /// Scroll Controller
-    ScrollController scrollController,
-
-    /// Global key of Scaffold State
-    GlobalKey<ScaffoldState> scaffoldKey,
   ) {
+    /// AppNotifierProvider to check search attributes' states
+    final appState = context.read<AppProvider>();
+
     /// Find the RenderObject of the target widget.
-    final renderBox = introKey.currentContext!.findRenderObject();
+    final renderBox = appState.introKey.currentContext!.findRenderObject();
 
     /// Scroll to the target RenderObject's position if found
     if (renderBox != null) {
       /// Make the scroll effect with ease curve
-      scrollController.position.ensureVisible(
+      appState.scrollController1.position.ensureVisible(
         /// RenderObject
         renderBox,
 
@@ -182,30 +182,24 @@ class NavigationFunctions {
     }
 
     /// Close drawer after click
-    scaffoldKey.currentState!.closeDrawer();
+    appState.scaffoldKey.currentState!.closeDrawer();
   }
 
   /// Scroll to the FAQ section
   scrollToFaqDrawer(
     /// BuildContext
     BuildContext context,
-
-    /// FAQs GlobalKey
-    GlobalKey faqKey,
-
-    /// Scroll Controller
-    ScrollController scrollController,
-
-    /// Global key of Scaffold State
-    GlobalKey<ScaffoldState> scaffoldKey,
   ) {
+    /// AppNotifierProvider to check search attributes' states
+    final appState = context.read<AppProvider>();
+
     /// Find the RenderObject of the target widget.
-    final renderBox = faqKey.currentContext!.findRenderObject();
+    final renderBox = appState.faqKey.currentContext!.findRenderObject();
 
     /// Scroll to the target RenderObject's position if found
     if (renderBox != null) {
       /// Make the scroll effect with ease curve
-      scrollController.position.ensureVisible(
+      appState.scrollController1.position.ensureVisible(
         /// RenderObject
         renderBox,
 
@@ -218,7 +212,7 @@ class NavigationFunctions {
     }
 
     /// Close drawer after click
-    scaffoldKey.currentState!.closeDrawer();
+    appState.scaffoldKey.currentState!.closeDrawer();
   }
 
   /// Scroll to a specific API item using its key
@@ -226,22 +220,23 @@ class NavigationFunctions {
     /// BuildContext
     BuildContext context,
 
-    /// APIItem GlobalKey
-    GlobalKey key,
-
-    /// Scroll Controller
-    ScrollController scrollController,
-
-    /// Global key of Scaffold State
-    GlobalKey<ScaffoldState> scaffoldKey,
+    /// API Item
+    APIItem item,
   ) {
-    /// Find the RenderObject of the target widget.
-    final targetRenderObject = key.currentContext!.findRenderObject();
+    /// AppNotifierProvider to check search attributes' states.
+    final appState = context.read<AppProvider>();
 
-    /// Scroll to the target RenderObject's position if found
+    /// Get the itemKey value from the list.
+    final itemKey = appState.apiItemKeys
+        .firstWhere((element) => element.toString().contains(item.title));
+
+    /// Find the RenderObject of the target widget.
+    final targetRenderObject = itemKey.currentContext!.findRenderObject();
+
+    /// Scroll to the target RenderObject's position if found.
     if (targetRenderObject != null) {
       /// Make the scroll effect with ease curve
-      scrollController.position.ensureVisible(
+      appState.scrollController1.position.ensureVisible(
         /// RenderObject
         targetRenderObject,
 
@@ -254,7 +249,7 @@ class NavigationFunctions {
     }
 
     /// Close drawer after click
-    scaffoldKey.currentState!.closeDrawer();
+    appState.scaffoldKey.currentState!.closeDrawer();
   }
 }
 

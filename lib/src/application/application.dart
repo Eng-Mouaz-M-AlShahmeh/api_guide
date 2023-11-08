@@ -3,19 +3,22 @@
 /// APIGuide package
 
 /// Code starts here
-/// Export Helpers
+/// Export App Provider
+export '../../src/application/app_provider.dart';
+
+/// Export Functions Helpers
 export '../../src/application/helpers/functions.dart';
 
-/// Export Helpers
+/// Export Navigation Functions Helpers
 export '../../src/application/helpers/navigation_functions.dart';
 
-/// Export Sample Code
-export '../../src/application/sample_code.dart';
+/// Export Sample Code Helpers
+export '../../src/application/helpers/sample_code.dart';
 
-/// Export Search State
-export '../../src/application/search_state.dart';
+/// Export Search Provider
+export '../../src/application/search_provider.dart';
 
-/// Export Theme State
-export '../../src/application/theme_state.dart';
+/// Export Theme Provider
+export '../../src/application/theme_provider.dart';
 
 /// End of code
