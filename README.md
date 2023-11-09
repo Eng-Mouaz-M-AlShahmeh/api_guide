@@ -13,15 +13,15 @@
 
 Flutter package to generate API calls documentations like OpenAPI schema.
 
-## Screenshots
+## Screenshots 💻
 
 <img width="1420" alt="Example Screenshot" src="https://github.com/Eng-Mouaz-M-AlShahmeh/api_guide/assets/86870601/b8afda58-a4f8-471e-b802-0bf106a6c908">
 
-## About
+## About ❓
 
 - API Guide is package to generate API calls documentations like [OpenAPI schema](https://spec.openapis.org/oas/v3.1.0). For example, Get, Post, Put, Delete or Options Http requests and responses.
 
-## API Integration Guide Features
+## API Integration Guide Features ✨
 
 * Generative code model covers more than 30 snippet code types.
 * Possibility to copy sample code to the clipboard by clicking the button.
@@ -36,24 +36,24 @@ Flutter package to generate API calls documentations like OpenAPI schema.
 * Optional variant to change the theme color supports 14 color distributions.
 * Built in accordance with [W3 Consortium](https://www.w3.org) and [OpenAPI Schema](https://spec.openapis.org/oas/v3.1.0) recommendations.
 
-## Installation and Basic Usage
+## Installation and Basic Usage ⏳
 
-First: Add to pubspec.yaml:
+① First: Add to pubspec.yaml:
 
 ```yaml
 dependencies:
   api_guide: ^1.0.9
 ```
 
-Second: import it to your project:
+② Second: import it to your project:
 
 ```dart
 import 'package:api_guide/api_guide.dart';
 ```
 
-Finally add **APIGuide().display()** into your target web pages with required parameters.
+③ Finally add **APIGuide().display()** into your target web pages with required parameters.
 
-### Notes
+## Notes 📝
 
 * Set the [debugShowCheckedModeBanner] value to [false] to hide the top debug red ribbon at the [MaterialApp].
 * If you add the [APIGuide().display()] widget inside the [Scaffold] widget make sure to put it inside the body only without the [appBar], [drawer], [floatingActionButton], [bottomNavigationBar] or [bottomSheet] because it has the Scaffold with all needed attributes as full page screen widget.
@@ -61,7 +61,7 @@ Finally add **APIGuide().display()** into your target web pages with required pa
 * If you do not set the [termsLink] or [privacyLink] it is not appear.
 * If you do not set the [themeColor] it is automatic take the [APIGuideThemeColor.indigo] swatch palette color.
 
-## Full Usage Example Code
+## Full Usage Example Code ✅
 
 Here is a full usage example code:
 
@@ -197,7 +197,7 @@ class MyHomePage extends StatelessWidget {
 }
 ```
 
-## Thank you
+## Thank you 🎉
 
 Make sure to check out [example project](https://github.com/Eng-Mouaz-M-AlShahmeh/api_guide/tree/main/example).
 If you find this package useful, star my GitHub [repository](https://github.com/Eng-Mouaz-M-AlShahmeh/api_guide).
