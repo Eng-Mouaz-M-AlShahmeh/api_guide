@@ -61,6 +61,8 @@ Finally add **APIGuide().display()** into your target web pages with required pa
 * If you do not set the [termsLink] or [privacyLink] it is not appear.
 * If you do not set the [themeColor] it is automatic take the [APIGuideThemeColor.indigo] swatch palette color.
 
+## Full Usage Example Code
+
 Here is a full usage example code:
 
 ```dart
