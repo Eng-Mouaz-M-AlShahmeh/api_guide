@@ -216,7 +216,7 @@ class APIGuideScreen extends StatelessWidget {
                               Flexible(
                                 child: SelectableText(
                                   appState.introText,
-                                  textAlign: TextAlign.justify,
+                                  textAlign: TextAlign.start,
                                   style: TextStyle(
                                     fontSize: Constants.size15,
 
@@ -418,6 +418,9 @@ class APIGuideScreen extends StatelessWidget {
     /// SearchNotifierProvider to check theme attributes' states
     final searchState = context.read<SearchProvider>();
 
+    /// AppNotifierProvider to check theme attributes' states
+    final appState = context.read<AppProvider>();
+
     /// Check if keyEvent is RawKeyDownEvent
     if (keyEvent is RawKeyDownEvent) {
       /// Check if the "Cmd/Ctrl + k" key is pressed
@@ -434,10 +437,14 @@ class APIGuideScreen extends StatelessWidget {
 
         /// Check if the "Esc" key is pressed
       } else if (keyEvent.logicalKey == LogicalKeyboardKey.escape) {
-        /// Check if the search widget is open
-        if (searchState.isOpenSearch == true) {
-          /// Toggle the [_isOpened] state
+        /// Check if the search widget is open or the sample code is open
+        if (searchState.isOpenSearch == true ||
+            appState.isOpenSampleCode == true) {
+          /// Reset the [isOpened] state for search dialog
           searchState.updateIsOpenSearch(false);
+
+          /// Reset the [isOpened] state for sample code dialog
+          appState.updateIsOpenSampleCode(false);
         }
       }
     }

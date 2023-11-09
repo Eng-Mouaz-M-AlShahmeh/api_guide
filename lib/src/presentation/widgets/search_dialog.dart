@@ -49,28 +49,59 @@ Dialog apiGuideSearchDialog(BuildContext context) {
         ),
         child: Padding(
           padding: EdgeInsets.all(Constants.size15),
-          child: SingleChildScrollView(
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.all(Constants.size20),
-                  child: apiGuideTextFieldSearchDialog(
-                    context,
-                    searchController,
-                  ),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Padding(
+                padding: const EdgeInsets.fromLTRB(
+                  Constants.size20,
+                  Constants.size10,
+                  Constants.size20,
+                  Constants.size10,
                 ),
-                SingleChildScrollView(
-                  child: Column(
-                    children: [
-                      /// Check if the search key is empty
-                      searchState.searchKey != Constants.emptyTxt
-                          ? SizedBox()
-                          : Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                SelectableText(
-                                  Constants.noRecentSearchesTxt,
+                child: apiGuideTextFieldSearchDialog(
+                  context,
+                  searchController,
+                ),
+              ),
+              SingleChildScrollView(
+                child: Column(
+                  children: [
+                    /// Check if the search key is empty
+                    searchState.searchKey != Constants.emptyTxt
+                        ? SizedBox()
+                        : Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              SelectableText(
+                                Constants.noRecentSearchesTxt,
+                                style: TextStyle(
+                                  fontSize: Constants.size13,
+
+                                  /// Check the current light/dark theme mode
+                                  color: themeState.isDarkMode
+                                      ? ConstantsDarkMode.blackColor
+                                      : ConstantsLightMode.blackColor,
+                                ),
+                              ),
+                            ],
+                          ),
+
+                    /// Check if the search key is empty
+                    searchState.searchKey != Constants.emptyTxt
+                        ? SizedBox()
+                        : SizedBox(height: Constants.size15),
+
+                    /// Check if the search key is not empty and
+                    /// the demo list is empty
+                    searchState.searchKey != Constants.emptyTxt &&
+                            searchState.searchItems.isEmpty
+                        ? Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Flexible(
+                                child: SelectableText(
+                                  '${Constants.notFoundTxt} ',
                                   style: TextStyle(
                                     fontSize: Constants.size13,
 
@@ -80,183 +111,155 @@ Dialog apiGuideSearchDialog(BuildContext context) {
                                         : ConstantsLightMode.blackColor,
                                   ),
                                 ),
-                              ],
-                            ),
+                              ),
+                              Flexible(
+                                child: SelectableText(
+                                  '"${searchState.searchKey}"',
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: Constants.size13,
 
-                      /// Check if the search key is empty
-                      searchState.searchKey != Constants.emptyTxt
-                          ? SizedBox()
-                          : SizedBox(height: Constants.size15),
-
-                      /// Check if the search key is not empty and
-                      /// the demo list is empty
-                      searchState.searchKey != Constants.emptyTxt &&
-                              searchState.searchItems.isEmpty
-                          ? Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Flexible(
-                                  child: SelectableText(
-                                    '${Constants.notFoundTxt} ',
-                                    style: TextStyle(
-                                      fontSize: Constants.size13,
-
-                                      /// Check the current light/dark theme mode
-                                      color: themeState.isDarkMode
-                                          ? ConstantsDarkMode.blackColor
-                                          : ConstantsLightMode.blackColor,
-                                    ),
+                                    /// Check the current light/dark theme mode
+                                    color: themeState.isDarkMode
+                                        ? ConstantsDarkMode.blackColor
+                                        : ConstantsLightMode.blackColor,
                                   ),
-                                ),
-                                Flexible(
-                                  child: SelectableText(
-                                    '"${searchState.searchKey}"',
-                                    style: TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: Constants.size13,
 
-                                      /// Check the current light/dark theme mode
-                                      color: themeState.isDarkMode
-                                          ? ConstantsDarkMode.blackColor
-                                          : ConstantsLightMode.blackColor,
-                                    ),
-
-                                    /// Set to null to allow unlimited lines
-                                    maxLines: null,
-                                  ),
-                                ),
-                              ],
-                            )
-                          : SizedBox(),
-
-                      /// Check if the search key is empty
-                      searchState.searchKey == Constants.emptyTxt
-                          ? SizedBox()
-                          : SingleChildScrollView(
-                              child: Padding(
-                                padding: const EdgeInsets.all(Constants.size20),
-                                child: Column(
-                                  children: [
-                                    /// Check if the local demo list
-                                    /// contains the [introItemListTxt]
-                                    searchState.searchItems.contains(
-                                            Constants.introItemListTxt)
-                                        ? animatedSearchContainer(
-                                            context,
-                                            searchState.isHoveredIntro,
-                                            Constants.introTxt,
-                                            appState.introText,
-                                            () => NavigationFunctions()
-                                                .scrollToIntro(
-                                              context,
-                                              true,
-                                            ),
-                                            (isHovered) {
-                                              /// When hover the item
-                                              /// toggle the hover state
-                                              searchState.updateIsHoveredIntro(
-                                                  isHovered);
-                                            },
-                                          )
-                                        : SizedBox(),
-
-                                    /// Check if the local demo list
-                                    /// contains the [introItemListTxt]
-                                    searchState.searchItems.contains(
-                                            Constants.introItemListTxt)
-                                        ? SizedBox(height: Constants.size15)
-                                        : SizedBox(),
-
-                                    Column(
-                                      /// List of API items and their links
-                                      children: appState.apiItemList
-                                          .map((item) => Column(
-                                                children: [
-                                                  /// Check if the item url path
-                                                  /// exists in the local demo list
-                                                  searchState.searchItems
-                                                          .contains(item.urlPath
-                                                              .toLowerCase())
-                                                      ? animatedSearchContainer(
-                                                          context,
-                                                          item.isHovered ??
-                                                              false,
-                                                          item.title,
-                                                          item.description,
-                                                          () => NavigationFunctions()
-                                                              .scrollToAPIItem(
-                                                            context,
-                                                            item,
-                                                            true,
-                                                          ),
-                                                          (isHovered) {
-                                                            /// Toggle the hover state
-                                                            /// when hover the item
-                                                            appState
-                                                                .updateAPIItemIsHovered(
-                                                                    item,
-                                                                    isHovered);
-
-                                                            // notify listeners
-                                                          },
-                                                        )
-                                                      : SizedBox(),
-
-                                                  /// Check if the item url path
-                                                  /// exists in the local demo list
-                                                  searchState.searchItems
-                                                          .contains(item.urlPath
-                                                              .toLowerCase())
-                                                      ? SizedBox(
-                                                          height:
-                                                              Constants.size15)
-                                                      : SizedBox(),
-                                                ],
-                                              ))
-                                          .toList(),
-                                    ),
-
-                                    /// Check if the local demo list contains
-                                    /// the [faqsItemListTxt]
-                                    searchState.searchItems
-                                            .contains(Constants.faqsItemListTxt)
-                                        ? animatedSearchContainer(
-                                            context,
-                                            searchState.isHoveredFaqs,
-                                            Constants.faqsShortTxt,
-                                            appState
-                                                .apiFaqs.firstOrNull!.question,
-                                            () => NavigationFunctions()
-                                                .scrollToFaq(
-                                              context,
-                                              true,
-                                            ),
-                                            (isHovered) {
-                                              /// When hover the item toggle
-                                              /// the hover state
-                                              searchState.updateIsHoveredFaqs(
-                                                  isHovered);
-                                            },
-                                          )
-                                        : SizedBox(),
-
-                                    /// Check if the local demo list contains
-                                    /// the [faqsItemListTxt]
-                                    searchState.searchItems
-                                            .contains(Constants.faqsItemListTxt)
-                                        ? SizedBox(height: Constants.size15)
-                                        : SizedBox(),
-                                  ],
+                                  /// Set to null to allow unlimited lines
+                                  maxLines: null,
                                 ),
                               ),
+                            ],
+                          )
+                        : SizedBox(),
+
+                    /// Check if the search key is empty
+                    searchState.searchKey == Constants.emptyTxt
+                        ? SizedBox()
+                        : SingleChildScrollView(
+                            child: Padding(
+                              padding: const EdgeInsets.all(Constants.size20),
+                              child: Column(
+                                children: [
+                                  /// Check if the local demo list
+                                  /// contains the [introItemListTxt]
+                                  searchState.searchItems
+                                          .contains(Constants.introItemListTxt)
+                                      ? animatedSearchContainer(
+                                          context,
+                                          searchState.isHoveredIntro,
+                                          Constants.introTxt,
+                                          appState.introText,
+                                          () => NavigationFunctions()
+                                              .scrollToIntro(
+                                            context,
+                                            true,
+                                          ),
+                                          (isHovered) {
+                                            /// When hover the item
+                                            /// toggle the hover state
+                                            searchState.updateIsHoveredIntro(
+                                                isHovered);
+                                          },
+                                        )
+                                      : SizedBox(),
+
+                                  /// Check if the local demo list
+                                  /// contains the [introItemListTxt]
+                                  searchState.searchItems
+                                          .contains(Constants.introItemListTxt)
+                                      ? SizedBox(height: Constants.size15)
+                                      : SizedBox(),
+
+                                  Column(
+                                    /// List of API items and their links
+                                    children: appState.apiItemList
+                                        .map((item) => Column(
+                                              children: [
+                                                /// Check if the item url path
+                                                /// exists in the local demo list
+                                                searchState.searchItems
+                                                        .contains(item.urlPath
+                                                            .toLowerCase())
+                                                    ? animatedSearchContainer(
+                                                        context,
+                                                        item.isHovered ?? false,
+                                                        item.title,
+                                                        item.description,
+                                                        () =>
+                                                            NavigationFunctions()
+                                                                .scrollToAPIItem(
+                                                          context,
+                                                          item,
+                                                          true,
+                                                        ),
+                                                        (isHovered) {
+                                                          /// Toggle the hover state
+                                                          /// when hover the item
+                                                          appState
+                                                              .updateAPIItemIsHovered(
+                                                                  item,
+                                                                  isHovered);
+
+                                                          // notify listeners
+                                                        },
+                                                      )
+                                                    : SizedBox(),
+
+                                                /// Check if the item url path
+                                                /// exists in the local demo list
+                                                searchState.searchItems
+                                                        .contains(item.urlPath
+                                                            .toLowerCase())
+                                                    ? SizedBox(
+                                                        height:
+                                                            Constants.size15)
+                                                    : SizedBox(),
+                                              ],
+                                            ))
+                                        .toList(),
+                                  ),
+
+                                  /// Check if the local demo list contains
+                                  /// the [faqsItemListTxt]
+                                  searchState.searchItems
+                                          .contains(Constants.faqsItemListTxt)
+                                      ? animatedSearchContainer(
+                                          context,
+                                          searchState.isHoveredFaqs,
+                                          Constants.faqsShortTxt,
+                                          appState
+                                              .apiFaqs.firstOrNull!.question,
+                                          () =>
+                                              NavigationFunctions().scrollToFaq(
+                                            context,
+                                            true,
+                                          ),
+                                          (isHovered) {
+                                            /// When hover the item toggle
+                                            /// the hover state
+                                            searchState
+                                                .updateIsHoveredFaqs(isHovered);
+                                          },
+                                        )
+                                      : SizedBox(),
+
+                                  /// Check if the local demo list contains
+                                  /// the [faqsItemListTxt]
+                                  searchState.searchItems
+                                          .contains(Constants.faqsItemListTxt)
+                                      ? SizedBox(height: Constants.size15)
+                                      : SizedBox(),
+                                ],
+                              ),
                             ),
-                    ],
-                  ),
+                          ),
+                  ],
                 ),
-                SizedBox(height: Constants.size15),
-                closeSearchDialogButton(context),
-              ],
-            ),
+              ),
+              SizedBox(height: Constants.size10),
+              closeSearchDialogButton(context),
+            ],
           ),
         ),
       ),

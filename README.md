@@ -27,7 +27,7 @@ Flutter package to generate API calls documentations like OpenAPI schema.
 * Possibility to copy sample code to the clipboard by clicking the button.
 * Responsive design supports large, medium and small screens.
 * Light and dark theme mode.
-* Responsive and fast search widget.
+* Responsive and fast search tool with keystroke shortcuts.
 * The beautiful introduction section can be modified as needed.
 * The Infinite FAQ section can be modified with any number of questions and answers.
 * Seamless scrollable sidebar.
@@ -42,7 +42,7 @@ First: Add to pubspec.yaml:
 
 ```yaml
 dependencies:
-  api_guide: ^1.0.8
+  api_guide: ^1.0.9
 ```
 
 Second: import it to your project:
@@ -52,6 +52,14 @@ import 'package:api_guide/api_guide.dart';
 ```
 
 Finally add **APIGuide().display()** into your target web pages with required parameters.
+
+### Notes
+
+* Set the [debugShowCheckedModeBanner] value to [false] to hide the top debug red ribbon at the [MaterialApp].
+* If you add the [APIGuide().display()] widget inside the [Scaffold] widget make sure to put it inside the body only without the [appBar], [drawer], [floatingActionButton], [bottomNavigationBar] or [bottomSheet] because it has the Scaffold with all needed attributes as full page screen widget.
+* The preferred way to adding [APIGuide().display()] is inside the [build] method as return value directly of the [StatelessWidget].
+* If you do not set the [termsLink] or [privacyLink] it is not appear.
+* If you do not set the [themeColor] it is automatic take the [APIGuideThemeColor.indigo] swatch palette color.
 
 Here is a full usage example code:
 

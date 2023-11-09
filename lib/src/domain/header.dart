@@ -2,7 +2,12 @@
 /// https://malshahmeh.web.app
 /// APIGuide package
 
+/// Import necessary packages
+/// Import [flutter/material] package files
+import 'package:flutter/material.dart';
+
 /// Code starts here
+@immutable
 class APIGuideHeader {
   /// Definition of [APIGuideHeader] instance
   const APIGuideHeader(

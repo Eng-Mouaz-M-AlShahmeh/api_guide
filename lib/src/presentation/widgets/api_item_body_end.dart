@@ -47,9 +47,11 @@ Column apiGuideItemBodyEnd(BuildContext context, APIItem item) {
                 ),
               ),
               SizedBox(width: Constants.size10),
-              Padding(
-                padding: const EdgeInsets.all(Constants.size8),
-                child: sampleCodeButton(context),
+              Flexible(
+                child: Padding(
+                  padding: const EdgeInsets.all(Constants.size8),
+                  child: sampleCodeButton(context),
+                ),
               ),
               SizedBox(width: Constants.size10),
               copyClipboardButton(context, item),

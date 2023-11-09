@@ -3,9 +3,14 @@
 /// APIGuide package
 
 /// Adding necessary packages
+/// Import [flutter/material] package files
+import 'package:flutter/material.dart';
+
+/// Import domain package files
 import 'domain.dart';
 
 /// Code starts here
+@immutable
 class APIGuideRequest {
   /// Define [method] property as HttpRequestMethod and final
   final HttpRequestMethod method;

@@ -24,28 +24,35 @@ AppBar apiGuideAppBar(BuildContext context) {
     title: Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        SelectableText(
-          /// Display the API version
-          '${Constants.apiGuideTxt}${appState.version}',
-          style: TextStyle(
-            /// Check the current light/dark theme mode
-            color: themeState.isDarkMode
-                ? ConstantsDarkMode.whiteColor
-                : ConstantsLightMode.whiteColor,
-          ),
-        ),
-        SelectableText(
-          /// Display the latest update date
-          '${Constants.latestUpdateTxt}${appState.latestUpdate.year}-${appState.latestUpdate.month}-${appState.latestUpdate.day}',
-          style: TextStyle(
-            fontSize: Constants.size10,
+        /// Appear only on screens larger than [Constants.smallBreakPoint]
+        MediaQuery.of(context).size.width <= Constants.smallBreakPoint
+            ? SizedBox()
+            : SelectableText(
+                /// Display the API version
+                '${Constants.apiGuideTxt}${appState.version}',
+                style: TextStyle(
+                  /// Check the current light/dark theme mode
+                  color: themeState.isDarkMode
+                      ? ConstantsDarkMode.whiteColor
+                      : ConstantsLightMode.whiteColor,
+                ),
+              ),
 
-            /// Check the current light/dark theme mode
-            color: themeState.isDarkMode
-                ? ConstantsDarkMode.whiteColor
-                : ConstantsLightMode.whiteColor,
-          ),
-        ),
+        /// Appear only on screens larger than [Constants.smallBreakPoint]
+        MediaQuery.of(context).size.width <= Constants.smallBreakPoint
+            ? SizedBox()
+            : SelectableText(
+                /// Display the latest update date
+                '${Constants.latestUpdateTxt}${appState.latestUpdate.year}-${appState.latestUpdate.month}-${appState.latestUpdate.day}',
+                style: TextStyle(
+                  fontSize: Constants.size10,
+
+                  /// Check the current light/dark theme mode
+                  color: themeState.isDarkMode
+                      ? ConstantsDarkMode.whiteColor
+                      : ConstantsLightMode.whiteColor,
+                ),
+              ),
       ],
     ),
 

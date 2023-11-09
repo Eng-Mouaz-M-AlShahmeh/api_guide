@@ -1,3 +1,13 @@
+## [1.0.9] - 2023/11/09
+
+* Update README.md file.
+* Update CHANGELOG.md file.
+* Enhance responsiveness at small screens.
+* Update control search icon shortcut on windows platform.
+* Remove unnecessary widgets from FAQs section and search dialog.
+* Handle Esc key when close sample code dialog.
+* Add @immutable annotation to proper domain and constant classes.
+
 ## [1.0.8] - 2023/11/08
 
 * Update README.md file.

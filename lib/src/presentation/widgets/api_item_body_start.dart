@@ -13,7 +13,6 @@ import 'package:provider/provider.dart';
 import '../../../api_guide.dart';
 
 /// Code starts here
-
 Column apiGuideItemBodyStart(BuildContext context, APIItem item) {
   /// ThemeNotifierProvider to check theme attributes' states
   final themeState = context.read<ThemeProvider>();
@@ -27,7 +26,7 @@ Column apiGuideItemBodyStart(BuildContext context, APIItem item) {
       /// Display the item's description
       SelectableText(
         item.description,
-        textAlign: TextAlign.justify,
+        textAlign: TextAlign.start,
         style: TextStyle(
           fontWeight: FontWeight.normal,
           fontSize: Constants.size15,

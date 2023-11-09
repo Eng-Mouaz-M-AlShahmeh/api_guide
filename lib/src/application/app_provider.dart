@@ -106,11 +106,11 @@ class AppProvider extends ChangeNotifier {
   /// Define [updateAPIItemKeys] function which update
   /// the state of [_apiItemKeys] value
   updateAPIItemAndKeys(List<APIItem> val) {
-    /// Make [_apiItemList] first as empty
-    _apiItemList = [];
-
-    /// Update the value of [_apiItemList]
-    _apiItemList = val;
+    /// Check if api items list exists or not
+    if (_apiItemList.isEmpty) {
+      /// Update the value of [_apiItemList]
+      _apiItemList = val;
+    }
 
     /// Check if api items keys exists or not
     if (_apiItemKeys.isEmpty) {
@@ -140,11 +140,11 @@ class AppProvider extends ChangeNotifier {
   /// Define [updateAPIFaqs] function which update
   /// the state of [_apiFaqs] value
   updateAPIFaqs(List<APIGuideFAQ> val) {
-    /// Make [_apiFaqs] first as empty
-    _apiFaqs = [];
-
-    /// Update the value of [_apiFaqs]
-    _apiFaqs = val;
+    /// Check if api items faqs exists or not
+    if (_apiFaqs.isEmpty) {
+      /// Update the value of [_apiFaqs]
+      _apiFaqs = val;
+    }
 
     /// Notify listeners to rebuild widgets that depend
     /// on this ChangeNotifier

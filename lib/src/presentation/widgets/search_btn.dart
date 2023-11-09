@@ -84,21 +84,21 @@ Row apiGuideSearchBtn(BuildContext context) {
                                               context),
                                     )
                                   : Platform.isWindows
-                                      ? Icon(
-                                          Constants.cmdKeyIcon,
-                                          size: Constants.size10,
-
-                                          /// Check the current light/dark theme mode
-                                          color: themeState.isDarkMode
-                                              ? ConstantsDarkMode
-                                                  .themeColorLight(context)
-                                              : ConstantsLightMode
-                                                  .themeColorLight(context),
+                                      ? Text(
+                                          Constants.ctrlTxt,
+                                          style: TextStyle(
+                                            /// Check the current light/dark theme mode
+                                            color: themeState.isDarkMode
+                                                ? ConstantsDarkMode
+                                                    .themeColorLight(context)
+                                                : ConstantsLightMode
+                                                    .themeColorLight(context),
+                                          ),
                                         )
                                       : SizedBox(),
 
                           /// Check the current platform to apply specific style
-                          kIsWeb
+                          kIsWeb || Platform.isMacOS || Platform.isWindows
                               ? Text(
                                   Constants.plusKTxt,
                                   style: TextStyle(
@@ -110,31 +110,7 @@ Row apiGuideSearchBtn(BuildContext context) {
                                             context),
                                   ),
                                 )
-                              : Platform.isMacOS
-                                  ? Text(
-                                      Constants.plusKTxt,
-                                      style: TextStyle(
-                                        /// Check the current light/dark theme mode
-                                        color: themeState.isDarkMode
-                                            ? ConstantsDarkMode.themeColorLight(
-                                                context)
-                                            : ConstantsLightMode
-                                                .themeColorLight(context),
-                                      ),
-                                    )
-                                  : Platform.isWindows
-                                      ? Text(
-                                          Constants.plusKTxt,
-                                          style: TextStyle(
-                                            /// Check the current light/dark theme mode
-                                            color: themeState.isDarkMode
-                                                ? ConstantsDarkMode
-                                                    .themeColorLight(context)
-                                                : ConstantsLightMode
-                                                    .themeColorLight(context),
-                                          ),
-                                        )
-                                      : SizedBox(),
+                              : SizedBox(),
                         ],
                       ),
                     ),

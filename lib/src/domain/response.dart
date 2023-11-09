@@ -2,10 +2,15 @@
 /// https://malshahmeh.web.app
 /// APIGuide package
 
-/// Adding necessary packages
+/// Import necessary packages
+/// Import [flutter/material] package files
+import 'package:flutter/material.dart';
+
+/// Import domain package files
 import 'domain.dart';
 
 /// Code starts here
+@immutable
 class APIGuideResponse {
   /// Define [statusCode] property as HttpResponseStatusCode and final
   final HttpResponseStatusCode statusCode;

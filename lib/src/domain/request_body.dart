@@ -2,10 +2,15 @@
 /// https://malshahmeh.web.app
 /// APIGuide package
 
+/// Import necessary packages
+/// Import [flutter/material] package files
+import 'package:flutter/material.dart';
+
 /// Import [APIGuide] package files
 import '../../api_guide.dart';
 
 /// Code starts here
+@immutable
 class APIGuideRequestBody {
   /// Define [key] property as String and final
   final String key;
