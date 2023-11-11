@@ -1041,3 +1041,52 @@ enum PropertyType {
   /// array file property type
   array,
 }
+
+/// Define param types
+enum ParameterType {
+  /// Query parameters are the most common type of parameters.
+  /// They appear at the end of the request URL after a question mark (?),
+  /// with different name=value pairs separated by ampersands (&).
+  /// Query parameters can be required and optional.
+  /// https://swagger.io/docs/specification/describing-parameters/#query-parameters
+  /// query parameter type, such as /users?role=admin
+  query,
+
+  /// Path parameters are variable parts of a URL path.
+  /// They are typically used to point to a specific resource within
+  /// a collection, such as a user identified by ID.
+  /// A URL can have several path parameters,
+  /// each denoted with curly braces { }.
+  /// https://swagger.io/docs/specification/describing-parameters/#path-parameters
+  /// path parameter type, such as /users/{id}
+  path,
+
+  /// An API call may require that custom headers be sent with an HTTP request.
+  /// OpenAPI lets you define custom request headers as in:
+  /// header parameters. For example, suppose,
+  /// a call to GET /ping requires the X-Request-ID header
+  /// https://swagger.io/docs/specification/describing-parameters/#header-parameters
+
+  /// HTTP headers let the client and the server pass additional information
+  /// with an HTTP request or response. An HTTP header consists of its
+  /// case-insensitive name followed by a colon (:), then by its value.
+  /// Whitespace before the value is ignored.
+  /// Custom proprietary headers have historically been used with an X- prefix,
+  /// but this convention was deprecated in June 2012 because of
+  /// the inconveniences it caused when nonstandard fields became
+  /// standard in RFC 6648; others are listed in an IANA registry,
+  /// whose original content was defined in RFC 4229.
+  /// IANA also maintains a registry of proposed new HTTP headers.
+  /// https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers
+
+  /// header parameter type, such as X-MyHeader: Value
+  header,
+
+  /// Operations can also pass parameters in the Cookie header,
+  /// as Cookie: name=value. Multiple cookie parameters are sent in
+  /// the same header, separated by a semicolon and space.
+  /// https://swagger.io/docs/specification/describing-parameters/#cookie-parameters
+  /// cookie parameter type, which are passed in the Cookie header,
+  /// such as Cookie: debug=0; csrftoken=BUSe35dohU3O1MZvDCU
+  cookie,
+}

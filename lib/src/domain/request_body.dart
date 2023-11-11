@@ -18,7 +18,7 @@ class APIGuideRequestBody {
   /// Define [value] property as dynamic and final
   final dynamic value;
 
-  /// Define [type] property as PropertyType and final
+  /// Define [type] property as [PropertyType] and final
   final PropertyType type;
 
   /// Define [description] property as String and final

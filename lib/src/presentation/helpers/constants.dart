@@ -199,6 +199,18 @@ class Constants {
   /// Define [requestBodyTxt] attribute
   static const String requestBodyTxt = 'Request Body ';
 
+  /// Define [requestPathParamsTxt] attribute
+  static const String requestPathParamsTxt = 'Request Path Parameters ';
+
+  /// Define [requestQueryParamsTxt] attribute
+  static const String requestQueryParamsTxt = 'Request Query Parameters ';
+
+  /// Define [requestHeadersTxt] attribute
+  static const String requestHeadersTxt = 'Request Headers ';
+
+  /// Define [requestCookiesTxt] attribute
+  static const String requestCookiesTxt = 'Request Cookies ';
+
   /// Define [sampleCodeTxt] attribute
   static const String sampleCodeTxt = 'Sample Code ';
 

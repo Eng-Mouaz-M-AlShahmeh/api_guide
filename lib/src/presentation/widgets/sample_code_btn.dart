@@ -95,7 +95,7 @@ Dialog sampleCodeDialog(BuildContext context) {
                 child: SingleChildScrollView(
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
-                    children: SampleCode()
+                    children: SampleCodeFunctions()
                         .types
                         .map(
                           (item) => ListTile(

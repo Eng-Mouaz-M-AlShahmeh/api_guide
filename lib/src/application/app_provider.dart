@@ -36,7 +36,7 @@ class AppProvider extends ChangeNotifier {
   String _introText = '';
 
   /// Sample Code Type
-  String _sampleCodeType = SampleCode().types.first;
+  String _sampleCodeType = SampleCodeFunctions().types.first;
 
   /// Url Host for API Guide
   String _urlHost = '';

@@ -1,3 +1,19 @@
+## [1.0.10] - 2023/11/12
+
+* Update README.md file.
+* Update CHANGELOG.md file.
+* Update param domain class with needed attributes.
+* Add ParameterType enum.
+* Update sample code helper classes.
+* Remove unnecessary headers from request class and merge with params.
+* Make [SampleCodePureTypes] class as @immutable class.
+* Update presentation of request api item details by params.
+* Fix Closure and Obj-C request body sample code attributes.
+* Add Query Params to sample code.
+* Add Path Params dynamically to API Item header card path URL.
+* Add Path Params to sample code.
+* Update example code.
+
 ## [1.0.9] - 2023/11/09
 
 * Update README.md file.

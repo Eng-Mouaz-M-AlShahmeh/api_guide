@@ -18,9 +18,6 @@ class APIGuideRequest {
   /// Define [params] property as List<APIGuideParam> and final
   final List<APIGuideParam> params;
 
-  /// Define [headers] property as List<APIGuideHeader> and final
-  final List<APIGuideHeader> headers;
-
   /// Define [body] property as List<APIGuideRequestBody> and final
   final List<APIGuideRequestBody> body;
 
@@ -31,9 +28,6 @@ class APIGuideRequest {
 
     /// Use params property as required attribute
     required this.params,
-
-    /// Use headers property as required attribute
-    required this.headers,
 
     /// Use body property as required attribute
     required this.body,

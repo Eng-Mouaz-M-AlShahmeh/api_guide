@@ -42,7 +42,7 @@ Flutter package to generate API calls documentations like OpenAPI schema.
 
 ```yaml
 dependencies:
-  api_guide: ^1.0.9
+  api_guide: ^1.0.10
 ```
 
 ② Second: import it to your project:
@@ -66,7 +66,7 @@ import 'package:api_guide/api_guide.dart';
 Here is a full usage example code:
 
 ```dart
-// Developed by Mouaz M AlShahmeh
+// Developed by Eng. Mouaz M. Al-Shahmeh
 import 'package:api_guide/api_guide.dart';
 import 'package:flutter/material.dart';
 
@@ -100,7 +100,6 @@ class MyHomePage extends StatelessWidget {
         // Define the request for the first API item
         request: const APIGuideRequest(
           method: HttpRequestMethod.GET,
-          headers: [],
           params: [],
           body: [],
         ),
@@ -127,7 +126,6 @@ class MyHomePage extends StatelessWidget {
         // Define the request for the second API item
         request: const APIGuideRequest(
           method: HttpRequestMethod.POST,
-          headers: [],
           params: [],
           body: [
             APIGuideRequestBody(
@@ -195,6 +193,7 @@ class MyHomePage extends StatelessWidget {
     );
   }
 }
+
 ```
 
 ## Thank you 🎉

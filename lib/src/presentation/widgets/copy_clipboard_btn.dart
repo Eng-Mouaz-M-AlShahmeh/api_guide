@@ -20,25 +20,12 @@ InkWell copyClipboardButton(BuildContext context, APIItem item) {
   /// ThemeNotifierProvider to check theme attributes' states
   final themeState = context.read<ThemeProvider>();
 
-  /// AppNotifierProvider to check theme attributes' states
-  final appState = context.read<AppProvider>();
-
   return InkWell(
     onTap: () {
       /// Copy Sample Code to Clipboard when click the icon
       Clipboard.setData(
         ClipboardData(
-          text: SampleCode().getSampleCode(
-            SampleCode().chooseCodeType(appState.sampleCodeType),
-            [
-              item.request.method.name,
-              appState.urlHost,
-              item.urlPath,
-              item.request.body
-                  .map((e) => '"${e.key}":"${e.value}"')
-                  .join(', '),
-            ],
-          ),
+          text: SampleCodeFunctions().getFinalSampleCode(context, item),
         ),
       );
 

@@ -17,9 +17,6 @@ Column apiGuideItemBodyEnd(BuildContext context, APIItem item) {
   /// ThemeNotifierProvider to check theme attributes' states
   final themeState = context.read<ThemeProvider>();
 
-  /// AppNotifierProvider to check theme attributes' states
-  final appState = context.read<AppProvider>();
-
   return Column(
     mainAxisAlignment: MainAxisAlignment.start,
     crossAxisAlignment: CrossAxisAlignment.start,
@@ -75,19 +72,7 @@ Column apiGuideItemBodyEnd(BuildContext context, APIItem item) {
 
                       /// Make the sample code as selectable text
                       child: SelectableText(
-                        /// Show the final sample code related
-                        /// to default type property
-                        SampleCode().getSampleCode(
-                          SampleCode().chooseCodeType(appState.sampleCodeType),
-                          [
-                            item.request.method.name,
-                            appState.urlHost,
-                            item.urlPath,
-                            item.request.body
-                                .map((e) => '"${e.key}":"${e.value}"')
-                                .join(', '),
-                          ],
-                        ),
+                        SampleCodeFunctions().getFinalSampleCode(context, item),
                         style: TextStyle(
                             fontWeight: FontWeight.normal,
                             fontSize: Constants.size12,
@@ -209,7 +194,8 @@ Column apiGuideItemBodyEnd(BuildContext context, APIItem item) {
 
                                             /// Display the response body in a code block
                                             child: SelectableText(
-                                              SampleCode().getResponseCode(
+                                              SampleCodeFunctions()
+                                                  .getResponseCode(
                                                 itemResponse.body,
                                               ),
                                               style: TextStyle(

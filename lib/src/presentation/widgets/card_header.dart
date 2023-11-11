@@ -20,6 +20,11 @@ SizedBox apiGuideItemHeader(BuildContext context, APIItem item) {
   /// AppNotifierProvider to check theme attributes' states
   final appState = context.read<AppProvider>();
 
+  /// List of Request Path Params
+  final pathParams = item.request.params
+      .where((e) => e.parameterType == ParameterType.path)
+      .toList();
+
   return SizedBox(
     child: DecoratedBox(
       decoration: BoxDecoration(
@@ -97,7 +102,9 @@ SizedBox apiGuideItemHeader(BuildContext context, APIItem item) {
 
                       /// Display the URL
                       child: SelectableText(
-                        '${appState.urlHost}${item.urlPath}',
+                        pathParams.isEmpty
+                            ? '${appState.urlHost}${item.urlPath}'
+                            : '${appState.urlHost}${item.urlPath}${pathParams.map((e) => item.urlPath.contains(e.key) ? '' : '/{${e.key}}').join('')}',
                         style: TextStyle(
                           fontWeight: FontWeight.normal,
                           fontSize: Constants.size15,

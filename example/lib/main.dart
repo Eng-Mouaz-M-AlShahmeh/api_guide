@@ -32,7 +32,6 @@ class MyHomePage extends StatelessWidget {
         // Define the request for the first API item
         request: const APIGuideRequest(
           method: HttpRequestMethod.GET,
-          headers: [],
           params: [],
           body: [],
         ),
@@ -59,7 +58,6 @@ class MyHomePage extends StatelessWidget {
         // Define the request for the second API item
         request: const APIGuideRequest(
           method: HttpRequestMethod.POST,
-          headers: [],
           params: [],
           body: [
             APIGuideRequestBody(
