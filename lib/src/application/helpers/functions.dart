@@ -19,6 +19,20 @@ class Functions {
       await launchUrlString(url);
     }
   }
+
+  /// Function to launch email
+  sendEmail(String toEmail) async {
+    /// Create a Uri with the 'mailto' scheme to launch the default email app
+    final Uri emailLaunchUri = Uri(
+      scheme: 'mailto',
+
+      /// Set the recipient's email address
+      path: toEmail,
+    );
+
+    /// Launch the prepared link
+    openURL(emailLaunchUri.toString());
+  }
 }
 
 /// End of code

@@ -28,8 +28,9 @@ Column apiGuideAPIItems(BuildContext context) {
         appState.apiItemList.map((item) {
       return Padding(
         /// Use a unique key for the API item
-        key: appState.apiItemKeys
-            .firstWhere((element) => element.toString().contains(item.title)),
+        key: appState.apiItemKeys.firstWhere((element) => element
+            .toString()
+            .contains('${item.urlPath} ${item.request.method.name}')),
         padding: const EdgeInsets.symmetric(vertical: Constants.size15),
         child: ClipRRect(
           borderRadius: BorderRadius.all(Radius.circular(Constants.size15)),

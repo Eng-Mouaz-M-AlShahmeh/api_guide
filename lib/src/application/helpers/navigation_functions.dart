@@ -121,8 +121,9 @@ class NavigationFunctions {
     /// AppNotifierProvider to check search attributes' states
     final appState = context.read<AppProvider>();
 
-    final itemKey = appState.apiItemKeys
-        .firstWhere((element) => element.toString().contains(item.title));
+    final itemKey = appState.apiItemKeys.firstWhere((element) => element
+        .toString()
+        .contains('${item.title} ${item.urlPath} ${item.request.method.name}'));
 
     /// Find the RenderObject of the target widget.
     final targetRenderObject = itemKey.currentContext?.findRenderObject();
@@ -227,8 +228,9 @@ class NavigationFunctions {
     final appState = context.read<AppProvider>();
 
     /// Get the itemKey value from the list.
-    final itemKey = appState.apiItemKeys
-        .firstWhere((element) => element.toString().contains(item.title));
+    final itemKey = appState.apiItemKeys.firstWhere((element) => element
+        .toString()
+        .contains('${item.title} ${item.urlPath} ${item.request.method.name}'));
 
     /// Find the RenderObject of the target widget.
     final targetRenderObject = itemKey.currentContext!.findRenderObject();

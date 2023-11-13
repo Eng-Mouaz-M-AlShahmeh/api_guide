@@ -62,10 +62,10 @@ enum HttpResponseStatusCode {
     statusCode: 100,
 
     /// Status Title
-    statusTitle: "Continue",
+    statusTitle: 'Continue',
 
     /// Status Type
-    statusType: "Information responses",
+    statusType: 'Information responses',
   ),
 
   /// This code is sent in response to an Upgrade request header from the client
@@ -76,10 +76,10 @@ enum HttpResponseStatusCode {
     statusCode: 101,
 
     /// Status Title
-    statusTitle: "Switching Protocols",
+    statusTitle: 'Switching Protocols',
 
     /// Status Type
-    statusType: "Information responses",
+    statusType: 'Information responses',
   ),
 
   /// This code indicates that the server has received and is processing the request,
@@ -90,10 +90,10 @@ enum HttpResponseStatusCode {
     statusCode: 102,
 
     /// Status Title
-    statusTitle: "Processing (WebDAV)",
+    statusTitle: 'Processing (WebDAV)',
 
     /// Status Type
-    statusType: "Information responses",
+    statusType: 'Information responses',
   ),
 
   /// This status code is primarily intended to be used with the Link header,
@@ -104,10 +104,10 @@ enum HttpResponseStatusCode {
     statusCode: 103,
 
     /// Status Title
-    statusTitle: "Early Hints",
+    statusTitle: 'Early Hints',
 
     /// Status Type
-    statusType: "Information responses",
+    statusType: 'Information responses',
   ),
 
   /// The request succeeded. The result meaning of "success" depends on the HTTP method:
@@ -121,10 +121,10 @@ enum HttpResponseStatusCode {
     statusCode: 200,
 
     /// Status Title
-    statusTitle: "OK",
+    statusTitle: 'OK',
 
     /// Status Type
-    statusType: "Successful responses",
+    statusType: 'Successful responses',
   ),
 
   /// The request succeeded, and a new resource was created as a result.
@@ -136,10 +136,10 @@ enum HttpResponseStatusCode {
     statusCode: 201,
 
     /// Status Title
-    statusTitle: "Created",
+    statusTitle: 'Created',
 
     /// Status Type
-    statusType: "Successful responses",
+    statusType: 'Successful responses',
   ),
 
   /// The request has been received but not yet acted upon. It is noncommittal,
@@ -151,10 +151,10 @@ enum HttpResponseStatusCode {
     statusCode: 202,
 
     /// Status Title
-    statusTitle: "Accepted",
+    statusTitle: 'Accepted',
 
     /// Status Type
-    statusType: "Successful responses",
+    statusType: 'Successful responses',
   ),
 
   /// This response code means the returned metadata is not exactly the same as is available from the origin server,
@@ -166,10 +166,10 @@ enum HttpResponseStatusCode {
     statusCode: 203,
 
     /// Status Title
-    statusTitle: "Non-Authoritative Information",
+    statusTitle: 'Non-Authoritative Information',
 
     /// Status Type
-    statusType: "Successful responses",
+    statusType: 'Successful responses',
   ),
 
   /// There is no content to send for this request, but the headers may be useful.
@@ -180,10 +180,10 @@ enum HttpResponseStatusCode {
     statusCode: 204,
 
     /// Status Title
-    statusTitle: "No Content",
+    statusTitle: 'No Content',
 
     /// Status Type
-    statusType: "Successful responses",
+    statusType: 'Successful responses',
   ),
 
   /// Tells the user agent to reset the document which sent this request.
@@ -193,10 +193,10 @@ enum HttpResponseStatusCode {
     statusCode: 205,
 
     /// Status Title
-    statusTitle: "Reset Content",
+    statusTitle: 'Reset Content',
 
     /// Status Type
-    statusType: "Successful responses",
+    statusType: 'Successful responses',
   ),
 
   /// This response code is used when the Range header
@@ -207,10 +207,10 @@ enum HttpResponseStatusCode {
     statusCode: 206,
 
     /// Status Title
-    statusTitle: "Partial Content",
+    statusTitle: 'Partial Content',
 
     /// Status Type
-    statusType: "Successful responses",
+    statusType: 'Successful responses',
   ),
 
   /// Conveys information about multiple resources,
@@ -221,10 +221,10 @@ enum HttpResponseStatusCode {
     statusCode: 207,
 
     /// Status Title
-    statusTitle: "Multi-Status (WebDAV)",
+    statusTitle: 'Multi-Status (WebDAV)',
 
     /// Status Type
-    statusType: "Successful responses",
+    statusType: 'Successful responses',
   ),
 
   /// Used inside a <dav:propstat> response element to avoid repeatedly enumerating
@@ -235,10 +235,10 @@ enum HttpResponseStatusCode {
     statusCode: 208,
 
     /// Status Title
-    statusTitle: "Already Reported (WebDAV)",
+    statusTitle: 'Already Reported (WebDAV)',
 
     /// Status Type
-    statusType: "Successful responses",
+    statusType: 'Successful responses',
   ),
 
   /// The server has fulfilled a GET request for the resource,
@@ -250,10 +250,10 @@ enum HttpResponseStatusCode {
     statusCode: 226,
 
     /// Status Title
-    statusTitle: "IM Used (HTTP Delta encoding)",
+    statusTitle: 'IM Used (HTTP Delta encoding)',
 
     /// Status Type
-    statusType: "Successful responses",
+    statusType: 'Successful responses',
   ),
 
   /// The request has more than one possible response.
@@ -266,10 +266,10 @@ enum HttpResponseStatusCode {
     statusCode: 300,
 
     /// Status Title
-    statusTitle: "Multiple Choices",
+    statusTitle: 'Multiple Choices',
 
     /// Status Type
-    statusType: "Redirection messages",
+    statusType: 'Redirection messages',
   ),
 
   /// The URL of the requested resource has been changed permanently.
@@ -280,10 +280,10 @@ enum HttpResponseStatusCode {
     statusCode: 301,
 
     /// Status Title
-    statusTitle: "Moved Permanently",
+    statusTitle: 'Moved Permanently',
 
     /// Status Type
-    statusType: "Redirection messages",
+    statusType: 'Redirection messages',
   ),
 
   /// This response code means that the URI of requested resource has been changed temporarily.
@@ -295,10 +295,10 @@ enum HttpResponseStatusCode {
     statusCode: 302,
 
     /// Status Title
-    statusTitle: "Found",
+    statusTitle: 'Found',
 
     /// Status Type
-    statusType: "Redirection messages",
+    statusType: 'Redirection messages',
   ),
 
   /// The server sent this response to direct the client to get
@@ -309,10 +309,10 @@ enum HttpResponseStatusCode {
     statusCode: 303,
 
     /// Status Title
-    statusTitle: "See Other",
+    statusTitle: 'See Other',
 
     /// Status Type
-    statusType: "Redirection messages",
+    statusType: 'Redirection messages',
   ),
 
   /// This is used for caching purposes. It tells the client that the response has not been modified,
@@ -323,10 +323,10 @@ enum HttpResponseStatusCode {
     statusCode: 304,
 
     /// Status Title
-    statusTitle: "Not Modified",
+    statusTitle: 'Not Modified',
 
     /// Status Type
-    statusType: "Redirection messages",
+    statusType: 'Redirection messages',
   ),
 
   /// Defined in a previous version of the HTTP specification to indicate that
@@ -338,10 +338,10 @@ enum HttpResponseStatusCode {
     statusCode: 305,
 
     /// Status Title
-    statusTitle: "Use Proxy",
+    statusTitle: 'Use Proxy',
 
     /// Status Type
-    statusType: "Redirection messages",
+    statusType: 'Redirection messages',
   ),
 
   /// This response code is no longer used; it is just reserved.
@@ -353,10 +353,10 @@ enum HttpResponseStatusCode {
       statusCode: 306,
 
       /// Status Title
-      statusTitle: "unused",
+      statusTitle: 'unused',
 
       /// Status Type
-      statusType: "Redirection messages"),
+      statusType: 'Redirection messages'),
 
   /// The server sends this response to direct the client to get the requested resource
   /// at another URI with the same method that was used in the prior request.
@@ -369,10 +369,10 @@ enum HttpResponseStatusCode {
     statusCode: 307,
 
     /// Status Title
-    statusTitle: "Temporary Redirect",
+    statusTitle: 'Temporary Redirect',
 
     /// Status Type
-    statusType: "Redirection messages",
+    statusType: 'Redirection messages',
   ),
 
   /// This means that the resource is now permanently located at another URI,
@@ -386,10 +386,10 @@ enum HttpResponseStatusCode {
     statusCode: 308,
 
     /// Status Title
-    statusTitle: "Permanent Redirect",
+    statusTitle: 'Permanent Redirect',
 
     /// Status Type
-    statusType: "Redirection messages",
+    statusType: 'Redirection messages',
   ),
 
   /// The server cannot or will not process the request due to something that is perceived
@@ -401,10 +401,10 @@ enum HttpResponseStatusCode {
     statusCode: 400,
 
     /// Status Title
-    statusTitle: "Bad Request",
+    statusTitle: 'Bad Request',
 
     /// Status Type
-    statusType: "Client error responses",
+    statusType: 'Client error responses',
   ),
 
   /// Although the HTTP standard specifies "unauthorized",
@@ -416,10 +416,10 @@ enum HttpResponseStatusCode {
     statusCode: 401,
 
     /// Status Title
-    statusTitle: "Unauthorized",
+    statusTitle: 'Unauthorized',
 
     /// Status Type
-    statusType: "Client error responses",
+    statusType: 'Client error responses',
   ),
 
   /// This response code is reserved for future use. The initial aim for creating
@@ -431,10 +431,10 @@ enum HttpResponseStatusCode {
     statusCode: 402,
 
     /// Status Title
-    statusTitle: "Payment Required",
+    statusTitle: 'Payment Required',
 
     /// Status Type
-    statusType: "Client error responses",
+    statusType: 'Client error responses',
   ),
 
   /// The client does not have access rights to the content; that is,
@@ -446,10 +446,10 @@ enum HttpResponseStatusCode {
     statusCode: 403,
 
     /// Status Title
-    statusTitle: "Forbidden",
+    statusTitle: 'Forbidden',
 
     /// Status Type
-    statusType: "Client error responses",
+    statusType: 'Client error responses',
   ),
 
   /// The server cannot find the requested resource.
@@ -464,10 +464,10 @@ enum HttpResponseStatusCode {
     statusCode: 404,
 
     /// Status Title
-    statusTitle: "Not Found",
+    statusTitle: 'Not Found',
 
     /// Status Type
-    statusType: "Client error responses",
+    statusType: 'Client error responses',
   ),
 
   /// The request method is known by the server but is not supported by the target resource.
@@ -478,10 +478,10 @@ enum HttpResponseStatusCode {
     statusCode: 405,
 
     /// Status Title
-    statusTitle: "Method Not Allowed",
+    statusTitle: 'Method Not Allowed',
 
     /// Status Type
-    statusType: "Client error responses",
+    statusType: 'Client error responses',
   ),
 
   /// This response is sent when the web server,
@@ -493,10 +493,10 @@ enum HttpResponseStatusCode {
     statusCode: 406,
 
     /// Status Title
-    statusTitle: "Not Acceptable",
+    statusTitle: 'Not Acceptable',
 
     /// Status Type
-    statusType: "Client error responses",
+    statusType: 'Client error responses',
   ),
 
   /// This is similar to 401 Unauthorized but authentication is needed to be done by a proxy.
@@ -506,10 +506,10 @@ enum HttpResponseStatusCode {
     statusCode: 407,
 
     /// Status Title
-    statusTitle: "Proxy Authentication Required",
+    statusTitle: 'Proxy Authentication Required',
 
     /// Status Type
-    statusType: "Client error responses",
+    statusType: 'Client error responses',
   ),
 
   /// This response is sent on an idle connection by some servers,
@@ -525,10 +525,10 @@ enum HttpResponseStatusCode {
       statusCode: 408,
 
       /// Status Title
-      statusTitle: "Request Timeout",
+      statusTitle: 'Request Timeout',
 
       /// Status Type
-      statusType: "Client error responses"),
+      statusType: 'Client error responses'),
 
   /// This response is sent when a request conflicts with the current state of the server.
   /// https://developer.mozilla.org/en-US/docs/Web/HTTP/Status
@@ -537,10 +537,10 @@ enum HttpResponseStatusCode {
     statusCode: 409,
 
     /// Status Title
-    statusTitle: "Conflict",
+    statusTitle: 'Conflict',
 
     /// Status Type
-    statusType: "Client error responses",
+    statusType: 'Client error responses',
   ),
 
   /// This response is sent when the requested content has been permanently deleted from server,
@@ -553,10 +553,10 @@ enum HttpResponseStatusCode {
     statusCode: 410,
 
     /// Status Title
-    statusTitle: "Gone",
+    statusTitle: 'Gone',
 
     /// Status Type
-    statusType: "Client error responses",
+    statusType: 'Client error responses',
   ),
 
   /// Server rejected the request because
@@ -567,10 +567,10 @@ enum HttpResponseStatusCode {
     statusCode: 411,
 
     /// Status Title
-    statusTitle: "Length Required",
+    statusTitle: 'Length Required',
 
     /// Status Type
-    statusType: "Client error responses",
+    statusType: 'Client error responses',
   ),
 
   /// The client has indicated preconditions in its headers which the server does not meet.
@@ -580,10 +580,10 @@ enum HttpResponseStatusCode {
     statusCode: 412,
 
     /// Status Title
-    statusTitle: "Precondition Failed",
+    statusTitle: 'Precondition Failed',
 
     /// Status Type
-    statusType: "Client error responses",
+    statusType: 'Client error responses',
   ),
 
   /// Request entity is larger than limits defined by server.
@@ -594,10 +594,10 @@ enum HttpResponseStatusCode {
     statusCode: 413,
 
     /// Status Title
-    statusTitle: "Payload Too Large",
+    statusTitle: 'Payload Too Large',
 
     /// Status Type
-    statusType: "Client error responses",
+    statusType: 'Client error responses',
   ),
 
   /// The URI requested by the client is longer than the server is willing to interpret.
@@ -607,10 +607,10 @@ enum HttpResponseStatusCode {
     statusCode: 414,
 
     /// Status Title
-    statusTitle: "URI Too Long",
+    statusTitle: 'URI Too Long',
 
     /// Status Type
-    statusType: "Client error responses",
+    statusType: 'Client error responses',
   ),
 
   /// The media format of the requested data is not supported by the server,
@@ -621,10 +621,10 @@ enum HttpResponseStatusCode {
     statusCode: 415,
 
     /// Status Title
-    statusTitle: "Unsupported Media Type",
+    statusTitle: 'Unsupported Media Type',
 
     /// Status Type
-    statusType: "Client error responses",
+    statusType: 'Client error responses',
   ),
 
   /// The range specified by the Range header field in the request cannot be fulfilled.
@@ -636,10 +636,10 @@ enum HttpResponseStatusCode {
       statusCode: 416,
 
       /// Status Title
-      statusTitle: "Range Not Satisfiable",
+      statusTitle: 'Range Not Satisfiable',
 
       /// Status Type
-      statusType: "Client error responses"),
+      statusType: 'Client error responses'),
 
   /// This response code means the expectation indicated
   /// by the Expect request header field cannot be met by the server.
@@ -649,10 +649,10 @@ enum HttpResponseStatusCode {
     statusCode: 417,
 
     /// Status Title
-    statusTitle: "Expectation Failed",
+    statusTitle: 'Expectation Failed',
 
     /// Status Type
-    statusType: "Client error responses",
+    statusType: 'Client error responses',
   ),
 
   /// The server refuses the attempt to brew coffee with a teapot.
@@ -662,10 +662,10 @@ enum HttpResponseStatusCode {
     statusCode: 418,
 
     /// Status Title
-    statusTitle: "I'm a teapot",
+    statusTitle: 'I\'m a teapot',
 
     /// Status Type
-    statusType: "Client error responses",
+    statusType: 'Client error responses',
   ),
 
   /// The request was directed at a server that is not able to produce a response.
@@ -677,10 +677,10 @@ enum HttpResponseStatusCode {
     statusCode: 421,
 
     /// Status Title
-    statusTitle: "Misdirected Request",
+    statusTitle: 'Misdirected Request',
 
     /// Status Type
-    statusType: "Client error responses",
+    statusType: 'Client error responses',
   ),
 
   /// The request was well-formed but was unable to be followed due to semantic errors.
@@ -690,10 +690,10 @@ enum HttpResponseStatusCode {
     statusCode: 422,
 
     /// Status Title
-    statusTitle: "Unprocessable Content (WebDAV)",
+    statusTitle: 'Unprocessable Content (WebDAV)',
 
     /// Status Type
-    statusType: "Client error responses",
+    statusType: 'Client error responses',
   ),
 
   /// The resource that is being accessed is locked.
@@ -703,10 +703,10 @@ enum HttpResponseStatusCode {
     statusCode: 423,
 
     /// Status Title
-    statusTitle: "Locked (WebDAV)",
+    statusTitle: 'Locked (WebDAV)',
 
     /// Status Type
-    statusType: "Client error responses",
+    statusType: 'Client error responses',
   ),
 
   /// The request failed due to failure of a previous request.
@@ -716,10 +716,10 @@ enum HttpResponseStatusCode {
     statusCode: 424,
 
     /// Status Title
-    statusTitle: "Failed Dependency (WebDAV)",
+    statusTitle: 'Failed Dependency (WebDAV)',
 
     /// Status Type
-    statusType: "Client error responses",
+    statusType: 'Client error responses',
   ),
 
   /// Indicates that the server is unwilling to risk processing a request that might be replayed.
@@ -729,10 +729,10 @@ enum HttpResponseStatusCode {
     statusCode: 425,
 
     /// Status Title
-    statusTitle: "Too Early",
+    statusTitle: 'Too Early',
 
     /// Status Type
-    statusType: "Client error responses",
+    statusType: 'Client error responses',
   ),
 
   /// The server refuses to perform the request using the current protocol
@@ -744,10 +744,10 @@ enum HttpResponseStatusCode {
     statusCode: 426,
 
     /// Status Title
-    statusTitle: "Upgrade Required",
+    statusTitle: 'Upgrade Required',
 
     /// Status Type
-    statusType: "Client error responses",
+    statusType: 'Client error responses',
   ),
 
   /// The origin server requires the request to be conditional.
@@ -760,10 +760,10 @@ enum HttpResponseStatusCode {
     statusCode: 428,
 
     /// Status Title
-    statusTitle: "Precondition Required",
+    statusTitle: 'Precondition Required',
 
     /// Status Type
-    statusType: "Client error responses",
+    statusType: 'Client error responses',
   ),
 
   /// The user has sent too many requests in a given amount of time ("rate limiting").
@@ -773,10 +773,10 @@ enum HttpResponseStatusCode {
     statusCode: 429,
 
     /// Status Title
-    statusTitle: "Too Many Requests",
+    statusTitle: 'Too Many Requests',
 
     /// Status Type
-    statusType: "Client error responses",
+    statusType: 'Client error responses',
   ),
 
   /// The server is unwilling to process the request because its header fields are too large.
@@ -787,10 +787,10 @@ enum HttpResponseStatusCode {
     statusCode: 431,
 
     /// Status Title
-    statusTitle: "Request Header Fields Too Large",
+    statusTitle: 'Request Header Fields Too Large',
 
     /// Status Type
-    statusType: "Client error responses",
+    statusType: 'Client error responses',
   ),
 
   /// The user agent requested a resource that cannot legally be provided,
@@ -801,10 +801,10 @@ enum HttpResponseStatusCode {
     statusCode: 451,
 
     /// Status Title
-    statusTitle: "Unavailable For Legal Reasons",
+    statusTitle: 'Unavailable For Legal Reasons',
 
     /// Status Type
-    statusType: "Client error responses",
+    statusType: 'Client error responses',
   ),
 
   /// The server has encountered a situation it does not know how to handle.
@@ -814,10 +814,10 @@ enum HttpResponseStatusCode {
     statusCode: 500,
 
     /// Status Title
-    statusTitle: "Internal Server Error",
+    statusTitle: 'Internal Server Error',
 
     /// Status Type
-    statusType: "Server error responses",
+    statusType: 'Server error responses',
   ),
 
   /// The request method is not supported by the server and cannot be handled.
@@ -829,10 +829,10 @@ enum HttpResponseStatusCode {
     statusCode: 501,
 
     /// Status Title
-    statusTitle: "Not Implemented",
+    statusTitle: 'Not Implemented',
 
     /// Status Type
-    statusType: "Server error responses",
+    statusType: 'Server error responses',
   ),
 
   /// This error response means that the server,
@@ -844,10 +844,10 @@ enum HttpResponseStatusCode {
     statusCode: 502,
 
     /// Status Title
-    statusTitle: "Bad Gateway",
+    statusTitle: 'Bad Gateway',
 
     /// Status Type
-    statusType: "Server error responses",
+    statusType: 'Server error responses',
   ),
 
   /// The server is not ready to handle the request.
@@ -863,10 +863,10 @@ enum HttpResponseStatusCode {
     statusCode: 503,
 
     /// Status Title
-    statusTitle: "Service Unavailable",
+    statusTitle: 'Service Unavailable',
 
     /// Status Type
-    statusType: "Server error responses",
+    statusType: 'Server error responses',
   ),
 
   /// This error response is given when the server is acting
@@ -877,10 +877,10 @@ enum HttpResponseStatusCode {
     statusCode: 504,
 
     /// Status Title
-    statusTitle: "Gateway Timeout",
+    statusTitle: 'Gateway Timeout',
 
     /// Status Type
-    statusType: "Server error responses",
+    statusType: 'Server error responses',
   ),
 
   /// The HTTP version used in the request is not supported by the server.
@@ -890,10 +890,10 @@ enum HttpResponseStatusCode {
     statusCode: 505,
 
     /// Status Title
-    statusTitle: "HTTP Version Not Supported",
+    statusTitle: 'HTTP Version Not Supported',
 
     /// Status Type
-    statusType: "Server error responses",
+    statusType: 'Server error responses',
   ),
 
   /// The server has an internal configuration error:
@@ -905,10 +905,10 @@ enum HttpResponseStatusCode {
     statusCode: 506,
 
     /// Status Title
-    statusTitle: "Variant Also Negotiates",
+    statusTitle: 'Variant Also Negotiates',
 
     /// Status Type
-    statusType: "Server error responses",
+    statusType: 'Server error responses',
   ),
 
   /// The method could not be performed on the resource because the server
@@ -919,10 +919,10 @@ enum HttpResponseStatusCode {
     statusCode: 507,
 
     /// Status Title
-    statusTitle: "Insufficient Storage (WebDAV)",
+    statusTitle: 'Insufficient Storage (WebDAV)',
 
     /// Status Type
-    statusType: "Server error responses",
+    statusType: 'Server error responses',
   ),
 
   /// The server detected an infinite loop while processing the request.
@@ -932,10 +932,10 @@ enum HttpResponseStatusCode {
     statusCode: 508,
 
     /// Status Title
-    statusTitle: "Loop Detected (WebDAV)",
+    statusTitle: 'Loop Detected (WebDAV)',
 
     /// Status Type
-    statusType: "Server error responses",
+    statusType: 'Server error responses',
   ),
 
   /// Further extensions to the request are required for the server to fulfill it.
@@ -945,10 +945,10 @@ enum HttpResponseStatusCode {
     statusCode: 510,
 
     /// Status Title
-    statusTitle: "Not Extended",
+    statusTitle: 'Not Extended',
 
     /// Status Type
-    statusType: "Server error responses",
+    statusType: 'Server error responses',
   ),
 
   /// Indicates that the client needs to authenticate to gain network access.
@@ -958,10 +958,10 @@ enum HttpResponseStatusCode {
     statusCode: 511,
 
     /// Status Title
-    statusTitle: "Network Authentication Required",
+    statusTitle: 'Network Authentication Required',
 
     /// Status Type
-    statusType: "Server error responses",
+    statusType: 'Server error responses',
   );
 
   /// Define const Object from [HttpResponseStatusCode] class
@@ -984,109 +984,4 @@ enum HttpResponseStatusCode {
 
   /// Define [statusType] property as String and final
   final String statusType;
-}
-
-/// Define property types
-enum PropertyType {
-  /// OpenAPI has two numeric types, number and integer,
-  /// where number includes both integer and floating-point numbers.
-  /// https://swagger.io/docs/specification/data-models/data-types/#numbers
-  /// number property type
-  number,
-
-  /// OpenAPI has two numeric types, number and integer,
-  /// where number includes both integer and floating-point numbers.
-  /// https://swagger.io/docs/specification/data-models/data-types/#numbers
-  /// integer property type
-  integer,
-
-  /// Unlike OpenAPI 2.0, Open API 3.0 does not have the file type.
-  /// Files are defined as strings
-  /// https://swagger.io/docs/specification/data-models/data-types/#file
-  /// string file property type
-  file,
-
-  /// An optional format modifier serves as a hint at the contents
-  /// and format of the string. OpenAPI defines the following built-in string formats:
-  /// date – full-date notation as defined by RFC 3339, section 5.6, for example, 2017-07-21
-  /// date-time – the date-time notation as defined by RFC 3339,
-  /// section 5.6, for example, 2017-07-21T17:32:28Z
-  /// password – a hint to UIs to mask the input
-  /// byte – base64-encoded characters, for example, U3dhZ2dlciByb2Nrcw==
-  /// binary – binary data, used to describe files (see Files below)
-  /// However, format is an open value, so you can use any formats,
-  /// even not those defined by the OpenAPI Specification, such as:
-  /// email
-  /// uuid
-  /// uri
-  /// hostname
-  /// ipv4
-  /// ipv6
-  /// and others
-  /// https://swagger.io/docs/specification/data-models/data-types/#string
-  /// string property type
-  string,
-
-  /// type: boolean represents two values: true and false.
-  /// Note that truthy and falsy values such as "true", "", 0 or null
-  /// are not considered boolean values.
-  /// https://swagger.io/docs/specification/data-models/data-types/#boolean
-  /// boolean file property type
-  boolean,
-
-  /// Unlike JSON Schema, the items keyword is required in arrays.
-  /// The value of items is a schema that describes the type and
-  /// format of array items. Arrays can be nested:
-  /// https://swagger.io/docs/specification/data-models/data-types/#array
-  /// array file property type
-  array,
-}
-
-/// Define param types
-enum ParameterType {
-  /// Query parameters are the most common type of parameters.
-  /// They appear at the end of the request URL after a question mark (?),
-  /// with different name=value pairs separated by ampersands (&).
-  /// Query parameters can be required and optional.
-  /// https://swagger.io/docs/specification/describing-parameters/#query-parameters
-  /// query parameter type, such as /users?role=admin
-  query,
-
-  /// Path parameters are variable parts of a URL path.
-  /// They are typically used to point to a specific resource within
-  /// a collection, such as a user identified by ID.
-  /// A URL can have several path parameters,
-  /// each denoted with curly braces { }.
-  /// https://swagger.io/docs/specification/describing-parameters/#path-parameters
-  /// path parameter type, such as /users/{id}
-  path,
-
-  /// An API call may require that custom headers be sent with an HTTP request.
-  /// OpenAPI lets you define custom request headers as in:
-  /// header parameters. For example, suppose,
-  /// a call to GET /ping requires the X-Request-ID header
-  /// https://swagger.io/docs/specification/describing-parameters/#header-parameters
-
-  /// HTTP headers let the client and the server pass additional information
-  /// with an HTTP request or response. An HTTP header consists of its
-  /// case-insensitive name followed by a colon (:), then by its value.
-  /// Whitespace before the value is ignored.
-  /// Custom proprietary headers have historically been used with an X- prefix,
-  /// but this convention was deprecated in June 2012 because of
-  /// the inconveniences it caused when nonstandard fields became
-  /// standard in RFC 6648; others are listed in an IANA registry,
-  /// whose original content was defined in RFC 4229.
-  /// IANA also maintains a registry of proposed new HTTP headers.
-  /// https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers
-
-  /// header parameter type, such as X-MyHeader: Value
-  header,
-
-  /// Operations can also pass parameters in the Cookie header,
-  /// as Cookie: name=value. Multiple cookie parameters are sent in
-  /// the same header, separated by a semicolon and space.
-  /// https://swagger.io/docs/specification/describing-parameters/#cookie-parameters
-  /// cookie parameter type, which are passed in the Cookie header,
-  /// such as Cookie: debug=0; csrftoken=BUSe35dohU3O1MZvDCU
-  cookie,
 }

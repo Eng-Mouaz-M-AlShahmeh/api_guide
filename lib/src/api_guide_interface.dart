@@ -42,7 +42,16 @@ abstract class APIGuideInterface {
     /// Privacy Link of the API Guide interface to implement later
     String? privacyLink,
 
+    /// Contact Link of the API Guide interface to implement later
+    String? contactLink,
+
+    /// Contact Email of the API Guide interface to implement later
+    String? contactEmail,
+
     /// Theme Color of the API Guide interface to implement later
     APIGuideThemeColor? themeColor,
+
+    /// SPDX Licence Type of the API Guide interface to implement later
+    SPDXLicenceType? spdxLicenceType,
   });
 }

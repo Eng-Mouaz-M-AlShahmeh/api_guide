@@ -47,6 +47,15 @@ class AppProvider extends ChangeNotifier {
   /// Privacy Link of the API Guide
   String? _privacyLink;
 
+  /// Contact Link of the API Guide
+  String? _contactLink;
+
+  /// Contact Email of the API Guide
+  String? _contactEmail;
+
+  /// SPDX Licence Type of the API Guide
+  SPDXLicenceType? _spdxLicenceType;
+
   /// API version
   double _version = 0.0;
 
@@ -93,6 +102,16 @@ class AppProvider extends ChangeNotifier {
   /// Define String getter of [_privacyLink] called [privacyLink]
   String? get privacyLink => _privacyLink;
 
+  /// Define String getter of [_contactLink] called [contactLink]
+  String? get contactLink => _contactLink;
+
+  /// Define String getter of [_contactEmail] called [contactEmail]
+  String? get contactEmail => _contactEmail;
+
+  /// Define SPDXLicenceType getter of [_spdxLicenceType]
+  /// called [spdxLicenceType]
+  SPDXLicenceType? get spdxLicenceType => _spdxLicenceType;
+
   /// Define double getter of [_version] called [version]
   double get version => _version;
 
@@ -116,8 +135,10 @@ class AppProvider extends ChangeNotifier {
     if (_apiItemKeys.isEmpty) {
       /// Initialize global keys for API items
       /// Update the value of [_apiItemKeys]
-      _apiItemKeys =
-          _apiItemList.map((e) => GlobalKey(debugLabel: e.title)).toList();
+      _apiItemKeys = _apiItemList
+          .map((e) => GlobalKey(
+              debugLabel: '${e.title} ${e.urlPath} ${e.request.method.name}'))
+          .toList();
     }
 
     /// Notify listeners to rebuild widgets that depend
@@ -211,6 +232,39 @@ class AppProvider extends ChangeNotifier {
   updatePrivacyLink(String? val) {
     /// Update the value of [_privacyLink]
     _privacyLink = val;
+
+    /// Notify listeners to rebuild widgets that depend
+    /// on this ChangeNotifier
+    notifyListeners();
+  }
+
+  /// Define [updateContactLink] function which update
+  /// the state of [_contactLink] value
+  updateContactLink(String? val) {
+    /// Update the value of [_privacyLink]
+    _contactLink = val;
+
+    /// Notify listeners to rebuild widgets that depend
+    /// on this ChangeNotifier
+    notifyListeners();
+  }
+
+  /// Define [updateContactEmail] function which update
+  /// the state of [_contactEmail] value
+  updateContactEmail(String? val) {
+    /// Update the value of [_privacyLink]
+    _contactEmail = val;
+
+    /// Notify listeners to rebuild widgets that depend
+    /// on this ChangeNotifier
+    notifyListeners();
+  }
+
+  /// Define [updateSPDXLicenceType] function which update
+  /// the state of [_spdxLicenceType] value
+  updateSPDXLicenceType(SPDXLicenceType? val) {
+    /// Update the value of [_spdxLicenceType]
+    _spdxLicenceType = val;
 
     /// Notify listeners to rebuild widgets that depend
     /// on this ChangeNotifier

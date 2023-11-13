@@ -21,40 +21,7 @@ AppBar apiGuideAppBar(BuildContext context) {
 
   /// Return AppBar widget
   return AppBar(
-    title: Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        /// Appear only on screens larger than [Constants.smallBreakPoint]
-        MediaQuery.of(context).size.width <= Constants.smallBreakPoint
-            ? SizedBox()
-            : SelectableText(
-                /// Display the API version
-                '${Constants.apiGuideTxt}${appState.version}',
-                style: TextStyle(
-                  /// Check the current light/dark theme mode
-                  color: themeState.isDarkMode
-                      ? ConstantsDarkMode.whiteColor
-                      : ConstantsLightMode.whiteColor,
-                ),
-              ),
-
-        /// Appear only on screens larger than [Constants.smallBreakPoint]
-        MediaQuery.of(context).size.width <= Constants.smallBreakPoint
-            ? SizedBox()
-            : SelectableText(
-                /// Display the latest update date
-                '${Constants.latestUpdateTxt}${appState.latestUpdate.year}-${appState.latestUpdate.month}-${appState.latestUpdate.day}',
-                style: TextStyle(
-                  fontSize: Constants.size10,
-
-                  /// Check the current light/dark theme mode
-                  color: themeState.isDarkMode
-                      ? ConstantsDarkMode.whiteColor
-                      : ConstantsLightMode.whiteColor,
-                ),
-              ),
-      ],
-    ),
+    title: Text(Constants.emptyTxt),
 
     /// To make the title fixed at the center
     centerTitle: true,
@@ -63,6 +30,11 @@ AppBar apiGuideAppBar(BuildContext context) {
     backgroundColor: themeState.isDarkMode
         ? ConstantsDarkMode.themeColor(context)
         : ConstantsLightMode.themeColor(context),
+
+    ///  Leading icon (menu) for smaller screens
+    leadingWidth: MediaQuery.of(context).size.width <= Constants.largeBreakPoint
+        ? Constants.size56
+        : Constants.size300,
 
     /// Leading icon (menu) for smaller screens
     leading: MediaQuery.of(context).size.width <= Constants.largeBreakPoint
@@ -80,7 +52,98 @@ AppBar apiGuideAppBar(BuildContext context) {
               appState.scaffoldKey.currentState!.openDrawer();
             },
           )
-        : SizedBox(),
+        : Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              /// Appear only on screens larger than [Constants.smallBreakPoint]
+              MediaQuery.of(context).size.width <= Constants.smallBreakPoint
+                  ? SizedBox()
+                  : Padding(
+                      padding: const EdgeInsets.fromLTRB(Constants.size8,
+                          Constants.size0, Constants.size8, Constants.size0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          SelectableText(
+                            /// Display the API version
+                            '${Constants.apiGuideTxt} ',
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+
+                              /// Check the current light/dark theme mode
+                              color: themeState.isDarkMode
+                                  ? ConstantsDarkMode.whiteColor
+                                  : ConstantsLightMode.whiteColor,
+                              fontSize: Constants.size22,
+                            ),
+                          ),
+                          ClipRRect(
+                            borderRadius: BorderRadius.all(
+                              Radius.circular(Constants.size10),
+                            ),
+                            child: SizedBox(
+                              child: DecoratedBox(
+                                decoration: BoxDecoration(
+                                  color: themeState.isDarkMode
+                                      ? ConstantsDarkMode.themeColorLight(
+                                          context)
+                                      : ConstantsLightMode.themeColorLight(
+                                          context),
+                                ),
+                                child: Padding(
+                                  padding: const EdgeInsets.fromLTRB(
+                                    Constants.size10,
+                                    Constants.size5,
+                                    Constants.size10,
+                                    Constants.size5,
+                                  ),
+                                  child: Text(
+                                    '${Constants.versionTxt}${appState.version.toStringAsFixed(1)}',
+                                    style: TextStyle(
+                                      /// Check the current light/dark theme mode
+                                      color: themeState.isDarkMode
+                                          ? ConstantsDarkMode.themeColor(
+                                              context)
+                                          : ConstantsLightMode.themeColor(
+                                              context),
+                                      fontWeight: FontWeight.normal,
+                                      fontSize: Constants.size10,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+
+              /// Appear only on screens larger than [Constants.smallBreakPoint]
+              MediaQuery.of(context).size.width <= Constants.smallBreakPoint
+                  ? SizedBox()
+                  : Padding(
+                      padding: const EdgeInsets.fromLTRB(Constants.size8,
+                          Constants.size0, Constants.size8, Constants.size0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          SelectableText(
+                            /// Display the latest update date
+                            '${Constants.latestUpdateTxt}${appState.latestUpdate.year}-${appState.latestUpdate.month}-${appState.latestUpdate.day}',
+                            style: TextStyle(
+                              fontSize: Constants.size10,
+
+                              /// Check the current light/dark theme mode
+                              color: themeState.isDarkMode
+                                  ? ConstantsDarkMode.whiteColor
+                                  : ConstantsLightMode.whiteColor,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+            ],
+          ),
 
     /// Actions icon (light ot dark) for theme mode switch
     actions: [

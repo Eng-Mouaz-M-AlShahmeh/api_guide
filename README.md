@@ -33,6 +33,7 @@ Flutter package to generate API calls documentations like OpenAPI schema.
 * Seamless scrollable sidebar.
 * It appears clear by version and last update date.
 * Optional Privacy Policy and Terms of Use API Integration Guide footer links.
+* Optional SPDX Licence API Integration Guide footer link with supporting of 400+ SPDX Licence types. 
 * Optional variant to change the theme color supports 14 color distributions.
 * Built in accordance with [W3 Consortium](https://www.w3.org) and [OpenAPI Schema](https://spec.openapis.org/oas/v3.1.0) recommendations.
 
@@ -42,7 +43,7 @@ Flutter package to generate API calls documentations like OpenAPI schema.
 
 ```yaml
 dependencies:
-  api_guide: ^1.0.10
+  api_guide: ^1.0.11
 ```
 
 ② Second: import it to your project:

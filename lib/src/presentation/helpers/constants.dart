@@ -170,10 +170,10 @@ class Constants {
   /// Start Text Attributes
 
   /// Define [apiGuideTxt] attribute
-  static const String apiGuideTxt = 'API Guide v.';
+  static const String apiGuideTxt = 'API Guide';
 
-  /// Define [apiGuideShortTxt] attribute
-  static const String apiGuideShortTxt = 'API Guide';
+  /// Define [versionTxt] attribute
+  static const String versionTxt = 'v.';
 
   /// Define [latestUpdateTxt] attribute
   static const String latestUpdateTxt = 'Latest Update ';
@@ -235,6 +235,12 @@ class Constants {
   /// Define [searchTxt] attribute
   static const String searchTxt = 'Search ';
 
+  /// Define [licenseTxt] attribute
+  static const String licenseTxt = 'Licence';
+
+  /// Define [contactUsTxt] attribute
+  static const String contactUsTxt = 'Contact Us';
+
   /// Define [lineTxt] attribute
   static const String lineTxt = ' ................................ ';
 
@@ -287,11 +293,17 @@ class Constants {
 
   /// Start Sizes Attributes
 
+  /// Define [size300] attribute
+  static const double size300 = 300;
+
   /// Define [size250] attribute
   static const double size250 = 250;
 
   /// Define [size100] attribute
   static const double size100 = 100;
+
+  /// Define [size56] attribute
+  static const double size56 = 56;
 
   /// Define [size50] attribute
   static const double size50 = 50;
@@ -342,6 +354,9 @@ class Constants {
 
   /// Start Flex Ratios Attributes
 
+  /// Define [flex0] attribute
+  static const int flex0 = 0;
+
   /// Define [flex1] attribute
   static const int flex1 = 1;
 
@@ -359,6 +374,9 @@ class Constants {
 
   /// Define [flex10] attribute
   static const int flex10 = 10;
+
+  /// Define [flex18] attribute
+  static const int flex18 = 18;
 
   /// End Flex Ratios Attributes
 

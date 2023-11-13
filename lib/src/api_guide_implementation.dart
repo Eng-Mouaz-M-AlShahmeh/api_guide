@@ -49,8 +49,17 @@ class APIGuide implements APIGuideInterface {
     /// Privacy Link of the API Guide implementation
     String? privacyLink,
 
+    /// Contact Link of the API Guide implementation
+    String? contactLink,
+
+    /// Contact Email of the API Guide implementation
+    String? contactEmail,
+
     /// Theme Color of the API Guide implementation
     APIGuideThemeColor? themeColor,
+
+    /// Theme SPDX Licence Type of the API Guide implementation
+    SPDXLicenceType? spdxLicenceType,
   }) {
     /// Return [MultiProvider]
     return MultiProvider(
@@ -91,6 +100,15 @@ class APIGuide implements APIGuideInterface {
 
         /// Privacy Link of the API Guide
         privacyLink: privacyLink,
+
+        /// Contact Link of the API Guide
+        contactLink: contactLink,
+
+        /// Contact Email of the API Guide
+        contactEmail: contactEmail,
+
+        /// SPDX Licence Type of the API Guide
+        spdxLicenceType: spdxLicenceType,
       ),
     );
   }

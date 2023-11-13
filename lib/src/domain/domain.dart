@@ -12,8 +12,14 @@ export '../../src/domain/faq.dart';
 /// Export Header
 export '../../src/domain/header.dart';
 
-/// Export Enums Helpers
-export '../../src/domain/helpers/enums.dart';
+/// Export General Enums Helpers
+export '../../src/domain/helpers/general_enums.dart';
+
+/// Export HTTP Enums Helpers
+export '../../src/domain/helpers/http_enums.dart';
+
+/// Export Licence Enums Helpers
+export '../../src/domain/helpers/licence_enums.dart';
 
 /// Export Theme Enums Helpers
 export '../../src/domain/helpers/theme_enums.dart';

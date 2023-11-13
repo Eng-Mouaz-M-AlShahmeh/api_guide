@@ -1,3 +1,17 @@
+## [1.0.11] - 2023/11/14
+
+* Update README.md file.
+* Update CHANGELOG.md file.
+* Enhance version shape with fixed one decimal after comma.
+* Enhance app bar shape at large screens.
+* Enhance Navigator shape with optional contact email footer.
+* Fix navigation to the same path but different http methods.
+* Add [SPDXLicenceType] enums which support 400+ types.
+* Add SPDX Licence Type optional footer link.
+* Add Contact optional footer link.
+* Add [sendEmail] helper function.
+* Add Contact optional footer email.
+
 ## [1.0.10] - 2023/11/12
 
 * Update README.md file.

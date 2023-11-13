@@ -48,8 +48,17 @@ class APIGuideScreen extends StatelessWidget {
     /// Privacy Link of the API Guide implementation
     this.privacyLink,
 
+    /// Contact Link of the API Guide implementation
+    this.contactLink,
+
+    /// Contact Email of the API Guide implementation
+    this.contactEmail,
+
     /// Theme Color of the API Guide implementation
     this.themeColor,
+
+    /// SPDX Licence Type of the API Guide implementation
+    this.spdxLicenceType,
   });
 
   /// Host URL implementation
@@ -76,8 +85,17 @@ class APIGuideScreen extends StatelessWidget {
   /// Privacy Link of the API Guide implementation
   final String? privacyLink;
 
+  /// Contact Link of the API Guide implementation
+  final String? contactLink;
+
+  /// Contact Email of the API Guide implementation
+  final String? contactEmail;
+
   /// Theme Color of the API Guide implementation
   final APIGuideThemeColor? themeColor;
+
+  /// SPDX Licence Type of the API Guide implementation
+  final SPDXLicenceType? spdxLicenceType;
 
   @override
   Widget build(BuildContext context) {
@@ -109,6 +127,15 @@ class APIGuideScreen extends StatelessWidget {
 
       /// Update the initial value of [privacyLink] String
       appState.updatePrivacyLink(privacyLink);
+
+      /// Update the initial value of [contactLink] String
+      appState.updateContactLink(contactLink);
+
+      /// Update the initial value of [contactEmail] String
+      appState.updateContactEmail(contactEmail);
+
+      /// Update the initial value of [spdxLicenceType] SPDXLicenceType
+      appState.updateSPDXLicenceType(spdxLicenceType);
 
       /// Update the initial value of [version] double
       appState.updateVersion(version);
@@ -272,7 +299,7 @@ class APIGuideScreen extends StatelessWidget {
                           apiGuideFaqItems(context),
                           SizedBox(height: Constants.size15),
 
-                          /// Copyright notice and optional Privacy and Terms
+                          /// Copyright notice and optional parts
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
@@ -287,6 +314,80 @@ class APIGuideScreen extends StatelessWidget {
                                       : ConstantsLightMode.blackColor,
                                 ),
                               ),
+
+                              /// Check if the [contactLink] is empty
+                              appState.contactLink == null ||
+                                      appState.contactLink == Constants.emptyTxt
+                                  ? SizedBox()
+                                  : Text(
+                                      '${Constants.dividerTxt}',
+                                      style: TextStyle(
+                                        fontSize: Constants.size10,
+
+                                        /// Check the current light/dark theme mode
+                                        color: themeState.isDarkMode
+                                            ? ConstantsDarkMode.blackColor
+                                            : ConstantsLightMode.blackColor,
+                                      ),
+                                    ),
+
+                              /// Check if the [contactLink] is empty
+                              appState.contactLink == null ||
+                                      appState.contactLink == Constants.emptyTxt
+                                  ? SizedBox()
+                                  : InkWell(
+                                      onTap: () => Functions()
+                                          .openURL(appState.contactLink!),
+                                      child: Text(
+                                        Constants.contactUsTxt,
+                                        style: TextStyle(
+                                          fontSize: Constants.size10,
+
+                                          /// Check the current light/dark theme mode
+                                          color: themeState.isDarkMode
+                                              ? ConstantsDarkMode.themeColor(
+                                                  context)
+                                              : ConstantsLightMode.themeColor(
+                                                  context),
+                                        ),
+                                      ),
+                                    ),
+
+                              /// Check if the [spdxLicenceType] is empty
+                              appState.spdxLicenceType == null
+                                  ? SizedBox()
+                                  : Text(
+                                      '${Constants.dividerTxt}',
+                                      style: TextStyle(
+                                        fontSize: Constants.size10,
+
+                                        /// Check the current light/dark theme mode
+                                        color: themeState.isDarkMode
+                                            ? ConstantsDarkMode.blackColor
+                                            : ConstantsLightMode.blackColor,
+                                      ),
+                                    ),
+
+                              /// Check if the [spdxLicenceType] is empty
+                              appState.spdxLicenceType == null
+                                  ? SizedBox()
+                                  : InkWell(
+                                      onTap: () => Functions().openURL(
+                                          appState.spdxLicenceType!.url),
+                                      child: Text(
+                                        '${appState.spdxLicenceType!.title} ${Constants.licenseTxt}',
+                                        style: TextStyle(
+                                          fontSize: Constants.size10,
+
+                                          /// Check the current light/dark theme mode
+                                          color: themeState.isDarkMode
+                                              ? ConstantsDarkMode.themeColor(
+                                                  context)
+                                              : ConstantsLightMode.themeColor(
+                                                  context),
+                                        ),
+                                      ),
+                                    ),
 
                               /// Check if the [privacyLink] is empty
                               appState.privacyLink == null ||
