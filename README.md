@@ -15,7 +15,7 @@ Flutter package to generate API calls documentations like OpenAPI schema.
 
 ## Screenshots 💻
 
-[![Example Screenshot](https://github.com/Eng-Mouaz-M-AlShahmeh/api_guide/assets/86870601/b186406e-6d29-4a5a-a232-d57080491112)](https://github.com/Eng-Mouaz-M-AlShahmeh/api_guide/assets/86870601/acc6392f-664f-4415-85d9-c12c08329800)
+[![Example Screenshot](https://github.com/Eng-Mouaz-M-AlShahmeh/api_guide/assets/86870601/b186406e-6d29-4a5a-a232-d57080491112)](https://github.com/Eng-Mouaz-M-AlShahmeh/api_guide/assets/86870601/1d08356e-b1e6-49fb-a49b-2ce83246aa62)
 
 ## About ❓
 
