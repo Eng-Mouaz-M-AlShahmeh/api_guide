@@ -311,6 +311,9 @@ class Constants {
   /// Define [size30] attribute
   static const double size30 = 30;
 
+  /// Define [size25] attribute
+  static const double size25 = 25;
+
   /// Define [size22] attribute
   static const double size22 = 22;
 

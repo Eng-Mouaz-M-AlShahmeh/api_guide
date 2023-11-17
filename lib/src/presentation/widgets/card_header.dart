@@ -26,6 +26,7 @@ SizedBox apiGuideItemHeader(BuildContext context, APIItem item) {
       .toList();
 
   return SizedBox(
+    width: double.infinity,
     child: DecoratedBox(
       decoration: BoxDecoration(
         /// Check the current light/dark theme mode
@@ -35,85 +36,77 @@ SizedBox apiGuideItemHeader(BuildContext context, APIItem item) {
       ),
       child: Padding(
         padding: const EdgeInsets.all(Constants.size15),
-        child: Row(
+        child: Wrap(
+          spacing: Constants.size15,
+          runSpacing: Constants.size15,
           children: [
-            Flexible(
-              child: SelectableText(
-                item.title,
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: Constants.size20,
+            SelectableText(
+              item.title,
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: Constants.size20,
 
-                  /// Check the current light/dark theme mode
-                  color: themeState.isDarkMode
-                      ? ConstantsDarkMode.themeColor(context)
-                      : ConstantsLightMode.themeColor(context),
-                ),
+                /// Check the current light/dark theme mode
+                color: themeState.isDarkMode
+                    ? ConstantsDarkMode.themeColor(context)
+                    : ConstantsLightMode.themeColor(context),
               ),
             ),
-            SizedBox(width: Constants.size15),
-            Flexible(
-              child: ClipRRect(
-                borderRadius:
-                    BorderRadius.all(Radius.circular(Constants.size10)),
-                child: SizedBox(
-                  child: DecoratedBox(
-                    decoration: BoxDecoration(
-                      color: Constants.getMethodColor(item.request.method.name),
+            ClipRRect(
+              borderRadius: BorderRadius.all(Radius.circular(Constants.size10)),
+              child: SizedBox(
+                child: DecoratedBox(
+                  decoration: BoxDecoration(
+                    color: Constants.getMethodColor(item.request.method.name),
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.fromLTRB(
+                      Constants.size10,
+                      Constants.size5,
+                      Constants.size10,
+                      Constants.size5,
                     ),
-                    child: Padding(
-                      padding: const EdgeInsets.fromLTRB(
-                        Constants.size10,
-                        Constants.size5,
-                        Constants.size10,
-                        Constants.size5,
-                      ),
-                      child: Text(
-                        item.request.method.name,
-                        style: TextStyle(
-                          /// Check the current light/dark theme mode
-                          color: themeState.isDarkMode
-                              ? ConstantsDarkMode.whiteColor
-                              : ConstantsLightMode.whiteColor,
-                          fontWeight: FontWeight.bold,
-                          fontSize: Constants.size13,
-                        ),
+                    child: Text(
+                      item.request.method.name,
+                      style: TextStyle(
+                        /// Check the current light/dark theme mode
+                        color: themeState.isDarkMode
+                            ? ConstantsDarkMode.whiteColor
+                            : ConstantsLightMode.whiteColor,
+                        fontWeight: FontWeight.bold,
+                        fontSize: Constants.size13,
                       ),
                     ),
                   ),
                 ),
               ),
             ),
-            SizedBox(width: Constants.size15),
-            Flexible(
-              child: ClipRRect(
-                borderRadius:
-                    BorderRadius.all(Radius.circular(Constants.size5)),
-                child: SizedBox(
-                  child: DecoratedBox(
-                    decoration: BoxDecoration(
+            ClipRRect(
+              borderRadius: BorderRadius.all(Radius.circular(Constants.size5)),
+              child: SizedBox(
+                child: DecoratedBox(
+                  decoration: BoxDecoration(
+
+                      /// Check the current light/dark theme mode
+                      color: themeState.isDarkMode
+                          ? ConstantsDarkMode.greyLightColor
+                          : ConstantsLightMode.greyLightColor),
+                  child: Padding(
+                    padding: const EdgeInsets.all(Constants.size5),
+
+                    /// Display the URL
+                    child: SelectableText(
+                      pathParams.isEmpty
+                          ? '${appState.urlHost}${item.urlPath}'
+                          : '${appState.urlHost}${item.urlPath}${pathParams.map((e) => item.urlPath.contains(e.key) ? '' : '/{${e.key}}').join('')}',
+                      style: TextStyle(
+                        fontWeight: FontWeight.normal,
+                        fontSize: Constants.size15,
 
                         /// Check the current light/dark theme mode
                         color: themeState.isDarkMode
-                            ? ConstantsDarkMode.greyLightColor
-                            : ConstantsLightMode.greyLightColor),
-                    child: Padding(
-                      padding: const EdgeInsets.all(Constants.size5),
-
-                      /// Display the URL
-                      child: SelectableText(
-                        pathParams.isEmpty
-                            ? '${appState.urlHost}${item.urlPath}'
-                            : '${appState.urlHost}${item.urlPath}${pathParams.map((e) => item.urlPath.contains(e.key) ? '' : '/{${e.key}}').join('')}',
-                        style: TextStyle(
-                          fontWeight: FontWeight.normal,
-                          fontSize: Constants.size15,
-
-                          /// Check the current light/dark theme mode
-                          color: themeState.isDarkMode
-                              ? ConstantsDarkMode.blackColor
-                              : ConstantsLightMode.blackColor,
-                        ),
+                            ? ConstantsDarkMode.blackColor
+                            : ConstantsLightMode.blackColor,
                       ),
                     ),
                   ),

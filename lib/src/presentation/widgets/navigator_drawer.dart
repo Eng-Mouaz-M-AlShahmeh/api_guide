@@ -37,9 +37,10 @@ SizedBox apiGuideNavigatorDrawer(BuildContext context) {
               flex: Constants.flex3,
               child: Column(
                 children: [
-                  Expanded(
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
+                  SizedBox(
+                    width: double.infinity,
+                    child: Wrap(
+                      alignment: WrapAlignment.center,
                       children: [
                         SelectableText(
                           /// Display the API version
@@ -89,21 +90,6 @@ SizedBox apiGuideNavigatorDrawer(BuildContext context) {
                             ),
                           ),
                         ),
-                      ],
-                    ),
-                  ),
-                  SizedBox(
-                      height:
-
-                          /// Check screens larger than [Constants.smallBreakPoint]
-                          MediaQuery.of(context).size.width <=
-                                  Constants.smallBreakPoint
-                              ? Constants.size2
-                              : Constants.size15),
-                  FittedBox(
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
                         SelectableText(
                           /// Display the latest update date
                           '${Constants.latestUpdateTxt}${appState.latestUpdate.year}-${appState.latestUpdate.month}-${appState.latestUpdate.day}',
@@ -116,11 +102,10 @@ SizedBox apiGuideNavigatorDrawer(BuildContext context) {
                                 : ConstantsLightMode.blackColor,
                             fontSize: Constants.size10,
                           ),
-                        )
+                        ),
                       ],
                     ),
                   ),
-                  SizedBox(height: Constants.size15),
                 ],
               ),
             ),

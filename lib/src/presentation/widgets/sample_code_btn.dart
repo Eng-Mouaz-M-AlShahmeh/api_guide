@@ -46,17 +46,15 @@ ElevatedButton sampleCodeButton(BuildContext context) {
             : ConstantsLightMode.whiteColor,
       ),
     ),
-    child: Center(
-      child: Padding(
-        padding: const EdgeInsets.all(Constants.size8),
-        child: Text(
-          appState.sampleCodeType,
-          style: TextStyle(
-            fontSize: Constants.size15,
-            color: themeState.isDarkMode
-                ? ConstantsDarkMode.blackColor
-                : ConstantsLightMode.blackColor,
-          ),
+    child: Padding(
+      padding: const EdgeInsets.all(Constants.size8),
+      child: Text(
+        appState.sampleCodeType,
+        style: TextStyle(
+          fontSize: Constants.size12,
+          color: themeState.isDarkMode
+              ? ConstantsDarkMode.blackColor
+              : ConstantsLightMode.blackColor,
         ),
       ),
     ),

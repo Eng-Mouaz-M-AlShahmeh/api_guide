@@ -26,33 +26,48 @@ Column apiGuideItemBodyEnd(BuildContext context, APIItem item) {
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Flexible(
-                child: Text(
-                  Constants.sampleCodeTxt,
-                  style: TextStyle(
-                    fontWeight: FontWeight.normal,
+          SizedBox(
+            width: double.infinity,
+            child: Wrap(
+              alignment: WrapAlignment.spaceBetween,
+              spacing: Constants.size10,
+              runSpacing: Constants.size10,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(
+                    Constants.size0,
+                    Constants.size15,
+                    Constants.size0,
+                    Constants.size0,
+                  ),
+                  child: Text(
+                    Constants.sampleCodeTxt,
+                    style: TextStyle(
+                      fontWeight: FontWeight.normal,
 
-                    /// Check the current light/dark theme mode
-                    color: themeState.isDarkMode
-                        ? ConstantsDarkMode.themeColor(context)
-                        : ConstantsLightMode.themeColor(context),
-                    fontSize: Constants.size14,
+                      /// Check the current light/dark theme mode
+                      color: themeState.isDarkMode
+                          ? ConstantsDarkMode.themeColor(context)
+                          : ConstantsLightMode.themeColor(context),
+                      fontSize: Constants.size14,
+                    ),
                   ),
                 ),
-              ),
-              SizedBox(width: Constants.size10),
-              Flexible(
-                child: Padding(
+                Padding(
                   padding: const EdgeInsets.all(Constants.size8),
                   child: sampleCodeButton(context),
                 ),
-              ),
-              SizedBox(width: Constants.size10),
-              copyClipboardButton(context, item),
-            ],
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(
+                    Constants.size0,
+                    Constants.size12,
+                    Constants.size0,
+                    Constants.size10,
+                  ),
+                  child: copyClipboardButton(context, item),
+                ),
+              ],
+            ),
           ),
           Row(
             children: [

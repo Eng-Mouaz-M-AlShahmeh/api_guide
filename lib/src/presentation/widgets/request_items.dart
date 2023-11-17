@@ -24,50 +24,55 @@ Column requestBodyItems(BuildContext context, List<APIGuideRequestBody> list) {
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Row(
-                      children: [
-                        SelectableText(
-                          e.key,
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: Constants.size14,
+                SizedBox(
+                  width: double.infinity,
+                  child: Wrap(
+                    alignment: WrapAlignment.spaceBetween,
+                    children: [
+                      Wrap(
+                        children: [
+                          SelectableText(
+                            e.key,
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: Constants.size14,
 
-                            /// Check the current light/dark theme mode
-                            color: themeState.isDarkMode
-                                ? ConstantsDarkMode.blackColor
-                                : ConstantsLightMode.blackColor,
+                              /// Check the current light/dark theme mode
+                              color: themeState.isDarkMode
+                                  ? ConstantsDarkMode.blackColor
+                                  : ConstantsLightMode.blackColor,
+                            ),
                           ),
-                        ),
-                        SelectableText(
-                          ' (${e.type.name}) ',
-                          style: TextStyle(
-                            fontWeight: FontWeight.normal,
-                            fontSize: Constants.size12,
-                            color: Constants.orangeColor,
+                          SelectableText(
+                            ' (${e.type.name}) ',
+                            style: TextStyle(
+                              fontWeight: FontWeight.normal,
+                              fontSize: Constants.size12,
+                              color: Constants.orangeColor,
+                            ),
                           ),
-                        ),
-                        SelectableText(
-                          Constants.lineTxt,
-                          style: TextStyle(
-                            fontWeight: FontWeight.normal,
-                            fontSize: Constants.size10,
-                            color: Constants.greyColor,
+                          SelectableText(
+                            Constants.lineTxt,
+                            style: TextStyle(
+                              fontWeight: FontWeight.normal,
+                              fontSize: Constants.size10,
+                              color: Constants.greyColor,
+                            ),
                           ),
-                        ),
-                      ],
-                    ),
-                    SelectableText(
-                      e.isRequired ? Constants.requiredTxt : Constants.emptyTxt,
-                      style: TextStyle(
-                        fontWeight: FontWeight.normal,
-                        fontSize: Constants.size10,
-                        color: Constants.orangeColor,
+                        ],
                       ),
-                    ),
-                  ],
+                      SelectableText(
+                        e.isRequired
+                            ? Constants.requiredTxt
+                            : Constants.emptyTxt,
+                        style: TextStyle(
+                          fontWeight: FontWeight.normal,
+                          fontSize: Constants.size10,
+                          color: Constants.orangeColor,
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
                 SizedBox(height: Constants.size10),
                 SelectableText(
@@ -103,50 +108,55 @@ Column requestParamsItems(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Row(
-                      children: [
-                        SelectableText(
-                          e.key,
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: Constants.size14,
+                SizedBox(
+                  width: double.infinity,
+                  child: Wrap(
+                    alignment: WrapAlignment.spaceBetween,
+                    children: [
+                      Row(
+                        children: [
+                          SelectableText(
+                            e.key,
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: Constants.size14,
 
-                            /// Check the current light/dark theme mode
-                            color: themeState.isDarkMode
-                                ? ConstantsDarkMode.blackColor
-                                : ConstantsLightMode.blackColor,
+                              /// Check the current light/dark theme mode
+                              color: themeState.isDarkMode
+                                  ? ConstantsDarkMode.blackColor
+                                  : ConstantsLightMode.blackColor,
+                            ),
                           ),
-                        ),
-                        SelectableText(
-                          ' (${e.propertyType.name}) ',
-                          style: TextStyle(
-                            fontWeight: FontWeight.normal,
-                            fontSize: Constants.size12,
-                            color: Constants.orangeColor,
+                          SelectableText(
+                            ' (${e.propertyType.name}) ',
+                            style: TextStyle(
+                              fontWeight: FontWeight.normal,
+                              fontSize: Constants.size12,
+                              color: Constants.orangeColor,
+                            ),
                           ),
-                        ),
-                        SelectableText(
-                          Constants.lineTxt,
-                          style: TextStyle(
-                            fontWeight: FontWeight.normal,
-                            fontSize: Constants.size10,
-                            color: Constants.greyColor,
+                          SelectableText(
+                            Constants.lineTxt,
+                            style: TextStyle(
+                              fontWeight: FontWeight.normal,
+                              fontSize: Constants.size10,
+                              color: Constants.greyColor,
+                            ),
                           ),
-                        ),
-                      ],
-                    ),
-                    SelectableText(
-                      e.isRequired ? Constants.requiredTxt : Constants.emptyTxt,
-                      style: TextStyle(
-                        fontWeight: FontWeight.normal,
-                        fontSize: Constants.size10,
-                        color: Constants.orangeColor,
+                        ],
                       ),
-                    ),
-                  ],
+                      SelectableText(
+                        e.isRequired
+                            ? Constants.requiredTxt
+                            : Constants.emptyTxt,
+                        style: TextStyle(
+                          fontWeight: FontWeight.normal,
+                          fontSize: Constants.size10,
+                          color: Constants.orangeColor,
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
                 SizedBox(height: Constants.size10),
                 SelectableText(

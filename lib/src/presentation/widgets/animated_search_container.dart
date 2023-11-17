@@ -90,9 +90,9 @@ InkWell animatedSearchContainer(
                 /// Check if the text is over
                 /// the fixed length to make
                 /// the pretty trim
-                subtitle.length > Constants.size50
+                subtitle.length > Constants.size25
                     ? subtitle.substring(
-                            Constants.size0.toInt(), Constants.size50.toInt()) +
+                            Constants.size0.toInt(), Constants.size25.toInt()) +
                         Constants.restTxt
                     : subtitle,
                 style: TextStyle(

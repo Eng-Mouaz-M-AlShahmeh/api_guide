@@ -300,8 +300,8 @@ class APIGuideScreen extends StatelessWidget {
                           SizedBox(height: Constants.size15),
 
                           /// Copyright notice and optional parts
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
+                          Wrap(
+                            alignment: WrapAlignment.center,
                             children: [
                               SelectableText(
                                 '${Constants.rightsTxt} ${DateTime.now().year}',

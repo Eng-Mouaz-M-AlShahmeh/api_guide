@@ -49,23 +49,23 @@ Dialog apiGuideSearchDialog(BuildContext context) {
         ),
         child: Padding(
           padding: EdgeInsets.all(Constants.size15),
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Padding(
-                padding: const EdgeInsets.fromLTRB(
-                  Constants.size20,
-                  Constants.size10,
-                  Constants.size20,
-                  Constants.size10,
+          child: SingleChildScrollView(
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(
+                    Constants.size20,
+                    Constants.size10,
+                    Constants.size20,
+                    Constants.size0,
+                  ),
+                  child: apiGuideTextFieldSearchDialog(
+                    context,
+                    searchController,
+                  ),
                 ),
-                child: apiGuideTextFieldSearchDialog(
-                  context,
-                  searchController,
-                ),
-              ),
-              SingleChildScrollView(
-                child: Column(
+                Column(
                   children: [
                     /// Check if the search key is empty
                     searchState.searchKey != Constants.emptyTxt
@@ -256,10 +256,10 @@ Dialog apiGuideSearchDialog(BuildContext context) {
                           ),
                   ],
                 ),
-              ),
-              SizedBox(height: Constants.size10),
-              closeSearchDialogButton(context),
-            ],
+                SizedBox(height: Constants.size10),
+                closeSearchDialogButton(context),
+              ],
+            ),
           ),
         ),
       ),

@@ -1,3 +1,13 @@
+## [1.0.12] - 2023/11/17
+
+* Update README.md file.
+* Update CHANGELOG.md file.
+* Fix designs at api card header, api card sample code header, api card params and body request, and footer links.
+* Fix search result item fixed length of item description.
+* Fix search dialog results scrolling.
+* Update provider package to the version 6.1.1.
+* Update flutter_lints to the version 3.0.1.
+
 ## [1.0.11] - 2023/11/14
 
 * Update README.md file.

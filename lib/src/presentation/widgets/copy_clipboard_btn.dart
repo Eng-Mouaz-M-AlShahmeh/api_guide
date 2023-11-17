@@ -50,7 +50,7 @@ InkWell copyClipboardButton(BuildContext context, APIItem item) {
     },
     child: Icon(
       Constants.copyIcon,
-      size: Constants.size15,
+      size: Constants.size22,
 
       /// Check the current light/dark theme mode
       color: themeState.isDarkMode
