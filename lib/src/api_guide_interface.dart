@@ -55,4 +55,7 @@ abstract class APIGuideInterface {
     /// SPDX Licence Type of the API Guide interface to implement later
     SPDXLicenceType? spdxLicenceType,
   });
+
+  /// Define [APIGuideInterface] constructor
+  const APIGuideInterface();
 }

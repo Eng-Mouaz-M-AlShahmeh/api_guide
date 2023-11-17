@@ -56,6 +56,9 @@ enum PropertyType {
   /// https://swagger.io/docs/specification/data-models/data-types/#array
   /// array file property type
   array,
+
+  /// Define [PropertyType] constructor
+  const PropertyType();
 }
 
 /// Define param types Enum
@@ -105,4 +108,7 @@ enum ParameterType {
   /// cookie parameter type, which are passed in the Cookie header,
   /// such as Cookie: debug=0; csrftoken=BUSe35dohU3O1MZvDCU
   cookie,
+
+  /// Define [ParameterType] constructor
+  const ParameterType();
 }

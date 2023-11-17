@@ -103,6 +103,9 @@ class SearchProvider extends ChangeNotifier {
     /// Notify listeners to rebuild widgets that depend on this ChangeNotifier
     notifyListeners();
   }
+
+  /// Define [SearchProvider] constructor
+  const SearchProvider();
 }
 
 /// End of code

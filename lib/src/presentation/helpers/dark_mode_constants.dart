@@ -18,6 +18,9 @@ import '../../../api_guide.dart';
 
 /// Define [ConstantsDarkMode] class
 class ConstantsDarkMode {
+  /// Define [ConstantsDarkMode] constructor
+  const ConstantsDarkMode();
+
   /// Start Colors Attributes
 
   /// Define [blackColor] attribute

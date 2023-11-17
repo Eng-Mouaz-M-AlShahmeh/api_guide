@@ -303,6 +303,9 @@ class AppProvider extends ChangeNotifier {
     /// Notify listeners to rebuild widgets that depend on this ChangeNotifier
     notifyListeners();
   }
+
+  /// Define [AppProvider] constructor
+  const AppProvider();
 }
 
 /// End of code

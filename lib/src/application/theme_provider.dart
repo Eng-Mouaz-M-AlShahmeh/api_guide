@@ -47,6 +47,9 @@ class ThemeProvider extends ChangeNotifier {
     /// depend on this ChangeNotifier
     notifyListeners();
   }
+
+  /// Define [ThemeProvider] constructor
+  const ThemeProvider();
 }
 
 /// End of code

@@ -2,7 +2,6 @@
 /// https://malshahmeh.web.app
 /// APIGuide package
 
-/// Code starts here
 /// Define [APIGuideThemeColor] options
 enum APIGuideThemeColor {
   /// Indigo Theme Color
@@ -46,6 +45,8 @@ enum APIGuideThemeColor {
 
   /// Black Theme Color
   black,
+
+  /// Define [APIGuideThemeColor] constructor
+  const APIGuideThemeColor();
 }
 
-/// End of code

@@ -48,7 +48,10 @@ enum HttpRequestMethod {
 
   /// The PATCH method applies partial modifications to a resource.
   /// https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods
-  PATCH
+  PATCH,
+
+  /// Define [HttpRequestMethod] constructor
+  const HttpRequestMethod();
 }
 
 /// HTTP response status codes indicate whether a specific HTTP request has been successfully completed.

@@ -15,6 +15,9 @@ import '../../../api_guide.dart';
 
 /// Define [Constants] class
 class Constants {
+  /// Define [Constants] constructor
+  const Constants();
+
   /// Start Icons Attributes
 
   /// Define [arrowDoubleNavIcon] attribute
