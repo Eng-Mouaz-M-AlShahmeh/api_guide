@@ -11,6 +11,9 @@ import '../../../../api_guide.dart';
 /// Define [SampleCodePureTypes] class
 @immutable
 class SampleCodePureTypes {
+  /// Define [SampleCodePureTypes] constructor
+  SampleCodePureTypes();
+
   /// The base sample code for Shell/cURL
   final String shellCURL = '''
 curl --request {0} \\

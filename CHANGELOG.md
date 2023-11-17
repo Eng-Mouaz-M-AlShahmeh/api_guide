@@ -1,3 +1,10 @@
+## [1.0.15] - 2023/11/17
+
+* Update README.md file.
+* Update CHANGELOG.md file.
+* Add explanatory comments.
+* Add needed constructors.
+
 ## [1.0.14] - 2023/11/17
 
 * Update README.md file.

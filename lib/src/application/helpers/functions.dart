@@ -11,6 +11,9 @@ import '../../../api_guide.dart';
 
 /// Define [Functions] class
 class Functions {
+  /// Define [Functions] constructor
+  Functions();
+
   /// Define a function to open a URL
   openURL(String url) async {
     /// Check if the url is valid

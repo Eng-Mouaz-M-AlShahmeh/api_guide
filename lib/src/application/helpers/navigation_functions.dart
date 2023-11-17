@@ -14,6 +14,9 @@ import '../../../api_guide.dart';
 
 /// Define [NavigationFunctions] class
 class NavigationFunctions {
+  /// Define [NavigationFunctions] constructor
+  NavigationFunctions();
+
   /// Scroll to the introduction section
   scrollToIntro(
     /// BuildContext

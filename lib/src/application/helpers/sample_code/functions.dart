@@ -17,6 +17,9 @@ import '../../../../api_guide.dart';
 
 /// Define [SampleCode] class
 class SampleCodeFunctions {
+  /// Define [SampleCodeFunctions] constructor
+  SampleCodeFunctions();
+
   /// Define function to get the final prepared sample code
   String getFinalSampleCode(
     /// BuildContext
