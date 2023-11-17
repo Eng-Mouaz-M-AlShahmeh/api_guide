@@ -13,7 +13,11 @@ import 'package:provider/provider.dart';
 import '../../../api_guide.dart';
 
 /// Code starts here
-Dialog apiGuideSearchDialog(BuildContext context) {
+/// Define [apiGuideSearchDialog] function
+Dialog apiGuideSearchDialog(
+  /// BuildContext
+  BuildContext context,
+) {
   /// AppNotifierProvider to check theme attributes' states
   final appState = context.read<AppProvider>();
 

@@ -13,7 +13,11 @@ import 'package:provider/provider.dart';
 import '../../../api_guide.dart';
 
 /// Code starts here
-SizedBox apiGuideNavigatorDrawer(BuildContext context) {
+/// Define [apiGuideNavigatorDrawer] function
+SizedBox apiGuideNavigatorDrawer(
+  /// BuildContext
+  BuildContext context,
+) {
   /// ThemeNotifierProvider to check theme attributes' states
   final themeState = context.read<ThemeProvider>();
 
@@ -117,6 +121,7 @@ SizedBox apiGuideNavigatorDrawer(BuildContext context) {
                     InkWell(
                       /// Introduction section link
                       onTap: () => NavigationFunctions().scrollToIntroDrawer(
+                        /// BuildContext
                         context,
                       ),
                       child: Row(
@@ -156,7 +161,10 @@ SizedBox apiGuideNavigatorDrawer(BuildContext context) {
                                     /// Scroll to the api item on tap
                                     onTap: () => NavigationFunctions()
                                         .scrollToAPIItemDrawer(
+                                      /// BuildContext
                                       context,
+
+                                      /// APIItem
                                       item,
                                     ),
                                     child: Row(
@@ -240,6 +248,7 @@ SizedBox apiGuideNavigatorDrawer(BuildContext context) {
                     InkWell(
                       /// FAQ section link
                       onTap: () => NavigationFunctions().scrollToFaqDrawer(
+                        /// BuildContext
                         context,
                       ),
                       child: Row(

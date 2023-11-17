@@ -13,7 +13,14 @@ import 'package:provider/provider.dart';
 import '../../../api_guide.dart';
 
 /// Code starts here
-Column apiGuideItemBodyStart(BuildContext context, APIItem item) {
+/// Define [apiGuideItemBodyStart] function
+Column apiGuideItemBodyStart(
+  /// BuildContext
+  BuildContext context,
+
+  /// APIItem
+  APIItem item,
+) {
   /// ThemeNotifierProvider to check theme attributes' states
   final themeState = context.read<ThemeProvider>();
 

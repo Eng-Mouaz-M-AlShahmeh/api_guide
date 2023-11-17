@@ -12,6 +12,7 @@ import 'package:provider/provider.dart';
 import '../../../api_guide.dart';
 
 /// Code starts here
+/// Define [animatedSearchContainer] function
 InkWell animatedSearchContainer(
   BuildContext context,
   bool isHovered,

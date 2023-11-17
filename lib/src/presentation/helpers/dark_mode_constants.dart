@@ -13,7 +13,10 @@ import '../../../api_guide.dart';
 
 /// Code starts here
 /// Start Dark Mode
+/// Add @immutable to make it non changeable
 @immutable
+
+/// Define [ConstantsDarkMode] class
 class ConstantsDarkMode {
   /// Start Colors Attributes
 
@@ -228,4 +231,5 @@ class ConstantsDarkMode {
 }
 
 /// End Dark Mode
+
 /// End of code

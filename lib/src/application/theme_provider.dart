@@ -9,6 +9,7 @@ import 'package:flutter/foundation.dart';
 import '../../../api_guide.dart';
 
 /// Code starts here
+/// Define [ThemeProvider] class which extends the [ChangeNotifier]
 class ThemeProvider extends ChangeNotifier {
   /// Define initial attributes values
   /// Define [_isDarkMode] attribute with default value of false

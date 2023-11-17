@@ -19,7 +19,9 @@ import 'package:provider/provider.dart';
 import '../../../api_guide.dart';
 
 /// Code starts here
+/// Define [APIGuideScreen] class which extends the [StatelessWidget]
 class APIGuideScreen extends StatelessWidget {
+  /// Make constructor for the [APIGuideScreen]
   const APIGuideScreen({
     /// Super key for widget
     super.key,
@@ -158,6 +160,10 @@ class APIGuideScreen extends StatelessWidget {
       );
     });
 
+    /// Return at the build method the full [Scaffold] with all needed items,
+    /// so, you do not need to add any items of the Scaffold such as drawer,
+    /// endDrawer, appBar, floatingActionButton, bottomNavigationBar,
+    /// bottomSheet or persistentFooterButtons.
     return Scaffold(
       /// Pass GlobalKey from type ScaffoldState
       key: appState.scaffoldKey,
@@ -336,6 +342,7 @@ class APIGuideScreen extends StatelessWidget {
                                       appState.contactLink == Constants.emptyTxt
                                   ? SizedBox()
                                   : InkWell(
+                                      /// Open the contactLink when tap
                                       onTap: () => Functions()
                                           .openURL(appState.contactLink!),
                                       child: Text(
@@ -372,6 +379,7 @@ class APIGuideScreen extends StatelessWidget {
                               appState.spdxLicenceType == null
                                   ? SizedBox()
                                   : InkWell(
+                                      /// Open the spdxLicenceType url when tap
                                       onTap: () => Functions().openURL(
                                           appState.spdxLicenceType!.url),
                                       child: Text(
@@ -410,6 +418,7 @@ class APIGuideScreen extends StatelessWidget {
                                       appState.privacyLink == Constants.emptyTxt
                                   ? SizedBox()
                                   : InkWell(
+                                      /// Open the privacyLink when tap
                                       onTap: () => Functions()
                                           .openURL(appState.privacyLink!),
                                       child: Text(
@@ -448,6 +457,7 @@ class APIGuideScreen extends StatelessWidget {
                                       appState.termsLink == Constants.emptyTxt
                                   ? SizedBox()
                                   : InkWell(
+                                      /// Open the termsLink when tap
                                       onTap: () => Functions()
                                           .openURL(appState.termsLink!),
                                       child: Text(

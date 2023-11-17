@@ -13,6 +13,7 @@ import 'package:provider/provider.dart';
 import '../../../api_guide.dart';
 
 /// Code starts here
+/// Define [apiGuideTextFieldSearchDialog] function
 TextField apiGuideTextFieldSearchDialog(
   /// BuildContext
   BuildContext context,
@@ -31,17 +32,25 @@ TextField apiGuideTextFieldSearchDialog(
 
   /// Define [_patternIntro] Regular Expression
   RegExp _patternIntro = RegExp(
+    /// The source String
     Constants.introPattern,
+
+    /// bool value of caseSensitive
     caseSensitive: false,
   );
 
   /// Define [_patternFAQs] Regular Expression
   RegExp _patternFAQs = RegExp(
+    /// The source String
     Constants.faqsPattern,
+
+    /// bool value of caseSensitive
     caseSensitive: false,
   );
 
   return TextField(
+    /// Make the [TextField] as an autofocus
+    /// to true to directly write the search query
     autofocus: true,
     style: TextStyle(
       fontSize: Constants.size15,

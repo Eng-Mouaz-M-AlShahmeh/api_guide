@@ -13,6 +13,7 @@ import 'package:provider/provider.dart';
 import '../../../api_guide.dart';
 
 /// Code starts here
+/// Define [NavigationFunctions] class
 class NavigationFunctions {
   /// Scroll to the introduction section
   scrollToIntro(
@@ -121,6 +122,7 @@ class NavigationFunctions {
     /// AppNotifierProvider to check search attributes' states
     final appState = context.read<AppProvider>();
 
+    /// Get the itemKey value from the list.
     final itemKey = appState.apiItemKeys.firstWhere((element) => element
         .toString()
         .contains('${item.title} ${item.urlPath} ${item.request.method.name}'));

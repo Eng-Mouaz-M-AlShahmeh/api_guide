@@ -9,6 +9,7 @@ import 'package:flutter/foundation.dart';
 import '../../../api_guide.dart';
 
 /// Code starts here
+/// Define [SearchProvider] class which extends the [ChangeNotifier]
 class SearchProvider extends ChangeNotifier {
   /// Define Initial Attributes
   /// Define [_searchKey] attribute with default value of ''

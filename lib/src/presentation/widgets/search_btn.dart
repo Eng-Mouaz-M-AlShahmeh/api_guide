@@ -3,12 +3,7 @@
 /// APIGuide package
 
 /// Import necessary packages
-/// Import [dart:io]
-import 'dart:io';
-
 /// Import [flutter/foundation] package files
-import 'package:flutter/foundation.dart';
-
 /// Import [flutter/material] package files
 import 'package:flutter/material.dart';
 
@@ -19,7 +14,11 @@ import 'package:provider/provider.dart';
 import '../../../api_guide.dart';
 
 /// Code starts here
-Row apiGuideSearchBtn(BuildContext context) {
+/// Define [apiGuideSearchBtn] function
+Row apiGuideSearchBtn(
+  /// BuildContext
+  BuildContext context,
+) {
   /// ThemeNotifierProvider to check theme attributes' states
   final themeState = context.read<ThemeProvider>();
 
@@ -32,14 +31,7 @@ Row apiGuideSearchBtn(BuildContext context) {
         children: [
           Text(Constants.searchTxt),
 
-          /// Check the current platform to apply specific style
-          kIsWeb
-              ? SizedBox(width: Constants.size8)
-              : Platform.isMacOS
-                  ? SizedBox(width: Constants.size8)
-                  : Platform.isWindows
-                      ? SizedBox(width: Constants.size8)
-                      : SizedBox(),
+          SizedBox(width: Constants.size8),
 
           /// Appear only on screens larger than [Constants.smallBreakPoint]
           MediaQuery.of(context).size.width <= Constants.smallBreakPoint
@@ -58,59 +50,24 @@ Row apiGuideSearchBtn(BuildContext context) {
                       padding: const EdgeInsets.all(Constants.size5),
                       child: Row(
                         children: [
-                          /// Check the current platform to apply specific style
-                          kIsWeb
-                              ? Icon(
-                                  Constants.cmdKeyIcon,
-                                  size: Constants.size10,
+                          Icon(
+                            Constants.cmdKeyIcon,
+                            size: Constants.size10,
 
-                                  /// Check the current light/dark theme mode
-                                  color: themeState.isDarkMode
-                                      ? ConstantsDarkMode.themeColorLight(
-                                          context)
-                                      : ConstantsLightMode.themeColorLight(
-                                          context),
-                                )
-                              : Platform.isMacOS
-                                  ? Icon(
-                                      Constants.cmdKeyIcon,
-                                      size: Constants.size10,
-
-                                      /// Check the current light/dark theme mode
-                                      color: themeState.isDarkMode
-                                          ? ConstantsDarkMode.themeColorLight(
-                                              context)
-                                          : ConstantsLightMode.themeColorLight(
-                                              context),
-                                    )
-                                  : Platform.isWindows
-                                      ? Text(
-                                          Constants.ctrlTxt,
-                                          style: TextStyle(
-                                            /// Check the current light/dark theme mode
-                                            color: themeState.isDarkMode
-                                                ? ConstantsDarkMode
-                                                    .themeColorLight(context)
-                                                : ConstantsLightMode
-                                                    .themeColorLight(context),
-                                          ),
-                                        )
-                                      : SizedBox(),
-
-                          /// Check the current platform to apply specific style
-                          kIsWeb || Platform.isMacOS || Platform.isWindows
-                              ? Text(
-                                  Constants.plusKTxt,
-                                  style: TextStyle(
-                                    /// Check the current light/dark theme mode
-                                    color: themeState.isDarkMode
-                                        ? ConstantsDarkMode.themeColorLight(
-                                            context)
-                                        : ConstantsLightMode.themeColorLight(
-                                            context),
-                                  ),
-                                )
-                              : SizedBox(),
+                            /// Check the current light/dark theme mode
+                            color: themeState.isDarkMode
+                                ? ConstantsDarkMode.themeColorLight(context)
+                                : ConstantsLightMode.themeColorLight(context),
+                          ),
+                          Text(
+                            Constants.plusKTxt,
+                            style: TextStyle(
+                              /// Check the current light/dark theme mode
+                              color: themeState.isDarkMode
+                                  ? ConstantsDarkMode.themeColorLight(context)
+                                  : ConstantsLightMode.themeColorLight(context),
+                            ),
+                          ),
                         ],
                       ),
                     ),

@@ -13,7 +13,11 @@ import 'package:provider/provider.dart';
 import '../../../api_guide.dart';
 
 /// Code starts here
-Padding apiGuideNavigator(BuildContext context) {
+/// Define [apiGuideNavigator] function
+Padding apiGuideNavigator(
+  /// BuildContext
+  BuildContext context,
+) {
   /// ThemeNotifierProvider to check theme attributes' states
   final themeState = context.read<ThemeProvider>();
 
@@ -53,7 +57,10 @@ Padding apiGuideNavigator(BuildContext context) {
                         InkWell(
                           /// Introduction section link
                           onTap: () => NavigationFunctions().scrollToIntro(
+                            /// BuildContext
                             context,
+
+                            /// isPop bool value
                             false,
                           ),
                           child: Row(
@@ -93,8 +100,13 @@ Padding apiGuideNavigator(BuildContext context) {
                                         /// Scroll to the api item on tap
                                         onTap: () => NavigationFunctions()
                                             .scrollToAPIItem(
+                                          /// BuildContext
                                           context,
+
+                                          /// APIItem
                                           item,
+
+                                          /// bool isPop value
                                           false,
                                         ),
                                         child: Row(
@@ -184,7 +196,10 @@ Padding apiGuideNavigator(BuildContext context) {
                         InkWell(
                           /// FAQ section link
                           onTap: () => NavigationFunctions().scrollToFaq(
+                            /// BuildContext
                             context,
+
+                            /// bool isPop value
                             false,
                           ),
                           child: Row(
@@ -239,6 +254,7 @@ Padding apiGuideNavigator(BuildContext context) {
                               appState.contactEmail == Constants.emptyTxt
                           ? SizedBox()
                           : InkWell(
+                              /// Open email service when tap
                               onTap: () =>
                                   Functions().sendEmail(appState.contactEmail!),
                               child: Text(

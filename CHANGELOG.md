@@ -1,3 +1,10 @@
+## [1.0.13] - 2023/11/17
+
+* Update README.md file.
+* Update CHANGELOG.md file.
+* Remove unnecessary import of [dart:io]
+* Add explanatory comments.
+
 ## [1.0.12] - 2023/11/17
 
 * Update README.md file.

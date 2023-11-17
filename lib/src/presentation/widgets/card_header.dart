@@ -13,7 +13,14 @@ import 'package:provider/provider.dart';
 import '../../../api_guide.dart';
 
 /// Code starts here
-SizedBox apiGuideItemHeader(BuildContext context, APIItem item) {
+/// Define [apiGuideItemHeader] function
+SizedBox apiGuideItemHeader(
+  /// BuildContext
+  BuildContext context,
+
+  /// APIItem
+  APIItem item,
+) {
   /// ThemeNotifierProvider to check theme attributes' states
   final themeState = context.read<ThemeProvider>();
 
@@ -96,6 +103,7 @@ SizedBox apiGuideItemHeader(BuildContext context, APIItem item) {
 
                     /// Display the URL
                     child: SelectableText(
+                      /// Check pathParams if it is empty
                       pathParams.isEmpty
                           ? '${appState.urlHost}${item.urlPath}'
                           : '${appState.urlHost}${item.urlPath}${pathParams.map((e) => item.urlPath.contains(e.key) ? '' : '/{${e.key}}').join('')}',

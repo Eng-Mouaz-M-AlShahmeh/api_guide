@@ -12,7 +12,11 @@ import 'package:provider/provider.dart';
 import '../../../api_guide.dart';
 
 /// Code starts here
-AppBar apiGuideAppBar(BuildContext context) {
+/// Define [apiGuideAppBar] function
+AppBar apiGuideAppBar(
+  /// BuildContext
+  BuildContext context,
+) {
   /// ThemeNotifierProvider to check theme attributes' states
   final themeState = context.read<ThemeProvider>();
 

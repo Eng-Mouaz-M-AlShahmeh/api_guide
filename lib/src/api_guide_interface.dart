@@ -12,6 +12,7 @@ import 'package:flutter/material.dart';
 import '../api_guide.dart';
 
 /// Make it as interface to implement later
+/// Define [APIGuideInterface] abstract class
 abstract class APIGuideInterface {
   /// display Widget interface to implement later
   Widget display({

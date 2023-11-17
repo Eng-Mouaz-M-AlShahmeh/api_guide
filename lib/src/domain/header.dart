@@ -7,7 +7,10 @@
 import 'package:flutter/material.dart';
 
 /// Code starts here
+/// Add @immutable to make it non changeable
 @immutable
+
+/// Define [APIGuideHeader] class
 class APIGuideHeader {
   /// Definition of [APIGuideHeader] instance
   const APIGuideHeader(

@@ -14,7 +14,10 @@ import '../../../api_guide.dart';
 
 /// Code starts here
 /// Close Search Dialog Button from type of [ElevatedButton]
-ElevatedButton closeSearchDialogButton(BuildContext context) {
+ElevatedButton closeSearchDialogButton(
+  /// BuildContext
+  BuildContext context,
+) {
   /// ThemeNotifierProvider to check theme attributes' states
   final themeState = context.read<ThemeProvider>();
 
@@ -55,7 +58,10 @@ ElevatedButton closeSearchDialogButton(BuildContext context) {
 }
 
 /// Close Sample Code Dialog Button from type of [ElevatedButton]
-ElevatedButton closeSampleCodeDialogButton(BuildContext context) {
+ElevatedButton closeSampleCodeDialogButton(
+  /// BuildContext
+  BuildContext context,
+) {
   /// ThemeNotifierProvider to check theme attributes' states
   final themeState = context.read<ThemeProvider>();
 

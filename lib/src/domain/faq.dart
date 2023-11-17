@@ -3,6 +3,7 @@
 /// APIGuide package
 
 /// Code starts here
+/// Define [APIGuideFAQ] class
 class APIGuideFAQ {
   /// Define [question] property as String and final
   final String question;

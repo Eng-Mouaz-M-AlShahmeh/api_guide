@@ -14,7 +14,10 @@ import '../../../api_guide.dart';
 /// Code starts here
 
 /// Start Light Mode
+/// Add @immutable to make it non changeable
 @immutable
+
+/// Define [ConstantsLightMode] class
 class ConstantsLightMode {
   /// Start Colors Attributes
 

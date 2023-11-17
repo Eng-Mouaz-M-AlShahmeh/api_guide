@@ -10,7 +10,10 @@ import 'package:flutter/material.dart';
 import 'domain.dart';
 
 /// Code starts here
+/// Add @immutable to make it non changeable
 @immutable
+
+/// Define [APIGuideResponse] class
 class APIGuideResponse {
   /// Define [statusCode] property as HttpResponseStatusCode and final
   final HttpResponseStatusCode statusCode;

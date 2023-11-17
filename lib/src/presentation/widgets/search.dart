@@ -13,7 +13,11 @@ import 'package:provider/provider.dart';
 import '../../../api_guide.dart';
 
 /// Code starts here
-Padding apiGuideSearchScreen(BuildContext context) {
+/// Define [apiGuideSearchScreen] function
+Padding apiGuideSearchScreen(
+  /// BuildContext
+  BuildContext context,
+) {
   /// ThemeNotifierProvider to check theme attributes' states
   final themeState = context.read<ThemeProvider>();
 

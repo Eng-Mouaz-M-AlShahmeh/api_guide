@@ -10,7 +10,10 @@ import 'package:flutter/material.dart';
 import '../../api_guide.dart';
 
 /// Code starts here
+/// Add @immutable to make it non changeable
 @immutable
+
+/// Define [APIGuideParam] class
 class APIGuideParam {
   /// Definition of [APIGuideParam] instance
   const APIGuideParam({

@@ -10,7 +10,10 @@ import 'package:flutter/material.dart';
 import 'domain.dart';
 
 /// Code starts here
+/// Add @immutable to make it non changeable
 @immutable
+
+/// Define [APIGuideRequest] class
 class APIGuideRequest {
   /// Define [method] property as HttpRequestMethod and final
   final HttpRequestMethod method;

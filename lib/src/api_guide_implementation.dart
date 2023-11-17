@@ -13,6 +13,7 @@ import 'package:provider/provider.dart';
 import '../api_guide.dart';
 
 /// Code starts here
+/// Define [APIGuide] class
 class APIGuide implements APIGuideInterface {
   /// Definition of [APIGuide] instance
   APIGuide();

@@ -10,7 +10,10 @@ import '../../../api_guide.dart';
 
 /// Code starts here
 /// Start General Constants
+/// Add @immutable to make it non changeable
 @immutable
+
+/// Define [Constants] class
 class Constants {
   /// Start Icons Attributes
 

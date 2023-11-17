@@ -10,7 +10,10 @@ import 'package:flutter/material.dart';
 import '../../api_guide.dart';
 
 /// Code starts here
+/// Add @immutable to make it non changeable
 @immutable
+
+/// Define [APIGuideRequestBody] class
 class APIGuideRequestBody {
   /// Define [key] property as String and final
   final String key;

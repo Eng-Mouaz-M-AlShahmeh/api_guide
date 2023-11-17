@@ -16,7 +16,7 @@ import 'package:provider/provider.dart';
 import '../../../../api_guide.dart';
 
 /// Code starts here
-/// Define SampleCode class
+/// Define [SampleCode] class
 class SampleCodeFunctions {
   /// Define function to get the final prepared sample code
   String getFinalSampleCode(

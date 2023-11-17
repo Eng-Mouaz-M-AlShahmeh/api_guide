@@ -10,6 +10,7 @@ import 'package:url_launcher/url_launcher_string.dart';
 import '../../../api_guide.dart';
 
 /// Code starts here
+/// Define [Functions] class
 class Functions {
   /// Define a function to open a URL
   openURL(String url) async {

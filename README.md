@@ -43,7 +43,7 @@ Flutter package to generate API calls documentations like OpenAPI schema.
 
 ```yaml
 dependencies:
-  api_guide: ^1.0.12
+  api_guide: ^1.0.13
 ```
 
 ② Second: import it to your project:

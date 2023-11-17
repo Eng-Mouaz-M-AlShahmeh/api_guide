@@ -14,7 +14,10 @@ import '../../../api_guide.dart';
 
 /// Code starts here
 /// Sample Code Button of type [ElevatedButton]
-ElevatedButton sampleCodeButton(BuildContext context) {
+ElevatedButton sampleCodeButton(
+  /// BuildContext
+  BuildContext context,
+) {
   /// ThemeNotifierProvider to check theme attributes' states
   final themeState = context.read<ThemeProvider>();
 

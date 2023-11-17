@@ -2,7 +2,7 @@
 /// https://malshahmeh.web.app
 /// APIGuide package
 
-/// Define property types
+/// Define property types Enum
 enum PropertyType {
   /// OpenAPI has two numeric types, number and integer,
   /// where number includes both integer and floating-point numbers.
@@ -58,7 +58,7 @@ enum PropertyType {
   array,
 }
 
-/// Define param types
+/// Define param types Enum
 enum ParameterType {
   /// Query parameters are the most common type of parameters.
   /// They appear at the end of the request URL after a question mark (?),

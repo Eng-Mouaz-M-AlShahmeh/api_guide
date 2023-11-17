@@ -9,6 +9,7 @@ import 'package:flutter/material.dart';
 import '../../../api_guide.dart';
 
 /// Code starts here
+/// Define [AppProvider] class which extends the [ChangeNotifier]
 class AppProvider extends ChangeNotifier {
   /// Define initial attributes values
   /// GlobalKey for the scaffold
