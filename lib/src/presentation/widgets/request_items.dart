@@ -12,7 +12,6 @@ import 'package:provider/provider.dart';
 /// Import [APIGuide] package files
 import '../../../api_guide.dart';
 
-/// Code starts here
 /// Request Body Items
 Column requestBodyItems(
   /// BuildContext
@@ -183,5 +182,3 @@ Column requestParamsItems(
         .toList(),
   );
 }
-
-/// End of code

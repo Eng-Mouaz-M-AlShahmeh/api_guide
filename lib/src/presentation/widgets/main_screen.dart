@@ -18,7 +18,6 @@ import 'package:provider/provider.dart';
 /// Import [APIGuide] package files
 import '../../../api_guide.dart';
 
-/// Code starts here
 /// Define [APIGuideScreen] class which extends the [StatelessWidget]
 class APIGuideScreen extends StatelessWidget {
   /// Make constructor for the [APIGuideScreen]
@@ -561,5 +560,3 @@ class APIGuideScreen extends StatelessWidget {
     }
   }
 }
-
-/// End of code

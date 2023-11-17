@@ -12,7 +12,6 @@ import 'package:provider/provider.dart';
 /// Import [APIGuide] package files
 import '../api_guide.dart';
 
-/// Code starts here
 /// Define [APIGuide] class
 class APIGuide implements APIGuideInterface {
   /// Definition of [APIGuide] instance
@@ -114,5 +113,3 @@ class APIGuide implements APIGuideInterface {
     );
   }
 }
-
-/// End of code

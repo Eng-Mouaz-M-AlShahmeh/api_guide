@@ -9,7 +9,6 @@ import 'package:url_launcher/url_launcher_string.dart';
 /// Import [APIGuide] package files
 import '../../../api_guide.dart';
 
-/// Code starts here
 /// Define [Functions] class
 class Functions {
   /// Define a function to open a URL
@@ -35,5 +34,3 @@ class Functions {
     openURL(emailLaunchUri.toString());
   }
 }
-
-/// End of code

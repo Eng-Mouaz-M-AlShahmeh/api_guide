@@ -3,6 +3,7 @@
 * Update README.md file.
 * Update CHANGELOG.md file.
 * Add explanatory comments.
+* Add needed constructors.
 
 ## [1.0.13] - 2023/11/17
 

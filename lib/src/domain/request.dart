@@ -9,7 +9,6 @@ import 'package:flutter/material.dart';
 /// Import domain package files
 import 'domain.dart';
 
-/// Code starts here
 /// Add @immutable to make it non changeable
 @immutable
 
@@ -36,5 +35,3 @@ class APIGuideRequest {
     required this.body,
   });
 }
-
-/// End of code

@@ -12,7 +12,6 @@ import 'package:provider/provider.dart';
 /// Import [APIGuide] package files
 import '../../../api_guide.dart';
 
-/// Code starts here
 /// Close Search Dialog Button from type of [ElevatedButton]
 ElevatedButton closeSearchDialogButton(
   /// BuildContext
@@ -100,5 +99,3 @@ ElevatedButton closeSampleCodeDialogButton(
     child: Text(Constants.closeTxt),
   );
 }
-
-/// End of code

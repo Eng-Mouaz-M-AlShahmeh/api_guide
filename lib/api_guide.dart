@@ -2,7 +2,6 @@
 /// https://malshahmeh.web.app
 /// APIGuide package
 
-/// Code starts here
 /// Export API Guide Implementation class
 export 'src/api_guide_implementation.dart';
 
@@ -17,5 +16,3 @@ export 'src/domain/domain.dart';
 
 /// Export API Guide Presentation
 export 'src/presentation/presentation.dart';
-
-/// End of code

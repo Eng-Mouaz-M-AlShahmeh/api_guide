@@ -12,7 +12,6 @@ import 'package:provider/provider.dart';
 /// Import [APIGuide] package files
 import '../../../api_guide.dart';
 
-/// Code starts here
 /// Define [NavigationFunctions] class
 class NavigationFunctions {
   /// Scroll to the introduction section
@@ -256,5 +255,3 @@ class NavigationFunctions {
     appState.scaffoldKey.currentState!.closeDrawer();
   }
 }
-
-/// End of code

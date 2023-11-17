@@ -12,7 +12,6 @@ import 'package:provider/provider.dart';
 /// Import [APIGuide] package files
 import '../../../api_guide.dart';
 
-/// Code starts here
 /// Define [apiGuideFaqItems] function
 Padding apiGuideFaqItems(
   /// BuildContext
@@ -101,5 +100,3 @@ Padding apiGuideFaqItems(
     ),
   );
 }
-
-/// End of code

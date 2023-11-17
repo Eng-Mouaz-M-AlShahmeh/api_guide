@@ -12,7 +12,6 @@ import 'package:provider/provider.dart';
 /// Import [APIGuide] package files
 import '../../../api_guide.dart';
 
-/// Code starts here
 /// Define [apiGuideItemHeader] function
 SizedBox apiGuideItemHeader(
   /// BuildContext
@@ -127,5 +126,3 @@ SizedBox apiGuideItemHeader(
     ),
   );
 }
-
-/// End of code

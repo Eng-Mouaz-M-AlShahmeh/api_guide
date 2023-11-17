@@ -6,7 +6,6 @@
 /// Import [flutter/material] package files
 import 'package:flutter/material.dart';
 
-/// Code starts here
 /// Add @immutable to make it non changeable
 @immutable
 
@@ -33,5 +32,3 @@ class APIGuideHeader {
   /// Define [description] property as String? and final
   final String? description;
 }
-
-/// End of code

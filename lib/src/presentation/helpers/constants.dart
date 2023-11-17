@@ -8,7 +8,6 @@ import 'package:flutter/material.dart';
 /// Import [APIGuide] package files
 import '../../../api_guide.dart';
 
-/// Code starts here
 /// Start General Constants
 /// Add @immutable to make it non changeable
 @immutable
@@ -408,5 +407,3 @@ class Constants {
 }
 
 /// End General Constants
-
-/// End of code

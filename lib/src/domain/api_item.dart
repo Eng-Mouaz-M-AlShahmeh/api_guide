@@ -5,7 +5,6 @@
 /// Adding necessary packages
 import 'domain.dart';
 
-/// Code starts here
 /// Define [APIItem] class
 class APIItem {
   /// Define [request] property as APIGuideRequest and final
@@ -47,5 +46,3 @@ class APIItem {
     this.isHovered,
   });
 }
-
-/// End of code

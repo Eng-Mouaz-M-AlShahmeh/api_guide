@@ -2,7 +2,6 @@
 /// https://malshahmeh.web.app
 /// APIGuide package
 
-/// Code starts here
 /// Define [APIGuideFAQ] class
 class APIGuideFAQ {
   /// Define [question] property as String and final
@@ -26,5 +25,3 @@ class APIGuideFAQ {
     this.isExpanded,
   });
 }
-
-/// End of code

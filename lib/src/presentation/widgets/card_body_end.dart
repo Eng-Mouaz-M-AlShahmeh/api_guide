@@ -12,7 +12,6 @@ import 'package:provider/provider.dart';
 /// Import [APIGuide] package files
 import '../../../api_guide.dart';
 
-/// Code starts here
 /// Define [apiGuideItemBodyEnd] function
 Column apiGuideItemBodyEnd(
   /// BuildContext
@@ -241,5 +240,3 @@ Column apiGuideItemBodyEnd(
     ],
   );
 }
-
-/// End of code

@@ -15,7 +15,6 @@ import 'package:provider/provider.dart';
 /// Import [APIGuide] package files
 import '../../../api_guide.dart';
 
-/// Code starts here
 /// Define [copyClipboardButton] function
 InkWell copyClipboardButton(
   /// BuildContext
@@ -66,5 +65,3 @@ InkWell copyClipboardButton(
     ),
   );
 }
-
-/// End of code

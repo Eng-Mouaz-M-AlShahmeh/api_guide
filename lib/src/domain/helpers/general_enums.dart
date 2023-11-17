@@ -55,7 +55,7 @@ enum PropertyType {
   /// format of array items. Arrays can be nested:
   /// https://swagger.io/docs/specification/data-models/data-types/#array
   /// array file property type
-  array,
+  array;
 
   /// Define [PropertyType] constructor
   const PropertyType();
@@ -107,7 +107,7 @@ enum ParameterType {
   /// https://swagger.io/docs/specification/describing-parameters/#cookie-parameters
   /// cookie parameter type, which are passed in the Cookie header,
   /// such as Cookie: debug=0; csrftoken=BUSe35dohU3O1MZvDCU
-  cookie,
+  cookie;
 
   /// Define [ParameterType] constructor
   const ParameterType();

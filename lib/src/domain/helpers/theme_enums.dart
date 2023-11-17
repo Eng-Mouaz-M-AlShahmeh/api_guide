@@ -44,9 +44,8 @@ enum APIGuideThemeColor {
   yellow,
 
   /// Black Theme Color
-  black,
+  black;
 
   /// Define [APIGuideThemeColor] constructor
   const APIGuideThemeColor();
 }
-

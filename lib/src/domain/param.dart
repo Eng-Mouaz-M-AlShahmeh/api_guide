@@ -9,7 +9,6 @@ import 'package:flutter/material.dart';
 /// Import [APIGuide] package files
 import '../../api_guide.dart';
 
-/// Code starts here
 /// Add @immutable to make it non changeable
 @immutable
 
@@ -54,5 +53,3 @@ class APIGuideParam {
   /// Define [isRequired] property as bool and final
   final bool isRequired;
 }
-
-/// End of code

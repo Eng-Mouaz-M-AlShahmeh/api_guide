@@ -9,7 +9,6 @@ import 'package:flutter/material.dart';
 /// Import [APIGuide] package files
 import '../../api_guide.dart';
 
-/// Code starts here
 /// Add @immutable to make it non changeable
 @immutable
 
@@ -48,5 +47,3 @@ class APIGuideRequestBody {
     required this.isRequired,
   });
 }
-
-/// End of code

@@ -15,7 +15,6 @@ import 'package:provider/provider.dart';
 /// Import [APIGuide] package files
 import '../../../../api_guide.dart';
 
-/// Code starts here
 /// Define [SampleCode] class
 class SampleCodeFunctions {
   /// Define function to get the final prepared sample code
@@ -674,5 +673,3 @@ class SampleCodeFunctions {
     'Swift',
   ];
 }
-
-/// End of code

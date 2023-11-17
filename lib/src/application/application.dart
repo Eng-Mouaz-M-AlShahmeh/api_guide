@@ -2,7 +2,6 @@
 /// https://malshahmeh.web.app
 /// APIGuide package
 
-/// Code starts here
 /// Export App Provider
 export '../../src/application/app_provider.dart';
 
@@ -23,5 +22,3 @@ export '../../src/application/search_provider.dart';
 
 /// Export Theme Provider
 export '../../src/application/theme_provider.dart';
-
-/// End of code

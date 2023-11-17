@@ -11,8 +11,6 @@ import 'package:provider/provider.dart';
 /// Import [APIGuide] package files
 import '../../../api_guide.dart';
 
-/// Code starts here
-
 /// Start Light Mode
 /// Add @immutable to make it non changeable
 @immutable
@@ -235,5 +233,3 @@ class ConstantsLightMode {
 }
 
 /// End Light Mode
-
-/// End of code

@@ -8,7 +8,6 @@ import 'package:flutter/foundation.dart';
 /// Import [APIGuide] package files
 import '../../../api_guide.dart';
 
-/// Code starts here
 /// Define [ThemeProvider] class which extends the [ChangeNotifier]
 class ThemeProvider extends ChangeNotifier {
   /// Define initial attributes values
@@ -49,7 +48,5 @@ class ThemeProvider extends ChangeNotifier {
   }
 
   /// Define [ThemeProvider] constructor
-  const ThemeProvider();
+  ThemeProvider();
 }
-
-/// End of code

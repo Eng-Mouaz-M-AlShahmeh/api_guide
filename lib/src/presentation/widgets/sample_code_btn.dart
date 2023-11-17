@@ -12,7 +12,6 @@ import 'package:provider/provider.dart';
 /// Import [APIGuide] package files
 import '../../../api_guide.dart';
 
-/// Code starts here
 /// Sample Code Button of type [ElevatedButton]
 ElevatedButton sampleCodeButton(
   /// BuildContext
@@ -132,5 +131,3 @@ Dialog sampleCodeDialog(BuildContext context) {
     ),
   );
 }
-
-/// End of code

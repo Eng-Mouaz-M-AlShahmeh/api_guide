@@ -6,9 +6,8 @@
 import 'package:flutter/foundation.dart';
 
 /// Import [APIGuide] package files
-import '../../../api_guide.dart';
+import '../../api_guide.dart';
 
-/// Code starts here
 /// Define [SearchProvider] class which extends the [ChangeNotifier]
 class SearchProvider extends ChangeNotifier {
   /// Define Initial Attributes
@@ -105,7 +104,5 @@ class SearchProvider extends ChangeNotifier {
   }
 
   /// Define [SearchProvider] constructor
-  const SearchProvider();
+  SearchProvider();
 }
-
-/// End of code

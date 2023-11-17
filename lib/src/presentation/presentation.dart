@@ -2,7 +2,6 @@
 /// https://malshahmeh.web.app
 /// APIGuide package
 
-/// Code starts here
 /// Export Constants Helpers
 export '../../src/presentation/helpers/constants.dart';
 
@@ -65,5 +64,3 @@ export '../../src/presentation/widgets/search_dialog.dart';
 
 /// Export Search Dialog Text Field
 export '../../src/presentation/widgets/text_field_search_dialog.dart';
-
-/// End of code

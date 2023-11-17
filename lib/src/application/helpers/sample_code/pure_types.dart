@@ -8,7 +8,6 @@ import 'package:flutter/material.dart';
 /// Import [APIGuide] package files
 import '../../../../api_guide.dart';
 
-/// Code starts here
 /// Define [SampleCodePureTypes] class
 @immutable
 class SampleCodePureTypes {
@@ -711,5 +710,3 @@ let dataTask = session.dataTask(with: request as URLRequest, completionHandler: 
 dataTask.resume()
 ''';
 }
-
-/// End of code

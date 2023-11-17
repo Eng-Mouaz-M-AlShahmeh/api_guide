@@ -8,7 +8,6 @@ import 'package:flutter/material.dart';
 /// Import [APIGuide] package files
 import '../../../api_guide.dart';
 
-/// Code starts here
 /// Define [AppProvider] class which extends the [ChangeNotifier]
 class AppProvider extends ChangeNotifier {
   /// Define initial attributes values
@@ -305,7 +304,5 @@ class AppProvider extends ChangeNotifier {
   }
 
   /// Define [AppProvider] constructor
-  const AppProvider();
+  AppProvider();
 }
-
-/// End of code

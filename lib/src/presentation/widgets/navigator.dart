@@ -12,7 +12,6 @@ import 'package:provider/provider.dart';
 /// Import [APIGuide] package files
 import '../../../api_guide.dart';
 
-/// Code starts here
 /// Define [apiGuideNavigator] function
 Padding apiGuideNavigator(
   /// BuildContext
@@ -280,5 +279,3 @@ Padding apiGuideNavigator(
     ),
   );
 }
-
-/// End of code

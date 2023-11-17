@@ -2,7 +2,6 @@
 /// https://malshahmeh.web.app
 /// APIGuide package
 
-/// Code starts here
 /// Export API Item
 export '../../src/domain/api_item.dart';
 
@@ -35,5 +34,3 @@ export '../../src/domain/request_body.dart';
 
 /// Export Response
 export '../../src/domain/response.dart';
-
-/// End of code

@@ -12,7 +12,6 @@ import 'package:provider/provider.dart';
 /// Import [APIGuide] package files
 import '../../../api_guide.dart';
 
-/// Code starts here
 /// Define [apiGuideTextFieldSearchDialog] function
 TextField apiGuideTextFieldSearchDialog(
   /// BuildContext
@@ -161,5 +160,3 @@ TextField apiGuideTextFieldSearchDialog(
     ),
   );
 }
-
-/// End of code
