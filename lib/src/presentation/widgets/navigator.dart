@@ -53,181 +53,215 @@ Padding apiGuideNavigator(
                   child: SingleChildScrollView(
                     child: Column(
                       children: [
-                        InkWell(
-                          /// Introduction section link
-                          onTap: () => NavigationFunctions().scrollToIntro(
-                            /// BuildContext
-                            context,
+                        appState.introText == Constants.emptyTxt
+                            ? SizedBox()
+                            : InkWell(
+                                /// Introduction section link
+                                onTap: () =>
+                                    NavigationFunctions().scrollToIntro(
+                                  /// BuildContext
+                                  context,
 
-                            /// isPop bool value
-                            false,
-                          ),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: [
-                              Icon(
-                                Constants.arrowDoubleNavIcon,
-
-                                /// Check the current light/dark theme mode
-                                color: themeState.isDarkMode
-                                    ? ConstantsDarkMode.themeColor(context)
-                                    : ConstantsLightMode.themeColor(context),
-                                size: Constants.size15,
-                              ),
-                              Text(
-                                Constants.introTxt,
-                                style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-
-                                  /// Check the current light/dark theme mode
-                                  color: themeState.isDarkMode
-                                      ? ConstantsDarkMode.themeColor(context)
-                                      : ConstantsLightMode.themeColor(context),
-                                  fontSize: Constants.size15,
+                                  /// isPop bool value
+                                  false,
                                 ),
-                              )
-                            ],
-                          ),
-                        ),
-                        SizedBox(height: Constants.size15),
-                        Column(
-                          /// List of API items and their links
-                          children: appState.apiItemList
-                              .map((item) => Column(
-                                    children: [
-                                      InkWell(
-                                        /// Scroll to the api item on tap
-                                        onTap: () => NavigationFunctions()
-                                            .scrollToAPIItem(
-                                          /// BuildContext
-                                          context,
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  children: [
+                                    Icon(
+                                      Constants.arrowDoubleNavIcon,
 
-                                          /// APIItem
-                                          item,
+                                      /// Check the current light/dark theme mode
+                                      color: themeState.isDarkMode
+                                          ? ConstantsDarkMode.themeColor(
+                                              context)
+                                          : ConstantsLightMode.themeColor(
+                                              context),
+                                      size: Constants.size15,
+                                    ),
+                                    Text(
+                                      Constants.introTxt,
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.bold,
 
-                                          /// bool isPop value
-                                          false,
-                                        ),
-                                        child: Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceBetween,
+                                        /// Check the current light/dark theme mode
+                                        color: themeState.isDarkMode
+                                            ? ConstantsDarkMode.themeColor(
+                                                context)
+                                            : ConstantsLightMode.themeColor(
+                                                context),
+                                        fontSize: Constants.size15,
+                                      ),
+                                    )
+                                  ],
+                                ),
+                              ),
+                        appState.apiItemList.isEmpty
+                            ? SizedBox()
+                            : SizedBox(height: Constants.size15),
+                        appState.apiItemList.isEmpty
+                            ? SizedBox()
+                            : Column(
+                                /// List of API items and their links
+                                children: appState.apiItemList
+                                    .map((item) => Column(
                                           children: [
-                                            Row(
-                                              children: [
-                                                Icon(
-                                                  Constants.arrowDoubleNavIcon,
+                                            InkWell(
+                                              /// Scroll to the api item on tap
+                                              onTap: () => NavigationFunctions()
+                                                  .scrollToAPIItem(
+                                                /// BuildContext
+                                                context,
 
-                                                  /// Check the current light/dark theme mode
-                                                  color: themeState.isDarkMode
-                                                      ? ConstantsDarkMode
-                                                          .themeColor(context)
-                                                      : ConstantsLightMode
-                                                          .themeColor(context),
-                                                  size: Constants.size15,
-                                                ),
-                                                Text(
-                                                  item.title,
-                                                  style: TextStyle(
-                                                    fontWeight: FontWeight.bold,
+                                                /// APIItem
+                                                item,
 
-                                                    /// Check the current light/dark theme mode
-                                                    color: themeState.isDarkMode
-                                                        ? ConstantsDarkMode
-                                                            .themeColor(context)
-                                                        : ConstantsLightMode
-                                                            .themeColor(
-                                                                context),
-                                                    fontSize: Constants.size15,
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                            SizedBox(width: Constants.size30),
-                                            ClipRRect(
-                                              borderRadius: BorderRadius.all(
-                                                Radius.circular(
-                                                    Constants.size10),
+                                                /// bool isPop value
+                                                false,
                                               ),
-                                              child: SizedBox(
-                                                child: DecoratedBox(
-                                                  decoration: BoxDecoration(
-                                                    color: Constants
-                                                        .getMethodColor(
-                                                      item.request.method.name,
-                                                    ),
-                                                  ),
-                                                  child: Padding(
-                                                    padding: const EdgeInsets
-                                                        .fromLTRB(
-                                                      Constants.size10,
-                                                      Constants.size5,
-                                                      Constants.size10,
-                                                      Constants.size5,
-                                                    ),
-                                                    child: Text(
-                                                      item.request.method.name,
-                                                      style: TextStyle(
+                                              child: Row(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment
+                                                        .spaceBetween,
+                                                children: [
+                                                  Row(
+                                                    children: [
+                                                      Icon(
+                                                        Constants
+                                                            .arrowDoubleNavIcon,
+
                                                         /// Check the current light/dark theme mode
                                                         color: themeState
                                                                 .isDarkMode
                                                             ? ConstantsDarkMode
-                                                                .whiteColor
+                                                                .themeColor(
+                                                                    context)
                                                             : ConstantsLightMode
-                                                                .whiteColor,
-                                                        fontWeight:
-                                                            FontWeight.bold,
-                                                        fontSize:
+                                                                .themeColor(
+                                                                    context),
+                                                        size: Constants.size15,
+                                                      ),
+                                                      Text(
+                                                        item.title,
+                                                        style: TextStyle(
+                                                          fontWeight:
+                                                              FontWeight.bold,
+
+                                                          /// Check the current light/dark theme mode
+                                                          color: themeState
+                                                                  .isDarkMode
+                                                              ? ConstantsDarkMode
+                                                                  .themeColor(
+                                                                      context)
+                                                              : ConstantsLightMode
+                                                                  .themeColor(
+                                                                      context),
+                                                          fontSize:
+                                                              Constants.size15,
+                                                        ),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                  SizedBox(
+                                                      width: Constants.size30),
+                                                  ClipRRect(
+                                                    borderRadius:
+                                                        BorderRadius.all(
+                                                      Radius.circular(
+                                                          Constants.size10),
+                                                    ),
+                                                    child: SizedBox(
+                                                      child: DecoratedBox(
+                                                        decoration:
+                                                            BoxDecoration(
+                                                          color: Constants
+                                                              .getMethodColor(
+                                                            item.request.method
+                                                                .name,
+                                                          ),
+                                                        ),
+                                                        child: Padding(
+                                                          padding:
+                                                              const EdgeInsets
+                                                                  .fromLTRB(
                                                             Constants.size10,
+                                                            Constants.size5,
+                                                            Constants.size10,
+                                                            Constants.size5,
+                                                          ),
+                                                          child: Text(
+                                                            item.request.method
+                                                                .name,
+                                                            style: TextStyle(
+                                                              /// Check the current light/dark theme mode
+                                                              color: themeState
+                                                                      .isDarkMode
+                                                                  ? ConstantsDarkMode
+                                                                      .whiteColor
+                                                                  : ConstantsLightMode
+                                                                      .whiteColor,
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .bold,
+                                                              fontSize:
+                                                                  Constants
+                                                                      .size10,
+                                                            ),
+                                                          ),
+                                                        ),
                                                       ),
                                                     ),
                                                   ),
-                                                ),
+                                                ],
                                               ),
                                             ),
+                                            SizedBox(height: Constants.size15),
                                           ],
-                                        ),
-                                      ),
-                                      SizedBox(height: Constants.size15),
-                                    ],
-                                  ))
-                              .toList(),
-                        ),
-                        InkWell(
-                          /// FAQ section link
-                          onTap: () => NavigationFunctions().scrollToFaq(
-                            /// BuildContext
-                            context,
-
-                            /// bool isPop value
-                            false,
-                          ),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: [
-                              Icon(
-                                Constants.arrowDoubleNavIcon,
-
-                                /// Check the current light/dark theme mode
-                                color: themeState.isDarkMode
-                                    ? ConstantsDarkMode.themeColor(context)
-                                    : ConstantsLightMode.themeColor(context),
-                                size: Constants.size15,
+                                        ))
+                                    .toList(),
                               ),
-                              Text(
-                                Constants.faqsShortTxt,
-                                style: TextStyle(
-                                  fontWeight: FontWeight.bold,
+                        appState.apiFaqs.isEmpty
+                            ? SizedBox()
+                            : InkWell(
+                                /// FAQ section link
+                                onTap: () => NavigationFunctions().scrollToFaq(
+                                  /// BuildContext
+                                  context,
 
-                                  /// Check the current light/dark theme mode
-                                  color: themeState.isDarkMode
-                                      ? ConstantsDarkMode.themeColor(context)
-                                      : ConstantsLightMode.themeColor(context),
-                                  fontSize: Constants.size15,
+                                  /// bool isPop value
+                                  false,
                                 ),
-                              )
-                            ],
-                          ),
-                        ),
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  children: [
+                                    Icon(
+                                      Constants.arrowDoubleNavIcon,
+
+                                      /// Check the current light/dark theme mode
+                                      color: themeState.isDarkMode
+                                          ? ConstantsDarkMode.themeColor(
+                                              context)
+                                          : ConstantsLightMode.themeColor(
+                                              context),
+                                      size: Constants.size15,
+                                    ),
+                                    Text(
+                                      Constants.faqsShortTxt,
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+
+                                        /// Check the current light/dark theme mode
+                                        color: themeState.isDarkMode
+                                            ? ConstantsDarkMode.themeColor(
+                                                context)
+                                            : ConstantsLightMode.themeColor(
+                                                context),
+                                        fontSize: Constants.size15,
+                                      ),
+                                    )
+                                  ],
+                                ),
+                              ),
                       ],
                     ),
                   ),

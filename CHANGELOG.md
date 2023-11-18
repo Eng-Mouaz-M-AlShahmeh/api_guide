@@ -1,3 +1,13 @@
+## [1.0.16] - 2023/11/00
+
+* Update README.md file.
+* Update CHANGELOG.md file.
+* Fix empty values for introduction, api items and faq sections at body and navigators.
+* Fix empty values at search dialog.
+* Fix Params items responsiveness.
+* Add [isDeprecated] and [isInternal] bool attributes to the [APIItem] domain class.
+* Add optional warning deprecated and info internal icons at the api item header with tooltip on hover.
+
 ## [1.0.15] - 2023/11/17
 
 * Update README.md file.

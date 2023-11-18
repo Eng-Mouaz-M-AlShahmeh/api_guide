@@ -70,32 +70,41 @@ TextField apiGuideTextFieldSearchDialog(
       /// Update the search controller value
       searchController.text = val;
 
-      /// Check if [_patternIntro] match the search key
-      if (_patternIntro.hasMatch(val)) {
-        /// Add introItemListTxt to
-        /// the demo list to compare later
-        searchState.addToSearchItems(Constants.introItemListTxt);
-      }
-
-      /// Check if [_patternFAQs] match the search key
-      if (_patternFAQs.hasMatch(val)) {
-        /// Add faqsItemListTxt to
-        /// the demo list to compare later
-        searchState.addToSearchItems(Constants.faqsItemListTxt);
-      }
-
-      /// Make loop over apiItemsList
-      appState.apiItemList.forEach((element) {
-        /// Check if the element url path or element title
-        /// match the search key with lower case
-        /// to both to make insensitive case
-        if (element.urlPath.toLowerCase().contains(val.toLowerCase()) ||
-            element.title.toLowerCase().contains(val.toLowerCase())) {
-          /// Add element urlPath to
+      /// Check if intro is empty
+      if (appState.introText != '') {
+        /// Check if [_patternIntro] match the search key
+        if (_patternIntro.hasMatch(val)) {
+          /// Add introItemListTxt to
           /// the demo list to compare later
-          searchState.addToSearchItems(element.urlPath.toLowerCase());
+          searchState.addToSearchItems(Constants.introItemListTxt);
         }
-      });
+      }
+
+      /// Check if faqs is empty
+      if (appState.apiFaqs.isNotEmpty) {
+        /// Check if [_patternFAQs] match the search key
+        if (_patternFAQs.hasMatch(val)) {
+          /// Add faqsItemListTxt to
+          /// the demo list to compare later
+          searchState.addToSearchItems(Constants.faqsItemListTxt);
+        }
+      }
+
+      /// Check if faqs is empty
+      if (appState.apiItemList.isNotEmpty) {
+        /// Make loop over apiItemsList
+        appState.apiItemList.forEach((element) {
+          /// Check if the element url path or element title
+          /// match the search key with lower case
+          /// to both to make insensitive case
+          if (element.urlPath.toLowerCase().contains(val.toLowerCase()) ||
+              element.title.toLowerCase().contains(val.toLowerCase())) {
+            /// Add element urlPath to
+            /// the demo list to compare later
+            searchState.addToSearchItems(element.urlPath.toLowerCase());
+          }
+        });
+      }
     },
     decoration: InputDecoration(
       /// Check the current light/dark theme mode

@@ -25,6 +25,12 @@ class APIItem {
   /// Define [isHovered] property as bool? and final
   bool? isHovered;
 
+  /// Define [isDeprecated] property as bool? and final
+  bool? isDeprecated;
+
+  /// Define [isInternal] property as bool? and final
+  bool? isInternal;
+
   /// Definition of [APIItem] instance
   APIItem({
     /// Use request property as required attribute
@@ -44,5 +50,11 @@ class APIItem {
 
     /// Use isHovered property
     this.isHovered,
+
+    /// Use isDeprecated property
+    this.isDeprecated,
+
+    /// Use isInternal property
+    this.isInternal,
   });
 }

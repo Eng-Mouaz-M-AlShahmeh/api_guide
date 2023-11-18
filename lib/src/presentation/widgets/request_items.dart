@@ -118,7 +118,7 @@ Column requestParamsItems(
                   child: Wrap(
                     alignment: WrapAlignment.spaceBetween,
                     children: [
-                      Row(
+                      Wrap(
                         children: [
                           SelectableText(
                             e.key,

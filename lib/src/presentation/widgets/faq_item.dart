@@ -23,9 +23,6 @@ Padding apiGuideFaqItems(
   /// AppNotifierProvider to check theme attributes' states
   final appState = context.read<AppProvider>();
 
-  /// AppNotifierProvider to check theme attributes' states
-  final appStateWatch = context.watch<AppProvider>();
-
   return Padding(
     padding: const EdgeInsets.symmetric(
       vertical: Constants.size15,
@@ -45,7 +42,7 @@ Padding apiGuideFaqItems(
         },
 
         /// List of API FAQs to be displayed
-        children: appStateWatch.apiFaqs
+        children: appState.apiFaqs
             .map(
               (item) => ExpansionPanel(
                 /// Check the current light/dark theme mode

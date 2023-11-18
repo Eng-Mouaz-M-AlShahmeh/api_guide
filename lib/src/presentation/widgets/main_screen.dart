@@ -211,97 +211,124 @@ class APIGuideScreen extends StatelessWidget {
                       padding: const EdgeInsets.all(Constants.size30),
                       child: Column(
                         children: [
-                          SizedBox(height: Constants.size15),
+                          appState.introText == Constants.emptyTxt
+                              ? SizedBox()
+                              : SizedBox(height: Constants.size15),
 
                           /// Introduction section
-                          Row(
-                            key: appState.introKey,
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: [
-                              Icon(
-                                Constants.arrowDoubleNavIcon,
+                          appState.introText == Constants.emptyTxt
+                              ? SizedBox()
+                              : Row(
+                                  key: appState.introKey,
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  children: [
+                                    Icon(
+                                      Constants.arrowDoubleNavIcon,
 
-                                /// Check the current light/dark theme mode
-                                color: themeState.isDarkMode
-                                    ? ConstantsDarkMode.themeColor(context)
-                                    : ConstantsLightMode.themeColor(context),
-                                size: Constants.size20,
-                              ),
-                              SelectableText(
-                                Constants.introTxt,
-                                style: TextStyle(
-                                  fontWeight: FontWeight.bold,
+                                      /// Check the current light/dark theme mode
+                                      color: themeState.isDarkMode
+                                          ? ConstantsDarkMode.themeColor(
+                                              context)
+                                          : ConstantsLightMode.themeColor(
+                                              context),
+                                      size: Constants.size20,
+                                    ),
+                                    SelectableText(
+                                      Constants.introTxt,
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.bold,
 
-                                  /// Check the current light/dark theme mode
-                                  color: themeState.isDarkMode
-                                      ? ConstantsDarkMode.themeColor(context)
-                                      : ConstantsLightMode.themeColor(context),
-                                  fontSize: Constants.size20,
+                                        /// Check the current light/dark theme mode
+                                        color: themeState.isDarkMode
+                                            ? ConstantsDarkMode.themeColor(
+                                                context)
+                                            : ConstantsLightMode.themeColor(
+                                                context),
+                                        fontSize: Constants.size20,
+                                      ),
+                                    )
+                                  ],
                                 ),
-                              )
-                            ],
-                          ),
-                          SizedBox(height: Constants.size15),
+                          appState.introText == Constants.emptyTxt
+                              ? SizedBox()
+                              : SizedBox(height: Constants.size15),
 
-                          Row(
-                            children: [
-                              Flexible(
-                                child: SelectableText(
-                                  appState.introText,
-                                  textAlign: TextAlign.start,
-                                  style: TextStyle(
-                                    fontSize: Constants.size15,
+                          appState.introText == Constants.emptyTxt
+                              ? SizedBox()
+                              : Row(
+                                  children: [
+                                    Flexible(
+                                      child: SelectableText(
+                                        appState.introText,
+                                        textAlign: TextAlign.start,
+                                        style: TextStyle(
+                                          fontSize: Constants.size15,
 
-                                    /// Check the current light/dark theme mode
-                                    color: themeState.isDarkMode
-                                        ? ConstantsDarkMode.blackColor
-                                        : ConstantsLightMode.blackColor,
-                                  ),
+                                          /// Check the current light/dark theme mode
+                                          color: themeState.isDarkMode
+                                              ? ConstantsDarkMode.blackColor
+                                              : ConstantsLightMode.blackColor,
+                                        ),
+                                      ),
+                                    ),
+                                  ],
                                 ),
-                              ),
-                            ],
-                          ),
-                          SizedBox(height: Constants.size15),
+                          appState.apiItemList.isEmpty
+                              ? SizedBox()
+                              : SizedBox(height: Constants.size15),
 
                           /// API Items section
-                          apiGuideAPIItems(context),
-                          SizedBox(height: Constants.size50),
+                          appState.apiItemList.isEmpty
+                              ? SizedBox()
+                              : apiGuideAPIItems(context),
+                          appState.apiFaqs.isEmpty
+                              ? SizedBox()
+                              : SizedBox(height: Constants.size50),
 
                           /// FAQ section
-                          Row(
-                            key: appState.faqKey,
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: [
-                              Icon(
-                                Constants.arrowDoubleNavIcon,
+                          appState.apiFaqs.isEmpty
+                              ? SizedBox()
+                              : Row(
+                                  key: appState.faqKey,
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  children: [
+                                    Icon(
+                                      Constants.arrowDoubleNavIcon,
 
-                                /// Check the current light/dark theme mode
-                                color: themeState.isDarkMode
-                                    ? ConstantsDarkMode.themeColor(context)
-                                    : ConstantsLightMode.themeColor(context),
-                                size: Constants.size20,
-                              ),
-                              Flexible(
-                                child: SelectableText(
-                                  Constants.faqsTxt,
-                                  style: TextStyle(
-                                    fontWeight: FontWeight.bold,
+                                      /// Check the current light/dark theme mode
+                                      color: themeState.isDarkMode
+                                          ? ConstantsDarkMode.themeColor(
+                                              context)
+                                          : ConstantsLightMode.themeColor(
+                                              context),
+                                      size: Constants.size20,
+                                    ),
+                                    Flexible(
+                                      child: SelectableText(
+                                        Constants.faqsTxt,
+                                        style: TextStyle(
+                                          fontWeight: FontWeight.bold,
 
-                                    /// Check the current light/dark theme mode
-                                    color: themeState.isDarkMode
-                                        ? ConstantsDarkMode.themeColor(context)
-                                        : ConstantsLightMode.themeColor(
-                                            context),
-                                    fontSize: Constants.size20,
-                                  ),
+                                          /// Check the current light/dark theme mode
+                                          color: themeState.isDarkMode
+                                              ? ConstantsDarkMode.themeColor(
+                                                  context)
+                                              : ConstantsLightMode.themeColor(
+                                                  context),
+                                          fontSize: Constants.size20,
+                                        ),
+                                      ),
+                                    )
+                                  ],
                                 ),
-                              )
-                            ],
-                          ),
-                          SizedBox(height: Constants.size15),
+                          appState.apiFaqs.isEmpty
+                              ? SizedBox()
+                              : SizedBox(height: Constants.size15),
 
                           /// FAQ items
-                          apiGuideFaqItems(context),
+                          appState.apiFaqs.isEmpty
+                              ? SizedBox()
+                              : apiGuideFaqItems(context),
                           SizedBox(height: Constants.size15),
 
                           /// Copyright notice and optional parts

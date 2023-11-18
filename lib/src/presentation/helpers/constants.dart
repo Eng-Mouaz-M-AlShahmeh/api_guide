@@ -46,6 +46,12 @@ class Constants {
   /// Define [clearIcon] attribute
   static const IconData clearIcon = Icons.clear;
 
+  /// Define [errorIcon] attribute
+  static const IconData errorIcon = Icons.error_outline;
+
+  /// Define [eyeIcon] attribute
+  static const IconData eyeIcon = Icons.remove_red_eye_outlined;
+
   /// End Icons Attributes
 
   /// Start Colors Attributes
@@ -239,6 +245,20 @@ class Constants {
 
   /// Define [searchTxt] attribute
   static const String searchTxt = 'Search ';
+
+  /// Define [deprecatedTxt] attribute
+  static const String deprecatedTxt = 'Deprecated';
+
+  /// Define [deprecatedTooltipTxt] attribute
+  static const String deprecatedTooltipTxt =
+      'This operation has been marked as deprecated, which means it could be removed at some point in the future.';
+
+  /// Define [internalTxt] attribute
+  static const String internalTxt = 'Internal';
+
+  /// Define [internalTooltipTxt] attribute
+  static const String internalTooltipTxt =
+      'This operation is marked as internal and won\'t be visible in public docs.';
 
   /// Define [licenseTxt] attribute
   static const String licenseTxt = 'Licence';

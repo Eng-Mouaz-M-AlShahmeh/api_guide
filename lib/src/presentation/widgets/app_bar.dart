@@ -22,6 +22,9 @@ AppBar apiGuideAppBar(
   /// AppNotifierProvider to check theme attributes' states
   final appState = context.read<AppProvider>();
 
+  /// AppNotifierProvider to check theme attributes' states
+  final appStateWatch = context.watch<AppProvider>();
+
   /// Return AppBar widget
   return AppBar(
     title: Text(Constants.emptyTxt),
@@ -101,7 +104,7 @@ AppBar apiGuideAppBar(
                                     Constants.size5,
                                   ),
                                   child: Text(
-                                    '${Constants.versionTxt}${appState.version.toStringAsFixed(1)}',
+                                    '${Constants.versionTxt}${appStateWatch.version.toStringAsFixed(1)}',
                                     style: TextStyle(
                                       /// Check the current light/dark theme mode
                                       color: themeState.isDarkMode
