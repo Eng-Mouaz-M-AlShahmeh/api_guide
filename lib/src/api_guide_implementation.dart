@@ -25,8 +25,8 @@ class APIGuide implements APIGuideInterface {
     /// Build context implementation
     required BuildContext context,
 
-    /// Host URL implementation
-    required String urlHost,
+    /// List of API servers implementation
+    required List<APIServer> servers,
 
     /// List of API items implementation
     required List<APIItem> apiItems,
@@ -74,8 +74,8 @@ class APIGuide implements APIGuideInterface {
         ChangeNotifierProvider(create: (_) => SearchProvider()),
       ],
       child: APIGuideScreen(
-        /// Host URL
-        urlHost: urlHost,
+        /// List of API servers
+        servers: servers,
 
         /// List of API items
         apiItems: apiItems,

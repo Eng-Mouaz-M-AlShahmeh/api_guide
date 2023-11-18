@@ -5,6 +5,9 @@
 /// Export API Item
 export '../../src/domain/api_item.dart';
 
+/// Export API Server
+export '../../src/domain/api_server.dart';
+
 /// Export FAQ
 export '../../src/domain/faq.dart';
 

@@ -19,8 +19,8 @@ abstract class APIGuideInterface {
     /// Build context interface to implement later
     required BuildContext context,
 
-    /// Host URL interface to implement later
-    required String urlHost,
+    /// List of API servers interface to implement later
+    required List<APIServer> servers,
 
     /// List of API items interface to implement later
     required List<APIItem> apiItems,

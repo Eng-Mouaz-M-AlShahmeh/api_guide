@@ -25,6 +25,13 @@ class MyHomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // Define API Servers as needed
+    List<APIServer> apiServers = [
+      APIServer(
+        urlHost: 'https://example.com',
+      ),
+    ];
+
     // Define API Items with all needed properties
     List<APIItem> apiItems = [
       // Define the first API item
@@ -116,7 +123,7 @@ class MyHomePage extends StatelessWidget {
     // Use APIGuide package with display method and pass needed parameters
     return APIGuide().display(
       context: context,
-      urlHost: 'https://example.com',
+      servers: apiServers,
       apiItems: apiItems,
       apiFaqs: apiFaqs,
       version: 1.0,

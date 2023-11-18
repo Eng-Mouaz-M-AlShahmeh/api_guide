@@ -112,8 +112,8 @@ SizedBox apiGuideItemHeader(
                         child: SelectableText(
                           /// Check pathParams if it is empty
                           pathParams.isEmpty
-                              ? '${appState.urlHost}${item.urlPath}'
-                              : '${appState.urlHost}${item.urlPath}${pathParams.map((e) => item.urlPath.contains(e.key) ? '' : '/{${e.key}}').join('')}',
+                              ? '${appState.selectedAPIServer.urlHost}${item.urlPath}'
+                              : '${appState.selectedAPIServer.urlHost}${item.urlPath}${pathParams.map((e) => item.urlPath.contains(e.key) ? '' : '/{${e.key}}').join('')}',
                           style: TextStyle(
                             fontWeight: FontWeight.normal,
                             fontSize: Constants.size15,

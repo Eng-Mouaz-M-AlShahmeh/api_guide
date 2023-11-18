@@ -23,7 +23,7 @@ Flutter package to generate API calls documentations like OpenAPI schema.
 
 ## API Integration Guide Features ✨
 
-* Generative code model covers more than 30 snippet code types.
+* Generative code model covers 30+ snippet code types with multiple servers.
 * Possibility to copy sample code to the clipboard by clicking the button.
 * Responsive design supports large, medium and small screens.
 * Light and dark theme mode.
@@ -43,7 +43,7 @@ Flutter package to generate API calls documentations like OpenAPI schema.
 
 ```yaml
 dependencies:
-  api_guide: ^1.0.16
+  api_guide: ^1.0.17
 ```
 
 ② Second: import it to your project:
@@ -94,6 +94,13 @@ class MyHomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // Define API Servers as needed
+    List<APIServer> apiServers = [
+      APIServer(
+        urlHost: 'https://example.com',
+      ),
+    ];
+
     // Define API Items with all needed properties
     List<APIItem> apiItems = [
       // Define the first API item
@@ -185,7 +192,7 @@ class MyHomePage extends StatelessWidget {
     // Use APIGuide package with display method and pass needed parameters
     return APIGuide().display(
       context: context,
-      urlHost: 'https://example.com',
+      servers: apiServers,
       apiItems: apiItems,
       apiFaqs: apiFaqs,
       version: 1.0,

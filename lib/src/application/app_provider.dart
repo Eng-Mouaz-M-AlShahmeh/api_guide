@@ -38,8 +38,12 @@ class AppProvider extends ChangeNotifier {
   /// Sample Code Type
   String _sampleCodeType = SampleCodeFunctions().types.first;
 
-  /// Url Host for API Guide
-  String _urlHost = '';
+  /// List of API servers for API Guide
+  List<APIServer> _apiServerList = [];
+
+  /// Selected API server for API Guide
+  APIServer _selectedAPIServer =
+      APIServer(title: 'Live', urlHost: 'https://example.com');
 
   /// Terms Link of the API Guide
   String? _termsLink;
@@ -64,6 +68,9 @@ class AppProvider extends ChangeNotifier {
 
   /// Define [_isOpenSampleCode] attribute with default value of false
   bool _isOpenSampleCode = false;
+
+  /// Define [_isOpenServer] attribute with default value of false
+  bool _isOpenServer = false;
 
   /// Define Getters
   /// Define GlobalKey<ScaffoldState> getter of [_scaffoldKey] called [scaffoldKey]
@@ -93,8 +100,11 @@ class AppProvider extends ChangeNotifier {
   /// Define String getter of [_sampleCodeType] called [sampleCodeType]
   String get sampleCodeType => _sampleCodeType;
 
-  /// Define String getter of [_urlHost] called [urlHost]
-  String get urlHost => _urlHost;
+  /// Define List of APIServer getter of [_apiServerList] called [apiServerList]
+  List<APIServer> get apiServerList => _apiServerList;
+
+  /// Define selected APIServer getter of [_selectedAPIServer] called [selectedAPIServer]
+  APIServer get selectedAPIServer => _selectedAPIServer;
 
   /// Define String getter of [_termsLink] called [termsLink]
   String? get termsLink => _termsLink;
@@ -120,6 +130,9 @@ class AppProvider extends ChangeNotifier {
 
   /// Define bool getter of [_isOpenSampleCode] called [isOpenSampleCode]
   bool get isOpenSampleCode => _isOpenSampleCode;
+
+  /// Define bool getter of [_isOpenServer] called [isOpenServer]
+  bool get isOpenServer => _isOpenServer;
 
   /// Define Setters
   /// Define [updateAPIItemKeys] function which update
@@ -205,11 +218,28 @@ class AppProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  /// Define [updateIntroText] function which update
+  /// Define [updateAPIServerList] function which update
   /// the state of [_urlHost] value
-  updateURLHost(String val) {
-    /// Update the value of [_urlHost]
-    _urlHost = val;
+  updateAPIServerList(List<APIServer> val) {
+    /// Check if api server list exists or not
+    if (_apiServerList.isEmpty) {
+      /// Update the value of [_apiServerList]
+      _apiServerList = val;
+
+      /// Update the value of [_selectedAPIServer]
+      _selectedAPIServer = _apiServerList.first;
+    }
+
+    /// Notify listeners to rebuild widgets that depend
+    /// on this ChangeNotifier
+    notifyListeners();
+  }
+
+  /// Define [updateSelectedAPIServer] function which update
+  /// the state of [_selectedAPIServer] value
+  updateSelectedAPIServer(APIServer val) {
+    /// Update the value of [_selectedAPIServer]
+    _selectedAPIServer = val;
 
     /// Notify listeners to rebuild widgets that depend
     /// on this ChangeNotifier
@@ -298,6 +328,16 @@ class AppProvider extends ChangeNotifier {
   updateIsOpenSampleCode(bool val) {
     /// Update the value of [_isOpenSampleCode]
     _isOpenSampleCode = val;
+
+    /// Notify listeners to rebuild widgets that depend on this ChangeNotifier
+    notifyListeners();
+  }
+
+  /// Define [updateIsOpenServer] function which toggle
+  /// the state of [_isOpenServer] value
+  updateIsOpenServer(bool val) {
+    /// Update the value of [_isOpenServer]
+    _isOpenServer = val;
 
     /// Notify listeners to rebuild widgets that depend on this ChangeNotifier
     notifyListeners();

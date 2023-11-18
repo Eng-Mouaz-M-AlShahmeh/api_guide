@@ -23,6 +23,9 @@ Column apiGuideItemBodyEnd(
   /// ThemeNotifierProvider to check theme attributes' states
   final themeState = context.read<ThemeProvider>();
 
+  /// AppNotifierProvider to check theme attributes' states
+  final appState = context.read<AppProvider>();
+
   return Column(
     mainAxisAlignment: MainAxisAlignment.start,
     crossAxisAlignment: CrossAxisAlignment.start,
@@ -59,6 +62,14 @@ Column apiGuideItemBodyEnd(
                     ),
                   ),
                 ),
+
+                /// Check if there more than one server
+                appState.apiServerList.length > 1
+                    ? Padding(
+                        padding: const EdgeInsets.all(Constants.size8),
+                        child: serverButton(context),
+                      )
+                    : SizedBox(),
                 Padding(
                   padding: const EdgeInsets.all(Constants.size8),
                   child: sampleCodeButton(context),

@@ -1,3 +1,12 @@
+## [1.0.17] - 2023/11/18
+
+* Update README.md file.
+* Update CHANGELOG.md file.
+* Remove [urlHost] attribute from [display] functions from interface, implementation and main screen.
+* Add [APIServer] domain class with urlHost String and optional title String.
+* Pass new [List<APIServer>] attribute instead of [urlHost].
+* Update example code by updating servers attribute.
+
 ## [1.0.16] - 2023/11/18
 
 * Update README.md file.

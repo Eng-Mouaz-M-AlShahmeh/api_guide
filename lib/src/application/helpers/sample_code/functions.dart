@@ -73,7 +73,7 @@ class SampleCodeFunctions {
         item.request.method.name,
 
         /// {1} URL Host
-        appState.urlHost,
+        appState.selectedAPIServer.urlHost,
 
         /// {2} URL Path
         pathParams.isEmpty

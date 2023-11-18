@@ -52,6 +52,12 @@ class Constants {
   /// Define [eyeIcon] attribute
   static const IconData eyeIcon = Icons.remove_red_eye_outlined;
 
+  /// Define [doneIcon] attribute
+  static const IconData doneIcon = Icons.done;
+
+  /// Define [dnsIcon] attribute
+  static const IconData dnsIcon = Icons.dns;
+
   /// End Icons Attributes
 
   /// Start Colors Attributes
@@ -221,6 +227,12 @@ class Constants {
 
   /// Define [requestCookiesTxt] attribute
   static const String requestCookiesTxt = 'Request Cookies ';
+
+  /// Define [serversTxt] attribute
+  static const String serversTxt = 'SERVERS';
+
+  /// Define [liveTxt] attribute
+  static const String liveTxt = 'Live';
 
   /// Define [sampleCodeTxt] attribute
   static const String sampleCodeTxt = 'Sample Code ';

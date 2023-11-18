@@ -25,8 +25,8 @@ class APIGuideScreen extends StatelessWidget {
     /// Super key for widget
     super.key,
 
-    /// Host URL implementation
-    required this.urlHost,
+    /// List of API servers implementation
+    required this.servers,
 
     /// List of API items implementation
     required this.apiItems,
@@ -62,8 +62,8 @@ class APIGuideScreen extends StatelessWidget {
     this.spdxLicenceType,
   });
 
-  /// Host URL implementation
-  final String urlHost;
+  /// List of API servers implementation
+  final List<APIServer> servers;
 
   /// List of API items implementation
   final List<APIItem> apiItems;
@@ -120,8 +120,8 @@ class APIGuideScreen extends StatelessWidget {
       /// Update the initial value of [apiIntro] String
       appState.updateIntroText(apiIntro);
 
-      /// Update the initial value of [urlHost] String
-      appState.updateURLHost(urlHost);
+      /// Update the initial value of [apiServerList] list
+      appState.updateAPIServerList(servers);
 
       /// Update the initial value of [termsLink] String
       appState.updateTermsLink(termsLink);
@@ -539,6 +539,20 @@ class APIGuideScreen extends StatelessWidget {
               ),
             ),
           ),
+
+          /// Check the visibility of the server dialog
+          Visibility(
+            visible: appState.isOpenServer,
+            child: Center(
+              child: BackdropFilter(
+                filter: ImageFilter.blur(
+                  sigmaX: Constants.size5,
+                  sigmaY: Constants.size5,
+                ),
+                child: serverDialog(context),
+              ),
+            ),
+          ),
         ],
       ),
     );
@@ -576,12 +590,16 @@ class APIGuideScreen extends StatelessWidget {
       } else if (keyEvent.logicalKey == LogicalKeyboardKey.escape) {
         /// Check if the search widget is open or the sample code is open
         if (searchState.isOpenSearch == true ||
-            appState.isOpenSampleCode == true) {
+            appState.isOpenSampleCode == true ||
+            appState.isOpenServer == true) {
           /// Reset the [isOpened] state for search dialog
           searchState.updateIsOpenSearch(false);
 
           /// Reset the [isOpened] state for sample code dialog
           appState.updateIsOpenSampleCode(false);
+
+          /// Reset the [isOpened] state for server dialog
+          appState.updateIsOpenServer(false);
         }
       }
     }
