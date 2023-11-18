@@ -1,4 +1,4 @@
-## [1.0.16] - 2023/11/00
+## [1.0.16] - 2023/11/18
 
 * Update README.md file.
 * Update CHANGELOG.md file.
