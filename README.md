@@ -21,7 +21,7 @@ Flutter package to generate API calls documentations like OpenAPI schema.
 
 - API Guide is package to generate API calls documentations like [OpenAPI schema](https://spec.openapis.org/oas/v3.1.0). For example, Get, Post, Put, Delete or Options Http requests and responses.
 
-## API Integration Guide Features ✨
+## Features ✨
 
 * Generative code model covers 30+ snippet code types with multiple servers.
 * Possibility to copy sample code to the clipboard by clicking the button.
@@ -37,7 +37,7 @@ Flutter package to generate API calls documentations like OpenAPI schema.
 * Optional variant to change the theme color supports 14 color distributions.
 * Built in accordance with [W3 Consortium](https://www.w3.org) and [OpenAPI Schema](https://spec.openapis.org/oas/v3.1.0) recommendations.
 
-## Installation and Basic Usage ⏳
+## Installation ⏳
 
 ① First: Add to pubspec.yaml:
 
@@ -62,7 +62,7 @@ import 'package:api_guide/api_guide.dart';
 * If you do not set the [termsLink] or [privacyLink] it is not appear.
 * If you do not set the [themeColor] it is automatic take the [APIGuideThemeColor.indigo] swatch palette color.
 
-## Full Usage Example Code ✅
+## Usage ✅
 
 Here is a full usage example code:
 
