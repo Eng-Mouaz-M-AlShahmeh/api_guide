@@ -54,14 +54,6 @@ import 'package:api_guide/api_guide.dart';
 
 ③ Finally add **APIGuide().display()** into your target web pages with required parameters.
 
-## Notes 📝
-
-* Set the [debugShowCheckedModeBanner] value to [false] to hide the top debug red ribbon at the [MaterialApp].
-* If you add the [APIGuide().display()] widget inside the [Scaffold] widget make sure to put it inside the body only without the [appBar], [drawer], [floatingActionButton], [bottomNavigationBar] or [bottomSheet] because it has the Scaffold with all needed attributes as full page screen widget.
-* The preferred way to adding [APIGuide().display()] is inside the [build] method as return value directly of the [StatelessWidget].
-* If you do not set the [termsLink] or [privacyLink] it is not appear.
-* If you do not set the [themeColor] it is automatic take the [APIGuideThemeColor.indigo] swatch palette color.
-
 ## Usage ✅
 
 Here is a full usage example code:
@@ -203,6 +195,14 @@ class MyHomePage extends StatelessWidget {
 }
 
 ```
+
+## Notes 📝
+
+* Set the [debugShowCheckedModeBanner] value to [false] to hide the top debug red ribbon at the [MaterialApp].
+* If you add the [APIGuide().display()] widget inside the [Scaffold] widget make sure to put it inside the body only without the [appBar], [drawer], [floatingActionButton], [bottomNavigationBar] or [bottomSheet] because it has the Scaffold with all needed attributes as full page screen widget.
+* The preferred way to adding [APIGuide().display()] is inside the [build] method as return value directly of the [StatelessWidget].
+* If you do not set the [termsLink] or [privacyLink] it is not appear.
+* If you do not set the [themeColor] it is automatic take the [APIGuideThemeColor.indigo] swatch palette color.
 
 ## Thank you 🎉
 
