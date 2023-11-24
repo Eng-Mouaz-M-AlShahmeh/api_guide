@@ -5,7 +5,6 @@
 <p align="center">
 <a href="https://pub.dev/packages/api_guide"><img src="https://img.shields.io/pub/v/api_guide.svg" alt="Pub"></a>
 <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/license-MIT-purple.svg" alt="License: MIT"></a>
-  <a href="https://github.com/Eng-Mouaz-M-AlShahmeh/api_guide"><img src="https://github.com/Eng-Mouaz-M-AlShahmeh/api_guide/assets/86870601/5aed6940-253f-4f33-9e41-b8194ba1638b" alt="API Guide Library"></a>
 </p>
 
 ---
