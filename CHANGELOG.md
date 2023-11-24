@@ -8,7 +8,7 @@
 * Add isSecurityItem bool attribute to APIGuideParam to check functionality of security schemes.
 * Update the updateAPIItemAndKeys application function to make isSecurityItem value not affecting the left side api items.
 * Add updateAPIItemWithSecurity application function.
-* Enhance the appearance of the the api item right section.
+* Enhance the appearance of the api item right section.
 * Add Security section at the right of the api item.
 * Add hint if the security is optional at the api item.
 * Update faq item is expanded function.
