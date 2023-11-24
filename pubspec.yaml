@@ -6,7 +6,7 @@ description: API Guide is package to generate API calls documentations like Open
 version: 1.1.0
 repository: https://github.com/Eng-Mouaz-M-AlShahmeh/api_guide
 issue_tracker: https://github.com/Eng-Mouaz-M-AlShahmeh/api_guide/issues
-topics: [api, documentation, integration guide]
+topics: [api, documentation, integration_api_guide]
 environment:
   sdk: '>=3.0.0 <4.0.0'
 dependencies:
