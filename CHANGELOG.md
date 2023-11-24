@@ -1,4 +1,4 @@
-## [1.1.0] - 2023/11/22
+## [1.1.0] - 2023/11/24
 
 * Remove unnecessary lints dependencies.
 * Update example code.
