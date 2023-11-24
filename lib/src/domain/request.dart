@@ -3,14 +3,8 @@
 /// APIGuide package
 
 /// Adding necessary packages
-/// Import [flutter/material] package files
-import 'package:flutter/material.dart';
-
 /// Import domain package files
 import 'domain.dart';
-
-/// Add @immutable to make it non changeable
-@immutable
 
 /// Define [APIGuideRequest] class
 class APIGuideRequest {
@@ -18,13 +12,13 @@ class APIGuideRequest {
   final HttpRequestMethod method;
 
   /// Define [params] property as List<APIGuideParam> and final
-  final List<APIGuideParam> params;
+  List<APIGuideParam> params;
 
   /// Define [body] property as List<APIGuideRequestBody> and final
   final List<APIGuideRequestBody> body;
 
   /// Definition of [APIGuideRequest] instance
-  const APIGuideRequest({
+  APIGuideRequest({
     /// Use method property as required attribute
     required this.method,
 

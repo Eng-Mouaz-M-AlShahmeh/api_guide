@@ -69,7 +69,7 @@ List<APIItem> _apiItems = [
     securitySchemes: [],
 
     // Define the request for the first API item
-    request: const APIGuideRequest(
+    request: APIGuideRequest(
       method: HttpRequestMethod.GET,
       params: [],
       body: [],
@@ -99,18 +99,18 @@ List<APIItem> _apiItems = [
     securitySchemes: [],
 
     // Define the request for the second API item
-    request: const APIGuideRequest(
+    request: APIGuideRequest(
       method: HttpRequestMethod.POST,
       params: [],
       body: [
-        APIGuideRequestBody(
+        const APIGuideRequestBody(
           key: 'name',
           value: 'Dash',
           type: PropertyType.string,
           description: 'This is the name attribute.',
           isRequired: true,
         ),
-        APIGuideRequestBody(
+        const APIGuideRequestBody(
           key: 'isFly',
           value: true,
           type: PropertyType.boolean,

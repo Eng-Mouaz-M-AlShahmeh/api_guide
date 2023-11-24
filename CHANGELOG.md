@@ -1,3 +1,8 @@
+## [1.1.1] - 2023/11/25
+
+* Fix add function by making params as not immutable. 
+* Update example code.
+
 ## [1.1.0] - 2023/11/24
 
 * Remove unnecessary lints dependencies.

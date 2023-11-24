@@ -44,7 +44,7 @@ Flutter package to generate API calls documentations like OpenAPI schema.
 
 ```yaml
 dependencies:
-  api_guide: ^1.1.0
+  api_guide: ^1.1.1
 ```
 
 ② Second: import it to your project:
@@ -130,7 +130,7 @@ List<APIItem> _apiItems = [
     securitySchemes: [],
 
     // Define the request for the first API item
-    request: const APIGuideRequest(
+    request: APIGuideRequest(
       method: HttpRequestMethod.GET,
       params: [],
       body: [],
@@ -160,18 +160,18 @@ List<APIItem> _apiItems = [
     securitySchemes: [],
 
     // Define the request for the second API item
-    request: const APIGuideRequest(
+    request: APIGuideRequest(
       method: HttpRequestMethod.POST,
       params: [],
       body: [
-        APIGuideRequestBody(
+        const APIGuideRequestBody(
           key: 'name',
           value: 'Dash',
           type: PropertyType.string,
           description: 'This is the name attribute.',
           isRequired: true,
         ),
-        APIGuideRequestBody(
+        const APIGuideRequestBody(
           key: 'isFly',
           value: true,
           type: PropertyType.boolean,
