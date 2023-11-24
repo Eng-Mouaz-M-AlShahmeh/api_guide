@@ -48,20 +48,35 @@ SizedBox apiGuideItemHeader(
           runSpacing: Constants.size15,
           children: [
             Wrap(
+              crossAxisAlignment: WrapCrossAlignment.center,
               spacing: Constants.size15,
               runSpacing: Constants.size15,
               children: [
-                SelectableText(
-                  item.title,
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: Constants.size20,
+                Wrap(
+                  crossAxisAlignment: WrapCrossAlignment.center,
+                  children: [
+                    Icon(
+                      Constants.arrowDoubleNavIcon,
 
-                    /// Check the current light/dark theme mode
-                    color: themeState.isDarkMode
-                        ? ConstantsDarkMode.themeColor(context)
-                        : ConstantsLightMode.themeColor(context),
-                  ),
+                      /// Check the current light/dark theme mode
+                      color: themeState.isDarkMode
+                          ? ConstantsDarkMode.themeColor(context)
+                          : ConstantsLightMode.themeColor(context),
+                      size: Constants.size20,
+                    ),
+                    SelectableText(
+                      item.title,
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: Constants.size20,
+
+                        /// Check the current light/dark theme mode
+                        color: themeState.isDarkMode
+                            ? ConstantsDarkMode.themeColor(context)
+                            : ConstantsLightMode.themeColor(context),
+                      ),
+                    ),
+                  ],
                 ),
                 ClipRRect(
                   borderRadius:

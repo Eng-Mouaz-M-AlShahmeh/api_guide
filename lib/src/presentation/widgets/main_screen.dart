@@ -218,36 +218,10 @@ class APIGuideScreen extends StatelessWidget {
                           /// Introduction section
                           appState.introText == Constants.emptyTxt
                               ? SizedBox()
-                              : Row(
+                              : SizedBox(
                                   key: appState.introKey,
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  children: [
-                                    Icon(
-                                      Constants.arrowDoubleNavIcon,
-
-                                      /// Check the current light/dark theme mode
-                                      color: themeState.isDarkMode
-                                          ? ConstantsDarkMode.themeColor(
-                                              context)
-                                          : ConstantsLightMode.themeColor(
-                                              context),
-                                      size: Constants.size20,
-                                    ),
-                                    SelectableText(
-                                      Constants.introTxt,
-                                      style: TextStyle(
-                                        fontWeight: FontWeight.bold,
-
-                                        /// Check the current light/dark theme mode
-                                        color: themeState.isDarkMode
-                                            ? ConstantsDarkMode.themeColor(
-                                                context)
-                                            : ConstantsLightMode.themeColor(
-                                                context),
-                                        fontSize: Constants.size20,
-                                      ),
-                                    )
-                                  ],
+                                  child: titleArrowDouble(
+                                      context, Constants.introTxt),
                                 ),
                           appState.introText == Constants.emptyTxt
                               ? SizedBox()
@@ -288,38 +262,10 @@ class APIGuideScreen extends StatelessWidget {
                           /// FAQ section
                           appState.apiFaqs.isEmpty
                               ? SizedBox()
-                              : Row(
+                              : SizedBox(
                                   key: appState.faqKey,
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  children: [
-                                    Icon(
-                                      Constants.arrowDoubleNavIcon,
-
-                                      /// Check the current light/dark theme mode
-                                      color: themeState.isDarkMode
-                                          ? ConstantsDarkMode.themeColor(
-                                              context)
-                                          : ConstantsLightMode.themeColor(
-                                              context),
-                                      size: Constants.size20,
-                                    ),
-                                    Flexible(
-                                      child: SelectableText(
-                                        Constants.faqsTxt,
-                                        style: TextStyle(
-                                          fontWeight: FontWeight.bold,
-
-                                          /// Check the current light/dark theme mode
-                                          color: themeState.isDarkMode
-                                              ? ConstantsDarkMode.themeColor(
-                                                  context)
-                                              : ConstantsLightMode.themeColor(
-                                                  context),
-                                          fontSize: Constants.size20,
-                                        ),
-                                      ),
-                                    )
-                                  ],
+                                  child: titleArrowDouble(
+                                      context, Constants.faqsTxt),
                                 ),
                           appState.apiFaqs.isEmpty
                               ? SizedBox()

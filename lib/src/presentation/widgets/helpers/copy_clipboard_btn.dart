@@ -13,7 +13,7 @@ import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 
 /// Import [APIGuide] package files
-import '../../../api_guide.dart';
+import '../../../../api_guide.dart';
 
 /// Define [copyClipboardButton] function
 InkWell copyClipboardButton(
@@ -60,7 +60,7 @@ InkWell copyClipboardButton(
 
       /// Check the current light/dark theme mode
       color: themeState.isDarkMode
-          ? ConstantsDarkMode.themeColor(context)
+          ? ConstantsDarkMode.themeColorLight(context)
           : ConstantsLightMode.themeColor(context),
     ),
   );

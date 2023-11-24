@@ -3,6 +3,10 @@
 /// APIGuide package
 
 /// Import necessary packages
+/// Import [dart:convert] package files
+import 'dart:convert';
+
+/// Import [flutter/material] package files
 import 'package:flutter/material.dart';
 
 /// Import [APIGuide] package files
@@ -136,10 +140,23 @@ class AppProvider extends ChangeNotifier {
 
   /// Define Setters
   /// Define [updateAPIItemKeys] function which update
-  /// the state of [_apiItemKeys] value
+  /// the state of [_apiItemList] and [_apiItemKeys] value
   updateAPIItemAndKeys(List<APIItem> val) {
     /// Check if api items list exists or not
     if (_apiItemList.isEmpty) {
+      /// Loop over APIItem elements
+      val.forEach((element) {
+        /// Loop over APIItem => APIGuideRequest => APIGuideParam elements
+        element.request.params.forEach((item) {
+          /// Update the isSecurityItem to false
+          /// as initial value to check security items later
+          if (item.isSecurityItem == true) {
+            /// Update the value to false always
+            item.isSecurityItem = false;
+          }
+        });
+      });
+
       /// Update the value of [_apiItemList]
       _apiItemList = val;
     }
@@ -150,9 +167,177 @@ class AppProvider extends ChangeNotifier {
       /// Update the value of [_apiItemKeys]
       _apiItemKeys = _apiItemList
           .map((e) => GlobalKey(
+
+              /// Define debugLabel with title, urlPath and request method name
               debugLabel: '${e.title} ${e.urlPath} ${e.request.method.name}'))
           .toList();
     }
+
+    /// Run the updateAPIItemWithSecurity function
+    updateAPIItemWithSecurity(val);
+
+    /// Notify listeners to rebuild widgets that depend
+    /// on this ChangeNotifier
+    notifyListeners();
+  }
+
+  /// Define Setters
+  /// Define [updateAPIItemWithSecurity] function which update
+  /// the state of [_apiItemKeys] value
+  updateAPIItemWithSecurity(List<APIItem> val) {
+    /// Update the value of [_apiItemList]
+    val.forEach((element) {
+      /// Iterate over Security Scheme items
+      element.securitySchemes.forEach((item) {
+        /// Check if the element isOptionalSecurity is not true
+        if (element.isOptionalSecurity != true) {
+          /// Check the value of theme color and select the appropriate color
+          switch (item.securitySchemeType) {
+            /// Query APIKey Security Scheme Type
+            case SecuritySchemeType.QueryAPIKey:
+
+              /// Check if item not exists
+              if (!element.request.params.any(
+                  (param) => param.key.contains(item.securitySchemeName))) {
+                /// Add request param item
+                return element.request.params.add(
+                  APIGuideParam(
+                    key: item.securitySchemeName,
+                    value: item.valueExample ?? Constants.oneTwoThreeTxt,
+                    propertyType: PropertyType.string,
+                    parameterType: ParameterType.query,
+                    isRequired: true,
+                    isSecurityItem: true,
+                  ),
+                );
+              }
+
+            /// Header APIKey Security Scheme Type
+            case SecuritySchemeType.HeaderAPIKey:
+
+              /// Check if item not exists
+              if (!element.request.params.any(
+                  (param) => param.key.contains(item.securitySchemeName))) {
+                /// Add request param item
+                return element.request.params.add(
+                  APIGuideParam(
+                    key: item.securitySchemeName,
+                    value: item.valueExample ?? Constants.oneTwoThreeTxt,
+                    propertyType: PropertyType.string,
+                    parameterType: ParameterType.header,
+                    isRequired: true,
+                    isSecurityItem: true,
+                  ),
+                );
+              }
+
+            /// Basic HTTP Security Scheme Type
+            case SecuritySchemeType.BasicHTTP:
+
+              /// Check if item not exists
+              if (!element.request.params.any((param) =>
+                  param.key.contains(Constants.authorizationTxt) &&
+                  param.value.contains(
+                      '${Constants.basicTxt}${base64.encode(utf8.encode("${item.userNameExample ?? Constants.demoUsernameTxt}:${item.passwordExample ?? Constants.demoPasswordTxt}"))}'))) {
+                /// Add request param item
+                return element.request.params.add(
+                  APIGuideParam(
+                    key: Constants.authorizationTxt,
+                    value:
+                        '${Constants.basicTxt}${base64.encode(utf8.encode("${item.userNameExample ?? Constants.demoUsernameTxt}:${item.passwordExample ?? Constants.demoPasswordTxt}"))}',
+                    propertyType: PropertyType.string,
+                    parameterType: ParameterType.header,
+                    isRequired: true,
+                    isSecurityItem: true,
+                  ),
+                );
+              }
+
+            /// Bearer HTTP Security Scheme Type
+            case SecuritySchemeType.BearerHTTP:
+
+              /// Check if item not exists
+              if (!element.request.params.any((param) =>
+                  param.key.contains(Constants.authorizationTxt) &&
+                  param.value.contains(
+                      '${Constants.bearerTxt}${item.tokenExample ?? Constants.oneTwoThreeTxt}'))) {
+                /// Add request param item
+                return element.request.params.add(
+                  APIGuideParam(
+                    key: Constants.authorizationTxt,
+                    value:
+                        '${Constants.bearerTxt}${item.tokenExample ?? Constants.oneTwoThreeTxt}',
+                    propertyType: PropertyType.string,
+                    parameterType: ParameterType.header,
+                    isRequired: true,
+                    isSecurityItem: true,
+                  ),
+                );
+              }
+
+            /// Digest HTTP Security Scheme Type
+            case SecuritySchemeType.DigestHTTP:
+
+              /// Check if item not exists
+              if (!element.request.params.any((param) =>
+                  param.key.contains(Constants.authorizationTxt) &&
+                  param.value.contains(
+                      '${item.digestExample ?? Constants.digestDemoTxt}'))) {
+                /// Add request param item
+                return element.request.params.add(
+                  APIGuideParam(
+                    key: Constants.authorizationTxt,
+                    value: '${item.digestExample ?? Constants.digestDemoTxt}',
+                    propertyType: PropertyType.string,
+                    parameterType: ParameterType.header,
+                    isRequired: true,
+                    isSecurityItem: true,
+                  ),
+                );
+              }
+
+            /// OAuth 2 Security Scheme Type
+            /// or OAuth 2 Implicit Flow Security Scheme Type
+            /// or OAuth 2 Password Flow Security Scheme Type
+            /// or OAuth 2 Client Flow Security Scheme Type
+            /// or OAuth 2 Code Flow Security Scheme Type
+            case SecuritySchemeType.OAuth2 ||
+                  SecuritySchemeType.OAuth2ImplicitFlow ||
+                  SecuritySchemeType.OAuth2PasswordFlow ||
+                  SecuritySchemeType.OAuth2ClientFlow ||
+                  SecuritySchemeType.OAuth2CodeFlow:
+
+              /// Check if item not exists
+              if (!element.request.params.any((param) =>
+                  param.key.contains(Constants.authorizationTxt) &&
+                  param.value.contains(
+                      '${item.tokenExample ?? "${Constants.bearerTxt}${Constants.oneTwoThreeTxt}"}'))) {
+                /// Add request param item
+                return element.request.params.add(
+                  APIGuideParam(
+                    key: Constants.authorizationTxt,
+                    value:
+                        '${item.tokenExample ?? "${Constants.bearerTxt}${Constants.oneTwoThreeTxt}"}',
+                    propertyType: PropertyType.string,
+                    parameterType: ParameterType.header,
+                    isRequired: true,
+                    isSecurityItem: true,
+                  ),
+                );
+              }
+
+            /// If none of the above cases match
+            default:
+
+              /// Not do any thing
+              return;
+          }
+        }
+      });
+    });
+
+    /// Update the value of [_apiItemList]
+    _apiItemList = val;
 
     /// Notify listeners to rebuild widgets that depend
     /// on this ChangeNotifier
@@ -187,9 +372,10 @@ class AppProvider extends ChangeNotifier {
 
   /// Define [updateAPIFaqsItemIsExpanded] function which update
   /// the state of [_apiFaqs] value
-  updateAPIFaqsItemIsExpanded(int index, bool isExpanded) {
+  updateAPIFaqsItemIsExpanded(APIGuideFAQ apiGuideFAQ, bool isExpanded) {
     /// Update the value of [_apiFaqs] item
-    _apiFaqs[index].isExpanded = isExpanded;
+    _apiFaqs.where((element) => element == apiGuideFAQ).first.isExpanded =
+        isExpanded;
 
     /// Notify listeners to rebuild widgets that depend
     /// on this ChangeNotifier

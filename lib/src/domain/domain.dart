@@ -23,6 +23,9 @@ export '../../src/domain/helpers/http_enums.dart';
 /// Export Licence Enums Helpers
 export '../../src/domain/helpers/licence_enums.dart';
 
+/// Export Security Enums Helpers
+export '../../src/domain/helpers/security_enums.dart';
+
 /// Export Theme Enums Helpers
 export '../../src/domain/helpers/theme_enums.dart';
 
@@ -37,3 +40,6 @@ export '../../src/domain/request_body.dart';
 
 /// Export Response
 export '../../src/domain/response.dart';
+
+/// Export API Security Scheme
+export '../../src/domain/security_scheme.dart';

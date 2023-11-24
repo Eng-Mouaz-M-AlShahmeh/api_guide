@@ -10,7 +10,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 /// Import [APIGuide] package files
-import '../../../api_guide.dart';
+import '../../../../api_guide.dart';
 
 /// Sample Code Button of type [ElevatedButton]
 ElevatedButton sampleCodeButton(

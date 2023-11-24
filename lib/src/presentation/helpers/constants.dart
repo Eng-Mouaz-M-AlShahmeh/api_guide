@@ -22,6 +22,9 @@ class Constants {
   /// Define [arrowDoubleNavIcon] attribute
   static const IconData arrowDoubleNavIcon = Icons.double_arrow_rounded;
 
+  /// Define [arrowNavIcon] attribute
+  static const IconData arrowNavIcon = Icons.play_arrow_outlined;
+
   /// Define [arrowDownSelectIcon] attribute
   static const IconData arrowDownSelectIcon = Icons.arrow_drop_down_rounded;
 
@@ -72,7 +75,7 @@ class Constants {
   static Color? greyDarkColor = Colors.grey[800];
 
   /// Define [greyColor] attribute
-  static const Color greyColor = Colors.grey;
+  static Color? greyColor = Colors.grey[350];
 
   /// End Colors Attributes
 
@@ -234,6 +237,50 @@ class Constants {
   /// Define [liveTxt] attribute
   static const String liveTxt = 'Live';
 
+  /// Define [securityTxt] attribute
+  static const String securityTxt = 'Security';
+
+  /// Define [exampleTxt] attribute
+  static const String exampleTxt = 'Example: ';
+
+  /// Define [oneTwoThreeTxt] attribute
+  static const String oneTwoThreeTxt = '123';
+
+  /// Define [digestDemoTxt] attribute
+  static const String digestDemoTxt = '''Digest username="User Name",
+  realm="testrealm@host.com",
+  nonce="dcd98b7102dd2f0e8b11d0f600bfb0c093",
+  uri="/dir/index.html",
+  qop=auth,
+  nc=00000001,
+  cnonce="0a4f113b",
+  response="6629fae49393a05397450978507c4ef1",
+  opaque="5ccc069c403ebaf9f0171e9517f40e41"''';
+
+  /// Define [authorizationTxt] attribute
+  static const String authorizationTxt = 'Authorization: ';
+
+  /// Define [basicTxt] attribute
+  static const String basicTxt = 'Basic ';
+
+  /// Define [bearerTxt] attribute
+  static const String bearerTxt = 'Bearer ';
+
+  /// Define [demoUsernameTxt] attribute
+  static const String demoUsernameTxt = 'demo';
+
+  /// Define [demoPasswordTxt] attribute
+  static const String demoPasswordTxt = 'p@55w0rd';
+
+  /// Define [tokenUrlTxt] attribute
+  static const String tokenUrlTxt = 'Token URL: ';
+
+  /// Define [authorizeUrlTxt] attribute
+  static const String authorizeUrlTxt = 'Authorize URL: ';
+
+  /// Define [refreshUrlTxt] attribute
+  static const String refreshUrlTxt = 'Refresh URL: ';
+
   /// Define [sampleCodeTxt] attribute
   static const String sampleCodeTxt = 'Sample Code ';
 
@@ -245,6 +292,10 @@ class Constants {
 
   /// Define [searchHintTxt] attribute
   static const String searchHintTxt = 'Search the guide...';
+
+  /// Define [optionalSecurityTxt] attribute
+  static const String optionalSecurityTxt =
+      'Requiring authorization is optional. A user can access data without authorization or with authorization, if provided.';
 
   /// Define [noRecentSearchesTxt] attribute
   static const String noRecentSearchesTxt = 'No recent searches';
@@ -377,6 +428,9 @@ class Constants {
 
   /// Define [size5] attribute
   static const double size5 = 5;
+
+  /// Define [size3] attribute
+  static const double size3 = 3;
 
   /// Define [size2] attribute
   static const double size2 = 2;

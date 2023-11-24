@@ -3,17 +3,15 @@
 # APIGuide package
 name: api_guide
 description: API Guide is package to generate API calls documentations like OpenAPI schema.
-version: 1.0.17
+version: 1.1.0
 repository: https://github.com/Eng-Mouaz-M-AlShahmeh/api_guide
 issue_tracker: https://github.com/Eng-Mouaz-M-AlShahmeh/api_guide/issues
-topics: [api, documentation, guide, http]
+topics: [api, documentation, integration guide]
 environment:
   sdk: '>=3.0.0 <4.0.0'
 dependencies:
   flutter:
     sdk: flutter
-  flutter_lints: ^3.0.1
-  lints: ^3.0.0
   url_launcher: ^6.2.1
   provider: ^6.1.1
 dev_dependencies:

@@ -3,19 +3,13 @@
 /// APIGuide package
 
 /// Import necessary packages
-/// Import [flutter/material] package files
-import 'package:flutter/material.dart';
-
 /// Import [APIGuide] package files
 import '../../api_guide.dart';
-
-/// Add @immutable to make it non changeable
-@immutable
 
 /// Define [APIGuideParam] class
 class APIGuideParam {
   /// Definition of [APIGuideParam] instance
-  const APIGuideParam({
+  APIGuideParam({
     /// Use key property as attribute
     required this.key,
 
@@ -28,11 +22,14 @@ class APIGuideParam {
     /// Use type parameter as required attribute
     required this.parameterType,
 
+    /// Use isRequired property as required attribute
+    required this.isRequired,
+
     /// Use description property as attribute
     this.description,
 
-    /// Use isRequired property as required attribute
-    required this.isRequired,
+    /// Use isSecurityItem property as attribute
+    this.isSecurityItem,
   });
 
   /// Define [key] property as String and final
@@ -52,4 +49,7 @@ class APIGuideParam {
 
   /// Define [isRequired] property as bool and final
   final bool isRequired;
+
+  /// Define [isSecurityItem] property as bool and final
+  bool? isSecurityItem;
 }

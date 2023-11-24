@@ -10,7 +10,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 /// Import [APIGuide] package files
-import '../../../api_guide.dart';
+import '../../../../api_guide.dart';
 
 /// Close Search Dialog Button from type of [ElevatedButton]
 ElevatedButton closeSearchDialogButton(

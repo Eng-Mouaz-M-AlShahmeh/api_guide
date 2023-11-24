@@ -18,7 +18,7 @@ class APIServer {
   final String urlHost;
 
   /// Definition of [APIServer] instance
-  APIServer({
+  const APIServer({
     /// Use title property as required attribute
     this.title,
 

@@ -1,3 +1,19 @@
+## [1.1.0] - 2023/11/22
+
+* Remove unnecessary lints dependencies.
+* Update example code.
+* Make APIServer class constructor as const.
+* Add SecuritySchemeType enum which supports common 19 standard types.
+* Add APISecurityScheme domain class.
+* Add isSecurityItem bool attribute to APIGuideParam to check functionality of security schemes.
+* Update the updateAPIItemAndKeys application function to make isSecurityItem value not affecting the left side api items.
+* Add updateAPIItemWithSecurity application function.
+* Enhance the appearance of the the api item right section.
+* Add Security section at the right of the api item.
+* Add hint if the security is optional at the api item.
+* Update faq item is expanded function.
+* Add security_item presentation function.
+
 ## [1.0.17] - 2023/11/18
 
 * Remove urlHost attribute from display functions from interface, implementation and main screen.
