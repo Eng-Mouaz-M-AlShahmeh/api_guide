@@ -1,3 +1,7 @@
+## [1.1.2] - 2023/12/06
+
+* Fix the Found no Flutter in your PATH. Could not determine the current Flutter version. 
+
 ## [1.1.1] - 2023/11/25
 
 * Fix add function by making params as not immutable. 
