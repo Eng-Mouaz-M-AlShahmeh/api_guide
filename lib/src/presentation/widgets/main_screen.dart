@@ -229,23 +229,10 @@ class APIGuideScreen extends StatelessWidget {
 
                           appState.introText == Constants.emptyTxt
                               ? SizedBox()
-                              : Row(
-                                  children: [
-                                    Flexible(
-                                      child: SelectableText(
-                                        appState.introText,
-                                        textAlign: TextAlign.start,
-                                        style: TextStyle(
-                                          fontSize: Constants.size15,
-
-                                          /// Check the current light/dark theme mode
-                                          color: themeState.isDarkMode
-                                              ? ConstantsDarkMode.blackColor
-                                              : ConstantsLightMode.blackColor,
-                                        ),
-                                      ),
-                                    ),
-                                  ],
+                              : markdownWidget(
+                                  context,
+                                  appState.introText,
+                                  themeState.isDarkMode,
                                 ),
                           appState.apiItemList.isEmpty
                               ? SizedBox()

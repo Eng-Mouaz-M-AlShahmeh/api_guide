@@ -36,6 +36,7 @@ Flutter package to generate API calls documentations like OpenAPI schema.
 * Optional SPDX Licence API Integration Guide footer link with supporting of 400+ SPDX Licence types. 
 * Optional variant to change the theme color supports 10+ color distributions.
 * Supports 15+ web API standard security schemes.
+* Supports Markdown functionality at (Introduction section, API items' description and FAQs answers).
 * Built in accordance with [W3 Consortium](https://www.w3.org) recommendations, [OpenAPI Schema](https://spec.openapis.org/oas/v3.1.0) and [RFCs](https://www.ietf.org/standards/rfcs/) standards.
 
 ## Installation ⏳
@@ -44,7 +45,7 @@ Flutter package to generate API calls documentations like OpenAPI schema.
 
 ```yaml
 dependencies:
-  api_guide: ^1.1.2
+  api_guide: ^1.1.3
 ```
 
 ② Second: import it to your project:
@@ -217,6 +218,16 @@ List<APIItem> _apiItems = [
 * If you do not set the [termsLink] or [privacyLink] it is not appear.
 * If you do not set the [themeColor] it is automatic take the [APIGuideThemeColor.indigo] swatch palette color.
 * There are many internal function attributes that do not affect the raw data that are passed as optional attributes and if passed do not affect the function because they are programmed to automatically change themselves as needed like [APIItem.isHovered], [APIItem.isOptionalSecurity], [APIGuideParam.isSecurityItem] and [APIGuideFAQ.isExpanded].
+* To solve the issue of markdown images at the chrome browser:
+  -  Run the terminal prompt:
+```flutter run --web-renderer html```
+  - Or from toolbar items: Run -> Edit Configurations... -> Additional run args -> then add the value of ```--web-renderer html``` 
+* To solve the issue of markdown images at the macos:
+  - Add the following at the "macos/Runner/DebugProfile.entitlements" and "macos/Runner/Release.entitlements" files: 
+```
+<key>com.apple.security.network.client</key>
+<true/>
+```
 
 ## Thank you 🎉
 

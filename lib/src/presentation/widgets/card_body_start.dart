@@ -61,18 +61,10 @@ Column apiGuideItemBodyStart(
       /// Display the item's description
       item.description.isEmpty
           ? SizedBox()
-          : SelectableText(
+          : markdownWidget(
+              context,
               item.description,
-              textAlign: TextAlign.start,
-              style: TextStyle(
-                fontWeight: FontWeight.normal,
-                fontSize: Constants.size15,
-
-                /// Check the current light/dark theme mode
-                color: themeState.isDarkMode
-                    ? ConstantsDarkMode.blackColor
-                    : ConstantsLightMode.blackColor,
-              ),
+              themeState.isDarkMode,
             ),
       item.description.isEmpty
           ? SizedBox()

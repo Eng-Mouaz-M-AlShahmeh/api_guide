@@ -141,15 +141,10 @@ Column apiGuideFaqItems(
                                   ),
 
                                   /// Display the faq answer
-                                  child: SelectableText(
+                                  child: markdownWidget(
+                                    context,
                                     item.answer,
-                                    style: TextStyle(
-                                      fontWeight: FontWeight.normal,
-                                      fontSize: Constants.size15,
-                                      color: themeState.isDarkMode
-                                          ? Constants.greyColor
-                                          : Constants.greyDarkColor,
-                                    ),
+                                    themeState.isDarkMode,
                                   ),
                                 ),
                               ),

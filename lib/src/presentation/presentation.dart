@@ -32,6 +32,9 @@ export '../../src/presentation/widgets/helpers/close_dialog_btn.dart';
 /// Export Copy to Clipboard Button
 export '../../src/presentation/widgets/helpers/copy_clipboard_btn.dart';
 
+/// Export Markdown Widget Helper
+export '../../src/presentation/widgets/helpers/markdown_widget.dart';
+
 /// Export Optional Security Hint
 export '../../src/presentation/widgets/helpers/optional_security_hint.dart';
 

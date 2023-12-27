@@ -381,6 +381,36 @@ class Constants {
 
   /// Start Sizes Attributes
 
+  /// Define [size10000] attribute
+  static const double size10000 = 10000;
+
+  /// Define [size8000] attribute
+  static const double size8000 = 8000;
+
+  /// Define [size5000] attribute
+  static const double size5000 = 5000;
+
+  /// Define [size4000] attribute
+  static const double size4000 = 4000;
+
+  /// Define [size2500] attribute
+  static const double size2500 = 2500;
+
+  /// Define [size1500] attribute
+  static const double size1500 = 1500;
+
+  /// Define [size1000] attribute
+  static const double size1000 = 1000;
+
+  /// Define [size800] attribute
+  static const double size800 = 800;
+
+  /// Define [size600] attribute
+  static const double size600 = 600;
+
+  /// Define [size500] attribute
+  static const double size500 = 500;
+
   /// Define [size300] attribute
   static const double size300 = 300;
 
@@ -488,6 +518,46 @@ class Constants {
 
   /// Define [duration300] attribute
   static const int duration300 = 300;
+
+  /// Define [markdownTextStyle] TextStyle with parsing
+  /// the [isDarkMode] bool attribute
+  TextStyle markdownTextStyle(bool isDarkMode) => TextStyle(
+        /// Check the current light/dark theme mode
+        color: isDarkMode
+            ? ConstantsDarkMode.blackColor
+            : ConstantsLightMode.blackColor,
+      );
+
+  /// Define [markdownTextStyle] TextStyle with parsing
+  /// the [isDarkMode] bool attribute
+  TextStyle markdownTextStyleBodyMedium(bool isDarkMode) => TextStyle(
+        fontSize: Constants.size15,
+
+        /// Check the current light/dark theme mode
+        color: isDarkMode
+            ? ConstantsDarkMode.blackColor
+            : ConstantsLightMode.blackColor,
+      );
+
+  /// Define [markdownTextTheme] TextTheme with parsing
+  /// the [isDarkMode] bool attribute
+  TextTheme markdownTextTheme(bool isDarkMode) => TextTheme(
+        displayLarge: markdownTextStyle(isDarkMode),
+        displayMedium: markdownTextStyle(isDarkMode),
+        displaySmall: markdownTextStyle(isDarkMode),
+        headlineLarge: markdownTextStyle(isDarkMode),
+        headlineMedium: markdownTextStyle(isDarkMode),
+        headlineSmall: markdownTextStyle(isDarkMode),
+        titleLarge: markdownTextStyle(isDarkMode),
+        titleMedium: markdownTextStyle(isDarkMode),
+        titleSmall: markdownTextStyle(isDarkMode),
+        bodyLarge: markdownTextStyle(isDarkMode),
+        bodyMedium: markdownTextStyleBodyMedium(isDarkMode),
+        bodySmall: markdownTextStyle(isDarkMode),
+        labelLarge: markdownTextStyle(isDarkMode),
+        labelMedium: markdownTextStyle(isDarkMode),
+        labelSmall: markdownTextStyle(isDarkMode),
+      );
 
   /// End Durations Attributes
 }

@@ -1,3 +1,11 @@
+## [1.1.3] - 2023/12/28
+
+* Import flutter_markdown package with the version of ^0.6.18+2.
+* Add markdown_widget helper to add markdown functionality.
+* Add at Constants class (size500, size600, size800, size1000, size1500, size2500, size4000, size5000, size8000 and size10000) attributes.
+* Add at Constants class the markdownTextStyle and markdownTextStyleBodyMedium from type of TextStyle and markdownTextTheme from type of TextTheme.
+* Add the markdown functionality at (Introduction section, API items' description and FAQ answers).
+
 ## [1.1.2] - 2023/12/06
 
 * Fix the Found no Flutter in your PATH. Could not determine the current Flutter version. 
