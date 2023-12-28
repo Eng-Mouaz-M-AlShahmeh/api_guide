@@ -246,6 +246,9 @@ class Constants {
   /// Define [oneTwoThreeTxt] attribute
   static const String oneTwoThreeTxt = '123';
 
+  /// Define [codeMarkdown] attribute
+  static const String codeMarkdown = 'code';
+
   /// Define [digestDemoTxt] attribute
   static const String digestDemoTxt = '''Digest username="User Name",
   realm="testrealm@host.com",

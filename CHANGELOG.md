@@ -1,3 +1,9 @@
+## [1.1.4] - 2023/12/28
+
+* Fix Emoji issue.
+* Fix markdown colorScheme.
+* Add markdown code style.
+
 ## [1.1.3] - 2023/12/28
 
 * Import flutter_markdown package with the version of ^0.6.18+2.

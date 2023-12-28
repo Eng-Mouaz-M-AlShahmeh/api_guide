@@ -29,6 +29,9 @@ export '../../src/presentation/widgets/helpers/animated_search_container.dart';
 /// Export Close Search Dialog Button
 export '../../src/presentation/widgets/helpers/close_dialog_btn.dart';
 
+/// Export Code Markdown Builder Widget Helper
+export '../../src/presentation/widgets/helpers/code_markdown_builder.dart';
+
 /// Export Copy to Clipboard Button
 export '../../src/presentation/widgets/helpers/copy_clipboard_btn.dart';
 

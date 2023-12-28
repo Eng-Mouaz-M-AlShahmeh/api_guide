@@ -9,6 +9,9 @@ import 'package:flutter/material.dart';
 /// Import [flutter_markdown] package files
 import 'package:flutter_markdown/flutter_markdown.dart';
 
+/// Import [markdown] package files as md
+import 'package:markdown/markdown.dart' as md;
+
 /// Import [APIGuide] package files
 import '../../../../api_guide.dart';
 
@@ -64,10 +67,53 @@ SizedBox markdownWidget(
         styleSheet: MarkdownStyleSheet.fromTheme(
           /// Parse the Theme of context with api guide style.
           Theme.of(context).copyWith(
-            /// Parse the Markdown Text Theme with isDarkMode attribute
-            textTheme: Constants().markdownTextTheme(isDarkMode),
-          ),
+
+              /// Parse the Markdown Text Theme with isDarkMode attribute
+              textTheme: Constants().markdownTextTheme(isDarkMode),
+
+              /// Check the isDarkMode state
+              colorScheme: ColorScheme(
+                brightness: isDarkMode ? Brightness.dark : Brightness.light,
+                background: isDarkMode
+                    ? ConstantsDarkMode.greyLightColor!
+                    : ConstantsLightMode.greyLightColor!,
+                onBackground: isDarkMode
+                    ? ConstantsLightMode.greyLightColor!
+                    : ConstantsDarkMode.greyLightColor!,
+                error: ColorScheme.fromSwatch().error,
+                onError: ColorScheme.fromSwatch().onError,
+                secondary: isDarkMode
+                    ? ConstantsDarkMode.themeColorLight(context)!
+                    : ConstantsLightMode.themeColorLight(context)!,
+                onSecondary: isDarkMode
+                    ? ConstantsDarkMode.themeColor(context)!
+                    : ConstantsLightMode.themeColor(context)!,
+                surface: isDarkMode
+                    ? ConstantsDarkMode.greyLightColor!
+                    : ConstantsLightMode.greyLightColor!,
+                onSurface: isDarkMode
+                    ? ConstantsLightMode.greyLightColor!
+                    : ConstantsDarkMode.greyLightColor!,
+                primary: isDarkMode
+                    ? ConstantsDarkMode.themeColor(context)!
+                    : ConstantsLightMode.themeColor(context)!,
+                onPrimary: isDarkMode
+                    ? ConstantsDarkMode.themeColorLight(context)!
+                    : ConstantsLightMode.themeColorLight(context)!,
+              )),
         ),
+
+        extensionSet: md.ExtensionSet(
+          md.ExtensionSet.gitHubFlavored.blockSyntaxes,
+          <md.InlineSyntax>[
+            md.EmojiSyntax(),
+            ...md.ExtensionSet.gitHubFlavored.inlineSyntaxes
+          ],
+        ),
+
+        builders: {
+          Constants.codeMarkdown: CodeElementBuilder(context, isDarkMode),
+        },
 
         /// Open the markdown link when tap
         onTapLink: (title, url, alt) => Functions().openURL(url!),
