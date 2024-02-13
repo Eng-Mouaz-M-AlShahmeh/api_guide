@@ -1,7 +1,3 @@
-/// Copyright © 2023, Oct. Developed by Mouaz M. Al-Shahmeh
-/// https://malshahmeh.web.app
-/// APIGuide package
-/// Export API Item
 export '../../src/domain/api_item.dart';
 
 /// Export API Server

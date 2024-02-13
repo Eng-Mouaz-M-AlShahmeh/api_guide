@@ -1,8 +1,3 @@
-/// Copyright © 2023, Oct. Developed by Mouaz M. Al-Shahmeh
-/// https://malshahmeh.web.app
-/// APIGuide package
-/// Adding necessary packages
-/// Import domain package files
 import 'domain.dart';
 
 /// Define [APIGuideRequest] class

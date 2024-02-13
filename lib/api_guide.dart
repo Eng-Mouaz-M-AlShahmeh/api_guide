@@ -1,7 +1,3 @@
-/// Copyright © 2023, Oct. Developed by Mouaz M. Al-Shahmeh
-/// https://malshahmeh.web.app
-/// APIGuide package
-/// Export API Guide Implementation class
 export 'src/api_guide_implementation.dart';
 
 /// Export API Guide Interface class

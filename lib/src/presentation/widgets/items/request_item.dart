@@ -1,8 +1,3 @@
-/// Copyright © 2023, Oct. Developed by Mouaz M. Al-Shahmeh
-/// https://malshahmeh.web.app
-/// APIGuide package
-/// Adding necessary packages
-/// Import [flutter/material] package files
 import 'package:flutter/material.dart';
 
 /// Import [provider] package files

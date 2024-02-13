@@ -1,7 +1,3 @@
-/// Copyright © 2023, Oct. Developed by Mouaz M. Al-Shahmeh
-/// https://malshahmeh.web.app
-/// APIGuide package
-/// Define [APIGuideFAQ] class
 class APIGuideFAQ {
   /// Define [question] property as String and final
   final String question;
