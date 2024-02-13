@@ -1,7 +1,6 @@
 /// Copyright © 2023, Oct. Developed by Mouaz M. Al-Shahmeh
 /// https://malshahmeh.web.app
 /// APIGuide package
-
 /// Define [APIGuideThemeColor] options
 enum APIGuideThemeColor {
   /// Indigo Theme Color

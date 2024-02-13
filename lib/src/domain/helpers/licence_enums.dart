@@ -1,7 +1,7 @@
 /// Copyright © 2023, Oct. Developed by Mouaz M. Al-Shahmeh
 /// https://malshahmeh.web.app
 /// APIGuide package
-
+/// .........................
 /// Define SPDX licence types
 /// The Software Package Data Exchange (SPDX)
 /// An open standard describing SBOMs (Software Bill of Materials),

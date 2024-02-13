@@ -1,7 +1,7 @@
 /// Copyright © 2023, Oct. Developed by Mouaz M. Al-Shahmeh
 /// https://malshahmeh.web.app
 /// APIGuide package
-
+/// ..........................
 /// HTTP defines a set of request methods to indicate the desired action to be performed for a given resource.
 /// Although they can also be nouns, these request methods are sometimes referred to as HTTP verbs.
 /// Each of them implements a different semantic, but some common features are shared by a group of them:

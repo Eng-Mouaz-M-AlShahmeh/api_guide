@@ -1,7 +1,6 @@
 /// Copyright © 2023, Oct. Developed by Mouaz M. Al-Shahmeh
 /// https://malshahmeh.web.app
 /// APIGuide package
-
 /// Define property types Enum
 enum PropertyType {
   /// OpenAPI has two numeric types, number and integer,

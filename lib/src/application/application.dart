@@ -1,7 +1,6 @@
 /// Copyright © 2023, Oct. Developed by Mouaz M. Al-Shahmeh
 /// https://malshahmeh.web.app
 /// APIGuide package
-
 /// Export App Provider
 export '../../src/application/app_provider.dart';
 

@@ -1,7 +1,6 @@
 /// Copyright © 2023, Oct. Developed by Mouaz M. Al-Shahmeh
 /// https://malshahmeh.web.app
 /// APIGuide package
-
 /// Import necessary packages
 /// Import [dart/ui] package files
 import 'dart:ui';

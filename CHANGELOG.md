@@ -1,3 +1,7 @@
+## [1.1.5] - 2024/02/13
+
+* Update the library documentations.
+
 ## [1.1.4] - 2023/12/28
 
 * Add markdown dependency.
