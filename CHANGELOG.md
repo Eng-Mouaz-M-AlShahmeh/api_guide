@@ -1,4 +1,4 @@
-## [1.1.7] - 2024/02/13
+## [1.1.6] - 2024/02/13
 
 * Update the library documentations.
 
