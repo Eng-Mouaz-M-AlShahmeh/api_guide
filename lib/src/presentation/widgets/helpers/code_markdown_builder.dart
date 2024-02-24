@@ -3,6 +3,9 @@ import 'package:flutter/material.dart';
 /// Import [flutter_markdown] package files
 import 'package:flutter_markdown/flutter_markdown.dart';
 
+/// Import [flutter_riverpod] package files
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+
 /// Import [markdown] package files as md
 import 'package:markdown/markdown.dart' as md;
 
@@ -13,15 +16,15 @@ import '../../../../api_guide.dart';
 class CodeElementBuilder extends MarkdownElementBuilder {
   /// CodeElementBuilder constructor
   CodeElementBuilder(
-    /// BuildContext
-    this.context,
+    /// WidgetRef
+    this.ref,
 
     /// Is Dark Mode
     this.isDarkMode,
   );
 
-  /// BuildContext
-  final BuildContext context;
+  /// WidgetRef
+  final WidgetRef ref;
 
   /// Is Dark Mode
   final bool isDarkMode;
@@ -51,8 +54,8 @@ class CodeElementBuilder extends MarkdownElementBuilder {
             style: TextStyle(
               /// Check the current light/dark theme mode
               color: isDarkMode
-                  ? ConstantsDarkMode.themeColorLight(context)
-                  : ConstantsLightMode.themeColor(context),
+                  ? ConstantsDarkMode.themeColorLight(ref)
+                  : ConstantsLightMode.themeColor(ref),
             ),
           ),
         ),

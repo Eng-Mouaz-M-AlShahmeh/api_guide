@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-/// Import [provider] package files
-import 'package:provider/provider.dart';
+/// Import [flutter_riverpod] package files
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 /// Import [APIGuide] package files
 import '../../../api_guide.dart';
@@ -27,12 +27,12 @@ class ConstantsLightMode {
   static Color? greyLightColor = Colors.grey[200];
 
   /// Get the theme color
-  static Color? themeColor(BuildContext context) {
-    /// ThemeNotifierProvider to check theme attributes' states
-    final themeState = context.read<ThemeProvider>();
+  static Color? themeColor(WidgetRef ref) {
+    /// ThemeColorProvider to check theme attributes' states
+    final themeColor = ref.watch(themeColorProvider);
 
     /// Check the value of theme color and select the appropriate color
-    switch (themeState.themeColor) {
+    switch (themeColor) {
       /// Black Theme Color
       case APIGuideThemeColor.black:
 
@@ -126,12 +126,12 @@ class ConstantsLightMode {
   }
 
   /// Get the light theme color
-  static Color? themeColorLight(BuildContext context) {
-    /// ThemeNotifierProvider to check theme attributes' states
-    final themeState = context.read<ThemeProvider>();
+  static Color? themeColorLight(WidgetRef ref) {
+    /// ThemeColorProvider to check theme attributes' states
+    final themeColor = ref.watch(themeColorProvider);
 
     /// Check the value of theme color and select the appropriate color
-    switch (themeState.themeColor) {
+    switch (themeColor) {
       /// Black Theme Color
       case APIGuideThemeColor.black:
 

@@ -1,10 +1,16 @@
 import 'package:flutter/material.dart';
 
+/// Import [flutter_riverpod] package files
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+
 /// Import [APIGuide] package files
 import '../../../api_guide.dart';
 
 /// Define [apiGuideItemBodyEnd] function
 Column apiGuideItemBodyEnd(
+  /// WidgetRef
+  WidgetRef ref,
+
   /// BuildContext
   BuildContext context,
 
@@ -18,11 +24,11 @@ Column apiGuideItemBodyEnd(
       /// Display "Security" text if securitySchemes exist
       item.securitySchemes.isEmpty
           ? SizedBox()
-          : subTitleArrowDouble(context, Constants.securityTxt),
+          : subTitleArrowDouble(ref, Constants.securityTxt),
 
       /// Display id the item security is optional
       item.securitySchemes.isNotEmpty && item.isOptionalSecurity == true
-          ? optionalSecurityHint(context)
+          ? optionalSecurityHint(ref)
           : SizedBox(),
 
       /// Display each securitySchemes
@@ -31,7 +37,7 @@ Column apiGuideItemBodyEnd(
           : Column(
               children: item.securitySchemes
                   .map((itemSecurityScheme) =>
-                      securityItem(context, itemSecurityScheme))
+                      securityItem(ref, itemSecurityScheme))
                   .toList(),
             ),
 
@@ -41,20 +47,20 @@ Column apiGuideItemBodyEnd(
           : SizedBox(height: Constants.size30),
 
       /// Display sample code for the request
-      sampleCodeItem(context, item),
+      sampleCodeItem(ref, context, item),
       SizedBox(height: Constants.size30),
 
       /// Display "Responses" text if responses exist
       item.response.isEmpty
           ? SizedBox()
-          : subTitleArrowDouble(context, Constants.responsesTxt),
+          : subTitleArrowDouble(ref, Constants.responsesTxt),
 
       /// Display each response
       item.response.isEmpty
           ? SizedBox()
           : Column(
               children: item.response
-                  .map((itemResponse) => responseItem(context, itemResponse))
+                  .map((itemResponse) => responseItem(ref, itemResponse))
                   .toList(),
             ),
     ],

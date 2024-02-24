@@ -1,21 +1,21 @@
 import 'package:flutter/material.dart';
 
-/// Import [provider] package files
-import 'package:provider/provider.dart';
+/// Import [flutter_riverpod] package files
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 /// Import [APIGuide] package files
 import '../../../api_guide.dart';
 
 /// Define [apiGuideNavigator] function
 Padding apiGuideNavigator(
+  /// WidgetRef
+  WidgetRef ref,
+
   /// BuildContext
   BuildContext context,
 ) {
-  /// ThemeNotifierProvider to check theme attributes' states
-  final themeState = context.read<ThemeProvider>();
-
-  /// AppNotifierProvider to check theme attributes' states
-  final appState = context.read<AppProvider>();
+  /// isDarkModeProvider to check theme attributes' states
+  final isDarkMode = ref.watch(isDarkModeProvider);
 
   return Padding(
     padding: const EdgeInsets.fromLTRB(
@@ -33,7 +33,7 @@ Padding apiGuideNavigator(
         child: DecoratedBox(
           decoration: BoxDecoration(
             /// Check the current light/dark theme mode
-            color: themeState.isDarkMode
+            color: isDarkMode
                 ? ConstantsDarkMode.greyLightColor
                 : ConstantsLightMode.greyLightColor,
           ),
@@ -47,14 +47,14 @@ Padding apiGuideNavigator(
                   child: SingleChildScrollView(
                     child: Column(
                       children: [
-                        appState.introText == Constants.emptyTxt
+                        ref.watch(introTextProvider) == Constants.emptyTxt
                             ? SizedBox()
                             : InkWell(
                                 /// Introduction section link
                                 onTap: () =>
                                     NavigationFunctions().scrollToIntro(
-                                  /// BuildContext
-                                  context,
+                                  /// WidgetRef
+                                  ref,
 
                                   /// isPop bool value
                                   false,
@@ -66,11 +66,9 @@ Padding apiGuideNavigator(
                                       Constants.arrowDoubleNavIcon,
 
                                       /// Check the current light/dark theme mode
-                                      color: themeState.isDarkMode
-                                          ? ConstantsDarkMode.themeColor(
-                                              context)
-                                          : ConstantsLightMode.themeColor(
-                                              context),
+                                      color: isDarkMode
+                                          ? ConstantsDarkMode.themeColor(ref)
+                                          : ConstantsLightMode.themeColor(ref),
                                       size: Constants.size15,
                                     ),
                                     Text(
@@ -79,33 +77,33 @@ Padding apiGuideNavigator(
                                         fontWeight: FontWeight.bold,
 
                                         /// Check the current light/dark theme mode
-                                        color: themeState.isDarkMode
-                                            ? ConstantsDarkMode.themeColor(
-                                                context)
+                                        color: isDarkMode
+                                            ? ConstantsDarkMode.themeColor(ref)
                                             : ConstantsLightMode.themeColor(
-                                                context),
+                                                ref),
                                         fontSize: Constants.size15,
                                       ),
                                     )
                                   ],
                                 ),
                               ),
-                        appState.apiItemList.isEmpty
+                        ref.watch(apiItemListProvider).isEmpty
                             ? SizedBox()
                             : SizedBox(height: Constants.size15),
-                        appState.apiItemList.isEmpty
+                        ref.watch(apiItemListProvider).isEmpty
                             ? SizedBox()
                             : Column(
                                 /// List of API items and their links
-                                children: appState.apiItemList
+                                children: ref
+                                    .watch(apiItemListProvider)
                                     .map((item) => Column(
                                           children: [
                                             InkWell(
                                               /// Scroll to the api item on tap
                                               onTap: () => NavigationFunctions()
                                                   .scrollToAPIItem(
-                                                /// BuildContext
-                                                context,
+                                                /// WidgetRef
+                                                ref,
 
                                                 /// APIItem
                                                 item,
@@ -125,14 +123,12 @@ Padding apiGuideNavigator(
                                                             .arrowDoubleNavIcon,
 
                                                         /// Check the current light/dark theme mode
-                                                        color: themeState
-                                                                .isDarkMode
+                                                        color: isDarkMode
                                                             ? ConstantsDarkMode
-                                                                .themeColor(
-                                                                    context)
+                                                                .themeColor(ref)
                                                             : ConstantsLightMode
                                                                 .themeColor(
-                                                                    context),
+                                                                    ref),
                                                         size: Constants.size15,
                                                       ),
                                                       Text(
@@ -142,14 +138,13 @@ Padding apiGuideNavigator(
                                                               FontWeight.bold,
 
                                                           /// Check the current light/dark theme mode
-                                                          color: themeState
-                                                                  .isDarkMode
+                                                          color: isDarkMode
                                                               ? ConstantsDarkMode
                                                                   .themeColor(
-                                                                      context)
+                                                                      ref)
                                                               : ConstantsLightMode
                                                                   .themeColor(
-                                                                      context),
+                                                                      ref),
                                                           fontSize:
                                                               Constants.size15,
                                                         ),
@@ -188,8 +183,7 @@ Padding apiGuideNavigator(
                                                                 .name,
                                                             style: TextStyle(
                                                               /// Check the current light/dark theme mode
-                                                              color: themeState
-                                                                      .isDarkMode
+                                                              color: isDarkMode
                                                                   ? ConstantsDarkMode
                                                                       .whiteColor
                                                                   : ConstantsLightMode
@@ -214,13 +208,13 @@ Padding apiGuideNavigator(
                                         ))
                                     .toList(),
                               ),
-                        appState.apiFaqs.isEmpty
+                        ref.watch(apiFaqsProvider).isEmpty
                             ? SizedBox()
                             : InkWell(
                                 /// FAQ section link
                                 onTap: () => NavigationFunctions().scrollToFaq(
-                                  /// BuildContext
-                                  context,
+                                  /// WidgetRef
+                                  ref,
 
                                   /// bool isPop value
                                   false,
@@ -232,11 +226,9 @@ Padding apiGuideNavigator(
                                       Constants.arrowDoubleNavIcon,
 
                                       /// Check the current light/dark theme mode
-                                      color: themeState.isDarkMode
-                                          ? ConstantsDarkMode.themeColor(
-                                              context)
-                                          : ConstantsLightMode.themeColor(
-                                              context),
+                                      color: isDarkMode
+                                          ? ConstantsDarkMode.themeColor(ref)
+                                          : ConstantsLightMode.themeColor(ref),
                                       size: Constants.size15,
                                     ),
                                     Text(
@@ -245,11 +237,10 @@ Padding apiGuideNavigator(
                                         fontWeight: FontWeight.bold,
 
                                         /// Check the current light/dark theme mode
-                                        color: themeState.isDarkMode
-                                            ? ConstantsDarkMode.themeColor(
-                                                context)
+                                        color: isDarkMode
+                                            ? ConstantsDarkMode.themeColor(ref)
                                             : ConstantsLightMode.themeColor(
-                                                context),
+                                                ref),
                                         fontSize: Constants.size15,
                                       ),
                                     )
@@ -264,35 +255,38 @@ Padding apiGuideNavigator(
                   flex:
 
                       /// Check if the [contactLink] is empty
-                      appState.contactEmail == null ||
-                              appState.contactEmail == Constants.emptyTxt
+                      ref.watch(contactEmailProvider) == null ||
+                              ref.watch(contactEmailProvider) ==
+                                  Constants.emptyTxt
                           ? Constants.flex0
                           : Constants.flex1,
                   child: Column(
                     children: [
                       /// Check if the [contactLink] is empty
-                      appState.contactEmail == null ||
-                              appState.contactEmail == Constants.emptyTxt
+                      ref.watch(contactEmailProvider) == null ||
+                              ref.watch(contactEmailProvider) ==
+                                  Constants.emptyTxt
                           ? SizedBox()
                           : SizedBox(height: Constants.size15),
 
                       /// Check if the [contactLink] is empty
-                      appState.contactEmail == null ||
-                              appState.contactEmail == Constants.emptyTxt
+                      ref.watch(contactEmailProvider) == null ||
+                              ref.watch(contactEmailProvider) ==
+                                  Constants.emptyTxt
                           ? SizedBox()
                           : InkWell(
                               /// Open email service when tap
-                              onTap: () =>
-                                  Functions().sendEmail(appState.contactEmail!),
+                              onTap: () => Functions()
+                                  .sendEmail(ref.watch(contactEmailProvider)!),
                               child: Text(
-                                '${Constants.contactUsTxt}: ${appState.contactEmail!}',
+                                '${Constants.contactUsTxt}: ${ref.watch(contactEmailProvider)!}',
                                 style: TextStyle(
                                   fontSize: Constants.size10,
 
                                   /// Check the current light/dark theme mode
-                                  color: themeState.isDarkMode
-                                      ? ConstantsDarkMode.themeColor(context)
-                                      : ConstantsLightMode.themeColor(context),
+                                  color: isDarkMode
+                                      ? ConstantsDarkMode.themeColor(ref)
+                                      : ConstantsLightMode.themeColor(ref),
                                 ),
                               ),
                             ),

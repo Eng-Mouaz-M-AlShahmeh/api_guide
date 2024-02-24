@@ -1,31 +1,34 @@
 import 'package:flutter/material.dart';
 
-/// Import [provider] package files
-import 'package:provider/provider.dart';
+/// Import [flutter_riverpod] package files
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 /// Import [APIGuide] package files
 import '../../../api_guide.dart';
 
 /// Define [apiGuideSearchDialog] function
 Dialog apiGuideSearchDialog(
+  /// WidgetRef
+  WidgetRef ref,
+
   /// BuildContext
   BuildContext context,
 ) {
-  /// AppNotifierProvider to check theme attributes' states
-  final appState = context.read<AppProvider>();
+  /// isDarkModeProvider to check theme attributes' states
+  final isDarkMode = ref.watch(isDarkModeProvider);
 
-  /// ThemeNotifierProvider to check theme attributes' states
-  final themeState = context.read<ThemeProvider>();
+  /// searchKeyProvider to check theme attributes' states
+  final searchKey = ref.watch(searchKeyProvider);
 
-  /// SearchNotifierProvider to check theme attributes' states
-  final searchState = context.read<SearchProvider>();
+  /// searchItemsProvider to check theme attributes' states
+  final searchItems = ref.watch(searchItemsProvider);
 
   /// Define [searchController] attribute
   final TextEditingController searchController =
-      TextEditingController(text: searchState.searchKey);
+      TextEditingController(text: searchKey);
   searchController.value = searchController.value.copyWith(
     selection: TextSelection.fromPosition(
-      TextPosition(offset: searchState.searchKey.length),
+      TextPosition(offset: searchKey.length),
     ),
   );
 
@@ -39,7 +42,7 @@ Dialog apiGuideSearchDialog(
       child: DecoratedBox(
         decoration: BoxDecoration(
           /// Check the current light/dark theme mode
-          color: themeState.isDarkMode
+          color: isDarkMode
               ? ConstantsDarkMode.whiteColor
               : ConstantsLightMode.whiteColor,
           borderRadius: BorderRadius.circular(Constants.size8),
@@ -59,13 +62,14 @@ Dialog apiGuideSearchDialog(
                   ),
                   child: apiGuideTextFieldSearchDialog(
                     context,
+                    ref,
                     searchController,
                   ),
                 ),
                 Column(
                   children: [
                     /// Check if the search key is empty
-                    searchState.searchKey != Constants.emptyTxt
+                    searchKey != Constants.emptyTxt
                         ? SizedBox()
                         : Row(
                             mainAxisAlignment: MainAxisAlignment.center,
@@ -76,7 +80,7 @@ Dialog apiGuideSearchDialog(
                                   fontSize: Constants.size13,
 
                                   /// Check the current light/dark theme mode
-                                  color: themeState.isDarkMode
+                                  color: isDarkMode
                                       ? ConstantsDarkMode.blackColor
                                       : ConstantsLightMode.blackColor,
                                 ),
@@ -85,14 +89,13 @@ Dialog apiGuideSearchDialog(
                           ),
 
                     /// Check if the search key is empty
-                    searchState.searchKey != Constants.emptyTxt
+                    searchKey != Constants.emptyTxt
                         ? SizedBox()
                         : SizedBox(height: Constants.size15),
 
                     /// Check if the search key is not empty and
                     /// the demo list is empty
-                    searchState.searchKey != Constants.emptyTxt &&
-                            searchState.searchItems.isEmpty
+                    searchKey != Constants.emptyTxt && searchItems.isEmpty
                         ? Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
@@ -103,7 +106,7 @@ Dialog apiGuideSearchDialog(
                                     fontSize: Constants.size13,
 
                                     /// Check the current light/dark theme mode
-                                    color: themeState.isDarkMode
+                                    color: isDarkMode
                                         ? ConstantsDarkMode.blackColor
                                         : ConstantsLightMode.blackColor,
                                   ),
@@ -111,13 +114,13 @@ Dialog apiGuideSearchDialog(
                               ),
                               Flexible(
                                 child: SelectableText(
-                                  '"${searchState.searchKey}"',
+                                  '"${searchKey}"',
                                   style: TextStyle(
                                     fontWeight: FontWeight.bold,
                                     fontSize: Constants.size13,
 
                                     /// Check the current light/dark theme mode
-                                    color: themeState.isDarkMode
+                                    color: isDarkMode
                                         ? ConstantsDarkMode.blackColor
                                         : ConstantsLightMode.blackColor,
                                   ),
@@ -131,7 +134,7 @@ Dialog apiGuideSearchDialog(
                         : SizedBox(),
 
                     /// Check if the search key is empty
-                    searchState.searchKey == Constants.emptyTxt
+                    searchKey == Constants.emptyTxt
                         ? SizedBox()
                         : SingleChildScrollView(
                             child: Padding(
@@ -140,74 +143,75 @@ Dialog apiGuideSearchDialog(
                                 children: [
                                   /// Check if the local demo list
                                   /// contains the [introItemListTxt]
-                                  searchState.searchItems
+                                  searchItems
                                           .contains(Constants.introItemListTxt)
                                       ? animatedSearchContainer(
-                                          context,
-                                          searchState.isHoveredIntro,
+                                          ref,
+                                          ref.watch(isHoveredIntroProvider),
                                           Constants.introTxt,
-                                          appState.introText,
+                                          ref.watch(introTextProvider),
                                           () => NavigationFunctions()
                                               .scrollToIntro(
-                                            context,
+                                            ref,
                                             true,
                                           ),
                                           (isHovered) {
                                             /// When hover the item
                                             /// toggle the hover state
-                                            searchState.updateIsHoveredIntro(
-                                                isHovered);
+                                            ref
+                                                .read(isHoveredIntroProvider
+                                                    .notifier)
+                                                .state = isHovered;
                                           },
                                         )
                                       : SizedBox(),
 
                                   /// Check if the local demo list
                                   /// contains the [introItemListTxt]
-                                  searchState.searchItems
+                                  searchItems
                                           .contains(Constants.introItemListTxt)
                                       ? SizedBox(height: Constants.size15)
                                       : SizedBox(),
 
                                   Column(
                                     /// List of API items and their links
-                                    children: appState.apiItemList
+                                    children: ref
+                                        .watch(apiItemListProvider)
                                         .map((item) => Column(
                                               children: [
                                                 /// Check if the item url path
                                                 /// exists in the local demo list
-                                                searchState.searchItems
-                                                        .contains(item.urlPath
-                                                            .toLowerCase())
+                                                searchItems.contains(item
+                                                        .urlPath
+                                                        .toLowerCase())
                                                     ? animatedSearchContainer(
-                                                        context,
+                                                        ref,
                                                         item.isHovered ?? false,
                                                         item.title,
                                                         item.description,
                                                         () =>
                                                             NavigationFunctions()
                                                                 .scrollToAPIItem(
-                                                          context,
+                                                          ref,
                                                           item,
                                                           true,
                                                         ),
                                                         (isHovered) {
                                                           /// Toggle the hover state
                                                           /// when hover the item
-                                                          appState
-                                                              .updateAPIItemIsHovered(
-                                                                  item,
-                                                                  isHovered);
-
-                                                          // notify listeners
+                                                          updateAPIItemIsHovered(
+                                                              item,
+                                                              isHovered,
+                                                              ref);
                                                         },
                                                       )
                                                     : SizedBox(),
 
                                                 /// Check if the item url path
                                                 /// exists in the local demo list
-                                                searchState.searchItems
-                                                        .contains(item.urlPath
-                                                            .toLowerCase())
+                                                searchItems.contains(item
+                                                        .urlPath
+                                                        .toLowerCase())
                                                     ? SizedBox(
                                                         height:
                                                             Constants.size15)
@@ -219,31 +223,36 @@ Dialog apiGuideSearchDialog(
 
                                   /// Check if the local demo list contains
                                   /// the [faqsItemListTxt]
-                                  searchState.searchItems
+                                  searchItems
                                           .contains(Constants.faqsItemListTxt)
                                       ? animatedSearchContainer(
-                                          context,
-                                          searchState.isHoveredFaqs,
+                                          ref,
+                                          ref.watch(isHoveredFaqsProvider),
                                           Constants.faqsShortTxt,
-                                          appState
-                                              .apiFaqs.firstOrNull!.question,
+                                          ref
+                                              .read(apiFaqsProvider)
+                                              .firstOrNull!
+                                              .question,
                                           () =>
                                               NavigationFunctions().scrollToFaq(
-                                            context,
+                                            ref,
                                             true,
                                           ),
                                           (isHovered) {
                                             /// When hover the item toggle
                                             /// the hover state
-                                            searchState
-                                                .updateIsHoveredFaqs(isHovered);
+
+                                            ref
+                                                .read(isHoveredFaqsProvider
+                                                    .notifier)
+                                                .state = isHovered;
                                           },
                                         )
                                       : SizedBox(),
 
                                   /// Check if the local demo list contains
                                   /// the [faqsItemListTxt]
-                                  searchState.searchItems
+                                  searchItems
                                           .contains(Constants.faqsItemListTxt)
                                       ? SizedBox(height: Constants.size15)
                                       : SizedBox(),
@@ -254,7 +263,7 @@ Dialog apiGuideSearchDialog(
                   ],
                 ),
                 SizedBox(height: Constants.size10),
-                closeSearchDialogButton(context),
+                closeSearchDialogButton(ref),
               ],
             ),
           ),

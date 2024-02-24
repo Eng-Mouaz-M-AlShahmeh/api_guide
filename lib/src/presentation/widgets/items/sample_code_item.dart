@@ -1,32 +1,30 @@
 import 'package:flutter/material.dart';
 
-/// Import [provider] package files
-import 'package:provider/provider.dart';
+/// Import [flutter_riverpod] package files
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 /// Import [APIGuide] package files
 import '../../../../api_guide.dart';
 
 /// Define [sampleCodeItem] function
 DecoratedBox sampleCodeItem(
+  /// WidgetRef
+  WidgetRef ref,
+
   /// BuildContext
   BuildContext context,
 
   /// APIItem
   APIItem item,
 ) {
-  /// ThemeNotifierProvider to check theme attributes' states
-  final themeState = context.read<ThemeProvider>();
-
-  /// AppNotifierProvider to check theme attributes' states
-  final appState = context.read<AppProvider>();
+  /// isDarkModeProvider to check theme attributes' states
+  final isDarkMode = ref.watch(isDarkModeProvider);
 
   return DecoratedBox(
     decoration: BoxDecoration(
       borderRadius: BorderRadius.circular(Constants.size8),
       border: Border.all(
-        color: themeState.isDarkMode
-            ? Constants.greyColor!
-            : Constants.greyDarkColor!,
+        color: isDarkMode ? Constants.greyColor! : Constants.greyDarkColor!,
         width: Constants.size1,
       ),
     ),
@@ -47,9 +45,7 @@ DecoratedBox sampleCodeItem(
               child: DecoratedBox(
                 decoration: BoxDecoration(
                   /// Check the current light/dark theme mode
-                  color: themeState.isDarkMode
-                      ? Constants.greyColor
-                      : Constants.greyColor,
+                  color: isDarkMode ? Constants.greyColor : Constants.greyColor,
                 ),
                 child: Padding(
                   padding: const EdgeInsets.all(Constants.size8),
@@ -66,9 +62,9 @@ DecoratedBox sampleCodeItem(
                             Constants.arrowDoubleNavIcon,
 
                             /// Check the current light/dark theme mode
-                            color: themeState.isDarkMode
-                                ? ConstantsDarkMode.themeColorLight(context)
-                                : ConstantsLightMode.themeColor(context),
+                            color: isDarkMode
+                                ? ConstantsDarkMode.themeColorLight(ref)
+                                : ConstantsLightMode.themeColor(ref),
                             size: Constants.size15,
                           ),
                           Text(
@@ -77,9 +73,9 @@ DecoratedBox sampleCodeItem(
                               fontWeight: FontWeight.bold,
 
                               /// Check the current light/dark theme mode
-                              color: themeState.isDarkMode
-                                  ? ConstantsDarkMode.themeColorLight(context)
-                                  : ConstantsLightMode.themeColor(context),
+                              color: isDarkMode
+                                  ? ConstantsDarkMode.themeColorLight(ref)
+                                  : ConstantsLightMode.themeColor(ref),
                               fontSize: Constants.size14,
                             ),
                           ),
@@ -87,11 +83,11 @@ DecoratedBox sampleCodeItem(
                       ),
 
                       /// Check if there more than one server
-                      appState.apiServerList.length > 1
-                          ? serverButton(context)
+                      ref.watch(apiServerListProvider).length > 1
+                          ? serverButton(ref)
                           : SizedBox(),
-                      sampleCodeButton(context),
-                      copyClipboardButton(context, item),
+                      sampleCodeButton(ref),
+                      copyClipboardButton(ref, context, item),
                     ],
                   ),
                 ),
@@ -100,7 +96,7 @@ DecoratedBox sampleCodeItem(
             Divider(
               height: Constants.size1,
               thickness: Constants.size1,
-              color: themeState.isDarkMode
+              color: isDarkMode
                   ? ConstantsDarkMode.greyLightColor
                   : ConstantsLightMode.greyLightColor,
             ),
@@ -114,7 +110,7 @@ DecoratedBox sampleCodeItem(
                   ),
 
                   /// Check the current light/dark theme mode
-                  color: themeState.isDarkMode
+                  color: isDarkMode
                       ? Constants.greyDarkColor
                       : Constants.greyDarkColor,
                 ),
@@ -123,7 +119,7 @@ DecoratedBox sampleCodeItem(
 
                   /// Make the sample code as selectable text
                   child: SelectableText(
-                    SampleCodeFunctions().getFinalSampleCode(context, item),
+                    SampleCodeFunctions().getFinalSampleCode(ref, item),
                     style: TextStyle(
                         fontWeight: FontWeight.normal,
                         fontSize: Constants.size12,

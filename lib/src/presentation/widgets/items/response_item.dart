@@ -1,21 +1,21 @@
 import 'package:flutter/material.dart';
 
-/// Import [provider] package files
-import 'package:provider/provider.dart';
+/// Import [flutter_riverpod] package files
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 /// Import [APIGuide] package files
 import '../../../../api_guide.dart';
 
 /// Define [responseItem] function
 Padding responseItem(
-  /// BuildContext
-  BuildContext context,
+  /// WidgetRef
+  WidgetRef ref,
 
   /// APIGuideResponse
   APIGuideResponse itemResponse,
 ) {
-  /// ThemeNotifierProvider to check theme attributes' states
-  final themeState = context.read<ThemeProvider>();
+  /// isDarkModeProvider to check theme attributes' states
+  final isDarkMode = ref.watch(isDarkModeProvider);
 
   return Padding(
     padding: const EdgeInsets.fromLTRB(
@@ -28,9 +28,7 @@ Padding responseItem(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(Constants.size8),
         border: Border.all(
-          color: themeState.isDarkMode
-              ? Constants.greyColor!
-              : Constants.greyDarkColor!,
+          color: isDarkMode ? Constants.greyColor! : Constants.greyDarkColor!,
           width: Constants.size1,
         ),
       ),
@@ -47,7 +45,7 @@ Padding responseItem(
               DecoratedBox(
                 decoration: BoxDecoration(
                   /// Check the current light/dark theme mode
-                  color: themeState.isDarkMode
+                  color: isDarkMode
                       ? Constants.greyDarkColor
                       : Constants.greyColor,
                 ),
@@ -62,17 +60,17 @@ Padding responseItem(
                           Constants.arrowNavIcon,
 
                           /// Check the current light/dark theme mode
-                          color: themeState.isDarkMode
-                              ? ConstantsDarkMode.themeColor(context)
-                              : ConstantsLightMode.themeColor(context),
+                          color: isDarkMode
+                              ? ConstantsDarkMode.themeColor(ref)
+                              : ConstantsLightMode.themeColor(ref),
                           size: Constants.size15,
                         ),
                         SelectableText(
                           itemResponse.statusCode.statusTitle,
                           style: TextStyle(
-                            color: themeState.isDarkMode
-                                ? ConstantsDarkMode.themeColor(context)
-                                : ConstantsLightMode.themeColor(context),
+                            color: isDarkMode
+                                ? ConstantsDarkMode.themeColor(ref)
+                                : ConstantsLightMode.themeColor(ref),
                             fontWeight: FontWeight.normal,
                             fontSize: Constants.size13,
                           ),
@@ -100,7 +98,7 @@ Padding responseItem(
                                   itemResponse.statusCode.statusCode.toString(),
                                   style: TextStyle(
                                     /// Check the current light/dark theme mode
-                                    color: themeState.isDarkMode
+                                    color: isDarkMode
                                         ? ConstantsDarkMode.whiteColor
                                         : ConstantsLightMode.whiteColor,
                                     fontWeight: FontWeight.normal,
@@ -120,7 +118,7 @@ Padding responseItem(
               Divider(
                 height: Constants.size1,
                 thickness: Constants.size1,
-                color: themeState.isDarkMode
+                color: isDarkMode
                     ? ConstantsDarkMode.greyLightColor
                     : ConstantsLightMode.greyLightColor,
               ),
@@ -146,7 +144,7 @@ Padding responseItem(
                                 ),
 
                                 /// Check the current light/dark theme mode
-                                color: themeState.isDarkMode
+                                color: isDarkMode
                                     ? Constants.greyDarkColor
                                     : Constants.greyColor,
                               ),

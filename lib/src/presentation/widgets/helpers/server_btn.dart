@@ -1,43 +1,40 @@
 import 'package:flutter/material.dart';
 
-/// Import [provider] package files
-import 'package:provider/provider.dart';
+/// Import [flutter_riverpod] package files
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 /// Import [APIGuide] package files
 import '../../../../api_guide.dart';
 
 /// Server Button of type [ElevatedButton]
 ElevatedButton serverButton(
-  /// BuildContext
-  BuildContext context,
+  /// WidgetRef
+  WidgetRef ref,
 ) {
-  /// ThemeNotifierProvider to check theme attributes' states
-  final themeState = context.read<ThemeProvider>();
-
-  /// AppNotifierProvider to check theme attributes' states
-  final appState = context.read<AppProvider>();
+  /// isDarkModeProvider to check theme attributes' states
+  final isDarkMode = ref.watch(isDarkModeProvider);
 
   return ElevatedButton(
     onPressed: () {
       /// Update the [updateIsOpenServer] when pressed the button
-      appState.updateIsOpenServer(true);
+      ref.read(isOpenServerProvider.notifier).state = true;
     },
     style: ButtonStyle(
       side: MaterialStateProperty.all(
         BorderSide(
-          color: themeState.isDarkMode
+          color: isDarkMode
               ? ConstantsDarkMode.blackColor
               : ConstantsLightMode.blackColor,
           width: Constants.size1,
         ),
       ),
       foregroundColor: MaterialStateProperty.all(
-        themeState.isDarkMode
+        isDarkMode
             ? ConstantsDarkMode.blackColor
             : ConstantsLightMode.blackColor,
       ),
       backgroundColor: MaterialStateProperty.all(
-        themeState.isDarkMode
+        isDarkMode
             ? ConstantsDarkMode.whiteColor
             : ConstantsLightMode.whiteColor,
       ),
@@ -57,16 +54,16 @@ ElevatedButton serverButton(
             child: Icon(
               Constants.dnsIcon,
               size: Constants.size12,
-              color: themeState.isDarkMode
+              color: isDarkMode
                   ? ConstantsDarkMode.blackColor
                   : ConstantsLightMode.blackColor,
             ),
           ),
           Text(
-            appState.selectedAPIServer.title ?? Constants.liveTxt,
+            ref.read(selectedAPIServerProvider).title ?? Constants.liveTxt,
             style: TextStyle(
               fontSize: Constants.size12,
-              color: themeState.isDarkMode
+              color: isDarkMode
                   ? ConstantsDarkMode.blackColor
                   : ConstantsLightMode.blackColor,
             ),
@@ -78,12 +75,15 @@ ElevatedButton serverButton(
 }
 
 /// Server Dialog from type of [Dialog]
-Dialog serverDialog(BuildContext context) {
-  /// AppNotifierProvider to check theme attributes' states
-  final appState = context.read<AppProvider>();
+Dialog serverDialog(
+  /// BuildContext
+  BuildContext context,
 
-  /// ThemeNotifierProvider to check theme attributes' states
-  final themeState = context.read<ThemeProvider>();
+  /// WidgetRef
+  WidgetRef ref,
+) {
+  /// isDarkModeProvider to check theme attributes' states
+  final isDarkMode = ref.watch(isDarkModeProvider);
 
   return Dialog(
     backgroundColor: Colors.transparent,
@@ -95,7 +95,7 @@ Dialog serverDialog(BuildContext context) {
       child: DecoratedBox(
         decoration: BoxDecoration(
           /// Check the current light/dark theme mode
-          color: themeState.isDarkMode
+          color: isDarkMode
               ? ConstantsDarkMode.whiteColor
               : ConstantsLightMode.whiteColor,
           borderRadius: BorderRadius.circular(Constants.size8),
@@ -111,7 +111,7 @@ Dialog serverDialog(BuildContext context) {
                     Text(
                       Constants.serversTxt,
                       style: TextStyle(
-                        color: themeState.isDarkMode
+                        color: isDarkMode
                             ? ConstantsDarkMode.blackColor
                             : ConstantsLightMode.blackColor,
                         fontWeight: FontWeight.bold,
@@ -121,15 +121,17 @@ Dialog serverDialog(BuildContext context) {
                 ),
                 Column(
                   mainAxisSize: MainAxisSize.min,
-                  children: appState.apiServerList
+                  children: ref
+                      .read(apiServerListProvider)
                       .map(
                         (item) => ListTile(
                           title: Wrap(
                             children: [
-                              appState.selectedAPIServer.urlHost == item.urlHost
+                              ref.watch(selectedAPIServerProvider).urlHost ==
+                                      item.urlHost
                                   ? Icon(
                                       Constants.doneIcon,
-                                      color: themeState.isDarkMode
+                                      color: isDarkMode
                                           ? ConstantsDarkMode.blackColor
                                           : ConstantsLightMode.blackColor,
                                     )
@@ -137,7 +139,7 @@ Dialog serverDialog(BuildContext context) {
                               Text(
                                 item.title ?? Constants.liveTxt,
                                 style: TextStyle(
-                                  color: themeState.isDarkMode
+                                  color: isDarkMode
                                       ? ConstantsDarkMode.blackColor
                                       : ConstantsLightMode.blackColor,
                                   fontWeight: FontWeight.bold,
@@ -148,7 +150,7 @@ Dialog serverDialog(BuildContext context) {
                           subtitle: Text(
                             item.urlHost,
                             style: TextStyle(
-                              color: themeState.isDarkMode
+                              color: isDarkMode
                                   ? ConstantsDarkMode.blackColor
                                   : ConstantsLightMode.blackColor,
                               fontWeight: FontWeight.normal,
@@ -157,18 +159,20 @@ Dialog serverDialog(BuildContext context) {
                           onTap: () {
                             /// Update the [selectedAPIServer]
                             /// when tap the item
-                            appState.updateSelectedAPIServer(item);
+                            ref.read(selectedAPIServerProvider.notifier).state =
+                                item;
 
                             /// Update the [isOpenSampleCode]
                             /// when tap the item
-                            appState.updateIsOpenServer(false);
+                            ref.read(isOpenServerProvider.notifier).state =
+                                false;
                           },
                         ),
                       )
                       .toList(),
                 ),
                 SizedBox(height: Constants.size15),
-                closeServerDialogButton(context),
+                closeServerDialogButton(ref),
               ],
             ),
           ),

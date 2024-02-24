@@ -1,21 +1,24 @@
 import 'package:flutter/material.dart';
 
-/// Import [provider] package files
-import 'package:provider/provider.dart';
+/// Import [flutter_riverpod] package files
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 /// Import [APIGuide] package files
 import '../../../api_guide.dart';
 
 /// Define [apiGuideItemBodyStart] function
 Column apiGuideItemBodyStart(
+  /// WidgetRef
+  WidgetRef ref,
+
   /// BuildContext
   BuildContext context,
 
   /// APIItem
   APIItem item,
 ) {
-  /// ThemeNotifierProvider to check theme attributes' states
-  final themeState = context.read<ThemeProvider>();
+  /// isDarkModeProvider to check theme attributes' states
+  final isDarkMode = ref.watch(isDarkModeProvider);
 
   /// List of Request Path Params
   final pathParams = item.request.params
@@ -57,8 +60,9 @@ Column apiGuideItemBodyStart(
           ? SizedBox()
           : markdownWidget(
               context,
+              ref,
               item.description,
-              themeState.isDarkMode,
+              isDarkMode,
             ),
       item.description.isEmpty
           ? SizedBox()
@@ -72,11 +76,11 @@ Column apiGuideItemBodyStart(
       /// Display "Request Path Params" text if the request exists
       pathParams.isEmpty
           ? SizedBox()
-          : subTitleArrowDouble(context, Constants.requestPathParamsTxt),
+          : subTitleArrowDouble(ref, Constants.requestPathParamsTxt),
       pathParams.isEmpty ? SizedBox() : SizedBox(height: Constants.size5),
 
       /// Display details of the request params
-      pathParams.isEmpty ? SizedBox() : requestParamsItems(context, pathParams),
+      pathParams.isEmpty ? SizedBox() : requestParamsItems(ref, pathParams),
 
       /// ............................
       /// Request Query Params section
@@ -86,13 +90,11 @@ Column apiGuideItemBodyStart(
       /// Display "Request Query Params" text if the request exists
       queryParams.isEmpty
           ? SizedBox()
-          : subTitleArrowDouble(context, Constants.requestQueryParamsTxt),
+          : subTitleArrowDouble(ref, Constants.requestQueryParamsTxt),
       queryParams.isEmpty ? SizedBox() : SizedBox(height: Constants.size5),
 
       /// Display details of the request params
-      queryParams.isEmpty
-          ? SizedBox()
-          : requestParamsItems(context, queryParams),
+      queryParams.isEmpty ? SizedBox() : requestParamsItems(ref, queryParams),
 
       /// ............................
       /// Request Headers section
@@ -102,13 +104,11 @@ Column apiGuideItemBodyStart(
       /// Display "Request Headers" text if the request exists
       headerParams.isEmpty
           ? SizedBox()
-          : subTitleArrowDouble(context, Constants.requestHeadersTxt),
+          : subTitleArrowDouble(ref, Constants.requestHeadersTxt),
       headerParams.isEmpty ? SizedBox() : SizedBox(height: Constants.size5),
 
       /// Display details of the request params
-      headerParams.isEmpty
-          ? SizedBox()
-          : requestParamsItems(context, headerParams),
+      headerParams.isEmpty ? SizedBox() : requestParamsItems(ref, headerParams),
 
       /// ............................
       /// Request Cookies section
@@ -118,13 +118,11 @@ Column apiGuideItemBodyStart(
       /// Display "Request Cookies" text if the request exists
       cookieParams.isEmpty
           ? SizedBox()
-          : subTitleArrowDouble(context, Constants.requestCookiesTxt),
+          : subTitleArrowDouble(ref, Constants.requestCookiesTxt),
       cookieParams.isEmpty ? SizedBox() : SizedBox(height: Constants.size5),
 
       /// Display details of the request params
-      cookieParams.isEmpty
-          ? SizedBox()
-          : requestParamsItems(context, cookieParams),
+      cookieParams.isEmpty ? SizedBox() : requestParamsItems(ref, cookieParams),
 
       /// ............................
       /// Request Body section
@@ -136,7 +134,7 @@ Column apiGuideItemBodyStart(
       /// Display "Request Body" text if the request body exists
       item.request.body.isEmpty
           ? SizedBox()
-          : subTitleArrowDouble(context, Constants.requestBodyTxt),
+          : subTitleArrowDouble(ref, Constants.requestBodyTxt),
       item.request.body.isEmpty
           ? SizedBox()
           : SizedBox(height: Constants.size5),
@@ -144,7 +142,7 @@ Column apiGuideItemBodyStart(
       /// Display details of the request body
       item.request.body.isEmpty
           ? SizedBox()
-          : requestBodyItems(context, item.request.body),
+          : requestBodyItems(ref, item.request.body),
     ],
   );
 }

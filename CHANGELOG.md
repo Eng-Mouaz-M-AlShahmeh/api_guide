@@ -1,10 +1,21 @@
+## [1.1.7] - 2024/02/24
+
+* Update to the new HardwareKeyboard functionality.
+* Remove provider dependency.
+* Add flutter_riverpod dependency in pubspec.yaml with version 2.4.10.
+* Update flutter_markdown dependency to 0.6.20+2.
+* Update markdown dependency to 7.2.1.
+* Update url_launcher dependency to 6.2.5.
+* Change the state management way from provider to riverpod in all library files.
+* Update the library documentation.
+
 ## [1.1.6] - 2024/02/13
 
-* Update the library documentations.
+* Update the library documentation.
 
 ## [1.1.5] - 2024/02/13
 
-* Update the library documentations.
+* Update the library documentation.
 
 ## [1.1.4] - 2023/12/28
 

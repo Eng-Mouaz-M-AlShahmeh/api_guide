@@ -1,21 +1,21 @@
 import 'package:flutter/material.dart';
 
-/// Import [provider] package files
-import 'package:provider/provider.dart';
+/// Import [flutter_riverpod] package files
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 /// Import [APIGuide] package files
 import '../../../../api_guide.dart';
 
 /// Define [titleArrowDouble] function
 SizedBox titleArrowDouble(
-  /// BuildContext
-  BuildContext context,
+  /// WidgetRef
+  WidgetRef ref,
 
   /// String title text
   String title,
 ) {
-  /// ThemeNotifierProvider to check theme attributes' states
-  final themeState = context.read<ThemeProvider>();
+  /// isDarkModeProvider to check theme attributes' states
+  final isDarkMode = ref.watch(isDarkModeProvider);
 
   return SizedBox(
     width: double.infinity,
@@ -26,9 +26,9 @@ SizedBox titleArrowDouble(
           Constants.arrowDoubleNavIcon,
 
           /// Check the current light/dark theme mode
-          color: themeState.isDarkMode
-              ? ConstantsDarkMode.themeColor(context)
-              : ConstantsLightMode.themeColor(context),
+          color: isDarkMode
+              ? ConstantsDarkMode.themeColor(ref)
+              : ConstantsLightMode.themeColor(ref),
           size: Constants.size20,
         ),
         SelectableText(
@@ -37,9 +37,9 @@ SizedBox titleArrowDouble(
             fontWeight: FontWeight.bold,
 
             /// Check the current light/dark theme mode
-            color: themeState.isDarkMode
-                ? ConstantsDarkMode.themeColor(context)
-                : ConstantsLightMode.themeColor(context),
+            color: isDarkMode
+                ? ConstantsDarkMode.themeColor(ref)
+                : ConstantsLightMode.themeColor(ref),
             fontSize: Constants.size20,
           ),
         )
@@ -49,9 +49,9 @@ SizedBox titleArrowDouble(
 }
 
 /// Define [subTitleArrowDouble] function
-Wrap subTitleArrowDouble(BuildContext context, String title) {
-  /// ThemeNotifierProvider to check theme attributes' states
-  final themeState = context.read<ThemeProvider>();
+Wrap subTitleArrowDouble(WidgetRef ref, String title) {
+  /// isDarkModeProvider to check theme attributes' states
+  final isDarkMode = ref.watch(isDarkModeProvider);
 
   return Wrap(
     crossAxisAlignment: WrapCrossAlignment.center,
@@ -60,9 +60,9 @@ Wrap subTitleArrowDouble(BuildContext context, String title) {
         Constants.arrowDoubleNavIcon,
 
         /// Check the current light/dark theme mode
-        color: themeState.isDarkMode
-            ? ConstantsDarkMode.themeColor(context)
-            : ConstantsLightMode.themeColor(context),
+        color: isDarkMode
+            ? ConstantsDarkMode.themeColor(ref)
+            : ConstantsLightMode.themeColor(ref),
         size: Constants.size15,
       ),
       SelectableText(
@@ -71,9 +71,9 @@ Wrap subTitleArrowDouble(BuildContext context, String title) {
           fontWeight: FontWeight.bold,
 
           /// Check the current light/dark theme mode
-          color: themeState.isDarkMode
-              ? ConstantsDarkMode.themeColor(context)
-              : ConstantsLightMode.themeColor(context),
+          color: isDarkMode
+              ? ConstantsDarkMode.themeColor(ref)
+              : ConstantsLightMode.themeColor(ref),
           fontSize: Constants.size14,
         ),
       ),

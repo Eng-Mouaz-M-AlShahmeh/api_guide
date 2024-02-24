@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-/// Import [provider] package files
-import 'package:provider/provider.dart';
+/// Import [flutter_riverpod] package files
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 /// Import [APIGuide] package files
 import '../../../../api_guide.dart';
@@ -11,17 +11,14 @@ TextField apiGuideTextFieldSearchDialog(
   /// BuildContext
   BuildContext context,
 
+  /// WidgetRef
+  WidgetRef ref,
+
   /// TextEditingController
   TextEditingController searchController,
 ) {
-  /// ThemeNotifierProvider to check theme attributes' states
-  final themeState = context.read<ThemeProvider>();
-
-  /// SearchNotifierProvider to check theme attributes' states
-  final searchState = context.read<SearchProvider>();
-
-  /// AppNotifierProvider to check theme attributes' states
-  final appState = context.read<AppProvider>();
+  /// isDarkModeProvider to check theme attributes' states
+  final isDarkMode = ref.watch(isDarkModeProvider);
 
   /// Define [_patternIntro] Regular Expression
   RegExp _patternIntro = RegExp(
@@ -49,45 +46,45 @@ TextField apiGuideTextFieldSearchDialog(
       fontSize: Constants.size15,
 
       /// Check the current light/dark theme mode
-      color: themeState.isDarkMode
+      color: isDarkMode
           ? ConstantsDarkMode.blackColor
           : ConstantsLightMode.blackColor,
     ),
     controller: searchController,
     onChanged: (val) {
       /// Empty the local demo list
-      searchState.updateSearchItems([]);
+      updateSearchItems([], ref);
 
-      /// Update the search key value
-      searchState.updateSearchKey(val);
+      /// Reset the isOpened state
+      ref.read(searchKeyProvider.notifier).state = val;
 
       /// Update the search controller value
       searchController.text = val;
 
       /// Check if intro is empty
-      if (appState.introText != '') {
+      if (ref.watch(introTextProvider) != Constants.emptyTxt) {
         /// Check if [_patternIntro] match the search key
         if (_patternIntro.hasMatch(val)) {
           /// Add introItemListTxt to
           /// the demo list to compare later
-          searchState.addToSearchItems(Constants.introItemListTxt);
+          addToSearchItems(Constants.introItemListTxt, ref);
         }
       }
 
       /// Check if faqs is empty
-      if (appState.apiFaqs.isNotEmpty) {
+      if (ref.watch(apiFaqsProvider).isNotEmpty) {
         /// Check if [_patternFAQs] match the search key
         if (_patternFAQs.hasMatch(val)) {
           /// Add faqsItemListTxt to
           /// the demo list to compare later
-          searchState.addToSearchItems(Constants.faqsItemListTxt);
+          addToSearchItems(Constants.faqsItemListTxt, ref);
         }
       }
 
       /// Check if faqs is empty
-      if (appState.apiItemList.isNotEmpty) {
+      if (ref.watch(apiItemListProvider).isNotEmpty) {
         /// Make loop over apiItemsList
-        appState.apiItemList.forEach((element) {
+        ref.watch(apiItemListProvider).forEach((element) {
           /// Check if the element url path or element title
           /// match the search key with lower case
           /// to both to make insensitive case
@@ -95,24 +92,24 @@ TextField apiGuideTextFieldSearchDialog(
               element.title.toLowerCase().contains(val.toLowerCase())) {
             /// Add element urlPath to
             /// the demo list to compare later
-            searchState.addToSearchItems(element.urlPath.toLowerCase());
+            addToSearchItems(element.urlPath.toLowerCase(), ref);
           }
         });
       }
     },
     decoration: InputDecoration(
       /// Check the current light/dark theme mode
-      suffixIconColor: themeState.isDarkMode
-          ? ConstantsDarkMode.themeColor(context)
-          : ConstantsLightMode.themeColor(context),
-      suffixIcon: searchState.searchKey == Constants.emptyTxt
+      suffixIconColor: isDarkMode
+          ? ConstantsDarkMode.themeColor(ref)
+          : ConstantsLightMode.themeColor(ref),
+      suffixIcon: ref.read(searchKeyProvider) == Constants.emptyTxt
           ? SizedBox()
           : InkWell(
               onTap: () {
                 /// Update the search key by
                 /// empty text value when pressed
                 /// the clear icon
-                searchState.updateSearchKey(Constants.emptyTxt);
+                ref.read(searchKeyProvider.notifier).state = Constants.emptyTxt;
 
                 /// Update the search controller by
                 /// empty text value when pressed
@@ -126,7 +123,7 @@ TextField apiGuideTextFieldSearchDialog(
         fontSize: Constants.size15,
 
         /// Check the current light/dark theme mode
-        color: themeState.isDarkMode
+        color: isDarkMode
             ? ConstantsDarkMode.blackColor
             : ConstantsLightMode.blackColor,
       ),
@@ -134,7 +131,7 @@ TextField apiGuideTextFieldSearchDialog(
         borderRadius: BorderRadius.circular(Constants.size10),
         borderSide: BorderSide(
           /// Check the current light/dark theme mode
-          color: themeState.isDarkMode
+          color: isDarkMode
               ? ConstantsDarkMode.blackColor
               : ConstantsLightMode.blackColor,
           width: Constants.size1,
@@ -144,7 +141,7 @@ TextField apiGuideTextFieldSearchDialog(
         borderRadius: BorderRadius.circular(Constants.size10),
         borderSide: BorderSide(
           /// Check the current light/dark theme mode
-          color: themeState.isDarkMode
+          color: isDarkMode
               ? ConstantsDarkMode.blackColor
               : ConstantsLightMode.blackColor,
           width: Constants.size1,
@@ -154,9 +151,9 @@ TextField apiGuideTextFieldSearchDialog(
         borderRadius: BorderRadius.circular(Constants.size10),
         borderSide: BorderSide(
           /// Check the current light/dark theme mode
-          color: themeState.isDarkMode
-              ? ConstantsDarkMode.themeColor(context)!
-              : ConstantsLightMode.themeColor(context)!,
+          color: isDarkMode
+              ? ConstantsDarkMode.themeColor(ref)!
+              : ConstantsLightMode.themeColor(ref)!,
           width: Constants.size2,
         ),
       ),

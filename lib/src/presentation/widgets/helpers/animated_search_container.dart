@@ -1,22 +1,22 @@
 import 'package:flutter/material.dart';
 
-/// Import [provider] package files
-import 'package:provider/provider.dart';
+/// Import [flutter_riverpod] package files
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 /// Import [APIGuide] package files
 import '../../../../api_guide.dart';
 
 /// Define [animatedSearchContainer] function
 InkWell animatedSearchContainer(
-  BuildContext context,
+  WidgetRef ref,
   bool isHovered,
   String title,
   String subtitle,
   Function()? onTap,
   Function(bool)? onHover,
 ) {
-  /// ThemeNotifierProvider to check theme attributes' states
-  final themeState = context.read<ThemeProvider>();
+  /// isDarkModeProvider to check theme attributes' states
+  final isDarkMode = ref.watch(isDarkModeProvider);
 
   return InkWell(
     onTap: onTap,
@@ -30,10 +30,10 @@ InkWell animatedSearchContainer(
         /// Check the current light/dark
         /// theme mode and hover state
         color: isHovered
-            ? themeState.isDarkMode
-                ? ConstantsDarkMode.themeColorLight(context)
-                : ConstantsLightMode.themeColorLight(context)
-            : themeState.isDarkMode
+            ? isDarkMode
+                ? ConstantsDarkMode.themeColorLight(ref)
+                : ConstantsLightMode.themeColorLight(ref)
+            : isDarkMode
                 ? ConstantsDarkMode.whiteColor
                 : ConstantsLightMode.whiteColor,
         borderRadius: BorderRadius.circular(
@@ -42,9 +42,9 @@ InkWell animatedSearchContainer(
         border: Border.all(
           /// Check the current light/dark
           /// theme mode
-          color: themeState.isDarkMode
-              ? ConstantsDarkMode.themeColor(context)!
-              : ConstantsLightMode.themeColor(context)!,
+          color: isDarkMode
+              ? ConstantsDarkMode.themeColor(ref)!
+              : ConstantsLightMode.themeColor(ref)!,
           width: Constants.size1,
         ),
       ),
@@ -58,9 +58,9 @@ InkWell animatedSearchContainer(
 
                 /// Check the current
                 /// light/dark theme mode
-                color: themeState.isDarkMode
-                    ? ConstantsDarkMode.themeColor(context)
-                    : ConstantsLightMode.themeColor(context),
+                color: isDarkMode
+                    ? ConstantsDarkMode.themeColor(ref)
+                    : ConstantsLightMode.themeColor(ref),
                 size: Constants.size15,
               ),
               Text(
@@ -70,9 +70,9 @@ InkWell animatedSearchContainer(
 
                   /// Check the current
                   /// light/dark theme mode
-                  color: themeState.isDarkMode
-                      ? ConstantsDarkMode.themeColor(context)
-                      : ConstantsLightMode.themeColor(context),
+                  color: isDarkMode
+                      ? ConstantsDarkMode.themeColor(ref)
+                      : ConstantsLightMode.themeColor(ref),
                   fontSize: Constants.size15,
                 ),
               )

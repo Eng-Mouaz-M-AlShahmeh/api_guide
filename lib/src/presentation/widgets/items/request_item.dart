@@ -1,21 +1,21 @@
 import 'package:flutter/material.dart';
 
-/// Import [provider] package files
-import 'package:provider/provider.dart';
+/// Import [flutter_riverpod] package files
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 /// Import [APIGuide] package files
 import '../../../../api_guide.dart';
 
 /// Request Body Items
 Column requestBodyItems(
-  /// BuildContext
-  BuildContext context,
+  /// WidgetRef
+  WidgetRef ref,
 
   /// List from APIGuideRequestBody type
   List<APIGuideRequestBody> list,
 ) {
-  /// ThemeNotifierProvider to check theme attributes' states
-  final themeState = context.read<ThemeProvider>();
+  /// isDarkModeProvider to check theme attributes' states
+  final isDarkMode = ref.watch(isDarkModeProvider);
 
   return Column(
     children: list
@@ -36,7 +36,7 @@ Column requestBodyItems(
                           Constants.arrowNavIcon,
 
                           /// Check the current light/dark theme mode
-                          color: themeState.isDarkMode
+                          color: isDarkMode
                               ? ConstantsDarkMode.blackColor
                               : ConstantsLightMode.blackColor,
                           size: Constants.size15,
@@ -48,7 +48,7 @@ Column requestBodyItems(
                             fontSize: Constants.size14,
 
                             /// Check the current light/dark theme mode
-                            color: themeState.isDarkMode
+                            color: isDarkMode
                                 ? ConstantsDarkMode.blackColor
                                 : ConstantsLightMode.blackColor,
                           ),
@@ -90,7 +90,7 @@ Column requestBodyItems(
                   fontSize: Constants.size12,
 
                   /// Check the current light/dark theme mode
-                  color: themeState.isDarkMode
+                  color: isDarkMode
                       ? ConstantsDarkMode.blackColor
                       : ConstantsLightMode.blackColor,
                 ),
@@ -105,11 +105,11 @@ Column requestBodyItems(
 
 /// Request Params Items
 Column requestParamsItems(
-  BuildContext context,
+  WidgetRef ref,
   List<APIGuideParam> list,
 ) {
-  /// ThemeNotifierProvider to check theme attributes' states
-  final themeState = context.read<ThemeProvider>();
+  /// isDarkModeProvider to check theme attributes' states
+  final isDarkMode = ref.watch(isDarkModeProvider);
 
   return Column(
     children: list
@@ -130,7 +130,7 @@ Column requestParamsItems(
                           Constants.arrowNavIcon,
 
                           /// Check the current light/dark theme mode
-                          color: themeState.isDarkMode
+                          color: isDarkMode
                               ? ConstantsDarkMode.blackColor
                               : ConstantsLightMode.blackColor,
                           size: Constants.size15,
@@ -142,7 +142,7 @@ Column requestParamsItems(
                             fontSize: Constants.size14,
 
                             /// Check the current light/dark theme mode
-                            color: themeState.isDarkMode
+                            color: isDarkMode
                                 ? ConstantsDarkMode.blackColor
                                 : ConstantsLightMode.blackColor,
                           ),
@@ -184,7 +184,7 @@ Column requestParamsItems(
                   fontSize: Constants.size12,
 
                   /// Check the current light/dark theme mode
-                  color: themeState.isDarkMode
+                  color: isDarkMode
                       ? ConstantsDarkMode.blackColor
                       : ConstantsLightMode.blackColor,
                 ),

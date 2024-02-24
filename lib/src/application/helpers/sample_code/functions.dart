@@ -1,10 +1,7 @@
 import 'dart:convert';
 
-/// Import [flutter/material] package files
-import 'package:flutter/material.dart';
-
-/// Import [provider] package files
-import 'package:provider/provider.dart';
+/// Import [flutter_riverpod] package files
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 /// Import [APIGuide] package files
 import '../../../../api_guide.dart';
@@ -16,15 +13,12 @@ class SampleCodeFunctions {
 
   /// Define function to get the final prepared sample code
   String getFinalSampleCode(
-    /// BuildContext
-    BuildContext context,
+    /// WidgetRef
+    WidgetRef ref,
 
     /// API Item
     APIItem item,
   ) {
-    /// AppNotifierProvider to check theme attributes' states
-    final appState = context.read<AppProvider>();
-
     /// List of Request Path Params
     final pathParams = item.request.params
         .where((e) => e.parameterType == ParameterType.path)
@@ -61,13 +55,13 @@ class SampleCodeFunctions {
     /// Show the final sample code related
     /// to default type property
     return getSampleCode(
-      chooseCodeType(appState.sampleCodeType),
+      chooseCodeType(ref.watch(sampleCodeTypeProvider)),
       [
         /// {0} Method Name
         item.request.method.name,
 
         /// {1} URL Host
-        appState.selectedAPIServer.urlHost,
+        ref.watch(selectedAPIServerProvider).urlHost,
 
         /// {2} URL Path
         pathParams.isEmpty

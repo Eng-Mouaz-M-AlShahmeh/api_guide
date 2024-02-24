@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-/// Import [provider] package files
-import 'package:provider/provider.dart';
+/// Import [flutter_riverpod] package files
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 /// Import [APIGuide] package files
 import '../../../../api_guide.dart';
@@ -10,21 +10,21 @@ import '../../../../api_guide.dart';
 Column apiGuideAPIItems(
   /// BuildContext
   BuildContext context,
-) {
-  /// ThemeNotifierProvider to check theme attributes' states
-  final themeState = context.read<ThemeProvider>();
 
-  /// AppNotifierProvider to check theme attributes' states
-  final appState = context.read<AppProvider>();
+  /// WidgetRef
+  WidgetRef ref,
+) {
+  /// isDarkModeProvider to check theme attributes' states
+  final isDarkMode = ref.watch(isDarkModeProvider);
 
   return Column(
     children:
 
         /// Generate UI for each API item
-        appState.apiItemList.map((item) {
+        ref.watch(apiItemListProvider).map((item) {
       return Padding(
         /// Use a unique key for the API item
-        key: appState.apiItemKeys.firstWhere((element) => element
+        key: ref.watch(apiItemKeysProvider).firstWhere((element) => element
             .toString()
             .contains('${item.urlPath} ${item.request.method.name}')),
         padding: const EdgeInsets.symmetric(vertical: Constants.size15),
@@ -34,14 +34,14 @@ Column apiGuideAPIItems(
             child: DecoratedBox(
               decoration: BoxDecoration(
                 /// Check the current light/dark theme mode
-                color: themeState.isDarkMode
+                color: isDarkMode
                     ? ConstantsDarkMode.greyLightColor
                     : ConstantsLightMode.greyLightColor,
               ),
               child: Column(
                 children: [
                   /// API item header
-                  apiGuideItemHeader(context, item),
+                  apiGuideItemHeader(ref, item),
                   Padding(
                     padding: const EdgeInsets.all(Constants.size15),
                     child: Column(
@@ -51,9 +51,9 @@ Column apiGuideAPIItems(
                             ? Column(
                                 mainAxisAlignment: MainAxisAlignment.start,
                                 children: [
-                                  apiGuideItemBodyStart(context, item),
+                                  apiGuideItemBodyStart(ref, context, item),
                                   SizedBox(height: Constants.size15),
-                                  apiGuideItemBodyEnd(context, item),
+                                  apiGuideItemBodyEnd(ref, context, item),
                                 ],
                               )
                             : Row(
@@ -66,7 +66,8 @@ Column apiGuideAPIItems(
                                             Constants.smallBreakPoint
                                         ? Constants.flex8
                                         : Constants.flex5,
-                                    child: apiGuideItemBodyStart(context, item),
+                                    child: apiGuideItemBodyStart(
+                                        ref, context, item),
                                   ),
                                   SizedBox(width: Constants.size50),
                                   Flexible(
@@ -74,7 +75,8 @@ Column apiGuideAPIItems(
                                             Constants.smallBreakPoint
                                         ? Constants.flex8
                                         : Constants.flex3,
-                                    child: apiGuideItemBodyEnd(context, item),
+                                    child:
+                                        apiGuideItemBodyEnd(ref, context, item),
                                   ),
                                 ],
                               ),

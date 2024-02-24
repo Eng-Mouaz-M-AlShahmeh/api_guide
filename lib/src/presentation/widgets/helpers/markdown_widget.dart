@@ -3,6 +3,9 @@ import 'package:flutter/material.dart';
 /// Import [flutter_markdown] package files
 import 'package:flutter_markdown/flutter_markdown.dart';
 
+/// Import [flutter_riverpod] package files
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+
 /// Import [markdown] package files as md
 import 'package:markdown/markdown.dart' as md;
 
@@ -24,6 +27,9 @@ import '../../../../api_guide.dart';
 SizedBox markdownWidget(
   /// BuildContext
   BuildContext context,
+
+  /// WidgetRef
+  WidgetRef ref,
 
   /// Markdown Data
   String markdownData,
@@ -77,11 +83,11 @@ SizedBox markdownWidget(
                 error: ColorScheme.fromSwatch().error,
                 onError: ColorScheme.fromSwatch().onError,
                 secondary: isDarkMode
-                    ? ConstantsDarkMode.themeColorLight(context)!
-                    : ConstantsLightMode.themeColorLight(context)!,
+                    ? ConstantsDarkMode.themeColorLight(ref)!
+                    : ConstantsLightMode.themeColorLight(ref)!,
                 onSecondary: isDarkMode
-                    ? ConstantsDarkMode.themeColor(context)!
-                    : ConstantsLightMode.themeColor(context)!,
+                    ? ConstantsDarkMode.themeColor(ref)!
+                    : ConstantsLightMode.themeColor(ref)!,
                 surface: isDarkMode
                     ? ConstantsDarkMode.greyLightColor!
                     : ConstantsLightMode.greyLightColor!,
@@ -89,11 +95,11 @@ SizedBox markdownWidget(
                     ? ConstantsLightMode.greyLightColor!
                     : ConstantsDarkMode.greyLightColor!,
                 primary: isDarkMode
-                    ? ConstantsDarkMode.themeColor(context)!
-                    : ConstantsLightMode.themeColor(context)!,
+                    ? ConstantsDarkMode.themeColor(ref)!
+                    : ConstantsLightMode.themeColor(ref)!,
                 onPrimary: isDarkMode
-                    ? ConstantsDarkMode.themeColorLight(context)!
-                    : ConstantsLightMode.themeColorLight(context)!,
+                    ? ConstantsDarkMode.themeColorLight(ref)!
+                    : ConstantsLightMode.themeColorLight(ref)!,
               )),
         ),
 
@@ -106,7 +112,7 @@ SizedBox markdownWidget(
         ),
 
         builders: {
-          Constants.codeMarkdown: CodeElementBuilder(context, isDarkMode),
+          Constants.codeMarkdown: CodeElementBuilder(ref, isDarkMode),
         },
 
         /// Open the markdown link when tap

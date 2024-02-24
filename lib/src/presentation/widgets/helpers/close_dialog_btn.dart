@@ -1,33 +1,30 @@
 import 'package:flutter/material.dart';
 
-/// Import [provider] package files
-import 'package:provider/provider.dart';
+/// Import [flutter_riverpod] package files
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 /// Import [APIGuide] package files
 import '../../../../api_guide.dart';
 
 /// Close Search Dialog Button from type of [ElevatedButton]
 ElevatedButton closeSearchDialogButton(
-  /// BuildContext
-  BuildContext context,
+  /// WidgetRef
+  WidgetRef ref,
 ) {
-  /// ThemeNotifierProvider to check theme attributes' states
-  final themeState = context.read<ThemeProvider>();
-
-  /// SearchNotifierProvider to check theme attributes' states
-  final searchState = context.read<SearchProvider>();
+  /// isDarkModeProvider to check theme attributes' states
+  final isDarkMode = ref.watch(isDarkModeProvider);
 
   return ElevatedButton(
     style: ButtonStyle(
       backgroundColor: MaterialStateProperty.all(
         /// Check the current light/dark theme mode
-        themeState.isDarkMode
-            ? ConstantsDarkMode.themeColor(context)
-            : ConstantsLightMode.themeColor(context),
+        isDarkMode
+            ? ConstantsDarkMode.themeColor(ref)
+            : ConstantsLightMode.themeColor(ref),
       ),
       foregroundColor: MaterialStateProperty.all(
         /// Check the current light/dark theme mode
-        themeState.isDarkMode
+        isDarkMode
             ? ConstantsDarkMode.whiteColor
             : ConstantsLightMode.whiteColor,
       ),
@@ -36,15 +33,15 @@ ElevatedButton closeSearchDialogButton(
           fontSize: Constants.size10,
 
           /// Check the current light/dark theme mode
-          color: themeState.isDarkMode
+          color: isDarkMode
               ? ConstantsDarkMode.greyLightColor
               : ConstantsLightMode.greyLightColor,
         ),
       ),
     ),
     onPressed: () {
-      /// Toggle the [_isOpened] state
-      searchState.updateIsOpenSearch(false);
+      /// Reset the isOpened state
+      ref.read(isOpenSearchProvider.notifier).state = false;
     },
     child: Text(Constants.closeTxt),
   );
@@ -52,26 +49,23 @@ ElevatedButton closeSearchDialogButton(
 
 /// Close Sample Code Dialog Button from type of [ElevatedButton]
 ElevatedButton closeSampleCodeDialogButton(
-  /// BuildContext
-  BuildContext context,
+  /// WidgetRef
+  WidgetRef ref,
 ) {
-  /// ThemeNotifierProvider to check theme attributes' states
-  final themeState = context.read<ThemeProvider>();
-
-  /// AppNotifierProvider to check theme attributes' states
-  final appState = context.read<AppProvider>();
+  /// isDarkModeProvider to check theme attributes' states
+  final isDarkMode = ref.watch(isDarkModeProvider);
 
   return ElevatedButton(
     style: ButtonStyle(
       backgroundColor: MaterialStateProperty.all(
         /// Check the current light/dark theme mode
-        themeState.isDarkMode
-            ? ConstantsDarkMode.themeColor(context)
-            : ConstantsLightMode.themeColor(context),
+        isDarkMode
+            ? ConstantsDarkMode.themeColor(ref)
+            : ConstantsLightMode.themeColor(ref),
       ),
       foregroundColor: MaterialStateProperty.all(
         /// Check the current light/dark theme mode
-        themeState.isDarkMode
+        isDarkMode
             ? ConstantsDarkMode.whiteColor
             : ConstantsLightMode.whiteColor,
       ),
@@ -80,7 +74,7 @@ ElevatedButton closeSampleCodeDialogButton(
           fontSize: Constants.size10,
 
           /// Check the current light/dark theme mode
-          color: themeState.isDarkMode
+          color: isDarkMode
               ? ConstantsDarkMode.greyLightColor
               : ConstantsLightMode.greyLightColor,
         ),
@@ -88,7 +82,7 @@ ElevatedButton closeSampleCodeDialogButton(
     ),
     onPressed: () {
       /// Toggle the [_isOpened] state
-      appState.updateIsOpenSampleCode(false);
+      ref.read(isOpenSampleCodeProvider.notifier).state = false;
     },
     child: Text(Constants.closeTxt),
   );
@@ -96,26 +90,23 @@ ElevatedButton closeSampleCodeDialogButton(
 
 /// Close Server Dialog Button from type of [ElevatedButton]
 ElevatedButton closeServerDialogButton(
-  /// BuildContext
-  BuildContext context,
+  /// WidgetRef
+  WidgetRef ref,
 ) {
-  /// ThemeNotifierProvider to check theme attributes' states
-  final themeState = context.read<ThemeProvider>();
-
-  /// AppNotifierProvider to check theme attributes' states
-  final appState = context.read<AppProvider>();
+  /// isDarkModeProvider to check theme attributes' states
+  final isDarkMode = ref.watch(isDarkModeProvider);
 
   return ElevatedButton(
     style: ButtonStyle(
       backgroundColor: MaterialStateProperty.all(
         /// Check the current light/dark theme mode
-        themeState.isDarkMode
-            ? ConstantsDarkMode.themeColor(context)
-            : ConstantsLightMode.themeColor(context),
+        isDarkMode
+            ? ConstantsDarkMode.themeColor(ref)
+            : ConstantsLightMode.themeColor(ref),
       ),
       foregroundColor: MaterialStateProperty.all(
         /// Check the current light/dark theme mode
-        themeState.isDarkMode
+        isDarkMode
             ? ConstantsDarkMode.whiteColor
             : ConstantsLightMode.whiteColor,
       ),
@@ -124,7 +115,7 @@ ElevatedButton closeServerDialogButton(
           fontSize: Constants.size10,
 
           /// Check the current light/dark theme mode
-          color: themeState.isDarkMode
+          color: isDarkMode
               ? ConstantsDarkMode.greyLightColor
               : ConstantsLightMode.greyLightColor,
         ),
@@ -132,7 +123,7 @@ ElevatedButton closeServerDialogButton(
     ),
     onPressed: () {
       /// Toggle the [_isOpened] state
-      appState.updateIsOpenServer(false);
+      ref.read(isOpenServerProvider.notifier).state = false;
     },
     child: Text(Constants.closeTxt),
   );

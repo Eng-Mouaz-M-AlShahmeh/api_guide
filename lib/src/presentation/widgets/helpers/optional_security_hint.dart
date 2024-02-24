@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
 
-/// Import [provider] package files
-import 'package:provider/provider.dart';
+/// Import [flutter_riverpod] package files
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 /// Import [APIGuide] package files
 import '../../../../api_guide.dart';
 
 /// Define [optionalSecurityHint] function
 Padding optionalSecurityHint(
-  /// BuildContext
-  BuildContext context,
+  /// WidgetRef
+  WidgetRef ref,
 ) {
-  /// ThemeNotifierProvider to check theme attributes' states
-  final themeState = context.read<ThemeProvider>();
+  /// isDarkModeProvider to check theme attributes' states
+  final isDarkMode = ref.watch(isDarkModeProvider);
 
   return Padding(
     padding: const EdgeInsets.fromLTRB(
@@ -31,15 +31,15 @@ Padding optionalSecurityHint(
           DecoratedBox(
             decoration: BoxDecoration(
               /// Check the current light/dark theme mode
-              color: themeState.isDarkMode
-                  ? ConstantsDarkMode.themeColorLight(context)
-                  : ConstantsLightMode.themeColorLight(context),
+              color: isDarkMode
+                  ? ConstantsDarkMode.themeColorLight(ref)
+                  : ConstantsLightMode.themeColorLight(ref),
 
               borderRadius: BorderRadius.circular(Constants.size8),
               border: Border.all(
-                color: themeState.isDarkMode
-                    ? ConstantsDarkMode.themeColor(context)!
-                    : ConstantsLightMode.themeColor(context)!,
+                color: isDarkMode
+                    ? ConstantsDarkMode.themeColor(ref)!
+                    : ConstantsLightMode.themeColor(ref)!,
                 width: Constants.size3,
               ),
             ),
@@ -61,9 +61,9 @@ Padding optionalSecurityHint(
                         Constants.errorIcon,
 
                         /// Check the current light/dark theme mode
-                        color: themeState.isDarkMode
-                            ? ConstantsDarkMode.themeColor(context)
-                            : ConstantsLightMode.themeColor(context),
+                        color: isDarkMode
+                            ? ConstantsDarkMode.themeColor(ref)
+                            : ConstantsLightMode.themeColor(ref),
                         size: Constants.size15,
                       ),
                     ),
@@ -71,7 +71,7 @@ Padding optionalSecurityHint(
                       child: SelectableText(
                         Constants.optionalSecurityTxt,
                         style: TextStyle(
-                          color: themeState.isDarkMode
+                          color: isDarkMode
                               ? ConstantsDarkMode.blackColor
                               : ConstantsLightMode.blackColor,
                           fontWeight: FontWeight.normal,

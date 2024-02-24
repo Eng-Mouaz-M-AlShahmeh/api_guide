@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-/// Import [provider] package files
-import 'package:provider/provider.dart';
+/// Import [flutter_riverpod] package files
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 /// Import [APIGuide] package files
 import '../api_guide.dart';
@@ -55,18 +55,9 @@ class APIGuide implements APIGuideInterface {
     /// Theme SPDX Licence Type of the API Guide implementation
     SPDXLicenceType? spdxLicenceType,
   }) {
-    /// Return [MultiProvider]
-    return MultiProvider(
-      providers: [
-        /// Create [AppProvider] from type [ChangeNotifierProvider]
-        ChangeNotifierProvider(create: (_) => AppProvider()),
-
-        /// Create [ThemeProvider] from type [ChangeNotifierProvider]
-        ChangeNotifierProvider(create: (_) => ThemeProvider()),
-
-        /// Create [SearchProvider] from type [ChangeNotifierProvider]
-        ChangeNotifierProvider(create: (_) => SearchProvider()),
-      ],
+    /// Wrap with [ProviderScope]
+    return ProviderScope(
+      /// Return [APIGuideScreen]
       child: APIGuideScreen(
         /// List of API servers
         servers: servers,

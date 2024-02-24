@@ -1,43 +1,40 @@
 import 'package:flutter/material.dart';
 
-/// Import [provider] package files
-import 'package:provider/provider.dart';
+/// Import [flutter_riverpod] package files
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 /// Import [APIGuide] package files
 import '../../../../api_guide.dart';
 
 /// Sample Code Button of type [ElevatedButton]
 ElevatedButton sampleCodeButton(
-  /// BuildContext
-  BuildContext context,
+  /// WidgetRef
+  WidgetRef ref,
 ) {
-  /// ThemeNotifierProvider to check theme attributes' states
-  final themeState = context.read<ThemeProvider>();
-
-  /// AppNotifierProvider to check theme attributes' states
-  final appState = context.read<AppProvider>();
+  /// isDarkModeProvider to check theme attributes' states
+  final isDarkMode = ref.watch(isDarkModeProvider);
 
   return ElevatedButton(
     onPressed: () {
       /// Update the [isOpenSampleCode] when pressed the button
-      appState.updateIsOpenSampleCode(true);
+      ref.read(isOpenSampleCodeProvider.notifier).state = true;
     },
     style: ButtonStyle(
       side: MaterialStateProperty.all(
         BorderSide(
-          color: themeState.isDarkMode
+          color: isDarkMode
               ? ConstantsDarkMode.blackColor
               : ConstantsLightMode.blackColor,
           width: Constants.size1,
         ),
       ),
       foregroundColor: MaterialStateProperty.all(
-        themeState.isDarkMode
+        isDarkMode
             ? ConstantsDarkMode.blackColor
             : ConstantsLightMode.blackColor,
       ),
       backgroundColor: MaterialStateProperty.all(
-        themeState.isDarkMode
+        isDarkMode
             ? ConstantsDarkMode.whiteColor
             : ConstantsLightMode.whiteColor,
       ),
@@ -45,10 +42,10 @@ ElevatedButton sampleCodeButton(
     child: Padding(
       padding: const EdgeInsets.all(Constants.size8),
       child: Text(
-        appState.sampleCodeType,
+        ref.read(sampleCodeTypeProvider),
         style: TextStyle(
           fontSize: Constants.size12,
-          color: themeState.isDarkMode
+          color: isDarkMode
               ? ConstantsDarkMode.blackColor
               : ConstantsLightMode.blackColor,
         ),
@@ -58,12 +55,15 @@ ElevatedButton sampleCodeButton(
 }
 
 /// Sample Code Dialog from type of [Dialog]
-Dialog sampleCodeDialog(BuildContext context) {
-  /// AppNotifierProvider to check theme attributes' states
-  final appState = context.read<AppProvider>();
+Dialog sampleCodeDialog(
+  /// BuildContext
+  BuildContext context,
 
-  /// ThemeNotifierProvider to check theme attributes' states
-  final themeState = context.read<ThemeProvider>();
+  /// WidgetRef
+  WidgetRef ref,
+) {
+  /// isDarkModeProvider to check theme attributes' states
+  final isDarkMode = ref.watch(isDarkModeProvider);
 
   return Dialog(
     backgroundColor: Colors.transparent,
@@ -75,7 +75,7 @@ Dialog sampleCodeDialog(BuildContext context) {
       child: DecoratedBox(
         decoration: BoxDecoration(
           /// Check the current light/dark theme mode
-          color: themeState.isDarkMode
+          color: isDarkMode
               ? ConstantsDarkMode.whiteColor
               : ConstantsLightMode.whiteColor,
           borderRadius: BorderRadius.circular(Constants.size8),
@@ -96,7 +96,7 @@ Dialog sampleCodeDialog(BuildContext context) {
                             title: Text(
                               item,
                               style: TextStyle(
-                                color: themeState.isDarkMode
+                                color: isDarkMode
                                     ? ConstantsDarkMode.blackColor
                                     : ConstantsLightMode.blackColor,
                               ),
@@ -104,11 +104,14 @@ Dialog sampleCodeDialog(BuildContext context) {
                             onTap: () {
                               /// Update the [sampleCodeType]
                               /// when tap the item
-                              appState.updateSampleCodeType(item);
+                              ref.read(sampleCodeTypeProvider.notifier).state =
+                                  item;
 
                               /// Update the [isOpenSampleCode]
                               /// when tap the item
-                              appState.updateIsOpenSampleCode(false);
+                              ref
+                                  .read(isOpenSampleCodeProvider.notifier)
+                                  .state = false;
                             },
                           ),
                         )
@@ -117,7 +120,7 @@ Dialog sampleCodeDialog(BuildContext context) {
                 ),
               ),
               SizedBox(height: Constants.size15),
-              closeSampleCodeDialogButton(context),
+              closeSampleCodeDialogButton(ref),
             ],
           ),
         ),

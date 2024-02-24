@@ -1,24 +1,21 @@
 import 'package:flutter/material.dart';
 
-/// Import [provider] package files
-import 'package:provider/provider.dart';
+/// Import [flutter_riverpod] package files
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 /// Import [APIGuide] package files
 import '../../../api_guide.dart';
 
 /// Define [apiGuideItemHeader] function
 SizedBox apiGuideItemHeader(
-  /// BuildContext
-  BuildContext context,
+  /// WidgetRef
+  WidgetRef ref,
 
   /// APIItem
   APIItem item,
 ) {
-  /// ThemeNotifierProvider to check theme attributes' states
-  final themeState = context.read<ThemeProvider>();
-
-  /// AppNotifierProvider to check theme attributes' states
-  final appState = context.read<AppProvider>();
+  /// isDarkModeProvider to check theme attributes' states
+  final isDarkMode = ref.watch(isDarkModeProvider);
 
   /// List of Request Path Params
   final pathParams = item.request.params
@@ -30,9 +27,9 @@ SizedBox apiGuideItemHeader(
     child: DecoratedBox(
       decoration: BoxDecoration(
         /// Check the current light/dark theme mode
-        color: themeState.isDarkMode
-            ? ConstantsDarkMode.themeColorLight(context)
-            : ConstantsLightMode.themeColorLight(context),
+        color: isDarkMode
+            ? ConstantsDarkMode.themeColorLight(ref)
+            : ConstantsLightMode.themeColorLight(ref),
       ),
       child: Padding(
         padding: const EdgeInsets.all(Constants.size15),
@@ -53,9 +50,9 @@ SizedBox apiGuideItemHeader(
                       Constants.arrowDoubleNavIcon,
 
                       /// Check the current light/dark theme mode
-                      color: themeState.isDarkMode
-                          ? ConstantsDarkMode.themeColor(context)
-                          : ConstantsLightMode.themeColor(context),
+                      color: isDarkMode
+                          ? ConstantsDarkMode.themeColor(ref)
+                          : ConstantsLightMode.themeColor(ref),
                       size: Constants.size20,
                     ),
                     SelectableText(
@@ -65,9 +62,9 @@ SizedBox apiGuideItemHeader(
                         fontSize: Constants.size20,
 
                         /// Check the current light/dark theme mode
-                        color: themeState.isDarkMode
-                            ? ConstantsDarkMode.themeColor(context)
-                            : ConstantsLightMode.themeColor(context),
+                        color: isDarkMode
+                            ? ConstantsDarkMode.themeColor(ref)
+                            : ConstantsLightMode.themeColor(ref),
                       ),
                     ),
                   ],
@@ -92,7 +89,7 @@ SizedBox apiGuideItemHeader(
                           item.request.method.name,
                           style: TextStyle(
                             /// Check the current light/dark theme mode
-                            color: themeState.isDarkMode
+                            color: isDarkMode
                                 ? ConstantsDarkMode.whiteColor
                                 : ConstantsLightMode.whiteColor,
                             fontWeight: FontWeight.bold,
@@ -111,7 +108,7 @@ SizedBox apiGuideItemHeader(
                       decoration: BoxDecoration(
 
                           /// Check the current light/dark theme mode
-                          color: themeState.isDarkMode
+                          color: isDarkMode
                               ? ConstantsDarkMode.greyLightColor
                               : ConstantsLightMode.greyLightColor),
                       child: Padding(
@@ -121,14 +118,14 @@ SizedBox apiGuideItemHeader(
                         child: SelectableText(
                           /// Check pathParams if it is empty
                           pathParams.isEmpty
-                              ? '${appState.selectedAPIServer.urlHost}${item.urlPath}'
-                              : '${appState.selectedAPIServer.urlHost}${item.urlPath}${pathParams.map((e) => item.urlPath.contains(e.key) ? '' : '/{${e.key}}').join('')}',
+                              ? '${ref.watch(selectedAPIServerProvider).urlHost}${item.urlPath}'
+                              : '${ref.watch(selectedAPIServerProvider).urlHost}${item.urlPath}${pathParams.map((e) => item.urlPath.contains(e.key) ? '' : '/{${e.key}}').join('')}',
                           style: TextStyle(
                             fontWeight: FontWeight.normal,
                             fontSize: Constants.size15,
 
                             /// Check the current light/dark theme mode
-                            color: themeState.isDarkMode
+                            color: isDarkMode
                                 ? ConstantsDarkMode.blackColor
                                 : ConstantsLightMode.blackColor,
                           ),
@@ -167,7 +164,7 @@ SizedBox apiGuideItemHeader(
                                   children: [
                                     Icon(
                                       Constants.errorIcon,
-                                      color: themeState.isDarkMode
+                                      color: isDarkMode
                                           ? ConstantsDarkMode.whiteColor
                                           : ConstantsLightMode.whiteColor,
                                     ),
@@ -182,7 +179,7 @@ SizedBox apiGuideItemHeader(
                                         Constants.deprecatedTxt,
                                         style: TextStyle(
                                           /// Check the current light/dark theme mode
-                                          color: themeState.isDarkMode
+                                          color: isDarkMode
                                               ? ConstantsDarkMode.whiteColor
                                               : ConstantsLightMode.whiteColor,
                                           fontWeight: FontWeight.normal,
@@ -209,7 +206,7 @@ SizedBox apiGuideItemHeader(
                           child: SizedBox(
                             child: DecoratedBox(
                               decoration: BoxDecoration(
-                                color: themeState.isDarkMode
+                                color: isDarkMode
                                     ? ConstantsDarkMode.greyLightColor
                                     : ConstantsLightMode.greyLightColor,
                               ),
@@ -225,7 +222,7 @@ SizedBox apiGuideItemHeader(
                                   children: [
                                     Icon(
                                       Constants.eyeIcon,
-                                      color: themeState.isDarkMode
+                                      color: isDarkMode
                                           ? ConstantsDarkMode.blackColor
                                           : ConstantsLightMode.blackColor,
                                     ),
@@ -240,7 +237,7 @@ SizedBox apiGuideItemHeader(
                                         Constants.internalTxt,
                                         style: TextStyle(
                                           /// Check the current light/dark theme mode
-                                          color: themeState.isDarkMode
+                                          color: isDarkMode
                                               ? ConstantsDarkMode.blackColor
                                               : ConstantsLightMode.blackColor,
                                           fontWeight: FontWeight.normal,
