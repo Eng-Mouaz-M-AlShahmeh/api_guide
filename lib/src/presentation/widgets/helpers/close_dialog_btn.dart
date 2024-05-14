@@ -16,19 +16,19 @@ ElevatedButton closeSearchDialogButton(
 
   return ElevatedButton(
     style: ButtonStyle(
-      backgroundColor: MaterialStateProperty.all(
+      backgroundColor: WidgetStateProperty.all(
         /// Check the current light/dark theme mode
         isDarkMode
             ? ConstantsDarkMode.themeColor(ref)
             : ConstantsLightMode.themeColor(ref),
       ),
-      foregroundColor: MaterialStateProperty.all(
+      foregroundColor: WidgetStateProperty.all(
         /// Check the current light/dark theme mode
         isDarkMode
             ? ConstantsDarkMode.whiteColor
             : ConstantsLightMode.whiteColor,
       ),
-      textStyle: MaterialStateProperty.all(
+      textStyle: WidgetStateProperty.all(
         TextStyle(
           fontSize: Constants.size10,
 
@@ -57,19 +57,19 @@ ElevatedButton closeSampleCodeDialogButton(
 
   return ElevatedButton(
     style: ButtonStyle(
-      backgroundColor: MaterialStateProperty.all(
+      backgroundColor: WidgetStateProperty.all(
         /// Check the current light/dark theme mode
         isDarkMode
             ? ConstantsDarkMode.themeColor(ref)
             : ConstantsLightMode.themeColor(ref),
       ),
-      foregroundColor: MaterialStateProperty.all(
+      foregroundColor: WidgetStateProperty.all(
         /// Check the current light/dark theme mode
         isDarkMode
             ? ConstantsDarkMode.whiteColor
             : ConstantsLightMode.whiteColor,
       ),
-      textStyle: MaterialStateProperty.all(
+      textStyle: WidgetStateProperty.all(
         TextStyle(
           fontSize: Constants.size10,
 
@@ -98,19 +98,19 @@ ElevatedButton closeServerDialogButton(
 
   return ElevatedButton(
     style: ButtonStyle(
-      backgroundColor: MaterialStateProperty.all(
+      backgroundColor: WidgetStateProperty.all(
         /// Check the current light/dark theme mode
         isDarkMode
             ? ConstantsDarkMode.themeColor(ref)
             : ConstantsLightMode.themeColor(ref),
       ),
-      foregroundColor: MaterialStateProperty.all(
+      foregroundColor: WidgetStateProperty.all(
         /// Check the current light/dark theme mode
         isDarkMode
             ? ConstantsDarkMode.whiteColor
             : ConstantsLightMode.whiteColor,
       ),
-      textStyle: MaterialStateProperty.all(
+      textStyle: WidgetStateProperty.all(
         TextStyle(
           fontSize: Constants.size10,
 

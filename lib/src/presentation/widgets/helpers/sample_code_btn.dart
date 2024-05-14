@@ -20,7 +20,7 @@ ElevatedButton sampleCodeButton(
       ref.read(isOpenSampleCodeProvider.notifier).state = true;
     },
     style: ButtonStyle(
-      side: MaterialStateProperty.all(
+      side: WidgetStateProperty.all(
         BorderSide(
           color: isDarkMode
               ? ConstantsDarkMode.blackColor
@@ -28,12 +28,12 @@ ElevatedButton sampleCodeButton(
           width: Constants.size1,
         ),
       ),
-      foregroundColor: MaterialStateProperty.all(
+      foregroundColor: WidgetStateProperty.all(
         isDarkMode
             ? ConstantsDarkMode.blackColor
             : ConstantsLightMode.blackColor,
       ),
-      backgroundColor: MaterialStateProperty.all(
+      backgroundColor: WidgetStateProperty.all(
         isDarkMode
             ? ConstantsDarkMode.whiteColor
             : ConstantsLightMode.whiteColor,

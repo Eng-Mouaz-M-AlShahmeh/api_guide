@@ -21,19 +21,19 @@ Padding apiGuideSearchScreen(
     padding: const EdgeInsets.all(Constants.size10),
     child: ElevatedButton(
       style: ButtonStyle(
-        backgroundColor: MaterialStateProperty.all(
+        backgroundColor: WidgetStateProperty.all(
           /// Check the current light/dark theme mode
           isDarkMode
               ? ConstantsDarkMode.greyLightColor
               : ConstantsLightMode.greyLightColor,
         ),
-        foregroundColor: MaterialStateProperty.all(
+        foregroundColor: WidgetStateProperty.all(
           /// Check the current light/dark theme mode
           isDarkMode
               ? ConstantsDarkMode.themeColor(ref)
               : ConstantsLightMode.themeColor(ref),
         ),
-        textStyle: MaterialStateProperty.all(
+        textStyle: WidgetStateProperty.all(
           TextStyle(
             fontSize: Constants.size10,
 

@@ -1,3 +1,14 @@
+## [1.1.8] - 2024/05/15
+
+* Update MaterialStateProperty to WidgetStateProperty in (close_dialog_btn, sample_code_btn, server_btn, search).
+* Update background to surfaceContainer in markdown_widget.
+* Update onBackground to onSurfaceVariant in markdown_widget.
+* Update example/web directory to support new service_worker features.
+* Update url_launcher dependency in pubspec.yaml with version 6.2.6.
+* Update flutter_riverpod dependency in pubspec.yaml with version 2.5.1.
+* Update flutter_markdown dependency in pubspec.yaml with version 0.7.1.
+* Update markdown dependency in pubspec.yaml with version 7.2.2.
+
 ## [1.1.7] - 2024/02/24
 
 * Update to the new HardwareKeyboard functionality.

@@ -74,10 +74,10 @@ SizedBox markdownWidget(
               /// Check the isDarkMode state
               colorScheme: ColorScheme(
                 brightness: isDarkMode ? Brightness.dark : Brightness.light,
-                background: isDarkMode
+                surfaceContainer: isDarkMode
                     ? ConstantsDarkMode.greyLightColor!
                     : ConstantsLightMode.greyLightColor!,
-                onBackground: isDarkMode
+                onSurfaceVariant: isDarkMode
                     ? ConstantsLightMode.greyLightColor!
                     : ConstantsDarkMode.greyLightColor!,
                 error: ColorScheme.fromSwatch().error,
